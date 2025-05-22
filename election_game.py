@@ -67,7 +67,8 @@ def run_game():
     if st.button("Restart Game"):
         for key in session_state:
             del session_state[key]
-            st.rerun()
+        st.rerun()    
+   
     st.title("Election Game")
     st.markdown("Simulate an election based on your political stances!")
 
