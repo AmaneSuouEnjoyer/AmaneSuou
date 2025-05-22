@@ -1,5 +1,6 @@
 import streamlit as st
 import random
+import plotly.express as px  # Added for Plotly chart
 
 # Define states and their attributes
 states = {
@@ -18,7 +19,7 @@ states = {
     "West Virginia": {"immigration": 9, "trade": 9, "partisanship": 3, "abortion": 2, "electoral_college": 4, "foreign_policy": 6},
     "Oklahoma": {"immigration": 9, "trade": 3, "partisanship": 2, "abortion": 2, "electoral_college": 7, "foreign_policy": 8},
     "Tennessee": {"immigration": 9, "trade": 3, "partisanship": 3, "abortion": 2, "electoral_college": 11, "foreign_policy": 8},
-    "Indiana": {"immigration": 8, "trade": 3, "partisanship": 3, "abortion": 4, "electoral_college": 11, "foreign_policy": 7},
+    "Indiana": {"immigration": 8, "trade": 5, "partisanship": 3, "abortion": 4, "electoral_college": 11, "foreign_policy": 7},
     "Arkansas": {"immigration": 8, "trade": 3, "partisanship": 3, "abortion": 2, "electoral_college": 6, "foreign_policy": 7},
     "Mississippi": {"immigration": 9, "trade": 3, "partisanship": 2, "abortion": 2, "electoral_college": 6, "foreign_policy": 7},
     "Alabama": {"immigration": 9, "trade": 4, "partisanship": 2, "abortion": 2, "electoral_college": 9, "foreign_policy": 7},
@@ -135,54 +136,21 @@ def run_game():
         for state in closest_states:
             st.write(f"State: {state['state']} | Margin: {state['margin']} | Winner: {state['winner']}")
 
-        # Add bar chart for the three closest states
+        # Add bar chart for the three closest states using Plotly
         st.subheader("Closest States Margin Visualization")
-        chart_data = {
-            "labels": [state["state"] for state in closest_states],
-            "datasets": [{
-                "label": "Margin of Victory",
-                "data": [state["margin"] for state in closest_states],
-                "backgroundColor": ["#FF6384", "#36A2EB", "#FFCE56"],  # Distinct colors for bars
-                "borderColor": ["#FF6384", "#36A2EB", "#FFCE56"],
-                "borderWidth": 1
-            }]
-        }
-
-        ```chartjs
-        {
-            "type": "bar",
-            "data": {
-                "labels": chart_data["labels"],
-                "datasets": chart_data["datasets"]
-            },
-            "options": {
-                "scales": {
-                    "y": {
-                        "beginAtZero": true,
-                        "title": {
-                            "display": true,
-                            "text": "Margin"
-                        }
-                    },
-                    "x": {
-                        "title": {
-                            "display": true,
-                            "text": "State"
-                        }
-                    }
-                },
-                "plugins": {
-                    "legend": {
-                        "display": true
-                    },
-                    "title": {
-                        "display": true,
-                        "text": "Top 3 Closest States by Margin"
-                    }
-                }
-            }
-        }
-        ```
+        if closest_states:  # Ensure there are states to display
+            fig = px.bar(
+                x=[state["state"] for state in closest_states],
+                y=[state["margin"] for state in closest_states],
+                color=[state["state"] for state in closest_states],  # Color by state
+                labels={"x": "State", "y": "Margin of Victory"},
+                title="Top 3 Closest States by Margin",
+                color_discrete_sequence=["#FF6384", "#36A2EB", "#FFCE56"],  # Same colors as before
+            )
+            fig.update_layout(showlegend=True)
+            st.plotly_chart(fig, use_container_width=True)
+        else:
+            st.write("No close states to display.")
 
         st.header("Final Results")
         st.write(f"🟥 {candidate1_name}: {candidate1_votes} Electoral Votes")
