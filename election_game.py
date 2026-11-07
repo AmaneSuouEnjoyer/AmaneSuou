@@ -1,173 +1,170 @@
-import streamlit as st
-from streamlit import session_state
 import random
-import plotly.express as px  # Added for Plotly chart
 
-# Define states and their attributes
-states = {
-    "Texas": {"immigration": 8, "trade": 2, "partisanship": 3, "abortion": 4, "electoral_college": 40, "foreign_policy": 8},
-    "California": {"immigration": 3, "trade": 4, "partisanship": 9, "abortion": 8, "electoral_college": 54, "foreign_policy": 2},
-    "New York": {"immigration": 3, "trade": 5, "partisanship": 9, "abortion": 8, "electoral_college": 28, "foreign_policy": 3},
-    "New Jersey": {"immigration": 4, "trade": 6, "partisanship": 7, "abortion": 7, "electoral_college": 14, "foreign_policy": 3},
-    "Illinois": {"immigration": 4, "trade": 7, "partisanship": 8, "abortion": 8, "electoral_college": 19, "foreign_policy": 2},
-    "Pennsylvania": {"immigration": 6, "trade": 8, "partisanship": 6, "abortion": 6, "electoral_college": 19, "foreign_policy": 4},
-    "Ohio": {"immigration": 8, "trade": 8, "partisanship": 5, "abortion": 4, "electoral_college": 17, "foreign_policy": 5},
-    "Wisconsin": {"immigration": 6, "trade": 8, "partisanship": 7, "abortion": 7, "electoral_college": 10, "foreign_policy": 4},
-    "Michigan": {"immigration": 6, "trade": 8, "partisanship": 7, "abortion": 7, "electoral_college": 15, "foreign_policy": 3},
-    "Minnesota": {"immigration": 4, "trade": 8, "partisanship": 8, "abortion": 7, "electoral_college": 10, "foreign_policy": 2},
-    "Missouri": {"immigration": 8, "trade": 7, "partisanship": 3, "abortion": 4, "electoral_college": 10, "foreign_policy": 8},
-    "Kentucky": {"immigration": 9, "trade": 7, "partisanship": 2, "abortion": 3, "electoral_college": 8, "foreign_policy": 7},
-    "West Virginia": {"immigration": 9, "trade": 9, "partisanship": 3, "abortion": 2, "electoral_college": 4, "foreign_policy": 6},
-    "Oklahoma": {"immigration": 9, "trade": 3, "partisanship": 2, "abortion": 2, "electoral_college": 7, "foreign_policy": 8},
-    "Tennessee": {"immigration": 9, "trade": 3, "partisanship": 3, "abortion": 2, "electoral_college": 11, "foreign_policy": 8},
-    "Indiana": {"immigration": 8, "trade": 5, "partisanship": 3, "abortion": 4, "electoral_college": 11, "foreign_policy": 7},
-    "Arkansas": {"immigration": 8, "trade": 3, "partisanship": 3, "abortion": 2, "electoral_college": 6, "foreign_policy": 7},
-    "Mississippi": {"immigration": 9, "trade": 3, "partisanship": 2, "abortion": 2, "electoral_college": 6, "foreign_policy": 7},
-    "Alabama": {"immigration": 9, "trade": 4, "partisanship": 2, "abortion": 2, "electoral_college": 9, "foreign_policy": 7},
-    "Louisiana": {"immigration": 8, "trade": 3, "partisanship": 3, "abortion": 2, "electoral_college": 8, "foreign_policy": 7},
-    "South Carolina": {"immigration": 8, "trade": 3, "partisanship": 3, "abortion": 3, "electoral_college": 9, "foreign_policy": 7},
-    "Georgia": {"immigration": 6, "trade": 3, "partisanship": 4, "abortion": 4, "electoral_college": 16, "foreign_policy": 6},
-    "Florida": {"immigration": 6, "trade": 4, "partisanship": 5, "abortion": 4, "electoral_college": 30, "foreign_policy": 6},
-    "North Carolina": {"immigration": 7, "trade": 3, "partisanship": 4, "abortion": 4, "electoral_college": 16, "foreign_policy": 7},
-    "Virginia": {"immigration": 4, "trade": 3, "partisanship": 6, "abortion": 7, "electoral_college": 13, "foreign_policy": 6},
-    "South Dakota": {"immigration": 7, "trade": 2, "partisanship": 2, "abortion": 5, "electoral_college": 3, "foreign_policy": 6},
-    "North Dakota": {"immigration": 7, "trade": 2, "partisanship": 2, "abortion": 5, "electoral_college": 3, "foreign_policy": 6},
-    "Kansas": {"immigration": 6, "trade": 2, "partisanship": 2, "abortion": 5, "electoral_college": 6, "foreign_policy": 6},
-    "Nebraska": {"immigration": 6, "trade": 2, "partisanship": 2, "abortion": 5, "electoral_college": 5, "foreign_policy": 6},
-    "Wyoming": {"immigration": 7, "trade": 3, "partisanship": 1, "abortion": 2, "electoral_college": 3, "foreign_policy": 7},
-    "Idaho": {"immigration": 7, "trade": 3, "partisanship": 1, "abortion": 2, "electoral_college": 4, "foreign_policy": 7},
-    "Montana": {"immigration": 6, "trade": 4, "partisanship": 2, "abortion": 3, "electoral_college": 4, "foreign_policy": 6},
-    "Utah": {"immigration": 5, "trade": 2, "partisanship": 1, "abortion": 3, "electoral_college": 6, "foreign_policy": 8},
-    "Arizona": {"immigration": 6, "trade": 2, "partisanship": 3, "abortion": 5, "electoral_college": 11, "foreign_policy": 6},
-    "Colorado": {"immigration": 3, "trade": 2, "partisanship": 7, "abortion": 8, "electoral_college": 10, "foreign_policy": 3},
-    "New Mexico": {"immigration": 3, "trade": 3, "partisanship": 7, "abortion": 7, "electoral_college": 5, "foreign_policy": 3},
-    "Nevada": {"immigration": 6, "trade": 4, "partisanship": 6, "abortion": 8, "electoral_college": 6, "foreign_policy": 4},
-    "Washington": {"immigration": 3, "trade": 3, "partisanship": 8, "abortion": 9, "electoral_college": 12, "foreign_policy": 2},
-    "Alaska": {"immigration": 6, "trade": 4, "partisanship": 2, "abortion": 4, "electoral_college": 3, "foreign_policy": 5},
-    "Hawaii": {"immigration": 2, "trade": 3, "partisanship": 8, "abortion": 8, "electoral_college": 4, "foreign_policy": 2},
-    "Oregon": {"immigration": 3, "trade": 3, "partisanship": 7, "abortion": 9, "electoral_college": 8, "foreign_policy": 2},
-    "Washington DC": {"immigration": 1, "trade": 2, "partisanship": 10, "abortion": 10, "electoral_college": 3, "foreign_policy": 1},
-    "Massachusetts": {"trade": 3, "immigration": 1, "partisanship": 10, "electoral_college": 11, "abortion": 9, "foreign_policy": 1},
-    "Rhode Island": {"trade": 2, "immigration": 2, "partisanship": 9, "electoral_college": 4, "abortion": 9, "foreign_policy": 2},
-    "Connecticut": {"trade": 2, "immigration": 2, "partisanship": 9, "electoral_college": 7, "abortion": 9, "foreign_policy": 2},
-    "Maryland": {"trade": 3, "immigration": 2, "partisanship": 8, "electoral_college": 10, "abortion": 9, "foreign_policy": 2},
-    "Delaware": {"trade": 3, "immigration": 2, "partisanship": 9, "electoral_college": 3, "abortion": 9, "foreign_policy": 2},
-    "Vermont": {"trade": 4, "immigration": 2, "partisanship": 8, "electoral_college": 3, 'abortion': 10, "foreign_policy": 1},
-    "New Hampshire": {"trade": 2, "immigration": 4, "partisanship": 5, "electoral_college": 4, "abortion": 7, "foreign_policy": 3},
-    "Maine": {"trade": 2, "immigration": 3, "partisanship": 7, "electoral_college": 4, 'abortion': 8, "foreign_policy": 3},
-    "Iowa": {"trade": 8, "immigration": 6, "partisanship": 4, "abortion": 6, "electoral_college": 6, "foreign_policy": 4},
+# State data: (immigration, trade, partisanship, abortion, electoral_votes, foreign_policy)
+# immigration:  1 = open borders,  10 = strict control
+# trade:        1 = free market,   10 = protectionist
+# partisanship: 1 = very Republican, 10 = very Democratic
+# abortion:     1 = pro-life,      10 = pro-choice
+# foreign:      1 = dovish,        10 = hawkish
+STATES = {
+    "Texas": (8, 2, 3, 4, 40, 8),
+    "California": (3, 4, 9, 8, 54, 2),
+    "New York": (3, 5, 9, 8, 28, 3),
+    "New Jersey": (4, 6, 7, 7, 14, 3),
+    "Illinois": (4, 7, 8, 8, 19, 2),
+    "Pennsylvania": (6, 8, 6, 6, 19, 4),
+    "Ohio": (8, 8, 5, 4, 17, 5),
+    "Wisconsin": (6, 8, 7, 7, 10, 4),
+    "Michigan": (6, 8, 7, 7, 15, 3),
+    "Minnesota": (4, 8, 8, 7, 10, 2),
+    "Missouri": (8, 7, 3, 4, 10, 8),
+    "Kentucky": (9, 7, 2, 3, 8, 7),
+    "West Virginia": (9, 9, 3, 2, 4, 6),
+    "Oklahoma": (9, 3, 2, 2, 7, 8),
+    "Tennessee": (9, 3, 3, 2, 11, 8),
+    "Indiana": (8, 5, 3, 4, 11, 7),
+    "Arkansas": (8, 3, 3, 2, 6, 7),
+    "Mississippi": (9, 3, 2, 2, 6, 7),
+    "Alabama": (9, 4, 2, 2, 9, 7),
+    "Louisiana": (8, 3, 3, 2, 8, 7),
+    "South Carolina": (8, 3, 3, 3, 9, 7),
+    "Georgia": (6, 3, 4, 4, 16, 6),
+    "Florida": (6, 4, 5, 4, 30, 6),
+    "North Carolina": (7, 3, 4, 4, 16, 7),
+    "Virginia": (4, 3, 6, 7, 13, 6),
+    "South Dakota": (7, 2, 2, 5, 3, 6),
+    "North Dakota": (7, 2, 2, 5, 3, 6),
+    "Kansas": (6, 2, 2, 5, 6, 6),
+    "Nebraska": (6, 2, 2, 5, 5, 6),
+    "Wyoming": (7, 3, 1, 2, 3, 7),
+    "Idaho": (7, 3, 1, 2, 4, 7),
+    "Montana": (6, 4, 2, 3, 4, 6),
+    "Utah": (5, 2, 1, 3, 6, 8),
+    "Arizona": (6, 2, 3, 5, 11, 6),
+    "Colorado": (3, 2, 7, 8, 10, 3),
+    "New Mexico": (3, 3, 7, 7, 5, 3),
+    "Nevada": (6, 4, 6, 8, 6, 4),
+    "Washington": (3, 3, 8, 9, 12, 2),
+    "Alaska": (6, 4, 2, 4, 3, 5),
+    "Hawaii": (2, 3, 8, 8, 4, 2),
+    "Oregon": (3, 3, 7, 9, 8, 2),
+    "Washington DC": (1, 2, 10, 10, 3, 1),
+    "Massachusetts": (1, 3, 10, 9, 11, 1),
+    "Rhode Island": (2, 2, 9, 9, 4, 2),
+    "Connecticut": (2, 2, 9, 9, 7, 2),
+    "Maryland": (2, 3, 8, 9, 10, 2),
+    "Delaware": (2, 3, 9, 9, 3, 2),
+    "Vermont": (2, 4, 8, 10, 3, 1),
+    "New Hampshire": (4, 2, 5, 7, 4, 3),
+    "Maine": (3, 2, 7, 8, 4, 3),
+    "Iowa": (6, 8, 4, 6, 6, 4),
 }
 
-# Function for validated user input
-def get_valid_input(prompt, min_value, max_value, key):
-    return st.slider(prompt, min_value, max_value, key=key)
+# How much each factor matters. Partisanship is weighted heavily because
+# party loyalty is the biggest driver of how a state votes.
+# Change these numbers to tune the game.
+WEIGHTS = {
+    "immigration": 1.0,
+    "trade": 1.0,
+    "partisanship": 3.0,
+    "abortion": 1.0,
+    "foreign": 1.0,
+}
 
-# Main game function
-def run_game():
-    if st.button("Restart Game"):
-        for key in session_state:
-            del session_state[key]
-        st.rerun()    
-   
-    st.title("Election Game")
-    st.markdown("Simulate an election based on your political stances!")
 
-    st.header("Candidate 1 (Republican)")
-    candidate1_name = st.text_input("Enter the name of Candidate 1 (Republican):", key="cand1_name")
+def ask_number(prompt, low, high):
+    """Keep asking until the player types a whole number between low and high."""
+    while True:
+        text = input(f"{prompt} [{low}-{high}]: ").strip()
+        if text.isdigit() and low <= int(text) <= high:
+            return int(text)
+        print(f"  Please enter a whole number from {low} to {high}.")
 
-    candidate1_trade = get_valid_input("Stance on trade? (1: free market, 10: protectionist)", 1, 10, "cand1_trade")
-    candidate1_immigration = get_valid_input("Stance on immigration? (1: open borders, 10: strict control)", 1, 10, "cand1_immigration")
-    candidate1_partisanship = get_valid_input("Partisanship? (1: extreme Republican, 5: moderate)", 1, 5, "cand1_partisanship")
-    candidate1_abortion = get_valid_input("Stance on abortion? (1: pro-life, 10: pro-choice)", 1, 10, "cand1_abortion")
-    candidate1_foreign_policy = get_valid_input("Foreign policy? (1: dovish, 10: hawkish)", 1, 10, "cand1_foreign")
 
-    st.header("Candidate 2 (Democrat)")
-    candidate2_name = st.text_input("Enter the name of Candidate 2 (Democrat):", key="cand2_name")
+def ask_candidate(number, party):
+    print(f"\n=== Candidate {number} ({party}) ===")
+    name = input("Name: ").strip() or f"Candidate {number}"
+    if party == "Republican":
+        p_prompt, p_low, p_high = "Partisanship (1 = extreme Republican, 5 = moderate)", 1, 5
+    else:
+        p_prompt, p_low, p_high = "Partisanship (6 = moderate, 10 = extreme Democrat)", 6, 10
+    return {
+        "name": name,
+        "party": party,
+        "trade": ask_number("Trade (1 = free market, 10 = protectionist)", 1, 10),
+        "immigration": ask_number("Immigration (1 = open borders, 10 = strict control)", 1, 10),
+        "partisanship": ask_number(p_prompt, p_low, p_high),
+        "abortion": ask_number("Abortion (1 = pro-life, 10 = pro-choice)", 1, 10),
+        "foreign": ask_number("Foreign policy (1 = dovish, 10 = hawkish)", 1, 10),
+    }
 
-    candidate2_trade = get_valid_input("Stance on trade? (1: free market, 10: protectionist)", 1, 10, "cand2_trade")
-    candidate2_immigration = get_valid_input("Stance on immigration? (1: open borders, 10: strict control)", 1, 10, "cand2_immigration")
-    candidate2_partisanship = get_valid_input("Partisanship? (10: extreme Democrat, 6: moderate)", 6, 10, "cand2_partisanship")
-    candidate2_abortion = get_valid_input("Stance on abortion? (1: pro-life, 10: pro-choice)", 1, 10, "cand2_abortion")
-    candidate2_foreign_policy = get_valid_input("Foreign policy? (1: dovish, 10: hawkish)", 1, 10, "cand2_foreign")
 
-    if st.button("Run Simulation"):
-        candidate1_votes = 0
-        candidate2_votes = 0
-        state_margins = []
+def score(candidate, state):
+    """Higher score = the state likes this candidate more.
+    Each factor gives 0-9 points depending on how close the candidate is."""
+    imm, trade, part, abort, _ev, foreign = state
+    total = 0.0
+    total += WEIGHTS["immigration"] * (9 - abs(imm - candidate["immigration"]))
+    total += WEIGHTS["trade"] * (9 - abs(trade - candidate["trade"]))
+    total += WEIGHTS["partisanship"] * (9 - abs(part - candidate["partisanship"]))
+    total += WEIGHTS["abortion"] * (9 - abs(abort - candidate["abortion"]))
+    total += WEIGHTS["foreign"] * (9 - abs(foreign - candidate["foreign"]))
+    return total
 
-        st.subheader("Election Results by State")
-        for state, attributes in states.items():
-            score1 = 0
-            score2 = 0
 
-            score1 += 10 - abs(attributes["trade"] - candidate1_trade)
-            score1 += 10 - abs(attributes["immigration"] - candidate1_immigration)
-            score1 += 5 - abs(attributes["partisanship"] - candidate1_partisanship)
-            score1 += 10 - abs(attributes["abortion"] - candidate1_abortion)
-            score1 += 10 - abs(attributes["foreign_policy"] - candidate1_foreign_policy)
+def run_election(c1, c2):
+    votes = {c1["name"]: 0, c2["name"]: 0}
+    margins = []
 
-            score2 += 10 - abs(attributes["trade"] - candidate2_trade)
-            score2 += 10 - abs(attributes["immigration"] - candidate2_immigration)
-            score2 += 5 - abs(attributes["partisanship"] - candidate2_partisanship)
-            score2 += 10 - abs(attributes["abortion"] - candidate2_abortion)
-            score2 += 10 - abs(attributes["foreign_policy"] - candidate2_foreign_policy)
+    print("\n=== ELECTION RESULTS BY STATE ===")
+    for state_name, data in STATES.items():
+        ev = data[4]
+        s1, s2 = score(c1, data), score(c2, data)
+        margin = abs(s1 - s2)
 
-            margin = abs(score1 - score2)
-            if score1 > score2:
-                candidate1_votes += attributes["electoral_college"]
-                st.write(f"✅ {state}: {candidate1_name} wins ({attributes['electoral_college']} votes)")
-                state_margins.append({"state": state, "margin": margin, "winner": candidate1_name})
-            elif score2 > score1:
-                candidate2_votes += attributes["electoral_college"]
-                st.write(f"🔵 {state}: {candidate2_name} wins ({attributes['electoral_college']} votes)")
-                state_margins.append({"state": state, "margin": margin, "winner": candidate2_name})
-            else:
-                winner = random.choice([1, 2])
-                if winner == 1:
-                    candidate1_votes += attributes["electoral_college"]
-                    st.write(f"🤝 {state}: Tie, random winner is {candidate1_name} ({attributes['electoral_college']} votes)")
-                    state_margins.append({"state": state, "margin": margin, "winner": candidate1_name})
-                else:
-                    candidate2_votes += attributes["electoral_college"]
-                    st.write(f"🤝 {state}: Tie, random winner is {candidate2_name} ({attributes['electoral_college']} votes)")
-                    state_margins.append({"state": state, "margin": margin, "winner": candidate2_name})
-
-        # Sort the state_margins by margin
-        state_margins.sort(key=lambda x: x["margin"])
-
-        # Get the 3 closest states
-        closest_states = state_margins[:3]
-
-        st.subheader("The 3 Closest States")
-        for state in closest_states:
-            st.write(f"State: {state['state']} | Margin: {state['margin']} | Winner: {state['winner']}")
-
-        # Add bar chart for the three closest states using Plotly
-        st.subheader("Closest States Margin Visualization")
-        if closest_states:  # Ensure there are states to display
-            fig = px.bar(
-                x=[state["state"] for state in closest_states],
-                y=[state["margin"] for state in closest_states],
-                color=[state["state"] for state in closest_states],  # Color by state
-                labels={"x": "State", "y": "Margin of Victory"},
-                title="Top 3 Closest States by Margin",
-                color_discrete_sequence=["#FF6384", "#36A2EB", "#FFCE56"],  # Same colors as before
-            )
-            fig.update_layout(showlegend=True)
-            st.plotly_chart(fig, use_container_width=True)
+        if s1 > s2:
+            winner = c1
+            note = ""
+        elif s2 > s1:
+            winner = c2
+            note = ""
         else:
-            st.write("No close states to display.")
+            winner = random.choice([c1, c2])
+            note = " (tie, decided randomly)"
 
-        st.header("Final Results")
-        st.write(f"🟥 {candidate1_name}: {candidate1_votes} Electoral Votes")
-        st.write(f"🟦 {candidate2_name}: {candidate2_votes} Electoral Votes")
+        votes[winner["name"]] += ev
+        tag = "[R]" if winner["party"] == "Republican" else "[D]"
+        print(f"{tag} {state_name:<16} {winner['name']} wins ({ev} EV){note}")
+        margins.append((margin, state_name, winner["name"]))
 
-        if candidate1_votes > candidate2_votes:
-            st.success(f"🎉 {candidate1_name} wins the election!")
-        elif candidate2_votes > candidate1_votes:
-            st.success(f"🎉 {candidate2_name} wins the election!")
-        else:
-            st.warning("It's a tie! No clear winner.")
+    margins.sort()
+    print("\n=== THE 3 CLOSEST STATES ===")
+    for margin, state_name, winner_name in margins[:3]:
+        print(f"{state_name}: margin {margin:.1f}, winner {winner_name}")
 
-# Run the game
-run_game()
+    print("\n=== FINAL RESULTS ===")
+    print(f"{c1['name']} (R): {votes[c1['name']]} electoral votes")
+    print(f"{c2['name']} (D): {votes[c2['name']]} electoral votes")
+
+    if votes[c1["name"]] > votes[c2["name"]]:
+        print(f"\n*** {c1['name']} wins the election! ***")
+    elif votes[c2["name"]] > votes[c1["name"]]:
+        print(f"\n*** {c2['name']} wins the election! ***")
+    else:
+        print("\nIt's a tie! No clear winner.")
+
+
+def main():
+    print("ELECTION GAME - simulate an election based on political stances")
+    while True:
+        c1 = ask_candidate(1, "Republican")
+        c2 = ask_candidate(2, "Democrat")
+        run_election(c1, c2)
+        again = input("\nPlay again? (y/n): ").strip().lower()
+        if again != "y":
+            print("Thanks for playing!")
+            break
+
+
+if __name__ == "__main__":
+    main()
