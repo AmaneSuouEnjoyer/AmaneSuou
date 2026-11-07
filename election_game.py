@@ -66,7 +66,7 @@ STATES = {
 WEIGHTS = {
     "immigration": 1.0,
     "trade": 1.0,
-    "partisanship": 3.0,
+    "partisanship": 1.0,
     "abortion": 1.0,
     "foreign": 1.0,
 }
