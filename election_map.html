@@ -1,0 +1,939 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Election game: results map</title>
+<!--
+  Results map template. The game (election_game.py) copies this file to election_map.html
+  and puts the results where it says  {"candidates": [{"name": "Marco Rubio", "party": "Republican", "ticket": "Marco Rubio/John Kasich", "votes": 256, "popular_pct": 27.9, "popular_points": 15023.0}, {"name": "Hillary Clinton", "party": "Democrat", "ticket": "Hillary Clinton/tim kaine", "votes": 28, "popular_pct": 21.5, "popular_points": 11556.9}, {"name": "Donald Trump", "party": "Third Party", "ticket": "Donald Trump/ben carson", "votes": 23, "popular_pct": 23.8, "popular_points": 12822.4}, {"name": "Bernie Sanders", "party": "Fourth Party", "ticket": "Bernie Sanders/Tulsi Gabbard", "votes": 231, "popular_pct": 26.8, "popular_points": 14397.8}], "states": [{"state": "Texas", "code": "TX", "ev": 40, "winner": 0, "margin": 11.4, "shares": [38.6, 15.2, 27.2, 19.0], "scores": [48.9, 19.3, 34.4, 24.0], "tie": false, "tied": []}, {"state": "California", "code": "CA", "ev": 54, "winner": 3, "margin": 5.9, "shares": [18.4, 28.5, 18.7, 34.4], "scores": [24.4, 37.8, 24.8, 45.6], "tie": false, "tied": []}, {"state": "New York", "code": "NY", "ev": 28, "winner": 1, "margin": 1.3, "shares": [16.4, 32.1, 20.7, 30.8], "scores": [23.4, 45.8, 29.6, 44.0], "tie": false, "tied": []}, {"state": "New Jersey", "code": "NJ", "ev": 14, "winner": 3, "margin": 7.1, "shares": [20.3, 25.1, 22.5, 32.1], "scores": [27.9, 34.3, 30.8, 44.0], "tie": false, "tied": []}, {"state": "Illinois", "code": "IL", "ev": 19, "winner": 3, "margin": 9.6, "shares": [17.5, 25.7, 21.6, 35.2], "scores": [23.6, 34.5, 29.0, 47.4], "tie": false, "tied": []}, {"state": "Pennsylvania", "code": "PA", "ev": 19, "winner": 3, "margin": 1.8, "shares": [24.2, 20.5, 26.8, 28.5], "scores": [33.1, 28.0, 36.6, 39.0], "tie": false, "tied": []}, {"state": "Ohio", "code": "OH", "ev": 17, "winner": 2, "margin": 0.3, "shares": [29.8, 16.1, 30.2, 23.9], "scores": [40.4, 21.8, 40.8, 32.4], "tie": false, "tied": []}, {"state": "Wisconsin", "code": "WI", "ev": 10, "winner": 3, "margin": 3.8, "shares": [22.7, 22.3, 25.6, 29.4], "scores": [30.9, 30.3, 34.8, 40.0], "tie": false, "tied": []}, {"state": "Michigan", "code": "MI", "ev": 15, "winner": 3, "margin": 5.0, "shares": [21.3, 22.3, 25.7, 30.7], "scores": [28.9, 30.3, 34.8, 41.6], "tie": false, "tied": []}, {"state": "Minnesota", "code": "MN", "ev": 10, "winner": 3, "margin": 10.5, "shares": [17.7, 24.4, 23.0, 34.9], "scores": [23.6, 32.5, 30.6, 46.6], "tie": false, "tied": []}, {"state": "Missouri", "code": "MO", "ev": 10, "winner": 0, "margin": 6.9, "shares": [35.0, 15.5, 28.1, 21.4], "scores": [45.9, 20.3, 36.8, 28.0], "tie": false, "tied": []}, {"state": "Kentucky", "code": "KY", "ev": 8, "winner": 0, "margin": 5.6, "shares": [35.0, 14.5, 29.4, 21.1], "scores": [43.6, 18.0, 36.6, 26.2], "tie": false, "tied": []}, {"state": "West Virginia", "code": "WV", "ev": 4, "winner": 0, "margin": 1.2, "shares": [34.0, 12.2, 32.7, 21.1], "scores": [39.9, 14.3, 38.4, 24.8], "tie": false, "tied": []}, {"state": "Oklahoma", "code": "OK", "ev": 7, "winner": 0, "margin": 13.8, "shares": [41.1, 13.3, 27.4, 18.2], "scores": [46.6, 15.0, 31.0, 20.6], "tie": false, "tied": []}, {"state": "Tennessee", "code": "TN", "ev": 11, "winner": 0, "margin": 13.5, "shares": [40.6, 13.8, 27.2, 18.4], "scores": [47.9, 16.3, 32.0, 21.6], "tie": false, "tied": []}, {"state": "Indiana", "code": "IN", "ev": 11, "winner": 0, "margin": 8.1, "shares": [35.1, 17.5, 27.0, 20.4], "scores": [46.9, 23.3, 36.0, 27.2], "tie": false, "tied": []}, {"state": "Arkansas", "code": "AR", "ev": 6, "winner": 0, "margin": 13.1, "shares": [39.4, 15.1, 26.4, 19.1], "scores": [47.9, 18.3, 32.0, 23.2], "tie": false, "tied": []}, {"state": "Mississippi", "code": "MS", "ev": 6, "winner": 0, "margin": 12.0, "shares": [39.7, 14.0, 27.7, 18.6], "scores": [45.6, 16.0, 31.8, 21.4], "tie": false, "tied": []}, {"state": "Alabama", "code": "AL", "ev": 9, "winner": 0, "margin": 10.3, "shares": [38.3, 14.6, 28.0, 19.1], "scores": [44.6, 17.0, 32.6, 22.2], "tie": false, "tied": []}, {"state": "Louisiana", "code": "LA", "ev": 8, "winner": 0, "margin": 13.1, "shares": [39.4, 15.1, 26.4, 19.1], "scores": [47.9, 18.3, 32.0, 23.2], "tie": false, "tied": []}, {"state": "South Carolina", "code": "SC", "ev": 9, "winner": 0, "margin": 11.9, "shares": [38.5, 15.7, 26.6, 19.2], "scores": [49.9, 20.3, 34.4, 24.8], "tie": false, "tied": []}, {"state": "Georgia", "code": "GA", "ev": 16, "winner": 0, "margin": 8.2, "shares": [34.2, 18.0, 26.0, 21.8], "scores": [46.6, 24.5, 35.4, 29.8], "tie": false, "tied": []}, {"state": "Florida", "code": "FL", "ev": 30, "winner": 0, "margin": 8.7, "shares": [33.9, 18.8, 25.2, 22.1], "scores": [48.4, 26.8, 36.0, 31.6], "tie": false, "tied": []}, {"state": "North Carolina", "code": "NC", "ev": 16, "winner": 0, "margin": 9.7, "shares": [35.5, 18.0, 25.9, 20.6], "scores": [48.6, 24.5, 35.4, 28.2], "tie": false, "tied": []}, {"state": "Virginia", "code": "VA", "ev": 13, "winner": 0, "margin": 0.4, "shares": [27.2, 25.0, 21.0, 26.8], "scores": [37.1, 34.0, 28.6, 36.6], "tie": false, "tied": []}, {"state": "South Dakota", "code": "SD", "ev": 3, "winner": 0, "margin": 11.3, "shares": [37.1, 15.9, 25.8, 21.2], "scores": [44.6, 19.0, 31.0, 25.4], "tie": false, "tied": []}, {"state": "North Dakota", "code": "ND", "ev": 3, "winner": 0, "margin": 11.3, "shares": [37.1, 15.9, 25.8, 21.2], "scores": [44.6, 19.0, 31.0, 25.4], "tie": false, "tied": []}, {"state": "Kansas", "code": "KS", "ev": 6, "winner": 0, "margin": 11.0, "shares": [36.1, 17.0, 25.1, 21.8], "scores": [44.6, 21.0, 31.0, 27.0], "tie": false, "tied": []}, {"state": "Nebraska", "code": "NE", "ev": 5, "winner": 0, "margin": 11.2, "shares": [36.3, 16.7, 25.2, 21.8], "scores": [43.6, 20.0, 30.2, 26.2], "tie": false, "tied": []}, {"state": "Wyoming", "code": "WY", "ev": 3, "winner": 0, "margin": 15.3, "shares": [41.0, 14.3, 25.6, 19.1], "scores": [45.4, 15.8, 28.4, 21.2], "tie": false, "tied": []}, {"state": "Idaho", "code": "ID", "ev": 4, "winner": 0, "margin": 15.3, "shares": [41.0, 14.3, 25.6, 19.1], "scores": [45.4, 15.8, 28.4, 21.2], "tie": false, "tied": []}, {"state": "Montana", "code": "MT", "ev": 4, "winner": 0, "margin": 11.2, "shares": [36.9, 16.2, 25.7, 21.2], "scores": [45.6, 20.0, 31.8, 26.2], "tie": false, "tied": []}, {"state": "Utah", "code": "UT", "ev": 6, "winner": 0, "margin": 16.8, "shares": [40.6, 15.4, 23.8, 20.2], "scores": [44.4, 16.8, 26.0, 22.0], "tie": false, "tied": []}, {"state": "Arizona", "code": "AZ", "ev": 11, "winner": 0, "margin": 9.3, "shares": [34.6, 17.9, 25.3, 22.2], "scores": [44.9, 23.3, 32.8, 28.8], "tie": false, "tied": []}, {"state": "Colorado", "code": "CO", "ev": 10, "winner": 3, "margin": 6.4, "shares": [22.1, 25.5, 20.5, 31.9], "scores": [28.9, 33.3, 26.8, 41.6], "tie": false, "tied": []}, {"state": "New Mexico", "code": "NM", "ev": 5, "winner": 3, "margin": 6.2, "shares": [23.0, 24.8, 21.2, 31.0], "scores": [30.9, 33.3, 28.4, 41.6], "tie": false, "tied": []}, {"state": "Nevada", "code": "NV", "ev": 6, "winner": 3, "margin": 2.3, "shares": [25.8, 22.8, 23.3, 28.1], "scores": [35.1, 31.0, 31.8, 38.2], "tie": false, "tied": []}, {"state": "Washington", "code": "WA", "ev": 12, "winner": 3, "margin": 7.5, "shares": [19.9, 26.9, 18.8, 34.4], "scores": [25.6, 34.5, 24.2, 44.2], "tie": false, "tied": []}, {"state": "Alaska", "code": "AK", "ev": 3, "winner": 0, "margin": 8.1, "shares": [34.7, 16.4, 26.6, 22.3], "scores": [44.6, 21.0, 34.2, 28.6], "tie": false, "tied": []}, {"state": "Hawaii", "code": "HI", "ev": 4, "winner": 3, "margin": 6.8, "shares": [19.3, 27.8, 18.3, 34.6], "scores": [24.6, 35.5, 23.4, 44.2], "tie": false, "tied": []}, {"state": "Oregon", "code": "OR", "ev": 8, "winner": 3, "margin": 7.7, "shares": [20.9, 25.9, 19.6, 33.6], "scores": [26.9, 33.3, 25.2, 43.2], "tie": false, "tied": []}, {"state": "Washington DC", "code": "DC", "ev": 3, "winner": 3, "margin": 4.9, "shares": [15.4, 31.8, 16.2, 36.6], "scores": [15.1, 31.0, 15.8, 35.8], "tie": false, "tied": []}, {"state": "Massachusetts", "code": "MA", "ev": 11, "winner": 3, "margin": 3.8, "shares": [16.7, 31.4, 16.7, 35.2], "scores": [18.1, 34.0, 18.2, 38.2], "tie": false, "tied": []}, {"state": "Rhode Island", "code": "RI", "ev": 4, "winner": 3, "margin": 5.4, "shares": [17.8, 29.6, 17.5, 35.1], "scores": [20.4, 33.8, 20.0, 40.0], "tie": false, "tied": []}, {"state": "Connecticut", "code": "CT", "ev": 7, "winner": 3, "margin": 5.1, "shares": [18.1, 29.6, 17.7, 34.6], "scores": [21.4, 34.8, 20.8, 40.8], "tie": false, "tied": []}, {"state": "Maryland", "code": "MD", "ev": 10, "winner": 3, "margin": 7.9, "shares": [19.7, 26.9, 18.7, 34.7], "scores": [24.6, 33.5, 23.4, 43.4], "tie": false, "tied": []}, {"state": "Delaware", "code": "DE", "ev": 3, "winner": 3, "margin": 6.2, "shares": [19.0, 28.3, 18.2, 34.5], "scores": [23.4, 34.8, 22.4, 42.4], "tie": false, "tied": []}, {"state": "Vermont", "code": "VT", "ev": 3, "winner": 3, "margin": 11.7, "shares": [19.1, 24.8, 19.6, 36.5], "scores": [23.6, 30.5, 24.2, 45.0], "tie": false, "tied": []}, {"state": "New Hampshire", "code": "NH", "ev": 4, "winner": 0, "margin": 0.6, "shares": [28.2, 20.0, 24.2, 27.6], "scores": [36.4, 25.8, 31.2, 35.6], "tie": false, "tied": []}, {"state": "Maine", "code": "ME", "ev": 4, "winner": 3, "margin": 6.7, "shares": [23.6, 24.0, 21.8, 30.6], "scores": [30.9, 31.3, 28.4, 40.0], "tie": false, "tied": []}, {"state": "Iowa", "code": "IA", "ev": 6, "winner": 2, "margin": 2.1, "shares": [27.1, 17.5, 29.2, 26.2], "scores": [36.6, 23.5, 39.4, 35.4], "tie": false, "tied": []}], "total_ev": 538, "needed": 270, "verdict": "The Marco Rubio/John Kasich ticket wins the election in the Senate caucus vote!", "popular_note": "Marco Rubio won the popular vote and also has the most electoral votes.", "deadlock": true, "caucus_vote": {"candidates": [{"index": 0, "name": "Marco Rubio", "party": "Republican", "ev": 256}, {"index": 3, "name": "Bernie Sanders", "party": "Fourth Party", "ev": 231}], "total": 100, "majority": 51, "limit": 20, "move": 1, "groups": [{"name": "Establishment Conservatives", "loyalists": false, "size": 32, "named": [{"name": "John Thune", "party": "R"}, {"name": "John Barrasso", "party": "R"}, {"name": "Roy Blunt", "party": "R"}, {"name": "Rob Portman", "party": "R"}, {"name": "Richard Burr", "party": "R"}, {"name": "Pat Toomey", "party": "R"}, {"name": "Jerry Moran", "party": "R"}, {"name": "John Boozman", "party": "R"}, {"name": "Deb Fischer", "party": "R"}, {"name": "Chuck Grassley", "party": "R"}, {"name": "Ron Johnson", "party": "R"}, {"name": "Todd Young", "party": "R"}, {"name": "Mike Crapo", "party": "R"}, {"name": "Mike Lee", "party": "R"}, {"name": "Tim Scott", "party": "R"}, {"name": "Marco Rubio", "party": "R"}, {"name": "Richard Shelby", "party": "R"}, {"name": "John Hoeven", "party": "R"}, {"name": "Roger Wicker", "party": "R"}, {"name": "James Lankford", "party": "R"}, {"name": "John Cornyn", "party": "R"}, {"name": "Mitch McConnell", "party": "R"}, {"name": "Shelley Moore Capito", "party": "R"}, {"name": "Bill Cassidy", "party": "R"}, {"name": "Thom Tillis", "party": "R"}, {"name": "Mike Rounds", "party": "R"}, {"name": "Roger Marshall", "party": "R"}, {"name": "Jim Risch", "party": "R"}, {"name": "Steve Daines", "party": "R"}, {"name": "Martha McSally", "party": "R"}, {"name": "Dan Sullivan", "party": "R"}, {"name": "Joni Ernst", "party": "R"}], "unnamed": {"R": 0, "D": 0}, "disagreement": [6.5, 29.75], "candidate": 0, "turn": 1, "over": 0.0, "tie_pick": false, "counted": true}, {"name": "MAGA Republicans", "loyalists": false, "size": 15, "named": [{"name": "Josh Hawley", "party": "R"}, {"name": "Marsha Blackburn", "party": "R"}, {"name": "Ted Cruz", "party": "R"}, {"name": "Rick Scott", "party": "R"}, {"name": "Kevin Cramer", "party": "R"}, {"name": "Mike Braun", "party": "R"}, {"name": "Rand Paul", "party": "R"}, {"name": "John Kennedy", "party": "R"}, {"name": "Jim Inhofe", "party": "R"}, {"name": "Bill Hagerty", "party": "R"}, {"name": "Tom Cotton", "party": "R"}, {"name": "Cindy Hyde-Smith", "party": "R"}, {"name": "Tommy Tuberville", "party": "R"}, {"name": "Kelly Loeffler", "party": "R"}, {"name": "Cynthia Lummis", "party": "R"}], "unnamed": {"R": 0, "D": 0}, "disagreement": [10.0, 23.25], "candidate": 0, "turn": 1, "over": 0.0, "tie_pick": false, "counted": true}, {"name": "Centrist Republicans", "loyalists": false, "size": 4, "named": [{"name": "Mitt Romney", "party": "R"}, {"name": "Lisa Murkowski", "party": "R"}, {"name": "Ben Sasse", "party": "R"}, {"name": "Susan Collins", "party": "R"}], "unnamed": {"R": 0, "D": 0}, "disagreement": [6.25, 23.0], "candidate": 0, "turn": 1, "over": 0.0, "tie_pick": false, "counted": true}, {"name": "Progressive Democrats", "loyalists": false, "size": 11, "named": [{"name": "Bernie Sanders", "party": "D"}, {"name": "Elizabeth Warren", "party": "D"}, {"name": "Sherrod Brown", "party": "D"}, {"name": "Kirsten Gillibrand", "party": "D"}, {"name": "Mazie Hirono", "party": "D"}, {"name": "Tammy Duckworth", "party": "D"}, {"name": "Tammy Baldwin", "party": "D"}, {"name": "Ron Wyden", "party": "D"}, {"name": "Cory Booker", "party": "D"}, {"name": "Jeff Merkley", "party": "D"}, {"name": "Ed Markey", "party": "D"}], "unnamed": {"R": 0, "D": 0}, "disagreement": [29.0, 8.25], "candidate": 3, "turn": 1, "over": 0.0, "tie_pick": false, "counted": true}, {"name": "Establishment Liberals", "loyalists": false, "size": 31, "named": [{"name": "Chuck Schumer", "party": "D"}, {"name": "Patty Murray", "party": "D"}, {"name": "Bob Menendez", "party": "D"}, {"name": "Tom Carper", "party": "D"}, {"name": "Dianne Feinstein", "party": "D"}, {"name": "Bob Casey", "party": "D"}, {"name": "Ben Cardin", "party": "D"}, {"name": "Chris Van Hollen", "party": "D"}, {"name": "Sheldon Whitehouse", "party": "D"}, {"name": "Amy Klobuchar", "party": "D"}, {"name": "Richard Blumenthal", "party": "D"}, {"name": "Brian Schatz", "party": "D"}, {"name": "Tim Kaine", "party": "D"}, {"name": "Angus King", "party": "D"}, {"name": "Maggie Hassan", "party": "D"}, {"name": "Catherine Cortez Masto", "party": "D"}, {"name": "Jacky Rosen", "party": "D"}, {"name": "Michael Bennet", "party": "D"}, {"name": "Martin Heinrich", "party": "D"}, {"name": "Kamala Harris", "party": "D"}, {"name": "Patrick Leahy", "party": "D"}, {"name": "Chris Murphy", "party": "D"}, {"name": "Maria Cantwell", "party": "D"}, {"name": "Dick Durbin", "party": "D"}, {"name": "Gary Peters", "party": "D"}, {"name": "Tina Smith", "party": "D"}, {"name": "Mark Warner", "party": "D"}, {"name": "Ben Ray Luj\u00e1n", "party": "D"}, {"name": "Jack Reed", "party": "D"}, {"name": "Chris Coons", "party": "D"}, {"name": "Jeanne Shaheen", "party": "D"}], "unnamed": {"R": 0, "D": 0}, "disagreement": [23.75, 12.5], "candidate": 3, "turn": 1, "over": 0.0, "tie_pick": false, "counted": true}, {"name": "Blue Dogs", "loyalists": false, "size": 4, "named": [{"name": "Joe Manchin", "party": "D"}, {"name": "Kyrsten Sinema", "party": "D"}, {"name": "Jon Tester", "party": "D"}, {"name": "John Hickenlooper", "party": "D"}], "unnamed": {"R": 0, "D": 0}, "disagreement": [11.75, 17.5], "candidate": 0, "turn": 1, "over": 0.0, "tie_pick": false, "counted": true}, {"name": "Party loyalists (Republican)", "loyalists": true, "size": 2, "named": [{"name": "Lindsey Graham", "party": "R"}, {"name": "David Perdue", "party": "R"}], "unnamed": {"R": 0, "D": 0}, "disagreement": null, "candidate": 0, "turn": 1, "over": 0.0, "tie_pick": false, "counted": true}, {"name": "Party loyalists (Democratic)", "loyalists": true, "size": 1, "named": [{"name": "Debbie Stabenow", "party": "D"}], "unnamed": {"R": 0, "D": 0}, "disagreement": null, "candidate": null, "turn": null, "over": 0.0, "tie_pick": false, "counted": false}], "turns": [{"turn": 1, "totals": [57, 42], "abstaining": 1, "joined": [{"name": "Establishment Conservatives", "size": 32, "candidate": 0}, {"name": "MAGA Republicans", "size": 15, "candidate": 0}, {"name": "Centrist Republicans", "size": 4, "candidate": 0}, {"name": "Progressive Democrats", "size": 11, "candidate": 3}, {"name": "Establishment Liberals", "size": 31, "candidate": 3}, {"name": "Blue Dogs", "size": 4, "candidate": 0}, {"name": "Party loyalists (Republican)", "size": 2, "candidate": 0}]}], "winner": 0, "how": "majority", "stop": 1, "final": [57, 42], "summary": "Marco Rubio won in turn 1 with 57 of 100 senators (majority: 51)."}, "senate": {"races": [{"state": "Texas", "code": "TX", "seat": 1, "seats_in_state": 1, "candidates": [{"party": "R", "name": "John Cornyn", "advantage": 7, "caucus": "Establishment Conservatives", "party_score": 51.2, "top_ticket": 8.1, "divided": 0.0, "score": 66.4}, {"party": "D", "name": "M. J. Hegar", "advantage": 5, "caucus": "Blue Dogs", "party_score": 33.2, "top_ticket": 3.2, "divided": 0.3, "score": 41.8}], "winner": 0, "margin": 22.7, "shares": [61.4, 38.6], "tie": false}, {"state": "New Jersey", "code": "NJ", "seat": 1, "seats_in_state": 1, "candidates": [{"party": "R", "name": "Rik Mehta", "advantage": 5, "caucus": "Establishment Conservatives", "party_score": 34.2, "top_ticket": 4.6, "divided": 0.0, "score": 43.9}, {"party": "D", "name": "Cory Booker", "advantage": 5, "caucus": "Progressive Democrats", "party_score": 48.2, "top_ticket": 5.7, "divided": 0.3, "score": 59.3}], "winner": 1, "margin": 14.9, "shares": [42.5, 57.5], "tie": false}, {"state": "Illinois", "code": "IL", "seat": 1, "seats_in_state": 1, "candidates": [{"party": "R", "name": "Mark Curran", "advantage": 5, "caucus": "Establishment Conservatives", "party_score": 30.0, "top_ticket": 3.9, "divided": 0.0, "score": 38.9}, {"party": "D", "name": "Dick Durbin", "advantage": 5, "caucus": "Establishment Liberals", "party_score": 46.0, "top_ticket": 5.8, "divided": 0.3, "score": 57.1}], "winner": 1, "margin": 18.9, "shares": [40.5, 59.5], "tie": false}, {"state": "Michigan", "code": "MI", "seat": 1, "seats_in_state": 1, "candidates": [{"party": "R", "name": "John James", "advantage": 6, "caucus": "", "party_score": 35.2, "top_ticket": 4.8, "divided": 0.0, "score": 46.1}, {"party": "D", "name": "Gary Peters", "advantage": 5, "caucus": "Establishment Liberals", "party_score": 43.2, "top_ticket": 5.0, "divided": 0.3, "score": 53.6}], "winner": 1, "margin": 7.6, "shares": [46.2, 53.8], "tie": false}, {"state": "Minnesota", "code": "MN", "seat": 1, "seats_in_state": 1, "candidates": [{"party": "R", "name": "Jason Lewis", "advantage": 7, "caucus": "MAGA Republicans", "party_score": 30.0, "top_ticket": 3.9, "divided": 0.0, "score": 40.9}, {"party": "D", "name": "Tina Smith", "advantage": 5, "caucus": "Establishment Liberals", "party_score": 44.0, "top_ticket": 5.4, "divided": 0.3, "score": 54.8}], "winner": 1, "margin": 14.4, "shares": [42.8, 57.2], "tie": false}, {"state": "Kentucky", "code": "KY", "seat": 1, "seats_in_state": 1, "candidates": [{"party": "R", "name": "Mitch McConnell", "advantage": 2, "caucus": "Establishment Conservatives", "party_score": 50.0, "top_ticket": 7.3, "divided": 0.0, "score": 59.3}, {"party": "D", "name": "Amy McGrath", "advantage": 5, "caucus": "Establishment Liberals", "party_score": 30.0, "top_ticket": 3.0, "divided": 0.3, "score": 38.3}], "winner": 0, "margin": 21.4, "shares": [60.7, 39.3], "tie": false}, {"state": "West Virginia", "code": "WV", "seat": 1, "seats_in_state": 1, "candidates": [{"party": "R", "name": "Shelley Moore Capito", "advantage": 5, "caucus": "Establishment Conservatives", "party_score": 46.2, "top_ticket": 6.6, "divided": 0.0, "score": 57.9}, {"party": "D", "name": "Paula Jean Swearengin", "advantage": 4, "caucus": "Progressive Democrats", "party_score": 28.2, "top_ticket": 2.4, "divided": 0.3, "score": 35.0}], "winner": 0, "margin": 24.7, "shares": [62.3, 37.7], "tie": false}, {"state": "Oklahoma", "code": "OK", "seat": 1, "seats_in_state": 1, "candidates": [{"party": "R", "name": "Jim Inhofe", "advantage": 5, "caucus": "MAGA Republicans", "party_score": 49.0, "top_ticket": 7.8, "divided": 0.0, "score": 61.8}, {"party": "D", "name": "Abby Broyles", "advantage": 5, "caucus": "Blue Dogs", "party_score": 29.0, "top_ticket": 2.5, "divided": 0.3, "score": 36.8}], "winner": 0, "margin": 25.3, "shares": [62.6, 37.4], "tie": false}, {"state": "Tennessee", "code": "TN", "seat": 1, "seats_in_state": 1, "candidates": [{"party": "R", "name": "Bill Hagerty", "advantage": 7, "caucus": "MAGA Republicans", "party_score": 50.2, "top_ticket": 8.0, "divided": 0.0, "score": 65.2}, {"party": "D", "name": "Marquita Bradshaw", "advantage": 5, "caucus": "Progressive Democrats", "party_score": 30.2, "top_ticket": 2.7, "divided": 0.3, "score": 38.3}], "winner": 0, "margin": 26.0, "shares": [63.0, 37.0], "tie": false}, {"state": "Arkansas", "code": "AR", "seat": 1, "seats_in_state": 1, "candidates": [{"party": "R", "name": "Tom Cotton", "advantage": 5, "caucus": "MAGA Republicans", "party_score": 52.2, "top_ticket": 8.0, "divided": 0.0, "score": 65.2}, {"party": "D", "name": "Ricky Dale Harrington Jr.", "advantage": 3, "caucus": "", "party_score": 32.2, "top_ticket": 3.0, "divided": 0.3, "score": 38.6}], "winner": 0, "margin": 25.6, "shares": [62.8, 37.2], "tie": false}, {"state": "Mississippi", "code": "MS", "seat": 1, "seats_in_state": 1, "candidates": [{"party": "R", "name": "Cindy Hyde-Smith", "advantage": 2, "caucus": "MAGA Republicans", "party_score": 50.0, "top_ticket": 7.6, "divided": 0.0, "score": 59.6}, {"party": "D", "name": "Mike Espy", "advantage": 6, "caucus": "Blue Dogs", "party_score": 30.0, "top_ticket": 2.7, "divided": 0.3, "score": 39.0}], "winner": 0, "margin": 20.9, "shares": [60.4, 39.6], "tie": false}, {"state": "Alabama", "code": "AL", "seat": 1, "seats_in_state": 1, "candidates": [{"party": "R", "name": "Tommy Tuberville", "advantage": 5, "caucus": "MAGA Republicans", "party_score": 51.0, "top_ticket": 7.4, "divided": 0.0, "score": 63.4}, {"party": "D", "name": "Doug Jones", "advantage": 7, "caucus": "Blue Dogs", "party_score": 31.0, "top_ticket": 2.8, "divided": 0.3, "score": 41.2}], "winner": 0, "margin": 21.3, "shares": [60.6, 39.4], "tie": false}, {"state": "Louisiana", "code": "LA", "seat": 1, "seats_in_state": 1, "candidates": [{"party": "R", "name": "Bill Cassidy", "advantage": 7, "caucus": "Establishment Conservatives", "party_score": 52.2, "top_ticket": 8.0, "divided": 0.0, "score": 67.2}, {"party": "D", "name": "Adrian Perkins", "advantage": 5, "caucus": "Establishment Liberals", "party_score": 32.2, "top_ticket": 3.0, "divided": 0.3, "score": 40.6}], "winner": 0, "margin": 24.7, "shares": [62.3, 37.7], "tie": false}, {"state": "South Carolina", "code": "SC", "seat": 1, "seats_in_state": 1, "candidates": [{"party": "R", "name": "Lindsey Graham", "advantage": 4, "caucus": "", "party_score": 54.2, "top_ticket": 8.3, "divided": 0.0, "score": 66.6}, {"party": "D", "name": "Jaime Harrison", "advantage": 5, "caucus": "Establishment Liberals", "party_score": 34.2, "top_ticket": 3.4, "divided": 0.3, "score": 43.0}], "winner": 0, "margin": 21.5, "shares": [60.8, 39.2], "tie": false}, {"state": "Georgia", "code": "GA", "seat": 1, "seats_in_state": 2, "candidates": [{"party": "R", "name": "David Perdue", "advantage": 7, "caucus": "", "party_score": 50.0, "top_ticket": 7.8, "divided": 0.0, "score": 64.8}, {"party": "D", "name": "Jon Ossoff", "advantage": 5, "caucus": "Establishment Liberals", "party_score": 40.5, "top_ticket": 4.1, "divided": 0.3, "score": 49.9}], "winner": 0, "margin": 12.9, "shares": [56.5, 43.5], "tie": false}, {"state": "Georgia", "code": "GA", "seat": 2, "seats_in_state": 2, "candidates": [{"party": "R", "name": "Kelly Loeffler", "advantage": 5, "caucus": "MAGA Republicans", "party_score": 50.0, "top_ticket": 7.8, "divided": 0.0, "score": 62.8}, {"party": "D", "name": "Raphael Warnock", "advantage": 7, "caucus": "Establishment Liberals", "party_score": 40.5, "top_ticket": 4.1, "divided": 0.3, "score": 51.9}], "winner": 0, "margin": 9.5, "shares": [54.7, 45.3], "tie": false}, {"state": "North Carolina", "code": "NC", "seat": 1, "seats_in_state": 1, "candidates": [{"party": "R", "name": "Thom Tillis", "advantage": 5, "caucus": "Establishment Conservatives", "party_score": 52.0, "top_ticket": 8.1, "divided": 0.0, "score": 65.1}, {"party": "D", "name": "Cal Cunningham", "advantage": 5, "caucus": "Blue Dogs", "party_score": 38.5, "top_ticket": 4.1, "divided": 0.3, "score": 47.9}], "winner": 0, "margin": 15.2, "shares": [57.6, 42.4], "tie": false}, {"state": "Virginia", "code": "VA", "seat": 1, "seats_in_state": 1, "candidates": [{"party": "R", "name": "Daniel Gade", "advantage": 5, "caucus": "MAGA Republicans", "party_score": 41.5, "top_ticket": 6.2, "divided": 0.0, "score": 52.7}, {"party": "D", "name": "Mark Warner", "advantage": 6, "caucus": "Establishment Liberals", "party_score": 49.0, "top_ticket": 5.7, "divided": 0.3, "score": 61.0}], "winner": 1, "margin": 7.3, "shares": [46.3, 53.7], "tie": false}, {"state": "South Dakota", "code": "SD", "seat": 1, "seats_in_state": 1, "candidates": [{"party": "R", "name": "Mike Rounds", "advantage": 6, "caucus": "Establishment Conservatives", "party_score": 49.0, "top_ticket": 7.4, "divided": 0.0, "score": 62.4}, {"party": "D", "name": "Dan Ahlers", "advantage": 5, "caucus": "Blue Dogs", "party_score": 35.0, "top_ticket": 3.2, "divided": 0.3, "score": 43.5}], "winner": 0, "margin": 17.9, "shares": [58.9, 41.1], "tie": false}, {"state": "Kansas", "code": "KS", "seat": 1, "seats_in_state": 1, "candidates": [{"party": "R", "name": "Roger Marshall", "advantage": 5, "caucus": "Establishment Conservatives", "party_score": 49.0, "top_ticket": 7.4, "divided": 0.0, "score": 61.4}, {"party": "D", "name": "Barbara Bollier", "advantage": 7, "caucus": "Blue Dogs", "party_score": 37.0, "top_ticket": 3.5, "divided": 0.3, "score": 47.8}], "winner": 0, "margin": 12.4, "shares": [56.2, 43.8], "tie": false}, {"state": "Nebraska", "code": "NE", "seat": 1, "seats_in_state": 1, "candidates": [{"party": "R", "name": "Ben Sasse", "advantage": 6, "caucus": "Centrist Republicans", "party_score": 48.0, "top_ticket": 7.3, "divided": 0.0, "score": 61.3}, {"party": "D", "name": "Chris Janicek", "advantage": 1, "caucus": "Blue Dogs", "party_score": 36.0, "top_ticket": 3.3, "divided": 0.3, "score": 40.7}], "winner": 0, "margin": 20.2, "shares": [60.1, 39.9], "tie": false}, {"state": "Wyoming", "code": "WY", "seat": 1, "seats_in_state": 1, "candidates": [{"party": "R", "name": "Cynthia Lummis", "advantage": 5, "caucus": "MAGA Republicans", "party_score": 49.8, "top_ticket": 7.6, "divided": 0.0, "score": 62.3}, {"party": "D", "name": "Merav Ben-David", "advantage": 5, "caucus": "Blue Dogs", "party_score": 29.8, "top_ticket": 2.6, "divided": 0.3, "score": 37.7}], "winner": 0, "margin": 24.6, "shares": [62.3, 37.7], "tie": false}, {"state": "Idaho", "code": "ID", "seat": 1, "seats_in_state": 1, "candidates": [{"party": "R", "name": "Jim Risch", "advantage": 3, "caucus": "Establishment Conservatives", "party_score": 49.8, "top_ticket": 7.6, "divided": 0.0, "score": 60.3}, {"party": "D", "name": "Paulette Jordan", "advantage": 5, "caucus": "", "party_score": 29.8, "top_ticket": 2.6, "divided": 0.3, "score": 37.7}], "winner": 0, "margin": 23.0, "shares": [61.5, 38.5], "tie": false}, {"state": "Montana", "code": "MT", "seat": 1, "seats_in_state": 1, "candidates": [{"party": "R", "name": "Steve Daines", "advantage": 5, "caucus": "Establishment Conservatives", "party_score": 52.0, "top_ticket": 7.6, "divided": 0.0, "score": 64.6}, {"party": "D", "name": "Steve Bullock", "advantage": 9, "caucus": "Blue Dogs", "party_score": 36.0, "top_ticket": 3.3, "divided": 0.3, "score": 48.7}], "winner": 0, "margin": 14.1, "shares": [57.0, 43.0], "tie": false}, {"state": "Arizona", "code": "AZ", "seat": 1, "seats_in_state": 1, "candidates": [{"party": "R", "name": "Martha McSally", "advantage": 5, "caucus": "Establishment Conservatives", "party_score": 49.2, "top_ticket": 7.5, "divided": 0.0, "score": 61.7}, {"party": "D", "name": "Mark Kelly", "advantage": 7, "caucus": "Blue Dogs", "party_score": 39.2, "top_ticket": 3.9, "divided": 0.3, "score": 50.5}], "winner": 0, "margin": 10.0, "shares": [55.0, 45.0], "tie": false}, {"state": "Colorado", "code": "CO", "seat": 1, "seats_in_state": 1, "candidates": [{"party": "R", "name": "Cory Gardner", "advantage": 7, "caucus": "Centrist Republicans", "party_score": 33.2, "top_ticket": 4.8, "divided": 0.0, "score": 45.1}, {"party": "D", "name": "John Hickenlooper", "advantage": 5, "caucus": "Blue Dogs", "party_score": 49.2, "top_ticket": 5.5, "divided": 0.3, "score": 60.1}], "winner": 1, "margin": 14.3, "shares": [42.8, 57.2], "tie": false}, {"state": "New Mexico", "code": "NM", "seat": 1, "seats_in_state": 1, "candidates": [{"party": "R", "name": "Mark Ronchetti", "advantage": 5, "caucus": "Establishment Conservatives", "party_score": 35.2, "top_ticket": 5.1, "divided": 0.0, "score": 45.4}, {"party": "D", "name": "Ben Ray Luj\u00e1n", "advantage": 4, "caucus": "Establishment Liberals", "party_score": 49.2, "top_ticket": 5.5, "divided": 0.3, "score": 59.1}], "winner": 1, "margin": 13.1, "shares": [43.4, 56.6], "tie": false}, {"state": "Alaska", "code": "AK", "seat": 1, "seats_in_state": 1, "candidates": [{"party": "R", "name": "Dan Sullivan", "advantage": 3, "caucus": "Establishment Conservatives", "party_score": 51.0, "top_ticket": 7.4, "divided": 0.0, "score": 61.4}, {"party": "D", "name": "Al Gross", "advantage": 5, "caucus": "Blue Dogs", "party_score": 37.0, "top_ticket": 3.5, "divided": 0.3, "score": 45.8}], "winner": 0, "margin": 14.5, "shares": [57.3, 42.7], "tie": false}, {"state": "Oregon", "code": "OR", "seat": 1, "seats_in_state": 1, "candidates": [{"party": "R", "name": "Jo Rae Perkins", "advantage": 5, "caucus": "", "party_score": 31.2, "top_ticket": 4.5, "divided": 0.0, "score": 40.7}, {"party": "D", "name": "Jeff Merkley", "advantage": 6, "caucus": "Progressive Democrats", "party_score": 49.2, "top_ticket": 5.5, "divided": 0.3, "score": 61.1}], "winner": 1, "margin": 20.0, "shares": [40.0, 60.0], "tie": false}, {"state": "Massachusetts", "code": "MA", "seat": 1, "seats_in_state": 1, "candidates": [{"party": "R", "name": "Kevin O'Connor", "advantage": 5, "caucus": "Centrist Republicans", "party_score": 22.5, "top_ticket": 3.0, "divided": 0.0, "score": 30.5}, {"party": "D", "name": "Ed Markey", "advantage": 5, "caucus": "Progressive Democrats", "party_score": 42.5, "top_ticket": 5.7, "divided": 0.3, "score": 53.5}], "winner": 1, "margin": 27.4, "shares": [36.3, 63.7], "tie": false}, {"state": "Rhode Island", "code": "RI", "seat": 1, "seats_in_state": 1, "candidates": [{"party": "R", "name": "Allen Waters", "advantage": 5, "caucus": "Centrist Republicans", "party_score": 24.8, "top_ticket": 3.4, "divided": 0.0, "score": 33.1}, {"party": "D", "name": "Jack Reed", "advantage": 8, "caucus": "Establishment Liberals", "party_score": 44.8, "top_ticket": 5.6, "divided": 0.3, "score": 58.7}], "winner": 1, "margin": 27.8, "shares": [36.1, 63.9], "tie": false}, {"state": "Delaware", "code": "DE", "seat": 1, "seats_in_state": 1, "candidates": [{"party": "R", "name": "Lauren Witzke", "advantage": 5, "caucus": "", "party_score": 27.8, "top_ticket": 3.9, "divided": 0.0, "score": 36.6}, {"party": "D", "name": "Chris Coons", "advantage": 5, "caucus": "Establishment Liberals", "party_score": 45.8, "top_ticket": 5.8, "divided": 0.3, "score": 56.9}], "winner": 1, "margin": 21.6, "shares": [39.2, 60.8], "tie": false}, {"state": "New Hampshire", "code": "NH", "seat": 1, "seats_in_state": 1, "candidates": [{"party": "R", "name": "Bryant \"Corky\" Messner", "advantage": 5, "caucus": "MAGA Republicans", "party_score": 40.8, "top_ticket": 6.1, "divided": 0.0, "score": 51.8}, {"party": "D", "name": "Jeanne Shaheen", "advantage": 13, "caucus": "Establishment Liberals", "party_score": 41.8, "top_ticket": 4.3, "divided": 0.3, "score": 59.4}], "winner": 1, "margin": 6.8, "shares": [46.6, 53.4], "tie": false}, {"state": "Maine", "code": "ME", "seat": 1, "seats_in_state": 1, "candidates": [{"party": "R", "name": "Susan Collins", "advantage": 30, "caucus": "Centrist Republicans", "party_score": 35.2, "top_ticket": 5.1, "divided": 0.0, "score": 70.4}, {"party": "D", "name": "Sara Gideon", "advantage": 4, "caucus": "Establishment Liberals", "party_score": 47.2, "top_ticket": 5.2, "divided": 0.3, "score": 56.8}], "winner": 0, "margin": 10.7, "shares": [55.3, 44.7], "tie": false}, {"state": "Iowa", "code": "IA", "seat": 1, "seats_in_state": 1, "candidates": [{"party": "R", "name": "Joni Ernst", "advantage": 5, "caucus": "Establishment Conservatives", "party_score": 43.0, "top_ticket": 6.1, "divided": 0.0, "score": 54.1}, {"party": "D", "name": "Theresa Greenfield", "advantage": 6, "caucus": "Blue Dogs", "party_score": 37.5, "top_ticket": 3.9, "divided": 0.3, "score": 47.8}], "winner": 0, "margin": 6.2, "shares": [53.1, 46.9], "tie": false}], "holdover": {"R": 30, "D": 35}, "won": {"R": 23, "D": 12}, "final": {"R": 53, "D": 47}, "total_seats": 100, "needed": 51, "control": "R", "tie_break": false, "popularity_gap": 1, "divided": {"R": 0.0, "D": 0.3}, "top_ticket_divisor": 6, "divided_divisor": 3, "caucus_table": [{"name": "Establishment Conservatives", "loyalists": false, "R": {"not_up": 20, "won": 12}, "D": {"not_up": 0, "won": 0}}, {"name": "MAGA Republicans", "loyalists": false, "R": {"not_up": 8, "won": 7}, "D": {"not_up": 0, "won": 0}}, {"name": "Centrist Republicans", "loyalists": false, "R": {"not_up": 2, "won": 2}, "D": {"not_up": 0, "won": 0}}, {"name": "Progressive Democrats", "loyalists": false, "R": {"not_up": 0, "won": 0}, "D": {"not_up": 8, "won": 3}}, {"name": "Establishment Liberals", "loyalists": false, "R": {"not_up": 0, "won": 0}, "D": {"not_up": 23, "won": 8}}, {"name": "Blue Dogs", "loyalists": false, "R": {"not_up": 0, "won": 0}, "D": {"not_up": 3, "won": 1}}, {"name": "Party loyalists", "loyalists": true, "R": {"not_up": 0, "won": 2}, "D": {"not_up": 1, "won": 0}}]}, "year": "2020"}  below. Do not change that marker.
+  You can restyle everything else: colours and shade steps are at the top of the script,
+  the look is in the <style> block.
+  Map shapes: Wikimedia Commons "Blank US map" (check the licence on its Commons page
+  before you share the map publicly).
+-->
+<style>
+:root{--bg:#f6f7f9;--card:#fff;--ink:#1d2433;--mute:#667085;--line:#d9dde5;--accent:#1f5fbf;
+  --nores:#d0d0d0;--mapline:#fff;--sep:#b0b0b0}
+@media (prefers-color-scheme:dark){:root{--bg:#14171d;--card:#1c2028;--ink:#e8ebf1;--mute:#98a1b3;--line:#323847;
+  --accent:#6aa3ff;--nores:#4a505e;--mapline:#1c2028;--sep:#555c6b}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.45 "Segoe UI",system-ui,sans-serif}
+header,main{max-width:1040px;margin:0 auto;padding:16px}
+main{padding-top:0;display:grid;gap:16px}
+h1{margin:0 0 4px;font-size:1.5rem}
+h2{margin:0 0 10px;font-size:1.05rem}
+p{margin:4px 0}
+.mute{color:var(--mute)}
+.card{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:14px 16px}
+#verdict{font-size:1.1rem;font-weight:600}
+#empty{display:none;border:1px dashed var(--line);border-radius:10px;padding:12px 16px;background:var(--card)}
+
+/* electoral vote bars */
+.evrow{display:grid;grid-template-columns:minmax(8rem,14rem) 1fr 4.4rem;gap:10px;align-items:center;margin:8px 0}
+.evname{display:flex;gap:8px;align-items:center;min-width:0}
+.evname span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.evname small{color:var(--mute)}
+.track{position:relative;height:22px;background:var(--bg);border:1px solid var(--line);border-radius:6px}
+.fill{height:100%;border-radius:5px 0 0 5px}
+.maj{position:absolute;top:-4px;bottom:-4px;border-left:2px dashed var(--ink)}
+.evnum{font-weight:700;text-align:right;font-variant-numeric:tabular-nums;line-height:1.15}
+.evnum small{display:block;font-weight:400;color:var(--mute);font-size:.75rem}
+.tiekey{display:flex;gap:8px;align-items:center;margin-top:8px}
+.tiekey .sw{width:44px;height:16px;background:repeating-linear-gradient(45deg,rgba(0,0,0,.4) 0 2px,var(--nores) 2px 6px)}
+.sw{display:inline-block;width:14px;height:14px;border-radius:3px;flex:none;border:1px solid rgba(0,0,0,.15)}
+
+/* map */
+.mapcard{padding:8px}
+.usmap{display:block;width:100%;height:auto}
+.usmap .state{fill:var(--nores)}
+.usmap .borders{stroke:var(--mapline);stroke-width:1;fill:none;pointer-events:none}
+.usmap .separator1{stroke:var(--sep);stroke-width:2;fill:none;pointer-events:none}
+.usmap .dccircle{stroke:var(--mapline);stroke-width:1}
+.usmap [data-st]:hover{filter:brightness(1.12)}
+.usmap.dim [data-st]{opacity:.3}
+.usmap.dim [data-st].hl{opacity:1}
+
+/* legend */
+.legend{border-collapse:collapse}
+.legend th,.legend td{padding:3px 6px 3px 0;text-align:left;font-weight:400}
+.legend thead th{color:var(--mute);font-size:.85rem}
+.legend .sw{width:44px;height:16px;display:block}
+
+/* tooltip */
+#tip{position:fixed;z-index:10;display:none;pointer-events:none;background:var(--card);color:var(--ink);
+  border:1px solid var(--line);border-radius:8px;padding:8px 10px;box-shadow:0 4px 14px rgba(0,0,0,.2);
+  font-size:.9rem;max-width:320px}
+#tip b{display:block;font-size:1rem}
+#tip .row{display:flex;justify-content:space-between;gap:14px}
+#tip .win{font-weight:600}
+
+/* lists and table */
+ol{margin:0;padding-left:1.3em}
+details summary{cursor:pointer;font-weight:600}
+.tw{overflow-x:auto;margin-top:10px}
+table.res{border-collapse:collapse;width:100%;min-width:420px}
+table.res th,table.res td{padding:5px 8px;border-bottom:1px solid var(--line);text-align:left}
+table.res th{font-size:.85rem;color:var(--mute);font-weight:600}
+table.res td.n,table.res th.n{text-align:right;font-variant-numeric:tabular-nums}
+table.res tbody tr:hover,table.res tbody tr:focus{background:var(--bg);outline:none}
+table.res tbody tr:focus-visible{outline:2px solid var(--accent);outline-offset:-2px}
+
+/* senate */
+.track.stack{display:flex}
+.seg{height:100%;flex:none}
+.seg:first-child{border-radius:5px 0 0 5px}
+#senmapbox svg{display:block;width:100%;height:auto}
+.keyrow{display:flex;gap:8px;align-items:center;margin-top:8px}
+.keyrow .sw{width:44px;height:16px}
+.keyrow .sw.none{background:var(--nores)}
+#tip .sub{font-size:.78rem;color:var(--mute);margin:0 0 4px 22px}
+#tip .race+.race{margin-top:8px}
+.cardtitle{margin:6px 8px 4px}
+.card h3{margin:14px 0 6px;font-size:.95rem}
+table.res tr.sum td{font-weight:700;border-top:2px solid var(--line)}
+table.res td.best{font-weight:700}
+#cvsen p{margin:6px 0}
+#cvturns td:first-child{white-space:nowrap}
+</style>
+</head>
+<body>
+<header>
+  <h1 id="title">Election results</h1>
+  <p id="verdict"></p>
+  <p id="senverdict" class="mute" hidden></p>
+</header>
+<main>
+  <div id="empty">This is the map template. Play a game and the results will fill it in automatically.</div>
+
+  <section class="card" aria-labelledby="evh">
+    <h2 id="evh">Electoral votes</h2>
+    <div id="evbars"></div>
+    <p class="mute" id="evnote"></p>
+  </section>
+
+  <section class="card" id="sencomp" hidden aria-labelledby="sch">
+    <h2 id="sch">Senate composition</h2>
+    <div id="senbars"></div>
+    <p id="sencontrol"></p>
+    <p class="mute" id="sennote"></p>
+    <details id="cdet" hidden open>
+      <summary>The new Senate by caucus and party</summary>
+      <div class="tw">
+        <table class="res">
+          <thead><tr><th>Caucus</th><th class="n">Republicans</th><th class="n">Democrats</th><th class="n">Total</th></tr></thead>
+          <tbody id="ctbody"></tbody>
+        </table>
+      </div>
+      <p class="mute">Each cell is the new Senate: seats not up for election + seats won this year = total.</p>
+    </details>
+  </section>
+
+  <section class="card" id="cvcard" hidden aria-labelledby="cvh">
+    <h2 id="cvh">Senate caucus vote</h2>
+    <p id="cvwhy"></p>
+    <p class="mute" id="cvrule"></p>
+    <h3>Votes by turn</h3>
+    <div class="tw"><table class="res" id="cvturns"></table></div>
+    <h3>How each caucus voted</h3>
+    <div class="tw"><table class="res" id="cvgroups"></table></div>
+    <details style="margin-top:10px">
+      <summary>Votes per senator</summary>
+      <div id="cvsen"></div>
+    </details>
+    <p id="cvresult" style="font-weight:600;margin-top:12px"></p>
+  </section>
+
+  <section class="card" aria-labelledby="pvh">
+    <h2 id="pvh">Popular vote</h2>
+    <div id="pvbars"></div>
+    <p id="pvnote"></p>
+    <p class="mute">How it is counted: in every state, each candidate gets the state’s electoral votes × their share of that state in percent. A 10 EV state where a candidate has 90% gives them 900 popular vote points. The percentages above are each candidate’s points out of all points, so they add up to 100%. The small numbers are those points.</p>
+  </section>
+
+  <section class="card" id="tiecard" hidden aria-labelledby="tih">
+    <h2 id="tih">Tied states: decided by a coin flip</h2>
+    <p id="tietext"></p>
+    <ol id="tielist"></ol>
+  </section>
+
+  <section class="card mapcard">
+    <svg id="map" class="usmap" viewBox="0 0 959 593" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Map of the United States">
+<g class="state">
+<path class="al" data-st="AL" d="m 643,467.4 .4,-7.3 -.9,-1.2 -1.7,-.7 -2.5,-2.8 .5,-2.9 48.8,-5.1 -.7,-2.2 -1.5,-1.5 -.5,-1.4 .6,-6.3 -2.4,-5.7 .5,-2.6 .3,-3.7 2.2,-3.8 -.2,-1.1 -1.7,-1 v -3.2 l -1.8,-1.9 -2.9,-6.1 -12.9,-45.8 -45.7,4 1.3,2 -1.3,67 4.4,33.2 .9,-.5 1.3,.1 .6,.4 .8,-.1 2,-3.8 v -2.3 l 1.1,-1.1 1.4,.5 3.4,6.4 v .9 l -3.3,2.2 3.5,-.4 4.9,-1.6 z"></path>
+<path class="ak" data-st="AK" d="m 15.8,572 h 2.4 l .7,.7 -1,1.2 -1.9,.2 -2.5,1.3 -3.7,-.1 2.2,-.9 .3,-1.1 2.5,-.3 z m 8.3,-1.7 1.3,.5 h .9 l .5,1.2 .3,-.6 .9,.2 1.1,1.5 0,.5 -4.2,1.9 -2.4,-.1 -1,-.5 -1.1,.7 -2,0 -1.1,-1.4 4.7,-.5 z m 5.4,-.1 1,.1 .7,.7 v 1 l -1.3,.1 -.9,-1.1 z m 2.5,.3 1.3,-.1 -.1,1 -1.1,.6 z m .3,2.2 3.4,-.1 .2,1.1 -1.3,.1 -.3,-.5 -.8,.6 -.4,-.6 -.9,-.2 z m 166.3,7.6 2.1,.1 -1,1.9 -1.1,-.1 -.4,-.8 .5,-1.3 m -1.1,-2.9 .6,-1.3 -.2,-2.3 2.4,-.5 4.5,4.4 1.3,3.4 1.9,1.6 .3,5.1 -1.4,0 -1.3,-2.3 -3.1,-2.4 h -.6 l 1.1,2.8 1.7,.2 .2,2.1 -.9,.1 -4.1,-4.4 -.1,-.9 1.9,-1 0,-1 -.5,-.8 -1.6,-.6 -1.7,-1.3 1.4,.1 .5,-.4 -.6,-.9 -.6,.5 z m -3.6,-9.1 1.3,.1 2.4,2.5 -.2,.8 -.8,-.1 -.1,1.8 .5,.5 0,1.5 -.8,.3 -.4,1.2 -.8,-.4 -.4,-2.2 1.1,-1.4 -2.1,-2.2 .1,-1.2 z m 1.5,-1.5 1.9,.2 2.5,.1 3.4,3.2 -.2,.5 -1.1,.6 -1.1,-.2 -.1,-.7 -1.2,-1.6 -.3,.7 1,1.3 -.2,1.2 -.8,-.1 -1.3,.2 -.1,-1.7 -2.6,-2.8 z m -12.7,-8.9 .9,-.4 h 1.6 l .7,-.5 4.1,2.2 .1,1.5 -.5,.5 h -.8 l -1.4,-.7 1.1,1.3 1.8,0 .5,2 -.9,0 -2.2,-1.5 -1.1,-.2 .6,1.3 .1,.9 .8,-.6 1.7,1.2 1.3,-.1 -.2,.8 1.9,4.3 0,3.4 .4,2.1 -.8,.3 -1.2,-2 -.5,-1.5 -1.6,-1.6 -.2,-2.7 -.6,-1.7 h -.7 l .3,1.1 0,.5 -1.4,1 .1,-3.3 -1.6,-1.6 -1.3,-2.3 -1.2,-1.2 z m 7.2,-2.3 1.1,1.8 2.4,-.1 1,2.1 -.6,.6 2,3.2 v 1.3 l -1.2,.8 v .7 l -2,1.9 -.5,-1.4 -.1,-1.3 .6,-.7 v -1.1 l -1.5,-1.9 -.5,-3.7 -.9,-1.5 z m -56.7,-18.3 -4,4.1 v 1.6 l 2.1,-.8 .8,-1.9 2.2,-2.4 z m -31.6,16.6 0,.6 1.8,1.2 .2,-1.4 .6,.9 3.5,.1 .7,-.6 .2,-1.8 -.5,-.7 -1.4,0 0,-.8 .4,-.6 v -.4 l -1.5,-.3 -3.3,3.6 z m -8.1,6.2 1.5,5.8 h 2.1 l 2.4,-2.5 .3,1.2 6.3,-4 .7,-1 -1,-1.1 v -.7 l .5,-1.3 -.9,-.1 -2,1 0,-1.2 -2.7,-.6 -2.4,.3 -.2,3.4 -.8,-2 -1.5,-.1 -1,.6 z m -2.2,8.2 .1,-.7 2.1,-1.3 .6,.3 1.3,.2 1.3,1.2 -2.2,-.2 -.4,-.6 -1,.6 z m -5.2,3.3 -1.1,.8 1.5,1.4 .8,-.7 -.1,-1.3 z m -6.3,-7.9 1.4,.1 .4,.6 -1.8,.1 z m -13.9,11.9 v .5 l .7,.1 -.1,-.6 z m -.4,-3.2 -1,1 v .5 l .7,1.1 1,-1 -.7,-.1 z m -2,-.8 -.3,1 -1.3,.1 -.4,.2 0,1.3 -.5,.9 .6,0 .7,-.9 .8,-.1 .9,-1 .2,-1.3 z m -4.4,-2 -.2,1.8 1.4,.8 1.2,-.6 0,-1 1.7,-.3 -.1,-.6 -.9,-.2 -.7,.6 -.9,-.5 z m -4.9,-.1 1,.7 -.3,1.2 -1.4,-1.1 z m -4.2,1.3 1.4,.1 -.7,.8 z m -3.5,3 1.8,1.1 -1.7,.1 z m -25.4,-31.2 1.2,.6 -.8,.6 z m -.7,-6.3 .4,1.2 .8,-1.2 z m 24.3,-19.3 1.5,-.1 .9,.4 1.1,-.5 1.3,-.1 1.6,.8 .8,1.9 -.1,.9 -1.2,2 -2.4,-.2 -2.1,-1.8 -1,-.4 -1.1,-2 z m -21.1,-14.4 .1,1.9 2,2 v .5 l -.8,-.2 -1.7,-.8 -.3,-1.1 -.3,-1.6 z m 18.3,-23.3 v 1.2 l 1.9,1.8 h 2.3 l .6,1.1 v 1.6 l 2.1,1.9 1.8,1.2 -.1,.7 -.7,1.1 -1.4,-1.2 -2.1,.1 -.8,-.8 -.9,-2.1 -1.5,-2.2 -2.6,-.1 -1,-.7 1,-2.1 z m 16.8,-4.5 1,0 .1,1.1 h -1 z m 16.2,19.7 .9,.1 0,1.2 -1.7,-.5 z m 127.8,77.7 -1.2,.4 -.1,1.1 h 1.2 z m -157.6,-4.5 -1.3,-.4 -4.1,.6 -2.8,1.4 -.1,1.9 1.9,.7 1.5,-.9 1.7,-.1 4.7,1.4 .1,-1.3 -1.6,-1.1 z m 2.1,2.3 -.4,-1.4 1.2,.2 .1,1.4 1.8,0 .4,-2.5 .3,2.4 2.5,-.1 3.2,-3.3 .8,.1 -.7,1.3 1.4,.9 4.2,-.2 2.6,-1.2 1.4,-.1 .3,1.5 .6,-.5 .4,-1.4 5.9,.2 1.9,-1.6 -1.3,-1.1 .6,-1.2 2.6,.2 -.2,-1.2 2.5,.2 .7,-1.1 1.1,.2 4.6,-1.9 .2,-1.7 5.6,-2.4 2,-1.9 1.2,-.6 1.3,.8 2.3,-.9 1.1,-1.9 .5,-1.3 1.7,-.9 1.5,-.7 .4,-1.4 -1.1,-1.7 -2.2,-.2 -.2,-1.3 .8,-1.6 1.4,-.2 1.3,-1.5 1.9,-.1 3.4,-3.2 .4,-1.4 1.5,-2.3 3.8,-4.1 2.5,-.9 1.9,-.9 2.1,.8 1.4,2.6 -1.5,0 -1.4,-1.5 -3,2 -1.7,.1 -.2,3.1 -3.1,4.9 .6,2 2.3,0 -.6,1 -1.4,.1 -2.4,1.8 0,.9 1.9,1 3.4,-.6 1.4,-1.7 1.4,.1 3,-1.7 .5,-2.3 1.6,-.1 6.3,.8 1,-1.1 1,-4.5 -1.6,1.1 .6,-2.2 -1.6,-1.4 .8,-1.5 .1,1.5 3.4,0 .7,-1 1.6,-.1 -.3,1.7 1.9,.1 -1.9,1.3 4.1,1.1 -3.5,.4 -1.3,1.2 .9,1.4 4.6,-1.7 2.3,1.7 .7,-.9 .6,1.4 4,2.3 h 2.9 l 3.9,-.5 4.3,1.1 2,1.9 4.5,.4 1.8,-1.5 .8,2.4 -1.8,.7 1.2,1.2 7.4,3.8 1.4,2.5 5.4,4.1 3.3,-2 -.6,-2.2 -3.5,-2 3.1,1.2 .5,-.7 .9,1.3 0,2.7 2.1,-.6 2.1,1.8 -2.5,-9.8 1.2,1.3 1.4,6 2.2,2.5 2.4,-.4 1.8,3.5 h .9 l .6,5.6 3.4,.5 1.6,2.2 1.8,1.1 .4,2.8 -1.8,2.6 2.9,1.6 1.2,-2.4 -.2,3.1 -.8,.9 1.4,1.7 .7,-2.4 -.2,-1.2 .8,.2 .6,2.3 -1,1.4 .6,2.6 .5,.4 .3,-1.6 .7,.6 -.3,2 1.2,.2 -.4,.9 1.7,-.1 0,-1 h -1 l .1,-1.7 -.8,-.6 1.7,-.3 .5,-.8 0,-1.6 .5,1.3 -.6,1.8 1.2,3.9 1.8,.1 2.2,-4.2 .1,-1.9 -1.3,-4 -.1,-1.2 .5,-1.2 -.7,-.7 -1.7,.1 -2.5,-2 -1.7,0 -2,-1.4 -1.5,0 -.5,-1.6 -1.4,-.3 -.2,-1.5 -1,-.5 .1,-1.7 -5.1,-7.4 -1.8,-1.5 v -1.2 l -4.3,-3.5 -.7,-1.1 -1.6,-2 -1.9,-.6 0,-2.2 -1.2,-1.3 -1.7,-.7 -2.1,1.3 -1.6,2.1 -.4,2.4 -1.5,.1 -2.5,2.7 -.8,-.3 v -2.5 l -2.4,-2.2 -2.3,-2 -.5,-2 -2.5,-1.3 .2,-2.2 -2.8,-.1 -.7,1.1 -1.2,0 -.7,-.7 -1.2,.8 -1.8,-1.2 0,-85.8 -6.9,-4.1 -1.8,-.5 -2.2,1.1 -2.2,.1 -2.3,-1.6 -4.3,-.6 -5.8,-3.6 -5.7,-.4 -2,.5 -.2,-1.8 -1.8,-.7 1.1,-1 -.2,-.9 -3.2,-1.1 h -2.4 l -.4,.4 -.9,-.6 .1,-2.6 -.8,-.9 -2.5,2.9 -.8,-.1 v -.8 l 1.7,-.8 v -.8 l -1.9,-2.4 -1.1,-.1 -4.5,3.1 h -3.9 l .4,-.9 -1.8,-.1 -5.2,3.4 -1.8,0 -.6,-.8 -2.7,1.5 -3.6,3.7 -2.8,2.7 -1.5,1.2  -2.6,.1 -2.2,-.4 -2.3,-1.3 v 0 l -2.8,3.9 -.1,2.4 2.6,2.4 2.1,4.5 .2,5.3 2.9,2 3.4,.4 .7,.8 -1.5,2.3 .7,2.7 -1.7,-2.6 v -2.4 l -1.5,-.3 .1,1.2 .7,2.1 2.9,3.7 h -1.4 l -2.2,1.1 -6.2,-2.5 -.1,-2 1.4,-1.3 0,-1.4 -2.1,-.5 -2.3,.2 -4.8,.2 1.5,2.3 -1.9,-1.8 -8.4,1.2 -.8,1.5 4.9,4.7 -.8,1.4 -.3,2 -.7,.8 -.1,1.9 4.4,3.6 4.1,.2 4.6,1.9 h 2 l .8,-.6 3.8,.1 .1,-.8 1.2,1.1 .1,2 -2.5,-.1 .1,3.3 .5,3.2 -2.9,2.7 -1.9,-.1 -2,-.8 -1,.1 -3.1,2.1 -1.7,.2 -1.4,-2.8 -3.1,0 -2.2,2 -.5,1.8 -3.3,1.8 -5.3,4.3 -.3,3.1 .7,2.2 1,1.2 1,-.4 .9,1 -.8,.6 -1.5,.9 1.1,1.5 -2.6,1.1 .8,2.2 1.7,2.3 .8,4.1 4,1.5 2.6,-.8 1.7,-1.1 .5,2.1 .3,4.4 -1.9,1.4 0,4.4 -.6,.9 h -1.7 l 1.7,1.2 2.1,-.1 .4,-1 4.6,-.6 2,2.6 1.3,-.7 1.3,5.1 1,.5 1,-.7 .1,-2.4 .9,-1 .7,1.1 .2,1.6 1.6,.4 4.7,-1.2 .2,1.2 -2,1.1 -1.6,1.7 -2.8,7 -4.3,2 -1.4,1.5 -.3,1.4 -1,-.6 -9.3,3.3 -1.8,4.1 -1.3,-.4 .5,-1.1 -1.5,-1.4 -3.5,-.2 -5.3,3.2 -2.2,1.3 -2.3,0 -.5,2.4 z"></path>
+<path class="az" data-st="AZ" d="m 139.6,387.6 3,-2.2 .8,-2.4 -1,-1.6 -1.8,-.2 -1.1,-1.6 1.1,-6.9 1.6,-.3 2.4,-3.2 1.6,-7 2.4,-3.6 4.8,-1.7 1.3,-1.3 -.4,-1.9 -2.3,-2.5 -1.2,-5.8 -1.4,-1.8 -1.3,-3.4 .9,-2.1 1.4,-3 .5,-2.9 -.5,-4.9 1,-13.6 3.5,-.6 3.7,1.4 1.2,2.7 h 2 l 2.4,-2.9 3.4,-17.5 46.2,8.2 40,6 -17.4,124.1 -37.3,-5.4 -64.2,-37.5 .5,-2.9 2,-1.8 z"></path>
+<path class="ar" data-st="AR" d="m 584.2,367 .9,-2.2 1.2,.5 .7,-1 -.8,-.7 .3,-1.5 -1.1,-.9 .6,-1 -.1,-1.5 -1.1,-.1 .8,-.8 1.3,.8 .3,-1.4 -.4,-1.1 .1,-.7 2,.6 -.4,-1.5 1.6,-1.3 -.5,-.9 -1.1,.1 -.6,-.9 .9,-.9 1.6,-.2 .5,-.8 1.4,-.2 -.1,-.8 -.9,-.9 v -.5 h 1.5 l .4,-.7 -1.4,-1 -.1,-.6 -11.2,.8 2.8,-5.1 1.7,-1.5 v -2.2 l -1.6,-2.5 -39.8,2 -39.1,.7 4.1,24.4 -.7,39 2.6,2.3 2.8,-1.3 3.2,.8 .2,11.9 52.3,-1.3 1.2,-1.5 .5,-3 -1.5,-2.3 -.5,-2.2 .9,-.7 v -.8 l -1.7,-1.1 -.1,-.7 1.6,-.9 -1.2,-1.1 1.7,-7.1 3.4,-1.6 v -.8 l -1.1,-1.4 2.9,-5.4 h 1.9 l 1.5,-1.2 -.3,-5.2 3.1,-4.5 1.8,-.6 -.5,-3.1 z"></path>
+<path class="ca" data-st="CA" d="m 69.4,365.6 3.4,5.2 -1.4,.1 -1.8,-1.9 z m 1.9,-9.8 1.8,4.1 2.6,1 .7,-.6 -1.3,-2.5 -2.6,-2.4 z m -19.9,-19 v 2.4 l 2,1.2 4.4,-.2 1,-1 -3.1,-.2 z m -5.9,.1 3.3,.5 1.4,2.2 h -3.8 z m 47.9,45.5 -1,-3 .2,-3 -.4,-7.9 -1.8,-4.8 -1.2,-1.4 -.6,-1.5 -7,-8.6 -3.6,.1 -2,-1.9 1.1,-1.8 -.7,-3.7 -2.2,-1.2 -3.9,-.6 -2.8,-1.3 -1.5,-1.9 -4.5,-6.6 -2.7,-2.2 -3.7,-.5 -3.1,-2.3 -4.7,-1.5 -2.8,-.3 -2.5,-2.5 .2,-2.8 .8,-4.8 1.8,-5.1 -1.4,-1.6 -4,-9.4 -2.7,-3.7 -.4,-3 -1.6,-2.3 .2,-2.5 -2,-5 -2.9,-2.7 .6,-7.1 2.4,-.8 1.8,-3.1 -.4,-3.2 -1,-.9 h -2.5 l -2.5,-3.3 -1.5,-3.5 v -7.5 l 1.2,-4.2 .2,-2.1 2.5,.2 -.1,1.6 -.8,.7 v 2.5 l 3.7,3.2 v -4.7 l -1.4,-3.4 .5,-1.1 -1,-1.7 2.8,-1.5 -1.9,-3 -1.4,.5 -1.5,3.8 .5,1.3 -.8,1 -.9,-.1 -5.4,-6.1 .7,-5.6 -1.1,-3.9 -6.5,-12.8 .8,-10.7 2.3,-3.6 .2,-6.4 -5.5,-11.1 .3,-5.2 6.9,-7.5 1.7,-2.4 -.1,-1.4 4,-9.2 .1,-8.4 .9,-2.5 66.1,18.6 -16.4,63.1 1.1,3.5 70.4,105 -.9,2.1 1.3,3.4 1.4,1.8 1.2,5.8 2.3,2.5 .4,1.9 -1.3,1.3 -4.8,1.7 -2.4,3.6 -1.6,7 -2.4,3.2 -1.6,.3 -1.1,6.9 1.1,1.6 1.8,.2 1,1.6 -.8,2.4 -3,2.2 -2.2,-.1 z"></path>
+<path class="co" data-st="CO" d="m 374.6,323.3 -16.5,-1 -51.7,-4.8 -52.6,-6.5 11.5,-88.3 44.9,5.7 37.5,3.4 33.1,2.4 -1.4,22.1 z"></path>
+<path class="ct" data-st="CT" d="m 873.5,178.9 .4,-1.1 -3.2,-12.3 -.1,-.3 -14.9,3.4 v .7 l -.9,.3 -.5,-.7 -10.5,2.4 2.8,16.3 1.8,1.5 -3.5,3.4 1.7,2.2 5.4,-4.5 1.7,-1.3 h .8 l 2.4,-3.1 1.4,.1 2.9,-1.1 h 2.1 l 5.3,-2.7 2.8,-.9 1,-1 1.5,.5 z"></path>
+<path class="de" data-st="DE" d="m 822.2,226.6 -1.6,.3 -1.5,1.1 -1.2,2.1 7.6,27.1 10.9,-2.3 -2.2,-7.6 -1.1,.5 -3.3,-2.6 -.5,-1.7 -1.8,-1 -.2,-3.7 -2.1,-2.2 -1.1,-.8 -1.2,-1.1 -.4,-3.2 .3,-2.1 1,-2.2 z"></path>
+<path class="fl" data-st="FL" d="m 751.7,445.1 -4,-.7 -1.7,-.9 -2.2,1.4 v 2.5 l 1.4,2.1 -.5,4.3 -2.1,.6 -1,-1.1 -.6,-3.2 -50.1,3.3 -3.3,-6 -48.8,5.1 -.5,2.9 2.5,2.8 1.7,.7 .9,1.2 -.4,7.3 -1.1,.6 .5,.4 1,-.3 .7,-.8 10.5,-2.7 9.2,-.5 8.1,1.9 8.5,5 2.4,.8 2.2,2 -.1,2.7 h 2.4 l 1.9,-1 2.5,.1 2,-.8 2.9,-2 3.1,-2.9 1.1,-.4 .6,.5 h 1.4 l .5,-.8 -.5,-1.2 -.6,-.6 .2,-.8 2,-1.1 5,-.4 .8,1 1,.1 2.3,1 3,1.8 1.2,1.7 1.1,1.2 2.8,1.4 v 2.4 l 2.8,1.9 1,.1 1.6,1.4 .7,1.6 1,.2 .8,2.1 .7,.6 1,-1.1 2.9,.1 .5,1.4 1.1,.9 v 1.3 l 2.9,2.2 .2,9.6 -1.8,5.8 1,1.2 -.2,3.4 -.8,1.4 .7,1.2 2.3,2.3 .3,1.5 .8,1 -.4,-1.9 1.3,-.6 .8,-3.6 -3,-1.2 .1,-.6 2.6,-.4 .9,2.6 1.1,.6 .1,-2 1.1,.3 .6,.8 -.1,.7 -2.9,4.2 -.2,1.1 -1.7,1.9 v 1.1 l 3.7,3.8 5.3,7.9 1.8,2.1 v 1.8 l 2.8,4.6 2.3,.6 .7,-1.2 -2.1,.3 -3,-4.5 .2,-1.4 1.5,-.8 v -1.5 l -.6,-1.3 .9,-.9 .4,.9 .7,.5 v 4 l -1.2,-.6 -.8,.9 1.4,1.6 1,2.6 1.2,-.6 2.3,1.2 2.1,2.2 1.6,5.1 3.1,4.8 .8,-1.3 2.8,-.5 3.2,1.3 .3,1.7 3.3,3.8 .1,1.1 2.2,2.7 -.7,.5 v 2.7 l 2.7,1.4 h 1.5 l 2.7,-1.8 1.5,.3 1.1,.4 2.3,-1.7 .2,-.7 1.2,.3 2.4,-1.7 1.3,-2.3 -.7,-3.2 -.2,-1.3 1.1,-4 .6,-.2 .6,1.6 .8,-1.8 -.8,-7.2 -.4,-10.5 -1,-6.8 -.7,-1.7 -6.6,-11.1 -5.2,-9.1 -2.2,-3.3 -1.3,-3.6 -.2,-3.4 .9,-.3 v -.9 l -1.1,-2.2 -4,-4 -7.6,-9.7 -5.7,-10.4 -4.3,-10.7 -.6,-3.7 -1.2,-1 -.5,-3.8 z m 9.2,134.5 1.7,-.1 -.7,-1 z m 7.3,-1.1 v -.7 l 1.6,-.2 3.7,-3.3 1.5,-.6 2.4,-.9 .3,1.3 1.7,.8 -2.6,1.2 h -2.4 l -3.9,2.5 z m 17.2,-7.6 -3,1.4 -1,1.3 1.1,.1 z m 3.8,-2.9 -1.1,.3 -1.4,2 1.1,-.2 1.5,-1.6 z m 8.3,-15.7 -1.7,5.6 -.8,1 -1,2.6 -1.2,1.6 -.7,1.7 -1.9,2.2 v .9 l 2.7,-2.8 2.4,-3.5 .6,-2 2.1,-4.9 z"></path>
+<path class="ga" data-st="GA" d="m 761.8,414.1 v 1.4 l -4.2,6.2 -1.2,.2 1.5,.5 v 2 l -.9,1.1 -.6,6 -2.3,6.2 .5,2 .7,5.1 -3.6,.3 -4,-.7 -1.7,-.9 -2.2,1.4 v 2.5 l 1.4,2.1 -.5,4.3 -2.1,.6 -1,-1.1 -.6,-3.2 -50.1,3.3 -3.3,-6 -.7,-2.2 -1.5,-1.5 -.5,-1.4 .6,-6.3 -2.4,-5.7 .5,-2.6 .3,-3.7 2.2,-3.8 -.2,-1.1 -1.7,-1 v -3.2 l -1.8,-1.9 -2.9,-6.1 -12.9,-45.8 22.9,-2.9 21.4,-3 -.1,1.9 -1.9,1 -1.4,3.2 .2,1.3 6.1,3.8 2.6,-.3 3.1,4 .4,1.7 4.2,5.1 2.6,1.7 1.4,.2 2.2,1.6 1.1,2.2 2,1.6 1.8,.5 2.7,2.7 .1,1.4 2.6,2.8 5,2.3 3.6,6.7 .3,2.7 3.9,2.1 2.5,4.8 .8,3.1 4.2,.4 z"></path>
+<path class="hi" data-st="HI" d="m 317,553.7 -.2,3.2 1.7,1.9 .1,1.2 -4.8,4.5 -.1,1.2 1.9,3.2 1.7,4.2 v 2.6 l -.5,1.2 .1,3.4 4.1,2.1 1.1,1.1 1.2,-1.1 2.1,-3.6 4.5,-2.9 3.3,-.5 2.5,-1 1.7,-1.2 3.2,-3.5 -2.8,-1.1 -1.4,-1.4 .1,-1.7 -.5,-.6 h -2 l .2,-2.5 -.7,-1.2 -2.6,-2.3 -4.5,-1.9 -2.8,-.2 -3.3,-2.7 -1.2,-.6 z m -15.3,-17 -1.1,1.5 -.1,1.7 2.7,2.4 1.9,.5 .6,1 .4,3 3.6,.2 5.3,-2.6 -.1,-2.5 -1.4,-.5 -3.5,-2.6 -1.8,-.3 -2.9,1.3 -1.5,-2.7 z m -1.5,11.5 .9,-1.4 2.5,-.3 .6,1.8 z m -7,-8.7 1.7,4 3.1,-.6 .3,-2 -1.4,-1.5 z m -4.1,-6.7 -1.1,2.4 h 5 l 4.8,1.6 2.5,-1.6 .2,-1.5 -4.8,.2 z m -16,-10.6 -1.9,2.1 -2.9,.6 .8,2.2 2.2,2.8 .1,1 2.1,-.3 2.3,.1 1.7,1.2 3.5,-.8 v -.7 l -1,-.8 -.5,-2.1 -.8,-.3 -.5,1 -1.2,-1.3 .2,-1.4 -1.8,-3.3 -1.1,-.7 z m -31.8,-12.4 -4.2,2.9 .2,2.3 2.4,1.2 1.9,1.3 2.7,.4 2.6,-2.2 -.2,-1.9 .8,-1.7 v -1.4 l -1,-.9 z m -10.8,4.8 -.3,1.2 -1.9,.9 -.6,1.8 1,.8 1.1,-1.5 1.9,-.6 .4,-2.6 z"></path>
+<path class="id" data-st="ID" d="m 165.3,183.1 -24.4,-5.4 8.5,-37.3 2.9,-5.8 .4,-2.1 .8,-.9 -.9,-2 -2.9,-1.2 .2,-4.2 4,-5.8 2.5,-.8 1.6,-2.3 -.1,-1.6 1.8,-1.6 3.2,-5.5 4.2,-4.8 -.5,-3.2 -3.5,-3.1 -1.6,-3.6 1.1,-4.3 -.7,-4 12.7,-56.1 14.2,3 -4.8,22 3.7,7.4 -1.6,4.8 3.6,4.8 1.9,.7 3.9,8.3 v 2.1 l 2.3,3 h .9 l 1.4,2.1 h 3.2 v 1.6 l -7.1,17 -.5,4.1 1.4,.5 1.6,2.6 2.8,-1.4 3.6,-2.4 1.9,1.9 .5,2.5 -.5,3.2 2.5,9.7 2.6,3.5 2.3,1.4 .4,3 v 4.1 l 2.3,2.3 1.6,-2.3 6.9,1.6 2.1,-1.2 9,1.7 2.8,-3.3 1.8,-.6 1.2,1.8 1.6,4.1 .9,.1 -8.5,54.8 -47.9,-8.2 z"></path>
+<path class="il" data-st="IL" d="m 623.5,265.9 -1,5.2 v 2 l 2.4,3.5 v .7 l -.3,.9 .9,1.9 -.3,2.4 -1.6,1.8 -1.3,4.2 -3.8,5.3 -.1,7 h -1 l .9,1.9 v .9 l -2.2,2.7 .1,1.1 1.5,2.2 -.1,.9 -3.7,.6 -.6,1.2 -1.2,-.6 -1,.5 -.4,3.3 1.7,1.8 -.4,2.4 -1.5,.3 -6.9,-3 -4,3.7 .3,1.8 h -2.8 l -1.4,-1.5 -1.8,-3.8 v -1.9 l .8,-.6 .1,-1.3 -1.7,-1.9 -.9,-2.5 -2.7,-4.1 -4.8,-1.3 -7.4,-7.1 -.4,-2.4 2.8,-7.6 -.4,-1.9 1.2,-1.1 v -1.3 l -2.8,-1.5 -3,-.7 -3.4,1.2 -1.3,-2.3 .6,-1.9 -.7,-2.4 -8.6,-8.4 -2.2,-1.5 -2.5,-5.9 -1.2,-5.4 1.4,-3.7 .7,-.7 .1,-2.3 -.7,-.9 1,-1.5 1.8,-.6 .9,-.3 1,-1.2 v -2.4 l 1.7,-2.4 .5,-.5 .1,-3.5 -.9,-1.4 -1,-.3 -1.1,-1.6 1,-4 3,-.8 h 2.4 l 4.2,-1.8 1.7,-2.2 .1,-2.4 1.1,-1.3 1.3,-3.2 -.1,-2.6 -2.8,-3.5 h -1.2 l -.9,-1.1 .2,-1.6 -1.7,-1.7 -2.5,-1.3 .5,-.6 45.9,-2.8 .1,4.6 3.4,4.6 1.2,4.1 1.6,3.2 z"></path>
+<path class="in" data-st="IN" d="m 629.2,214.8 -5.1,2.3 -4.7,-1.4 4.1,50.2 -1,5.2 v 2 l 2.4,3.5 v .7 l -.3,.9 .9,1.9 -.3,2.4 -1.6,1.8 -1.3,4.2 -3.8,5.3 -.1,7 h -1 l .9,1.9 1.1,.8 .6,-1 -.7,-1.7 4.6,-.5 .2,1.2 1.1,.2 .4,-.9 -.6,-1.3 .3,-.8 1.3,.8 1.7,-.4 1.7,.6 3.4,2.1 1.8,-2.8 3.5,-2.2 3,3.3 1.6,-2.1 .3,-2.7 3.8,-2.3 .2,1.3 1.9,1.2 3,-.2 1.2,-.7 .1,-3.4 2.5,-3.7 4.6,-4.4 -.1,-1.7 1.2,-3.8 2.2,1 6.7,-4.5 -.4,-1.7 -1.5,-2.1 1,-1.9 -6.6,-57.2 -.1,-1.4 -32.4,3.4 z"></path>
+<path class="ia" data-st="IA" d="m 556.9,183 2.1,1.6 .6,1.1 -1.6,3.3 -.1,2.5 2,5.5 2.7,1.5 3.3,.7 1.3,2.8 -.5,.6 2.5,1.3 1.7,1.7 -.2,1.6 .9,1.1 h 1.2 l 2.8,3.5 .1,2.6 -1.3,3.2 -1.1,1.3 -.1,2.4 -1.7,2.2 -4.2,1.8 h -2.4 l -3,.8 -1,4 1.1,1.6 1,.3 .9,1.4 -.1,3.5 -.5,.5 -1.7,2.4 v 2.4 l -1,1.2 -.9,.3 -1.8,.6 -1,1.5 .7,.9 -.1,2.3 -.7,.7 -1.5,-.8 -1.1,-1.1 -.6,-1.6 -1.7,-1.3 -14.3,.8 -27.2,1.2 -25.9,-.1 -1.8,-4.4 .7,-2.2 -.8,-3.3 .2,-2.9 -1.3,-.7 -.4,-6.1 -2.8,-5 -.2,-3.7 -2.2,-4.3 -1.3,-3.7 v -1.4 l -.6,-1.7 v -2.3 l -.5,-.9 -.7,-1.7 -.3,-1.3 -1.3,-1.2 1,-4.3 1.7,-5.1 -.7,-2 -1.3,-.4 -.4,-1.6 1,-.5 .1,-1.1 -1.3,-1.5 .1,-1.6 2.2,.1 h 28.2 l 36.3,-.9 18.6,-.7 z"></path>
+<path class="ks" data-st="KS" d="m 459.1,259.5 -43.7,-1.2 -36,-2 -4.8,67 67.7,2.9 62,.1 -.5,-48.1 -3.2,-.7 -2.6,-4.7 -2.5,-2.5 .5,-2.3 2.7,-2.6 .1,-1.2 -1.5,-2.1 -.9,1 -2,-.6 -2.9,-3 z"></path>
+<path class="ky" data-st="KY" d="m 692.1,322.5 -20.5,1.4 -5.2,.8 -17.4,1 -2.6,.8 -22.6,2 -.7,-.6 h -3.7 l 1.2,3.2 -.6,.9 -23.3,1.5 1,-2.7 1.4,.9 .7,-.4 1.2,-4.1 -1,-1 1,-2 .2,-.9 -1.3,-.8 -.3,-1.8 4,-3.7 6.9,3 1.5,-.3 .4,-2.4 -1.7,-1.8 .4,-3.3 1,-.5 1.2,.6 .6,-1.2 3.7,-.6 .1,-.9 -1.5,-2.2 -.1,-1.1 2.2,-2.7 0,-.9 1.1,.8 .6,-1 -.7,-1.7 4.6,-.5 .2,1.2 1.1,.2 .4,-.9 -.6,-1.3 .3,-.8 1.3,.8 1.7,-.4 1.7,.6 3.4,2.1 1.8,-2.8 3.5,-2.2 3,3.3 1.6,-2.1 .3,-2.7 3.8,-2.3 .2,1.3 1.9,1.2 3,-.2 1.2,-.7 .1,-3.4 2.5,-3.7 4.6,-4.4 -.1,-1.7 1.2,-3.8 2.2,1 6.7,-4.5 -.4,-1.7 -1.5,-2.1 1,-1.9 1.3,.5 2.2,.1 1.9,-.8 2.9,1.2 2.2,3.4 v 1 l 4.1,.7 2.3,-.2 1.9,2.1 2.2,.2 v -1 l 1.9,-.8 3,.8 1.2,.8 1.3,-.7 h .9 l .6,-1.7 3.4,-1.8 .5,.8 .8,2.9 3.5,1.4 1.2,2.1 -.1,1.1 .6,1 -.6,3.6 1.9,1.6 .8,1.1 1,.6 -.1,.9 4.4,5.6 h 1.4 l 1.5,1.8 1.2,.3 1.4,-.1 -4.9,6.6 -2.9,1 -3,3 -.4,2.2 -2.1,1.3 -.1,1.7 -1.4,1.4 -1.8,.5 -.5,1.9 -1,.4 -6.9,4.2 z m -98,11.3 -.7,-.7 .2,-1 h 1.1 l .7,.7 -.3,1 z"></path>
+<path class="la" data-st="LA" d="m 602.5,472.8 -1.2,-1.8 .3,-1.3 -4.8,-6.8 .9,-4.6 1,-1.4 .1,-1.4 -36,2 1.7,-11.9 2.4,-4.8 6,-8.4 -1.8,-2.5 h 2 v -3.3 l -2.4,-2.5 .5,-1.7 -1.2,-1 -1.6,-7.1 .6,-1.4 -52.3,1.3 .5,19.9 .7,3.4 2.6,2.8 .7,5.4 3.8,4.6 .8,4.3 h 1 l -.1,7.3 -3.3,6.4 1.3,2.3 -1.3,1.5 .7,3 -.1,4.3 -2.2,3.5 -.1,.8 -1.7,1.2 1,1.8 1.2,1.1 1.6,-1.3 5.3,-.9 6.1,-.1 9.6,3.8 8,1 1.5,-1.4 1.8,-.2 4.8,2.2 1.6,-.4 1.1,-1.5 -4.2,-1.8 -2.2,1 -1.1,-.2 -1.4,-2 3.3,-2.2 1.6,-.1 v 1.7 l 1.5,-.1 3.4,-.3 .4,2.3 1.1,.4 .6,1.9 4.8,1 1.7,1.6 v .7 h -1.2 l -1.5,1.7 1.7,1.2 5.4,1 2.7,2.8 4.4,-1 -3.7,.2 -.1,-.6 2.8,-.7 .2,-1.8 1.2,-.3 v -1.4 l 1.1,.1 v 1.6 l 2.5,.1 .8,-1.9 .9,.3 .2,2.5 1.2,.2 -1.8,2 2.6,-.9 2,-1.1 2.9,-3.3 h -.7 l -1.3,1.2 -.4,-.1 -.5,-.8 .9,-1.2 v -2.3 l 1.1,-.8 .7,.7 1,-.8 1,-.1 .6,1.3 -.6,1.9 h 2.4 l 5.1,1.7 .5,1.3 1.6,1.4 2.8,.1 1.3,.7 1.8,-1 .9,-1.7 v -1.7 h -1.4 l -1.2,-1.4 -1.1,-1.1 -3.2,-.9 -2.6,.2 -4.2,-2.4 v -2.3 l 1.3,-1 2.4,.6 -3.1,-1.6 .2,-.8 h 3.6 l 2.6,-3.5 -2.6,-1.8 .8,-1.5 -1.2,-.8 h -.8 l -2,2.1 v 2.1 l -.6,.7 -1.1,-.1 -1.6,-1.4 h -1.3 v -1.5 l .6,-.7 .8,.7 1.7,-1.6 .7,-1.6 .8,-.3 z m -10.3,-2.7 1.9,1 .8,1.1 2.5,.1 1.5,.8 .2,1.4 -.4,.6 -.9,-1.5 -1.4,1.2 -.9,1.4 -2.8,.8 -1.6,.1 -3.7,-1 .1,-1.7 2,-2 1.1,-2.4 z m -4.7,1.2 v 1.1 l -1.8,2 h -1.2 v -2.2 l 1.6,-1.5 z"></path>
+<path class="me" data-st="ME" d="m 875,128.7 .6,4 3.2,2 .8,2.2 2.3,1.4 1.4,-.3 1,-3 -.8,-2.9 1.6,-.9 .5,-2.8 -.6,-1.3 3.3,-1.9 -2.2,-2.3 .9,-2.4 1.4,-2.2 .5,3.2 1.6,-2 1.3,.9 1.2,-.8 v -1.7 l 3.2,-1.3 .3,-2.9 2.5,-.2 2.7,-3.7 v -.7 l -.9,-.5 -.1,-3.3 .6,-1.1 .2,1.6 1,-.5 -.2,-3.2 -.9,.3 -.1,1.2 -1.2,-1.4 .9,-1.4 .6,.1 1.1,-.4 .5,2.8 2,-.3 2.9,.7 v -1 l -1.1,-1.2 1.3,.1 .1,-2.3 .6,.8 .3,1.9 2.1,1.5 .2,-1 .9,-.2 -.3,-.8 .8,-.6 -.1,-1.6 -1.6,-.2 -2,.7 1.4,-1.6 .7,-.8 1.3,-.2 .4,1.3 1.7,1.6 .4,-2.1 2.3,-1.2 -.9,-1.3 .1,-1.7 1.1,.5 h .7 l 1.7,-1.4 .4,-2.3 2.2,.3 .1,-.7 .2,-1.6 .5,1.4 1.5,-1 2.3,-4.1 -.1,-2.2 -1.4,-2 -3,-3.2 h -1.9 l -.8,2.2 -2.9,-3 .3,-.8 v -1.5 l -1.6,-4.5 -.8,-.2 -.7,.4 h -4.8 l -.3,-3.6 -8.1,-26 -7.3,-3.7 -2.9,-.1 -6.7,6.6 -2.7,-1 -1,-3.9 h -2.7 l -6.9,19.5 .7,6.2 -1.7,2.4 -.4,4.6 1.3,3.7 .8,.2 v 1.6 l -1.6,4.5 -1.5,1.4 -1.3,2.2 -.4,7.8 -2.4,-1 -1.5,.4 z m 34.6,-24.7 -1,.8 v 1.3 l .7,-.8 .9,.8 .4,-.5 1.1,.2 -1,-.8 .4,-.8 z m -1.7,2.6 -1,1.1 .5,.4 -.1,1 h 1.1 v -1.8 z m -3,-1.6 .9,1.3 1,.5 .3,-1 v -1.8 l -1.3,-.7 -.4,1.2 z m -1,5 -1.7,-1.7 1.6,-2.4 .8,.3 .2,1.1 1,.8 v 1.1 l -1,1 z"></path>
+<path class="md" data-st="MD" d="m 822.9,269.3 0,-1.7 h -.8 l 0,1.8 z m 11.8,-3.9 1.2,-2.2 .1,-2.5 -.6,-.6 -.7,.9 -.2,2.1 -.8,1.4 -.3,1.1 -4.6,1.6 -.7,.8 -1.3,.2 -.4,.9 -1.3,.6 -.3,-2.5 .4,-.7 -.8,-.5 .2,-1.5 -1.6,1 v -2 l 1.2,-.3 -1.9,-.4 -.7,-.8 .4,-1.3 -.8,-.6 -.7,1.6 .5,.8 -.7,.6 -1.1,.5 -2,-1 -.2,-1.2 -1,-1.1 -1.4,-1.7 1.5,-.8 -1,-.6 v -.9 l .6,-1 1.7,-.3 -1.4,-.6 -.1,-.7 -1.3,-.1 -.4,1.1 -.6,.3 .1,-3.4 1,-1 .8,.7 .1,-1.6 -1,-.9 -.9,1.1 -1,1.4 -.6,-1 .2,-2.4 .9,-1 .9,.9 1.2,-.7 -.4,-1.7 -1,1 -.9,-2.1 -.2,-1.7 1.1,-2.4 1.1,-1.4 1.4,-.2 -.5,-.8 .5,-.6 -.3,-.7 .2,-2.1 -1.5,.4 -.8,1.1 1,1.3 -2.6,3.6 -.9,-.4 -.7,.9 -.6,2.2 -1.8,.5 1.3,.6 1.3,1.3 -.2,.7 .9,1.2 -1.1,1 .5,.3 -.5,1.3 v 2.1 l -.5,1.3 .9,1.1 .7,3.4 1.3,1.4 1.6,1.4 .4,2.8 1.6,2 .4,1.4 v 1 h -.7 l -1.5,-1.2 -.4,.2 -1.2,-.2 -1.7,-1.4 -1.4,-.3 -1,.5 -1.2,-.3 -.4,.2 -1.7,-.8 -1,-1 -1,-1.3 -.6,-.2 -.8,.7 -1.6,1.3 -1.1,-.8 -.4,-2.3 .8,-2.1 -.3,-.5 .3,-.4 -.7,-1 1,-.1 1,-.9 .4,-1.8 1.7,-2.6 -2.6,-1.8 -1,1.7 -.6,-.6 h -1 l -.6,-.1 -.4,-.4 .1,-.5 -1.7,-.6 -.8,.3 -1.2,-.1 -.7,-.7 -.5,-.2 -.2,-.7 .6,-.8 v -.9 l -1.2,-.2 -1,-.9 -.9,.1 -1.6,-.3 -.9,-.4 .2,-1.6 -1,-.5 -.2,-.7 h -.7 l -.8,-1.2 .2,-1 -2.6,.4 -2.2,-1.6 -1.4,.3 -.9,1.4 h -1.3 l -1.7,2.9 -3.3,.4 -1.9,-1 -2.6,3.8 -2.2,-.3 -3.1,3.9 -.9,1.6 -1.8,1.6 -1.7,-11.4 60.5,-11.8 7.6,27.1 10.9,-2.3 0,5.3 -.1,3.1 -1,1.8 z m -13.4,-1.8 -1.3,.9 .8,1.8 1.7,.8 -.4,-1.6 z"></path>
+<path class="ma" data-st="MA" d="m 899.9,174.2 h 3.4 l .9,-.6 .1,-1.3 -1.9,-1.8 .4,1 -1.5,1.5 h -2.3 l .1,.8 z m -9,1.8 -1.2,-.6 1,-.8 .6,-2.1 1.2,-1 .8,-.2 .6,.9 1.1,.2 .6,-.6 .5,1.9 -1.3,.3 -2.8,.7 z m -34.9,-23.4 18.4,-3.8 1,-1.5 .3,-1.7 1.9,-.6 .5,-1.1 1.7,-1.1 1.3,.3 1.7,3.3 1,.4 1.1,-1.3 .8,1.3 v 1.1 l -3,2.4 .2,.8 -.9,1 .4,.8 -1.3,.3 .9,1.2 -.8,.7 .6,1 .9,-.2 .3,-.8 1.1,.6 h 1.8 l 2.5,2.6 .2,2.6 1.8,.1 .8,1.1 .6,2 1,.7 h 1.9 l 1.9,-.1 .8,-.9 1.6,-1.2 1.1,-.3 -1.2,-2.1 -.3,.9 -1.5,-3.6 h -.8 l -.4,.9 -1.2,-1 1.3,-1.1 1.8,.4 2.3,2.1 1.3,2.7 1.2,3.3 -1,2.8 v -1.8 l -.7,-1 -3.5,2.3 -.9,-.3 -1.6,1 -.1,1.2 -2.2,1.2 -2,2.1 -2,1.9 h -1.2 l 3.3,-3.3 .5,-1.9 -.5,-.6 -.3,-1.3 -.9,-.1 -.1,1.3 -1,1.2 h -1.2 l -.3,1.1 .4,1.2 -1.2,1.1 -1.1,-.2 -.4,1 -1.4,-3 -1.3,-1.1 -2.6,-1.3 -.6,-2.2 h -.8 l -.7,-2.6 -6.5,2 -.1,-.3 -14.9,3.4 v .7 l -.9,.3 -.5,-.7 -10.5,2.4 -.7,-1 .5,-15 z"></path>
+<path class="mi" data-st="MI" d="m 663.3,209.8 .1,1.4 21.4,-3.5 .5,-1.2 3.9,-5.9 v -4.3 l .8,-2.1 2.2,-.8 2,-7.8 1,-.5 1,.6 -.2,.6 -1.1,.8 .3,.9 .8,.4 1.9,-1.4 .4,-9.8 -1.6,-2.3 -1.2,-3.7 v -2.5 l -2.3,-4.4 v -1.8 l -1.2,-3.3 -2.3,-3 -2.9,-1 -4.8,3 -2.5,4.6 -.2,.9 -3,3.5 -1.5,-.2 -2.9,-2.8 -.1,-3.4 1.5,-1.9 2,-.2 1.2,-1.7 .2,-4 .8,-.8 1.1,-.1 .9,-1.7 -.2,-9.6 -.3,-1.3 -1.2,-1.2 -1.7,-1 -.1,-1.8 .7,-.6 1.8,.8 -.3,-1.7 -1.9,-2.7 -.7,-1.6 -1.1,-1.1 h -2.2 l -8.1,-2.9 -1.4,-1.7 -3.1,-.3 -1.2,.3 -4.4,-2.3 h -1.4 l .5,1 -2.7,-.1 .1,.6 .6,.6 -2.5,2.1 .1,1.8 1.5,2.3 1.5,.2 v .6 l -1.5,.5 -2.1,-.1 -2.8,2.5 .1,2.5 .4,5.8 -2.2,3.4 .8,-4.5 -.8,-.6 -.9,5.3 -1,-2.3 .5,-2.3 -.5,-1 .6,-1.3 -.6,-1.1 1,-1 v -1.2 l -1.3,.6 -1.3,3.1 -.7,.7 -1.3,2.4 -1.7,-.2 -.1,1.2 h -1.6 l .2,1.5 .2,2 -3,1.2 .1,1.3 1,1.7 -.1,5.2 -1.3,4.4 -1.7,2.5 1.2,1.4 .8,3.5 -1,2.5 -.2,2.1 1.7,3.4 2.5,4.9 1.2,1.9 1.6,6.9 -.1,8.8 -.9,3.9 -2,3.2 -.9,3.7 -2,3 -1.2,1 z m -95.8,-96.8 3,3.8 17,3.8 1.4,1 4,.8 .7,.5 2.8,-.2 4.9,.8 1.4,1.5 -1,1 .8,.8 3.8,.7 1.2,1.2 .1,4.4 -1.3,2.8 2,.1 1,-.8 .9,.8 -1.1,3.1 1,1.6 1.2,.3 .8,-1.8 2.9,-4.6 1.6,-6 2.3,-2 -.5,-1.6 .5,-.9 1,1.6 -.3,2.2 2.9,-2.2 .2,-2.3 2.1,.6 .8,-1.6 .7,.6 -.7,1.5 -1,.5 -1,2 1.4,1.8 1.1,-.5 -.5,-.7 1,-1.5 1.9,-1.7 h .8 l .2,-2.6 2,-1.8 7.9,-.5 1.9,-3.1 3.8,-.3 3.8,1.2 4.2,2.7 .7,-.2 -.2,-3.5 .7,-.2 4.5,1.1 1.5,-.2 2.9,-.7 1.7,.4 1.8,.1 v -1.1 l -.7,-.9 -1.5,-.2 -1.1,-.8 .5,-1.4 -.8,-.3 -2.6,.1 -.1,-1 1.1,-.8 .6,.8 .5,-1.8 -.7,-.7 .7,-.2 -1.4,-1.3 .3,-1.3 .1,-1.9 h -1.3 l -1.5,1 -1.9,.1 -.5,1.8 -1.9,.2 -.3,-1.2 -2.2,.1 -1,1.2 -.7,-.1 -.2,-.8 -2.6,.4 -.1,-4.8 1,-2 -.7,-.1 -1.8,1.1 h -2.2 l -3.8,2.7 -6.2,.3 -4.1,.8 -1.9,1.5 -1.4,1.3 -2.5,1.7 -.3,.8 -.6,-1.7 -1.3,-.6 v .6 l .7,.7 v 1.3 l -1.5,-.6 h -.6 l -.3,1.2 -2,-1.9 -1.3,-.2 -1.3,1.5 -3.2,-.1 -.5,-1.4 -2,-1.9 -1.3,-1.6 v -.7 l -1.1,-1.4 -2.6,-1.2 -3.3,-.1 -1.1,-.9 h -1.4 l -.7,.4 -2.2,2.2 -.7,1.1 -1,-.7 .2,-1 .8,-2.1 3.2,-5 .8,-.2 1.7,-1.9 .7,-1.6 3,-.6 .8,-.6 -.1,-1 -.5,-.5 -4.5,.2 -2,.5 -2.6,1.2 -1.2,1.2 -1.7,2.2 -1.8,1 -3.3,3.4 -.4,1.6 -7.4,4.6 -4,.5 -1.8,.4 -2.3,3 -1.8,.7 -4.4,2.3 z m 100.7,3.8 3.8,.1 .6,-.5 -.2,-2 -1.7,-1.8 -1.9,.1 -.1,.5 1.1,.4 -1.6,.8 -.3,1 -.6,-.6 -.4,.8 z m -75.1,-41.9 -2.3,.2 -2.7,1.9 -7.1,5.3 .8,1 1.8,.3 2.8,-2 -1.1,-.5 2.3,-1.6 h 1 l 3,-1.9 -.1,-.9 z m 41.1,62.8 v 1 l 2.1,1.6 -.2,-2.4 z m -.7,2.8 1.1,.1 v .9 h -1 z m 21.4,-21.3 v .9 l .8,-.2 v -.5 z m 4.7,3.1 -.1,-1.1 -1.6,-.2 -.6,-.4 h -.9 l -.4,.3 .9,.4 1.1,1.1 z m -18,1.2 -.1,1.1 -.3,.7 .2,2.2 .4,.3 .7,.1 .5,-.9 .1,-1.6 -.3,-.6 -.1,-1.1 z"></path>
+<path class="mn" data-st="MN" d="m 464.7,68.6 -1.1,2.8 .8,1.4 -.3,5.1 -.5,1.1 2.7,9.1 1.3,2.5 .7,14 1,2.7 -.4,5.8 2.9,7.4 .3,5.8 -.1,2.1 -.1,2.2 -.9,2 -3.1,1.9 -.3,1.2 1.7,2.5 .4,1.8 2.6,.6 1.5,1.9 -.2,39.5 h 28.2 l 36.3,-.9 18.6,-.7 -1.1,-4.5 -.2,-3 -2.2,-3 -2.8,-.7 -5.2,-3.6 -.6,-3.3 -6.3,-3.1 -.2,-1.3 h -3.3 l -2.2,-2.6 -2,-1.3 .7,-5.1 -.9,-1.6 .5,-5.4 1,-1.8 -.3,-2.7 -1.2,-1.3 -1.8,-.3 v -1.7 l 2.8,-5.8 5.9,-3.9 -.4,-13 .9,.4 .6,-.5 .1,-1.1 .9,-.6 1.4,1.2 .7,-.1 v 0 l -1.2,-2.2 4.3,-3.1 3.1,-3.7 1.6,-.8 4.7,-5.9 6.3,-5.8 3.9,-2.1 6.3,-2.7 7.6,-4.5 -.6,-.4 -3.7,.7 -2.8,.1 -1,-1.6 -1.4,-.9 -9.8,1.2 -1,-2.8 -1.6,-.1 -1.7,.8 -3.7,3.1 h -4.1 l -2.1,-1 -.3,-1.7 -3.9,-.8 -.6,-1.6 -.7,-1.3 -1,.9 -2.6,.1 -9.9,-5.5 h -2.9 l -.8,-.7 -3.1,1.3 -.8,1.3 -3.3,.8 -1.3,-.2 v -1.7 l -.7,-.9 h -5.9 l -.4,-1.4 h -2.6 l -1.1,.4 -2.4,-1.7 .3,-1.4 -.6,-2.4 -.7,-1.1 -.2,-3 -1,-3.1 -2.1,-1.6 h -2.9 l .1,8 -30.9,-.4 z"></path>
+<path class="ms" data-st="MS" d="m 623.8,468.6 -5,.1 -2.4,-1.5 -7.9,2.5 -.9,-.7 -.5,.2 -.1,1.6 -.6,.1 -2.6,2.7 -.7,-.1 -.6,-.7 -1.2,-1.8 .3,-1.3 -4.8,-6.8 .9,-4.6 1,-1.4 .1,-1.4 -36,2 1.7,-11.9 2.4,-4.8 6,-8.4 -1.8,-2.5 h 2 v -3.3 l -2.4,-2.5 .5,-1.7 -1.2,-1 -1.6,-7.1 .6,-1.4 1.2,-1.5 .5,-3 -1.5,-2.3 -.5,-2.2 .9,-.7 v -.8 l -1.7,-1.1 -.1,-.7 1.6,-.9 -1.2,-1.1 1.7,-7.1 3.4,-1.6 v -.8 l -1.1,-1.4 2.9,-5.4 h 1.9 l 1.5,-1.2 -.3,-5.2 3.1,-4.5 1.8,-.6 -.5,-3.1 38.3,-2.6 1.3,2 -1.3,67 4.4,33.2 z"></path>
+<path class="mo" data-st="MO" d="m 555.3,248.9 -1.1,-1.1 -.6,-1.6 -1.7,-1.3 -14.3,.8 -27.2,1.2 -25.9,-.1 1.3,1.3 -.3,1.4 2.1,3.7 3.9,6.3 2.9,3 2,.6 .9,-1 1.5,2.1 -.1,1.2 -2.7,2.6 -.5,2.3 2.5,2.5 2.6,4.7 3.2,.7 .5,48.1 .2,10.8 39.1,-.7 39.8,-2 1.6,2.5 v 2.2 l -1.7,1.5 -2.8,5.1 11.2,-.8 1,-2 1.2,-.5 v -.7 l -1.2,-1.1 -.6,-1 1.7,.2 .8,-.7 -1.4,-1.5 1.4,-.5 .1,-1 -.6,-1 v -1.3 l -.7,-.7 .2,-1 h 1.1 l .7,.7 -.3,1 .8,.7 .8,-1 1,-2.7 1.4,.9 .7,-.4 1.2,-4.1 -1,-1 1,-2 .2,-.9 -1.3,-.8 h -2.8 l -1.4,-1.5 -1.8,-3.8 v -1.9 l .8,-.6 .1,-1.3 -1.7,-1.9 -.9,-2.5 -2.7,-4.1 -4.8,-1.3 -7.4,-7.1 -.4,-2.4 2.8,-7.6 -.4,-1.9 1.2,-1.1 v -1.3 l -2.8,-1.5 -3,-.7 -3.4,1.2 -1.3,-2.3 .6,-1.9 -.7,-2.4 -8.6,-8.4 -2.2,-1.5 -2.5,-5.9 -1.2,-5.4 1.4,-3.7 z"></path>
+<path class="mt" data-st="MT" d="m 247,130.5 57.3,7.9 51,5.3 2,-20.7 5.2,-66.7 -53.5,-5.6 -54.3,-7.7 -65.9,-12.5 -4.8,22 3.7,7.4 -1.6,4.8 3.6,4.8 1.9,.7 3.9,8.3 v 2.1 l 2.3,3 h .9 l 1.4,2.1 h 3.2 v 1.6 l -7.1,17 -.5,4.1 1.4,.5 1.6,2.6 2.8,-1.4 3.6,-2.4 1.9,1.9 .5,2.5 -.5,3.2 2.5,9.7 2.6,3.5 2.3,1.4 .4,3 v 4.1 l 2.3,2.3 1.6,-2.3 6.9,1.6 2.1,-1.2 9,1.7 2.8,-3.3 1.8,-.6 1.2,1.8 1.6,4.1 .9,.1 z"></path>
+<path class="ne" data-st="NE" d="m 402.5,191.1 38,1.6 3.4,3.2 1.7,.2 2.1,2 1.8,-.1 1.8,-2 1.5,.6 1,-.7 .7,.5 .9,-.4 .7,.4 .9,-.4 1,.5 1.4,-.6 2,.6 .6,1.1 6.1,2.2 1.2,1.3 .9,2.6 1.8,.7 1.5,-.2 .5,.9 v 2.3 l .6,1.7 v 1.4 l 1.3,3.7 2.2,4.3 .2,3.7 2.8,5 .4,6.1 1.3,.7 -.2,2.9 .8,3.3 -.7,2.2 1.8,4.4 1.3,1.3 -.3,1.4 2.1,3.7 3.9,6.3 h -32.4 l -43.7,-1.2 -36,-2 1.4,-22.1 -33.1,-2.4 3.7,-44.2 z"></path>
+<path class="nv" data-st="NV" d="m 167.6,296.8 -3.4,17.5 -2.4,2.9 h -2 l -1.2,-2.7 -3.7,-1.4 -3.5,.6 -1,13.6 .5,4.9 -.5,2.9 -1.4,3 -70.4,-105 -1.1,-3.5 16.4,-63.1 47,11.2 24.4,5.4 23.3,4.7 z"></path>
+<path class="nh" data-st="NH" d="m 862.6,93.6 -1.3,.1 -1,-1.1 -1.9,1.4 -.5,6.1 1.2,2.3 -1.1,3.5 2.1,2.8 -.4,1.7 .1,1.3 -1.1,2.1 -1.4,.4 -.6,1.3 -2.1,1 -.7,1.5 1.4,3.4 -.5,2.5 .5,1.5 -1,1.9 .4,1.9 -1.3,1.9 .2,2.2 -.7,1.1 .7,4.5 .7,1.5 -.5,2.6 .9,1.8 -.2,2.5 -.5,1.3 -.1,1.4 2.1,2.6 18.4,-3.8 1,-1.5 .3,-1.7 1.9,-.6 .5,-1.1 1.7,-1.1 1.3,.3 .8,-4.8 -2.3,-1.4 -.8,-2.2 -3.2,-2 -.6,-4 -11.9,-36.8 z"></path>
+<path class="nj" data-st="NJ" d="m 842.5,195.4 -14.6,-4.9 -1.8,2.5 .1,2.2 -3,5.4 1.5,1.8 -.7,2 -1,1 .5,3.6 2.7,.9 1,2.8 2.1,1.1 4.2,3.2 -3.3,2.6 -1.6,2.3 -1.8,3 -1.6,.6 -1.4,1.7 -1,2.2 -.3,2.1 .8,.9 .4,2.3 1.2,.6 2.4,1.5 1.8,.8 1.6,.8 .1,1.1 .8,.1 1.1,-1.2 .8,.4 2.1,.2 -.2,2.9 .2,2.5 1.8,-.7 1.5,-3.9 1.6,-4.8 2.9,-2.8 .6,-3.5 -.6,-1.2 1.7,-2.9 v -1.2 l -.7,-1.1 1.2,-2.7 -.3,-3.6 -.6,-8.2 -1.2,-1.4 v 1.4 l .5,.6 h -1.1 l -.6,-.4 -1.3,-.2 -.9,.6 -1.2,-1.6 .7,-1.7 v -1 l 1.7,-.7 .8,-2.1 z"></path>
+<path class="nm" data-st="NM" d="m 357.5,332.9 h -.8 l -7.9,99.3 -31.8,-2.6 -34.4,-3.6 -.3,3 2,2.2 -30.8,-4.1 -1.4,10.2 -15.7,-2.2 17.4,-124.1 52.6,6.5 51.7,4.8 z"></path>
+<path class="ny" data-st="NY" d="m 872.9,181.6 -1.3,.1 -.5,1 z m -30.6,22.7 .7,.6 1.3,-.3 1.1,.3 .9,-1.3 h 1.9 l 2.4,-.9 5.1,-2.1 -.5,-.5 -1.9,.8 -2,.9 .2,-.8 2.6,-1.1 .8,-1 1.2,.1 4.1,-2.3 v .7 l -4.2,3 4.5,-2.8 1.7,-2.2 1.5,-.1 4.5,-3.1 3.2,-3.1 3,-2.3 1,-1.2 -1.7,-.1 -1,1.2 -.2,.7 -.9,.7 -.8,-1.1 -1.7,1 -.1,.9 -.9,-.2 .5,-.9 -1.2,-.7 -.6,.9 .9,.3 .2,.5 -.3,.5 -1.4,2.6 h -1.9 l .9,-1.8 .9,-.6 .3,-1.7 1.4,-1.6 .9,-.8 1.5,-.7 -1.2,-.2 -.7,.9 h -.7 l -1.1,.8 -.2,1 -2.2,2.1 -.4,.9 -1.4,.9 -7.7,1.9 .2,.9 -.9,.7 -2,.3 -1,-.6 -.2,1.1 -1.1,-.4 .1,1 -1.2,-.1 -1.2,.5 -.2,1.1 h -1 l .2,1 h -.7 l .2,1 -1.8,.4 -1.5,2.3 z m -.8,-.4 -1.6,.4 v 1 l -.7,1.6 .6,.7 2.4,-2.3 -.1,-.9 z m -10.1,-95.2 -.6,1.9 1.4,.9 -.4,1.5 .5,3.2 2.2,2.3 -.4,2.2 .6,2 -.4,1 -.3,3.8 3.1,6.7 -.8,1.8 .9,2.2 .9,-1.6 1.9,1.5 3,14.2 -.5,2 1.1,1 -.5,15 .7,1 2.8,16.3 1.8,1.5 -3.5,3.4 1.7,2.2 -1.3,3.3 -1.5,1.7 -1.5,2.3 -.2,-.7 .4,-5.9 -14.6,-4.9 -1.6,-1.1 -1.9,.3 -3,-2.2 -3,-5.8 h -2 l -.4,-1.5 -1.7,-1.1 -70.5,13.9 -.8,-6 4.3,-3.9 .6,-1.7 3.9,-2.5 .6,-2.4 2.3,-2 .8,-1.1 -1.7,-3.3 -1.7,-.5 -1.8,-3 -.2,-3.2 7.6,-3.9 8.2,-1.6 h 4.4 l 3.2,1.6 .9,-.1 1.8,-1.6 3.4,-.7 h 3 l 2.6,-1.3 2.5,-2.6 2.4,-3.1 1.9,-.4 1.1,-.5 .4,-3.2 -1.4,-2.7 -1.2,-.7 2,-1.3 -.1,-1.8 h -1.5 l -2.3,-1.4 -.1,-3.1 6.2,-6.1 .7,-2.4 3.7,-6.3 5.9,-6.4 2.1,-1.7 2.5,.1 20.6,-5.2 z"></path>
+<path class="nc" data-st="NC" d="m 829,300.1 -29.1,6.1 -39.4,7.3 -29.4,3.5 v 5.2 l -1.5,-.1 -1.4,1.2 -2.4,5.2 -2.6,-1.1 -3.5,2.5 -.7,2.1 -1.5,1.2 -.8,-.8 -.1,-1.5 -.8,-.2 -4,3.3 -.6,3.4 -4.7,2.4 -.5,1.2 -3.2,2.6 -3.6,.5 -4.6,3 -.8,4.1 -1.3,.9 -1.5,-.1 -1.4,1.3 -.1,4.9 21.4,-3 4.4,-1.9 1.3,-.1 7.3,-4.3 23.2,-2.2 .4,.5 -.2,1.4 .7,.3 1.2,-1.5 3.3,3 .1,2.6 19.7,-2.8 24.5,17.1 4,-2.2 3,-.7 h 1.7 l 1.1,1.1 .8,-2 .6,-5 1.7,-3.9 5.4,-6.1 4.1,-3.5 5.4,-2.3 2.5,-.4 1.3,.4 .7,1.1 3.3,-6.6 3.3,-5.3 -.7,-.3 -4.4,6.8 -.5,-.8 2,-2.2 -.4,-1.5 -2,-.5 1,1.3 -1.2,.1 -1.2,-1.8 -1.2,2 -1.6,.2 1,-2.7 .7,-1.7 -.2,-2.9 -2.2,-.1 .9,-.9 1.1,.3 2.7,.1 .8,-.5 h 2.3 l 2,-1.9 .2,-3.2 1.3,-1.4 1.2,-.2 1.3,-1 -.5,-3.7 -2.2,-3.8 -2.7,-.2 -.9,1.6 -.5,-1 -2.7,.2 -1.2,.4 -1.9,1.2 -.3,-.4 h -.9 l -1.8,1.2 -2.6,.5 v -1.3 l .8,-1 1,.7 h 1 l 1.7,-2.1 3.7,-1.7 2,-2.2 h 2.4 l .8,1.3 1.7,.8 -.5,-1.5 -.3,-1.6 -2.8,-3.1 -.3,-1.4 -.4,1 -.9,-1.3 z m 7,31 2.7,-2.5 4.6,-3.3 v -3.7 l -.4,-3.1 -1.7,-4.2 1.5,1.4 1,3.2 .4,7.6 -1.7,.4 -3.1,2.4 -3.2,3.2 z m 1.9,-19.3 -.9,-.2 v 1 l 2.5,2.2 -.2,-1.4 z m 2.9,2.1 -1.4,-2.8 -2.2,-3.4 -2.4,-3 -2.2,-4.3 -.8,-.7 2.2,4.3 .3,1.3 3.4,5.5 1.8,2.1 z"></path>
+<path class="nd" data-st="ND" d="m 464.7,68.6 -1.1,2.8 .8,1.4 -.3,5.1 -.5,1.1 2.7,9.1 1.3,2.5 .7,14 1,2.7 -.4,5.8 2.9,7.4 .3,5.8 -.1,2.1 -29.5,-.4 -46,-2.1 -39.2,-2.9 5.2,-66.7 44.5,3.4 55.3,1.6 z"></path>
+<path class="oh" data-st="OH" d="m 685.7,208.8 1.9,-.4 3,1.3 2.1,.6 .7,.9 h 1 l 1,-1.5 1.3,.8 h 1.5 l -.1,1 -3.1,.5 -2,1.1 1.9,.8 1.6,-1.5 2.4,-.4 2.2,1.5 1.5,-.1 2.5,-1.7 3.6,-2.1 5.2,-.3 4.9,-5.9 3.8,-3.1 9.3,-5.1 4.9,29.9 -2.2,1.2 1.4,2.1 -.1,2.2 .6,2 -1.1,3.4 -.1,5.4 -1,3.6 .5,1.1 -.4,2.2 -1.1,.5 -2,3.3 -1.8,2 h -.6 l -1.8,1.7 -1.3,-1.2 -1.5,1.8 -.3,1.2 h -1.3 l -1.3,2.2 .1,2.1 -1,.5 1.4,1.1 v 1.9 l -1,.2 -.7,.8 -1,.5 -.6,-2.1 -1.6,-.5 -1,2.3 -.3,2.2 -1.1,1.3 1.3,3.6 -1.5,.8 -.4,3.5 h -1.5 l -3.2,1.4 -1.2,-2.1 -3.5,-1.4 -.8,-2.9 -.5,-.8 -3.4,1.8 -.6,1.7 h -.9 l -1.3,.7 -1.2,-.8 -3,-.8 -1.9,.8 v 1 l -2.2,-.2 -1.9,-2.1 -2.3,.2 -4.1,-.7 v -1 l -2.2,-3.4 -2.9,-1.2 -1.9,.8 -2.2,-.1 -1.3,-.5 -6.6,-57.2 21.4,-3.5 z"></path>
+<path class="ok" data-st="OK" d="m 501.5,398.6 -4.6,-3.8 -2.2,-.9 -.5,1.6 -5.1,.3 -.6,-1.5 -5,2.5 -1.6,-.7 -3.7,.3 -.6,1.7 -3.6,.9 -1.3,-1.2 -1.2,.1 -2,-1.8 -2.1,.7 -2,-.5 -1.8,-2 -2.5,4.2 -1.2,.8 -1,-1.8 .3,-2 -1.2,-.7 -2.3,2.5 -1.7,-1.2 -.1,-1.5 -1.3,.5 -2.6,-1.7 -3,2.6 -2.3,-1.1 .7,-2.1 -2.3,.1 -1.9,-3 -3.5,-1.1 -2,2.3 -2.3,-2.2 -1.4,.4 -2,.1 -3.5,-1.9 -2.3,.1 -1.2,-.7 -.5,-2.9 -2.3,-1.7 -1.1,1.5 -1.4,-1 -1.2,-.4 -1.1,1 -1.5,-.3 -2.5,-3 -2.7,-1.3 1.4,-42.7 -52.6,-3.2 .6,-10.6 16.5,1 67.7,2.9 62,.1 .2,10.8 4.1,24.4 -.7,39 z"></path>
+<path class="or" data-st="OR" d="m 93.9,166.5 47,11.2 8.5,-37.3 2.9,-5.8 .4,-2.1 .8,-.9 -.9,-2 -2.9,-1.2 .2,-4.2 4,-5.8 2.5,-.8 1.6,-2.3 -.1,-1.6 1.8,-1.6 3.2,-5.5 4.2,-4.8 -.5,-3.2 -3.5,-3.1 -1.6,-3.6 -30.3,-7.3 -2.8,1 -5.4,-.9 -1.8,-.9 -1.5,1.2 -3.3,-.4 -4.5,.5 -.9,.7 -4.2,-.4 -.8,-1.6 -1.2,-.2 -4.4,1.3 -1.6,-1.1 -2.2,.8 -.2,-1.8 -2.3,-1.2 -1.5,-.2 -1,-1.1 -3,.3 -1.2,-.8 h -1.2 l -1.2,.9 -5.5,.7 -6.6,-4.2 1.1,-5.6 -.4,-4.1 -3.2,-3.7 -3.7,.1 -.4,-1.1 .4,-1.2 -.7,-.8 -1,.1 -1.1,1.3 -1.5,-.2 -.5,-1.1 -1,-.1 -.7,.6 -2,-1.9 v 4.3 l -1.3,1.3 -1.1,3.5 -.1,2.3 -4.5,12.3 -13.2,31.3 -3.2,4.6 -1.6,-.1 .1,2.1 -5.2,7.1 -.3,3.3 1,1.3 .1,2.4 -1.2,1.1 -1.2,3 .1,5.7 1.2,2.9 z"></path>
+<path class="pa" data-st="PA" d="m 826.3,189.4 -1.9,.3 -3,-2.2 -3,-5.8 h -2 l -.4,-1.5 -1.7,-1.1 -70.5,13.9 -.8,-6 -4.2,3.4 -.9,.1 -2.7,3 -3.3,1.7 4.9,29.9 3.2,19.7 17.4,-2.9 60.5,-11.8 1.2,-2.1 1.5,-1.1 1.6,-.3 1.6,.6 1.4,-1.7 1.6,-.6 1.8,-3 1.6,-2.3 3.3,-2.6 -4.2,-3.2 -2.1,-1.1 -1,-2.8 -2.7,-.9 -.5,-3.6 1,-1 .7,-2 -1.5,-1.8 3,-5.4 -.1,-2.2 1.8,-2.5 z"></path>
+<path class="ri" data-st="RI" d="m 883.2,170.7 -1.3,-1.1 -2.6,-1.3 -.6,-2.2 h -.8 l -.7,-2.6 -6.5,2 3.2,12.3 -.4,1.1 .4,1.8 5.6,-3.6 .1,-3 -.8,-.8 .4,-.6 -.1,-1.3 -.9,-.7 1.2,-.4 -.9,-1.6 1.8,.7 .3,1.4 .7,1.2 -1.4,-.8 1.1,1.7 -.3,1.2 -.6,-1.1 v 2.5 l .6,-.9 .4,.9 1.3,-1.5 -.2,-2.5 1.4,3.1 1,-.9 z m -4.7,12.2 h .9 l .5,-.6 -.8,-1.3 -.7,.7 z"></path>
+<path class="sc" data-st="SC" d="m 772.3,350.2 -19.7,2.8 -.1,-2.6 -3.3,-3 -1.2,1.5 -.7,-.3 .2,-1.4 -.4,-.5 -23.2,2.2 -7.3,4.3 -1.3,.1 -4.4,1.9 -.1,1.9 -1.9,1 -1.4,3.2 .2,1.3 6.1,3.8 2.6,-.3 3.1,4 .4,1.7 4.2,5.1 2.6,1.7 1.4,.2 2.2,1.6 1.1,2.2 2,1.6 1.8,.5 2.7,2.7 .1,1.4 2.6,2.8 5,2.3 3.6,6.7 .3,2.7 3.9,2.1 2.5,4.8 .8,3.1 4.2,.4 .8,-1.5 h .6 l 1.8,-1.5 .5,-2 3.2,-2.1 .3,-2.4 -1.2,-.9 .8,-.7 .8,.4 1.3,-.4 1.8,-2.1 3.8,-1.8 1.6,-2.4 .1,-.7 4.8,-4.4 -.1,-.5 -.9,-.8 1.1,-1.5 h .8 l .4,.5 .7,-.8 h 1.3 l .6,-1.5 2.3,-2.1 -.3,-5.4 .8,-2.3 3.6,-6.2 2.4,-2.2 2.2,-1.1 z"></path>
+<path class="sd" data-st="SD" d="m 396.5,125.9 46,2.1 29.5,.4 -.1,2.2 -.9,2 -3.1,1.9 -.3,1.2 1.7,2.5 .4,1.8 2.6,.6 1.5,1.9 -.2,39.5 -2.2,-.1 -.1,1.6 1.3,1.5 -.1,1.1 -1,.5 .4,1.6 1.3,.4 .7,2 -1.7,5.1 -1,4.3 1.3,1.2 .3,1.3 .7,1.7 -1.5,.2 -1.8,-.7 -.9,-2.6 -1.2,-1.3 -6.1,-2.2 -.6,-1.1 -2,-.6 -1.4,.6 -1,-.5 -.9,.4 -.7,-.4 -.9,.4 -.7,-.5 -1,.7 -1.5,-.6 -1.8,2 -1.8,.1 -2.1,-2 -1.7,-.2 -3.4,-3.2 -38,-1.6 -51.1,-3.5 3.9,-43.9 2,-20.7 z"></path>
+<path class="tn" data-st="TN" d="m 620.9,365.1 45.7,-4 22.9,-2.9 .1,-4.9 1.4,-1.3 1.5,.1 1.3,-.9 .8,-4.1 4.6,-3 3.6,-.5 3.2,-2.6 .5,-1.2 4.7,-2.4 .6,-3.4 4,-3.3 .8,.2 .1,1.5 .8,.8 1.5,-1.2 .7,-2.1 3.5,-2.5 2.6,1.1 2.4,-5.2 1.4,-1.2 1.5,.1 0,-5.2 .3,-.7 -4.6,.5 -.2,1 -28.9,3.3 -5.6,1.4 -20.5,1.4 -5.2,.8 -17.4,1 -2.6,.8 -22.6,2 -.7,-.6 h -3.7 l 1.2,3.2 -.6,.9 -23.3,1.5 -.8,1 -.8,-.7 h -1 v 1.3 l .6,1 -.1,1 -1.4,.5 1.4,1.5 -.8,.7 -1.7,-.2 .6,1 1.2,1.1 v .7 l -1.2,.5 -1,2 .1,.6 1.4,1 -.4,.7 h -1.5 v .5 l .9,.9 .1,.8 -1.4,.2 -.5,.8 -1.6,.2 -.9,.9 .6,.9 1.1,-.1 .5,.9 -1.6,1.3 .4,1.5 -2,-.6 -.1,.7 .4,1.1 -.3,1.4 -1.3,-.8 -.8,.8 1.1,.1 .1,1.5 -.6,1 1.1,.9 -.3,1.5 .8,.7 -.7,1 -1.2,-.5 -.9,2.2 -1.6,.7 z"></path>
+<path class="tx" data-st="TX" d="m 282.3,429 .3,-3 34.4,3.6 31.8,2.6 7.9,-99.3 .8,0 52.6,3.2 -1.4,42.7 2.7,1.3 2.5,3 1.5,.3 1.1,-1 1.2,.4 1.4,1 1.1,-1.5 2.3,1.7 .5,2.9 1.2,.7 2.3,-.1 3.5,1.9 2,-.1 1.4,-.4 2.3,2.2 2,-2.3 3.5,1.1 1.9,3 2.3,-.1 -.7,2.1 2.3,1.1 3,-2.6 2.6,1.7 1.3,-.5 .1,1.5 1.7,1.2 2.3,-2.5 1.2,.7 -.3,2 1,1.8 1.2,-.8 2.5,-4.2 1.8,2 2,.5 2.1,-.7 2,1.8 1.2,-.1 1.3,1.2 3.6,-.9 .6,-1.7 3.7,-.3 1.6,.7 5,-2.5 .6,1.5 5.1,-.3 .5,-1.6 2.2,.9 4.6,3.8 6.4,1.9 2.6,2.3 2.8,-1.3 3.2,.8 .2,11.9 .5,19.9 .7,3.4 2.6,2.8 .7,5.4 3.8,4.6 .8,4.3 h 1 l -.1,7.3 -3.3,6.4 1.3,2.3 -1.3,1.5 .7,3 -.1,4.3 -2.2,3.5 -.1,.8 -1.7,1.2 1,1.8 1.2,1.1 -3.5,.3 -8.4,3.9 -3.5,1.4 -1.8,1.8 -.7,-.5 2.1,-2.3 1.8,-.7 .5,-.9 -2.9,-.1 -.7,-.8 .8,-2 -.9,-1.8 h -.6 l -2.4,1.3 -1.9,2.6 .3,1.7 3.3,3.4 1.3,.3 v .8 l -2.3,1.6 -4.9,4 -4,3.9 -3.2,1.4 -5,3 -3.7,2 -4.5,1.9 -4.1,2.5 3.2,-3 v -1.1 l .6,-.8 -.2,-1.8 -1.5,-.1 -1.1,1.5 -2.6,1.3 -1.8,-1.2 -.3,-1.7 h -1.5 l .8,2.2 1.4,.7 1.2,.9 1.8,1.6 -.7,.8 -3.9,1.7 -1.7,.1 -1.2,-1.2 -.5,2.1 .5,1.1 -2.7,2 -1.5,.2 -.8,.7 -.4,1.7 -1.8,3.3 -1.6,.7 -1.6,-.6 -1.8,1.1 .3,1.4 1.3,.8 1,.8 -1.8,3.5 -.3,2.8 -1,1.7 -1.4,1 -2.9,.4 1.8,.6 1.9,-.6 -.4,3.2 -1.1,-.1 .2,1.2 .3,1.4 -1.3,.9 v 3.1 l 1.6,1.4 .6,3.1 -.4,2.2 -1,.4 .4,1.5 1.1,.4 .8,1.7 v 2.6 l 1.1,2.1 2.2,2.6 -.1,.7 -2.2,-.2 -1.6,1.4 .2,1.4 -.9,-.3 -1.4,-.2 -3.4,-3.7 -2.3,-.6 h -7.1 l -2.8,-.8 -3.6,-3 -1.7,-1 -2.1,.1 -3.2,-2.6 -5.4,-1.6 v -1.3 l -1.4,-1.8 -.9,-4.7 -1.1,-1.7 -1.7,-1.4 v -1.6 l -1.4,-.6 .6,-2.6 -.3,-2.2 -1.3,-1.4 .7,-3 -.8,-3.2 -1.7,-1.4 h -1.1 l -4,-3.5 .1,-1.9 -.8,-1.7 -.8,-.2 -.9,-2.4 -2,-1.6 -2.9,-2.5 -.2,-2.1 -1,-.7 .2,-1.6 .5,-.7 -1.4,-1.5 .1,-.7 -2,-2.2 .1,-2.1 -2.7,-4.9 -.1,-1.7 -1.8,-3.1 -5.1,-4.8 v -1.1 l -3.3,-1.7 -.1,-1.8 -1.2,-.4 v -.7 l -.8,-.2 -2.1,-2.8 h -.8 l -.7,-.6 -1.3,1.1 h -2.2 l -2.6,-1.1 h -4.6 l -4.2,-2.1 -1.3,1.9 -2.2,-.6 -3.3,1.2 -1.7,2.8 -2,3.2 -1.1,4.4 -1.4,1.2 -1.1,.1 -.9,1.6 -1.3,.6 -.1,1.8 -2.9,.1 -1.8,-1.5 h -1 l -2,-2.9 -3.6,-.5 -1.7,-2.3 -1.3,-.2 -2.1,-.8 -3.4,-3.4 .2,-.8 -1.6,-1.2 -1,-.1 -3.4,-3.1 -.1,-2 -2.3,-4 .2,-1.6 -.7,-1.3 .8,-1.5 -.1,-2.4 -2.6,-4.1 -.6,-4.2 -1.6,-1.6 v -1 l -1.2,-.2 -.7,-1.1 -2.4,-1.7 -.9,-.1 -1.9,-1.6 v -1.1 l -2.9,-1.8 -.6,-2.1 -2.6,-2.3 -3.2,-4.4 -3,-1.3 -2.1,-1.8 .2,-1.2 -1.3,-1.4 -1.7,-3.7 -2.4,-1 z m 174.9,138.3 .8,.1 -.6,-4.8 -3.5,-12.3 -.2,-8.1 4.9,-10.5 6.1,-8.2 7.2,-5.1 v -.7 h -.8 l -2.6,1 -3.6,2.3 -.7,1.5 -8.2,11.6 -2.8,7.9 v 8.8 l 3.6,12 z"></path>
+<path class="ut" data-st="UT" d="m 233.2,217.9 3.3,-21.9 -47.9,-8.2 -21,109 46.2,8.2 40,6 11.5,-88.3 z"></path>
+<path class="vt" data-st="VT" d="m 859.1,102.4 -1.1,3.5 2.1,2.8 -.4,1.7 .1,1.3 -1.1,2.1 -1.4,.4 -.6,1.3 -2.1,1 -.7,1.5 1.4,3.4 -.5,2.5 .5,1.5 -1,1.9 .4,1.9 -1.3,1.9 .2,2.2 -.7,1.1 .7,4.5 .7,1.5 -.5,2.6 .9,1.8 -.2,2.5 -.5,1.3 -.1,1.4 2.1,2.6 -12.4,2.7 -1.1,-1 .5,-2 -3,-14.2 -1.9,-1.5 -.9,1.6 -.9,-2.2 .8,-1.8 -3.1,-6.7 .3,-3.8 .4,-1 -.6,-2 .4,-2.2 -2.2,-2.3 -.5,-3.2 .4,-1.5 -1.4,-.9 .6,-1.9 -.8,-1.7 27.3,-6.9 z"></path>
+<path class="va" data-st="VA" d="m 834.7,265.4 -1.1,2.8 .5,1.1 .4,-1.1 .8,-3.1 z m -34.6,-7 -.7,-1 1,-.1 1,-.9 .4,-1.8 -.2,-.5 .1,-.5 -.3,-.7 -.6,-.5 -.4,-.1 -.5,-.4 -.6,-.6 h -1 l -.6,-.1 -.4,-.4 .1,-.5 -1.7,-.6 -.8,.3 -1.2,-.1 -.7,-.7 -.5,-.2 -.2,-.7 .6,-.8 v -.9 l -1.2,-.2 -1,-.9 -.9,.1 -1.6,-.3 -.4,.7 -.4,1.6 -.5,2.3 -10,-5.2 -.2,.9 .9,1.6 -.8,2.3 .1,2.9 -1.2,.8 -.5,2.1 -.9,.8 -1.4,1.8 -.9,.8 -1,2.5 -2.4,-1.1 -2.3,8.5 -1.3,1.6 -2.8,-.5 -1.3,-1.9 -2.3,-.7 -.1,4.7 -1.4,1.7 .4,1.5 -2.1,2.2 .4,1.9 -3.7,6.3 -1,3.3 1.5,1.2 -1.5,1.9 .1,1.4 -2.3,2 -.7,-1.1 -4.3,3.1 -1.5,-1 -.6,1.4 .8,.5 -.5,.9 -5.5,2.4 -3,-1.8 -.8,1.7 -1.9,1.8 -2.3,.1 -4.4,-2.3 -.1,-1.5 -1.5,-.7 .8,-1.2 -.7,-.6 -4.9,6.6 -2.9,1 -3,3 -.4,2.2 -2.1,1.3 -.1,1.7 -1.4,1.4 -1.8,.5 -.5,1.9 -1,.4 -6.9,4.2 28.9,-3.3 .2,-1 4.6,-.5 -.3,.7 29.4,-3.5 39.4,-7.3 29.1,-6.1 -.6,-1.2 .4,-.1 .9,.9 -.1,-1.4 -.3,-1.9 1.6,1.2 .9,2.1 v -1.3 l -3.4,-5.5 v -1.2 l -.7,-.8 -1.3,.7 .5,1.4 h -.8 l -.4,-1 -.6,.9 -.9,-1.1 -2.1,-.1 -.2,.7 1.5,2.1 -1.4,-.7 -.5,-1 -.4,.8 -.8,.1 -1.5,1.7 .3,-1.6 v -1.4 l -1.5,-.7 -1.8,-.5 -.2,-1.7 -.6,-1.3 -.6,1.1 -1.7,-1 -2,.3 .2,-.9 1.5,-.2 .9,.5 1.7,-.8 .9,.4 .5,1 v .7 l 1.9,.4 .3,.9 .9,.4 .9,1.2 1.4,-1.6 h .6 l -.1,-2.1 -1.3,1 -.6,-.9 1.5,-.2 -1.2,-.9 -1.2,.6 -.1,-1.7 -1.7,.2 -2.2,-1.1 -1.8,-2.2 3.6,2.2 .9,.3 1.7,-.8 -1.7,-.9 .6,-.6 -1,-.5 .8,-.2 -.3,-.9 1.1,.9 .4,-.8 .4,1.3 1.2,.8 .6,-.5 -.5,-.6 -.1,-2.5 -1.1,-.1 -1.6,-.8 .9,-1.1 -2,-.1 -.4,-.5 -1.4,.6 -1.4,-.8 -.5,-1.2 -2.1,-1.2 -2.1,-1.8 -2.2,-1.9 3,1.3 .9,1.2 2.1,.7 2.3,2.5 .2,-1.7 .6,1.3 2.3,.5 v -4 l -.8,-1.1 1.1,.4 .1,-1.6 -3.1,-1.4 -1.6,-.2 -1.3,-.2 .3,-1.2 -1.5,-.3 -.1,-.6 h -1.8 l -.2,.8 -.7,-1 h -2.7 l -1,-.4 -.2,-1 -1.2,-.6 -.4,-1.5 -.6,-.4 -.7,1.1 -.9,.2 -.9,.7 h -1.5 l -.9,-1.3 .4,-3.1 .5,-2.4 .6,.5 z m 21.9,11.6 .9,-.1 0,-.6 -.8,.1 z m 7.5,14.2 -1,2.7 1.2,-1.3 z m -1.8,-15.3 .7,.3 -.2,1.9 -.5,-.5 -1.3,1 1,.4 -1.8,4.4 .1,8.1 1.9,3.1 .5,-1.5 .4,-2.7 -.3,-2.3 .7,-.9 -.2,-1.4 1.2,-.6 -.6,-.5 .5,-.7 .8,1.1 -.2,1.1 -.4,3.9 1.1,-2.2 .4,-3.1 .1,-3 -.3,-2 .6,-2.3 1.1,-1.8 .1,-2.2 .3,-.9 -4.6,1.6 -.7,.8 z"></path>
+<path class="wa" data-st="WA" d="m 161.9,83.6 .7,4 -1.1,4.3 -30.3,-7.3 -2.8,1 -5.4,-.9 -1.8,-.9 -1.5,1.2 -3.3,-.4 -4.5,.5 -.9,.7 -4.2,-.4 -.8,-1.6 -1.2,-.2 -4.4,1.3 -1.6,-1.1 -2.2,.8 -.2,-1.8 -2.3,-1.2 -1.5,-.2 -1,-1.1 -3,.3 -1.2,-.8 h -1.2 l -1.2,.9 -5.5,.7 -6.6,-4.2 1.1,-5.6 -.4,-4.1 -3.2,-3.7 -3.7,.1 -.4,-1.1 .4,-1.2 -.7,-.8 -1,.1 -2.1,-1.5 -1.2,.4 -2,-.1 -.7,-1.5 -1.6,-.3 2.5,-7.5 -.7,6 .5,.5 v -2 l .8,-.2 1.1,2.3 -.5,-2.2 1.2,-4.2 1.8,.4 -1.1,-2 -1,.3 -1.5,-.4 .2,-4.2 .2,1.5 .9,.5 .6,-1.6 h 3.2 l -2.2,-1.2 -1.7,-1.9 -1.4,1.6 1.2,-3.1 -.3,-4.6 -.2,-3.6 .9,-6.1 -.5,-2 -1.4,-2.1 .1,-4 .4,-2.7 2,-2.3 -.7,-1.4 .2,-.6 .9,.1 7.8,7.6 4.7,1.9 5.1,2.5 3.2,-.1 .2,3 1,-1.6 h .7 l .6,2.7 .5,-2.6 1.4,-.2 .5,.7 -1.1,.6 .1,1.6 .7,-1.5 h 1.1 l -.4,2.6 -1.1,-.8 .4,1.4 -.1,1.5 -.8,.7 -2.5,2.9 1.2,-3.4 -1.6,.4 -.4,2.1 -3.8,2.8 -.4,1 -2.1,2.2 -.1,1 h 2.2 l 2.4,-.2 .5,-.9 -3.9,.5 v -.6 l 2.6,-2.8 1.8,-.8 1.9,-.2 1,-1.6 3,-2.3 v -1.4 h 1.1 l .1,4 h -1.5 l -.6,.8 -1.1,-.9 .3,1.1 v 1.7 l -.7,.7 -.3,-1.6 -.8,.8 .7,.6 -.9,1.1 h 1.3 l .7,-.5 .1,2 -1,1.9 -.9,1 -.1,1.8 -1,-.2 -.2,-1.4 .9,-1.1 -.8,-.5 -.8,.7 -.7,2.2 -.8,.9 -.1,-2 .8,-1.1 -.2,-1.1 -1.2,1.2 .1,2.2 -.6,.4 -2.1,-.4 -1.3,1.2 2.2,-.6 -.2,2.2 1,-1.8 .4,1.4 .5,-1 .7,1.8 h .7 l .7,-.8 .6,-.1 2,-1.9 .2,-1.2 .8,.6 .3,.9 .7,-.3 .1,-1.2 h 1.3 l .2,-2.9 -.1,-2.7 .9,.3 -.7,-2.1 1.4,-.8 .2,-2.4 2.3,-2.2 1,.1 .3,-1.4 -1.2,-1.4 -.1,-3.5 -.8,.9 .7,2.9 -.6,.1 -.6,-1.9 -.6,-.5 .3,-2.3 1.8,-.1 .3,.7 .3,-1.6 -1.6,-1.7 -.6,-1.6 -.2,2 .9,1.1 -.7,.4 -1,-.8 -1.8,1.3 1.5,.5 .2,2.4 -.3,1.8 .9,-1.3 1.4,2.3 -.4,1.9 h -1.5 v -1.2 l -1.5,-1.2 .5,-3 -1.9,-2.6 2.7,-3 .6,-4.1 h .9 l 1.4,3.2 v -2.6 l 1.2,.3 v -3.3 l -.9,-.8 -1.2,2.5 -1,-3 1.3,-.1 -1.5,-4.9 1.9,-.6 25.4,7.5 31.7,8 23.6,5.5 z m -78.7,-39.4 h .5 l .1,.8 -.5,.3 .1,.6 -.7,.4 -.2,-.9 .5,-.4 z m 5,-4.3 -1.2,1.9 -.1,.8 .4,.2 .5,-.6 1.1,.1 z m -.4,-21.6 .5,.6 1.3,-.3 .2,-1 1.2,-1.8 -1,-.4 -.7,1.6 -.1,-1.6 -1.1,.2 -.7,1.4 z m 3.2,-5.5 .7,1.5 -.9,.2 -.8,.4 -.2,-2.4 z m -2.7,-1.6 -1.1,-.2 .5,1.4 z m -1,2.5 .8,.4 -.4,1.1 1.7,-.5 -.2,-2.2 -.9,-.2 z m -2.7,-.4 .3,2.7 1.6,1.3 .6,-1.9 -1.1,-2.2 z m 1.9,-1.1 -1.1,-1 -.9,.1 1.8,1.5 z m 3.2,-7 h -1.2 v .8 l 1.2,.6 z m -.9,32.5 .4,-2.7 h -1.1 l -.2,1.9 z"></path>
+<path class="wv" data-st="WV" d="m 723.4,297.5 -.8,1.2 1.5,.7 .1,1.5 4.4,2.3 2.3,-.1 1.9,-1.8 .8,-1.7 3,1.8 5.5,-2.4 .5,-.9 -.8,-.5 .6,-1.4 1.5,1 4.3,-3.1 .7,1.1 2.3,-2 -.1,-1.4 1.5,-1.9 -1.5,-1.2 1,-3.3 3.7,-6.3 -.4,-1.9 2.1,-2.2 -.4,-1.5 1.4,-1.7 .1,-4.7 2.3,.7 1.3,1.9 2.8,.5 1.3,-1.6 2.3,-8.5 2.4,1.1 1,-2.5 .9,-.8 1.4,-1.8 .9,-.8 .5,-2.1 1.2,-.8 -.1,-2.9 .8,-2.3 -.9,-1.6 .2,-.9 10,5.2 .5,-2.3 .4,-1.6 .4,-.7 -.9,-.4 .2,-1.6 -1,-.5 -.2,-.7 h -.7 l -.8,-1.2 .2,-1 -2.6,.4 -2.2,-1.6 -1.4,.3 -.9,1.4 h -1.3 l -1.7,2.9 -3.3,.4 -1.9,-1 -2.6,3.8 -2.2,-.3 -3.1,3.9 -.9,1.6 -1.8,1.6 -1.7,-11.4 -17.4,2.9 -3.2,-19.7 -2.2,1.2 1.4,2.1 -.1,2.2 .6,2 -1.1,3.4 -.1,5.4 -1,3.6 .5,1.1 -.4,2.2 -1.1,.5 -2,3.3 -1.8,2 h -.6 l -1.8,1.7 -1.3,-1.2 -1.5,1.8 -.3,1.2 h -1.3 l -1.3,2.2 .1,2.1 -1,.5 1.4,1.1 v 1.9 l -1,.2 -.7,.8 -1,.5 -.6,-2.1 -1.6,-.5 -1,2.3 -.3,2.2 -1.1,1.3 1.3,3.6 -1.5,.8 -.4,3.5 h -1.5 l -3.2,1.4 -.1,1.1 .6,1 -.6,3.6 1.9,1.6 .8,1.1 1,.6 -.1,.9 4.4,5.6 h 1.4 l 1.5,1.8 1.2,.3 1.4,-.1 z"></path>
+<path class="wi" data-st="WI" d="m 611,144 -2.9,.8 .2,2.3 -2.4,3.4 -.2,3.1 .6,.7 .8,-.7 .5,-1.6 2,-1.1 1.6,-4.2 3.5,-1.1 .8,-3.3 .7,-.9 .4,-2.1 1.8,-1.1 v -1.5 l 1,-.9 1.4,.1 v 2 l -1,.1 .5,1.2 -.7,2.2 -.6,.1 -1.2,4.5 -.7,.5 -2.8,7.2 -.3,4.2 .6,2 .1,1.3 -2.4,1.9 .3,1.9 -.9,3.1 .3,1.6 .4,3.7 -1.1,4.1 -1.5,5 1,1.5 -.3,.3 .8,1.7 -.5,1.1 1.1,.9 v 2.7 l 1.3,1.5 -.4,3 .3,4 -45.9,2.8 -1.3,-2.8 -3.3,-.7 -2.7,-1.5 -2,-5.5 .1,-2.5 1.6,-3.3 -.6,-1.1 -2.1,-1.6 -.2,-2.6 -1.1,-4.5 -.2,-3 -2.2,-3 -2.8,-.7 -5.2,-3.6 -.6,-3.3 -6.3,-3.1 -.2,-1.3 h -3.3 l -2.2,-2.6 -2,-1.3 .7,-5.1 -.9,-1.6 .5,-5.4 1,-1.8 -.3,-2.7 -1.2,-1.3 -1.8,-.3 v -1.7 l 2.8,-5.8 5.9,-3.9 -.4,-13 .9,.4 .6,-.5 .1,-1.1 .9,-.6 1.4,1.2 .7,-.1 h 2.6 l 6.8,-2.6 .3,-1 h 1.2 l .7,-1.2 .4,.8 1.8,-.9 1.8,-1.7 .3,.5 1,-1 2.2,1.6 -.8,1.6 -1.2,1.4 .5,1.5 -1.4,1.6 .4,.9 2.3,-1.1 v -1.4 l 3.3,1.9 1.9,.7 1.9,.7 3,3.8 17,3.8 1.4,1 4,.8 .7,.5 2.8,-.2 4.9,.8 1.4,1.5 -1,1 .8,.8 3.8,.7 1.2,1.2 .1,4.4 -1.3,2.8 2,.1 1,-.8 .9,.8 -1.1,3.1 1,1.6 1.2,.3 z m -49.5,-37.3 -.5,.1 -1.5,1.6 .2,.5 1.5,-.6 v -.6 l .9,-.3 z m 1.6,-1.1 -1,.3 -.2,.7 .9,-.1 z m -1.3,-1.6 -.2,.9 h 1.7 l .6,-.4 .1,-1 z m 2.8,-3 -.3,1.9 1.2,-.5 .1,-1.4 z m 58.3,31.9 -2,.3 -.4,1.3 1.3,1.7 z"></path>
+<path class="wy" data-st="WY" d="m 355.3,143.7 -51,-5.3 -57.3,-7.9 -2,10.7 -8.5,54.8 -3.3,21.9 32.1,4.8 44.9,5.7 37.5,3.4 3.7,-44.2 z"></path>
+<path class="dc" data-st="DC" d="m 803.5,252 -2.6,-1.8 -1,1.7 .5,.4 .4,.1 .6,.5 .3,.7 -.1,.5 .2,.5 z"></path>
+</g>
+<g class="borders" fill="none">
+<path class="al-fl" d="m 687.6,447.4 -48.8,5.1 -.5,2.9 2.5,2.8 1.7,.7 .9,1.2 -.4,7.3 -1.1,.6"/>
+<path class="al-ga" d="m 666.6,361.1 12.9,45.8 2.9,6.1 1.8,1.9 v 3.2 l 1.7,1 .2,1.1 -2.2,3.8 -.3,3.7 -.5,2.6 2.4,5.7 -.6,6.3 .5,1.4 1.5,1.5 .7,2.2"/>
+<path class="al-ms" d="m 620.9,365.1 1.3,2 -1.3,67 4.4,33.2"/>
+<path class="al-tn" d="m 620.9,365.1 45.7,-4"/>
+<path class="ar-la" d="m 516.7,414.2 52.3,-1.3"/>
+<path class="ar-mo" d="m 591.7,344.9 -11.2,.8 2.8,-5.1 1.7,-1.5 v -2.2 l -1.6,-2.5 -39.8,2 -39.1,.7"/>
+<path class="ar-ms" d="m 569,412.9 1.2,-1.5 .5,-3 -1.5,-2.3 -.5,-2.2 .9,-.7 v -.8 l -1.7,-1.1 -.1,-.7 1.6,-.9 -1.2,-1.1 1.7,-7.1 3.4,-1.6 0,-.8 -1.1,-1.4 2.9,-5.4 h 1.9 l 1.5,-1.2 -.3,-5.2 3.1,-4.5 1.8,-.6 -.5,-3.1"/>
+<path class="ar-ok" d="m 507.9,400.5 .7,-39 -4.1,-24.4"/>
+<path class="ar-tn" d="m 582.6,367.7 1.6,-.7 .9,-2.2 1.2,.5 .7,-1 -.8,-.7 .3,-1.5 -1.1,-.9 .6,-1 -.1,-1.5 -1.1,-.1 .8,-.8 1.3,.8 .3,-1.4 -.4,-1.1 .1,-.7 2,.6 -.4,-1.5 1.6,-1.3 -.5,-.9 -1.1,.1 -.6,-.9 .9,-.9 1.6,-.2 .5,-.8 1.4,-.2 -.1,-.8 -.9,-.9 0,-.5 h 1.5 l .4,-.7 -1.4,-1 -.1,-.6"/>
+<path class="ar-tx" d="m 507.9,400.5 2.6,2.3 2.8,-1.3 3.2,.8 .2,11.9"/>
+<path class="az-ca" d="m 149,338.1 -.9,2.1 1.3,3.4 1.4,1.8 1.2,5.8 2.3,2.5 .4,1.9 -1.3,1.3 -4.8,1.7 -2.4,3.6 -1.6,7 -2.4,3.2 -1.6,.3 -1.1,6.9 1.1,1.6 1.8,.2 1,1.6 -.8,2.4 -3,2.2 -2.2,-.1"/>
+<path class="az-nm" d="m 253.8,311 -17.4,124.1"/>
+<path class="az-nv" d="m 167.6,296.8 -3.4,17.5 -2.4,2.9 h -2 l -1.2,-2.7 -3.7,-1.4 -3.5,.6 -1,13.6 .5,4.9 -.5,2.9 -1.4,3"/>
+<path class="az-ut" d="m 167.6,296.8 46.2,8.2 40,6"/>
+<path class="ca-nv" d="m 93.9,166.5 -16.4,63.1 1.1,3.5 70.4,105"/>
+<path class="ca-or" d="m 27.8,147.9 66.1,18.6"/>
+<path class="co-ks" d="m 379.4,256.3 -4.8,67"/>
+<path class="co-ne" d="m 347.7,231.8 33.1,2.4 -1.4,22.1"/>
+<path class="co-nm" d="m 253.8,311 52.6,6.5 51.7,4.8"/>
+<path class="co-ok" d="m 358.1,322.3 16.5,1"/>
+<path class="co-ut" d="m 265.3,222.7 -11.5,88.3"/>
+<path class="co-wy" d="m 265.3,222.7 44.9,5.7 37.5,3.4"/>
+<path class="ct-ma" d="m 843.8,171.3 10.5,-2.4 .5,.7 .9,-.3 0,-.7 14.9,-3.4 .1,.3"/>
+<path class="ct-ny" d="m 846.6,194.7 -1.7,-2.2 3.5,-3.4 -1.8,-1.5 -2.8,-16.3"/>
+<path class="ct-ri" d="m 870.7,165.5 3.2,12.3 -.4,1.1 .4,1.8"/>
+<path class="dc-md" d="m 801.8,254.6 1.7,-2.6 -2.6,-1.8 -1,1.7"/>
+<path class="dc-va" d="m 799.9,251.9 .5,.4 .4,.1 .6,.5 .3,.7 -.1,.5 .2,.5"/>
+<path class="de-md" d="m 817.9,230.1 7.6,27.1 10.9,-2.3"/>
+<path class="de-nj" d="m 823.8,227.2 -1,2.2 -.3,2.1"/>
+<path class="de-pa" d="m 817.9,230.1 1.2,-2.1 1.5,-1.1 1.6,-.3 1.6,.6"/>
+<path class="fl-ga" d="m 687.6,447.4 3.3,6 50.1,-3.3 .6,3.2 1,1.1 2.1,-.6 .5,-4.3 -1.4,-2.1 v -2.5 l 2.2,-1.4 1.7,.9 4,.7 3.6,-.3"/>
+<path class="ga-nc" d="m 689.5,358.2 21.4,-3"/>
+<path class="ga-sc" d="m 710.9,355.2 -.1,1.9 -1.9,1 -1.4,3.2 .2,1.3 6.1,3.8 2.6,-.3 3.1,4 .4,1.7 4.2,5.1 2.6,1.7 1.4,.2 2.2,1.6 1.1,2.2 2,1.6 1.8,.5 2.7,2.7 .1,1.4 2.6,2.8 5,2.3 3.6,6.7 .3,2.7 3.9,2.1 2.5,4.8 .8,3.1 4.2,.4"/>
+<path class="ga-tn" d="m 666.6,361.1 22.9,-2.9"/>
+<path class="ia-il" d="m 556.8,249.7 .7,-.7 .1,-2.3 -.7,-.9 1,-1.5 1.8,-.6 .9,-.3 1,-1.2 0,-2.4 1.7,-2.4 .5,-.5 .1,-3.5 -.9,-1.4 -1,-.3 -1.1,-1.6 1,-4 3,-.8 h 2.4 l 4.2,-1.8 1.7,-2.2 .1,-2.4 1.1,-1.3 1.3,-3.2 -.1,-2.6 -2.8,-3.5 -1.2,0 -.9,-1.1 .2,-1.6 -1.7,-1.7 -2.5,-1.3 .5,-.6"/>
+<path class="ia-mn" d="m 473.6,182 28.2,0 36.3,-.9 18.6,-.7"/>
+<path class="ia-mo" d="m 484.5,246.8 25.9,.1 27.2,-1.2 14.3,-.8 1.7,1.3 .6,1.6 1.1,1.1 1.5,.8"/>
+<path class="ia-ne" d="m 484.5,246.8 -1.8,-4.4 .7,-2.2 -.8,-3.3 .2,-2.9 -1.3,-.7 -.4,-6.1 -2.8,-5 -.2,-3.7 -2.2,-4.3 -1.3,-3.7 v -1.4 l -.6,-1.7 v -2.3 l -.5,-.9"/>
+<path class="ia-sd" d="m 473.5,204.2 -.7,-1.7 -.3,-1.3 -1.3,-1.2 1,-4.3 1.7,-5.1 -.7,-2 -1.3,-.4 -.4,-1.6 1,-.5 .1,-1.1 -1.3,-1.5 .1,-1.6 2.2,.1"/>
+<path class="ia-wi" d="m 567.2,202 -1.3,-2.8 -3.3,-.7 -2.7,-1.5 -2,-5.5 .1,-2.5 1.6,-3.3 -.6,-1.1 -2.1,-1.6 -.2,-2.6"/>
+<path class="id-mt" d="m 188.8,30.5 -4.8,22 3.7,7.4 -1.6,4.8 3.6,4.8 1.9,.7 3.9,8.3 v 2.1 l 2.3,3 h .9 l 1.4,2.1 h 3.2 v 1.6 l -7.1,17 -.5,4.1 1.4,.5 1.6,2.6 2.8,-1.4 3.6,-2.4 1.9,1.9 .5,2.5 -.5,3.2 2.5,9.7 2.6,3.5 2.3,1.4 .4,3 v 4.1 l 2.3,2.3 1.6,-2.3 6.9,1.6 2.1,-1.2 9,1.7 2.8,-3.3 1.8,-.6 1.2,1.8 1.6,4.1 .9,.1"/>
+<path class="id-nv" d="m 140.9,177.7 24.4,5.4 23.3,4.7"/>
+<path class="id-or" d="m 140.9,177.7 8.5,-37.3 2.9,-5.8 .4,-2.1 .8,-.9 -.9,-2 -2.9,-1.2 .2,-4.2 4,-5.8 2.5,-.8 1.6,-2.3 -.1,-1.6 1.8,-1.6 3.2,-5.5 4.2,-4.8 -.5,-3.2 -3.5,-3.1 -1.6,-3.6"/>
+<path class="id-ut" d="m 236.5,196 -47.9,-8.2"/>
+<path class="id-wa" d="m 174.6,27.5 -12.7,56.1 .7,4 -1.1,4.3"/>
+<path class="id-wy" d="m 245,141.2 -8.5,54.8"/>
+<path class="il-in" d="m 619.4,215.7 4.1,50.2 -1,5.2 v 2 l 2.4,3.5 v .7 l -.3,.9 .9,1.9 -.3,2.4 -1.6,1.8 -1.3,4.2 -3.8,5.3 -.1,7 h -1 l .9,1.9"/>
+<path class="il-ky" d="m 599.9,322.5 -.3,-1.8 4,-3.7 6.9,3 1.5,-.3 .4,-2.4 -1.7,-1.8 .4,-3.3 1,-.5 1.2,.6 .6,-1.2 3.7,-.6 .1,-.9 -1.5,-2.2 -.1,-1.1 2.2,-2.7 v -.9"/>
+<path class="il-mo" d="m 599.9,322.5 -2.8,0 -1.4,-1.5 -1.8,-3.8 v -1.9 l .8,-.6 .1,-1.3 -1.7,-1.9 -.9,-2.5 -2.7,-4.1 -4.8,-1.3 -7.4,-7.1 -.4,-2.4 2.8,-7.6 -.4,-1.9 1.2,-1.1 v -1.3 l -2.8,-1.5 -3,-.7 -3.4,1.2 -1.3,-2.3 .6,-1.9 -.7,-2.4 -8.6,-8.4 -2.2,-1.5 -2.5,-5.9 -1.2,-5.4 1.4,-3.7"/>
+<path class="il-wi" d="m 567.2,202 45.9,-2.8"/>
+<path class="in-ky" d="m 618.3,302.7 1.1,.8 .6,-1 -.7,-1.7 4.6,-.5 .2,1.2 1.1,.2 .4,-.9 -.6,-1.3 .3,-.8 1.3,.8 1.7,-.4 1.7,.6 3.4,2.1 1.8,-2.8 3.5,-2.2 3,3.3 1.6,-2.1 .3,-2.7 3.8,-2.3 .2,1.3 1.9,1.2 3,-.2 1.2,-.7 .1,-3.4 2.5,-3.7 4.6,-4.4 -.1,-1.7 1.2,-3.8 2.2,1 6.7,-4.5 -.4,-1.7 -1.5,-2.1 1,-1.9"/>
+<path class="in-mi" d="m 630.9,213.2 32.4,-3.4 .1,1.4"/>
+<path class="in-oh" d="m 670,268.4 -6.6,-57.2"/>
+<path class="ks-mo" d="m 504.3,326.3 -.5,-48.1 -3.2,-.7 -2.6,-4.7 -2.5,-2.5 .5,-2.3 2.7,-2.6 .1,-1.2 -1.5,-2.1 -.9,1 -2,-.6 -2.9,-3"/>
+<path class="ks-ne" d="m 379.4,256.3 36,2 43.7,1.2 h 32.4"/>
+<path class="ks-ok" d="m 374.6,323.3 67.7,2.9 62,.1"/>
+<path class="ky-mo" d="m 596.7,333.5 1,-2.7 1.4,.9 .7,-.4 1.2,-4.1 -1,-1 1,-2 .2,-.9 -1.3,-.8 m -5.8,11.3 -.7,-.7 .2,-1 h 1.1 l .7,.7 -.3,1"/>
+<path class="ky-oh" d="m 670,268.4 1.3,.5 2.2,.1 1.9,-.8 2.9,1.2 2.2,3.4 v 1 l 4.1,.7 2.3,-.2 1.9,2.1 2.2,.2 v -1 l 1.9,-.8 3,.8 1.2,.8 1.3,-.7 h .9 l .6,-1.7 3.4,-1.8 .5,.8 .8,2.9 3.5,1.4 1.2,2.1"/>
+<path class="ky-tn" d="m 596.7,333.5 23.3,-1.5 .6,-.9 -1.2,-3.2 h 3.7 l .7,.6 22.6,-2 2.6,-.8 17.4,-1 5.2,-.8 20.5,-1.4 5.6,-1.4 m -103.6,12.7 h 1"/>
+<path class="ky-va" d="m 697.7,321.1 6.9,-4.2 1,-.4 .5,-1.9 1.8,-.5 1.4,-1.4 .1,-1.7 2.1,-1.3 .4,-2.2 3,-3 2.9,-1 4.9,-6.6"/>
+<path class="ky-wv" d="m 709.3,279.4 -.1,1.1 .6,1 -.6,3.6 1.9,1.6 .8,1.1 1,.6 -.1,.9 4.4,5.6 h 1.4 l 1.5,1.8 1.2,.3 1.4,-.1"/>
+<path class="la-ms" d="m 569,412.9 -.6,1.4 1.6,7.1 1.2,1 -.5,1.7 2.4,2.5 v 3.3 l -2,0 1.8,2.5 -6,8.4 -2.4,4.8 -1.7,11.9 36,-2 -.1,1.4 -1,1.4 -.9,4.6 4.8,6.8 -.3,1.3 1.2,1.8 .6,.7"/>
+<path class="la-tx" d="m 516.7,414.2 .5,19.9 .7,3.4 2.6,2.8 .7,5.4 3.8,4.6 .8,4.3 h 1 l -.1,7.3 -3.3,6.4 1.3,2.3 -1.3,1.5 .7,3 -.1,4.3 -2.2,3.5 -.1,.8 -1.7,1.2 1,1.8 1.2,1.1"/>
+<path class="ma-nh" d="m 856,152.6 18.4,-3.8 1,-1.5 .3,-1.7 1.9,-.6 .5,-1.1 1.7,-1.1 1.3,.3"/>
+<path class="ma-ny" d="m 843.8,171.3 -.7,-1 .5,-15"/>
+<path class="ma-ri" d="m 870.7,165.5 6.5,-2 .7,2.6 h .8 l .6,2.2 2.6,1.3 1.3,1.1 1.4,3"/>
+<path class="ma-vt" d="m 843.6,155.3 12.4,-2.7"/>
+<path class="md-pa" d="m 757.4,241.9 60.5,-11.8"/>
+<path class="md-va" d="m 822.9,269.3 -.8,.1 m 13.2,-4.3 -.6,.3 m -1.3,.2 -4.6,1.6 -.7,.8 m -28.2,-16.1 -.6,-.6 h -1 l -.6,-.1 -.4,-.4 .1,-.5 -1.7,-.6 -.8,.3 -1.2,-.1 -.7,-.7 -.5,-.2 -.2,-.7 .6,-.8 v -.9 l -1.2,-.2 -1,-.9 -.9,.1 -1.6,-.3 m 11.6,13.5 .3,-.4 -.7,-1 1,-.1 1,-.9 .4,-1.8"/>
+<path class="md-wv" d="m 757.4,241.9 1.7,11.4 1.8,-1.6 .9,-1.6 3.1,-3.9 2.2,.3 2.6,-3.8 1.9,1 3.3,-.4 1.7,-2.9 h 1.3 l .9,-1.4 1.4,-.3 2.2,1.6 2.6,-.4 -.2,1 .8,1.2 h .7 l .2,.7 1,.5 -.2,1.6 .9,.4"/>
+<path class="me-nh" d="m 881.9,138.3 -2.3,-1.4 -.8,-2.2 -3.2,-2 -.6,-4 -11.9,-36.8"/>
+<path class="mi-oh" d="m 663.4,211.2 21.4,-3.5"/>
+<path class="mi-wi" d="m 565.6,112.3 1.9,.7 3,3.8 17,3.8 1.4,1 4,.8 .7,.5 2.8,-.2 4.9,.8 1.4,1.5 -1,1 .8,.8 3.8,.7 1.2,1.2 .1,4.4 -1.3,2.8 2,.1 1,-.8 .9,.8 -1.1,3.1 1,1.6 1.2,.3"/>
+<path class="mn-nd" d="m 462.3,61.3 2.4,7.3 -1.1,2.8 .8,1.4 -.3,5.1 -.5,1.1 2.7,9.1 1.3,2.5 .7,14 1,2.7 -.4,5.8 2.9,7.4 .3,5.8 -.1,2.1"/>
+<path class="mn-sd" d="m 473.6,182 .2,-39.5 -1.5,-1.9 -2.6,-.6 -.4,-1.8 -1.7,-2.5 .3,-1.2 3.1,-1.9 .9,-2 .1,-2.2"/>
+<path class="mn-wi" d="m 556.7,180.4 -1.1,-4.5 -.2,-3 -2.2,-3 -2.8,-.7 -5.2,-3.6 -.6,-3.3 -6.3,-3.1 -.2,-1.3 -3.3,0 -2.2,-2.6 -2,-1.3 .7,-5.1 -.9,-1.6 .5,-5.4 1,-1.8 -.3,-2.7 -1.2,-1.3 -1.8,-.3 v -1.7 l 2.8,-5.8 5.9,-3.9 -.4,-13 .9,.4 .6,-.5 .1,-1.1 .9,-.6 1.4,1.2 .7,-.1"/>
+<path class="mo-ne" d="m 491.5,259.5 -3.9,-6.3 -2.1,-3.7 .3,-1.4 -1.3,-1.3"/>
+<path class="mo-ok" d="m 504.3,326.3 .2,10.8"/>
+<path class="mo-tn" d="m 591.7,344.9 1,-2 1.2,-.5 v -.7 l -1.2,-1.1 -.6,-1 1.7,.2 .8,-.7 -1.4,-1.5 1.4,-.5 .1,-1 -.6,-1 0,-1.3 m 1,0 .8,.7 .8,-1"/>
+<path class="ms-tn" d="m 582.6,367.7 38.3,-2.6"/>
+<path class="mt-nd" d="m 362.5,56.3 -5.2,66.7"/>
+<path class="mt-sd" d="m 357.3,123 -2,20.7"/>
+<path class="mt-wy" d="m 355.3,143.7 -51,-5.3 -57.3,-7.9 -2,10.7"/>
+<path class="nc-sc" d="m 710.9,355.2 4.4,-1.9 1.3,-.1 7.3,-4.3 23.2,-2.2 .4,.5 -.2,1.4 .7,.3 1.2,-1.5 3.3,3 .1,2.6 19.7,-2.8 24.5,17.1"/>
+<path class="nc-tn" d="m 731.1,317 0,5.2 -1.5,-.1 -1.4,1.2 -2.4,5.2 -2.6,-1.1 -3.5,2.5 -.7,2.1 -1.5,1.2 -.8,-.8 -.1,-1.5 -.8,-.2 -4,3.3 -.6,3.4 -4.7,2.4 -.5,1.2 -3.2,2.6 -3.6,.5 -4.6,3 -.8,4.1 -1.3,.9 -1.5,-.1 -1.4,1.3 -.1,4.9"/>
+<path class="nc-va" d="m 731.1,317 29.4,-3.5 39.4,-7.3 29.1,-6.1"/>
+<path class="nd-sd" d="m 357.3,123 39.2,2.9 46,2.1 29.5,.4"/>
+<path class="ne-sd" d="m 351.4,187.6 51.1,3.5 38,1.6 3.4,3.2 1.7,.2 2.1,2 1.8,-.1 1.8,-2 1.5,.6 1,-.7 .7,.5 .9,-.4 .7,.4 .9,-.4 1,.5 1.4,-.6 2,.6 .6,1.1 6.1,2.2 1.2,1.3 .9,2.6 1.8,.7 1.5,-.2"/>
+<path class="ne-wy" d="m 347.7,231.8 3.7,-44.2"/>
+<path class="nh-vt" d="m 857.9,100.1 1.2,2.3 -1.1,3.5 2.1,2.8 -.4,1.7 .1,1.3 -1.1,2.1 -1.4,.4 -.6,1.3 -2.1,1 -.7,1.5 1.4,3.4 -.5,2.5 .5,1.5 -1,1.9 .4,1.9 -1.3,1.9 .2,2.2 -.7,1.1 .7,4.5 .7,1.5 -.5,2.6 .9,1.8 -.2,2.5 -.5,1.3 -.1,1.4 2.1,2.6"/>
+<path class="nj-ny" d="m 827.9,190.5 14.6,4.9 -.4,5.9"/>
+<path class="nj-pa" d="m 823.8,227.2 1.4,-1.7 1.6,-.6 1.8,-3 1.6,-2.3 3.3,-2.6 -4.2,-3.2 -2.1,-1.1 -1,-2.8 -2.7,-.9 -.5,-3.6 1,-1 .7,-2 -1.5,-1.8 3,-5.4 -.1,-2.2 1.8,-2.5"/>
+<path class="nm-ok" d="m 358.1,322.3 -.6,10.6"/>
+<path class="nm-tx" d="m 284.3,431.2 -2,-2.2 .3,-3 34.4,3.6 31.8,2.6 7.9,-99.3 .8,0"/>
+<path class="nv-or" d="m 93.9,166.5 47,11.2"/>
+<path class="nv-ut" d="m 188.6,187.8 -21,109"/>
+<path class="ny-pa" d="m 827.9,190.5 -1.6,-1.1 -1.9,.3 -3,-2.2 -3,-5.8 h -2 l -.4,-1.5 -1.7,-1.1 -70.5,13.9 -.8,-6"/>
+<path class="ny-vt" d="m 843.6,155.3 -1.1,-1 .5,-2 -3,-14.2 -1.9,-1.5 -.9,1.6 -.9,-2.2 .8,-1.8 -3.1,-6.7 .3,-3.8 .4,-1 -.6,-2 .4,-2.2 -2.2,-2.3 -.5,-3.2 .4,-1.5 -1.4,-.9 .6,-1.9 -.8,-1.7"/>
+<path class="oh-pa" d="m 736.8,225.1 -4.9,-29.9"/>
+<path class="oh-wv" d="m 709.3,279.4 3.2,-1.4 h 1.5 l .4,-3.5 1.5,-.8 -1.3,-3.6 1.1,-1.3 .3,-2.2 1,-2.3 1.6,.5 .6,2.1 1,-.5 .7,-.8 1,-.2 v -1.9 l -1.4,-1.1 1,-.5 -.1,-2.1 1.3,-2.2 h 1.3 l .3,-1.2 1.5,-1.8 1.3,1.2 1.8,-1.7 h .6 l 1.8,-2 2,-3.3 1.1,-.5 .4,-2.2 -.5,-1.1 1,-3.6 .1,-5.4 1.1,-3.4 -.6,-2 .1,-2.2 -1.4,-2.1 2.2,-1.2"/>
+<path class="ok-tx" d="m 357.5,332.9 52.6,3.2 -1.4,42.7 2.7,1.3 2.5,3 1.5,.3 1.1,-1 1.2,.4 1.4,1 1.1,-1.5 2.3,1.7 .5,2.9 1.2,.7 2.3,-.1 3.5,1.9 2,-.1 1.4,-.4 2.3,2.2 2,-2.3 3.5,1.1 1.9,3 2.3,-.1 -.7,2.1 2.3,1.1 3,-2.6 2.6,1.7 1.3,-.5 .1,1.5 1.7,1.2 2.3,-2.5 1.2,.7 -.3,2 1,1.8 1.2,-.8 2.5,-4.2 1.8,2 2,.5 2.1,-.7 2,1.8 1.2,-.1 1.3,1.2 3.6,-.9 .6,-1.7 3.7,-.3 1.6,.7 5,-2.5 .6,1.5 5.1,-.3 .5,-1.6 2.2,.9 4.6,3.8 6.4,1.9"/>
+<path class="or-wa" d="m 161.5,91.9 -30.3,-7.3 -2.8,1 -5.4,-.9 -1.8,-.9 -1.5,1.2 -3.3,-.4 -4.5,.5 -.9,.7 -4.2,-.4 -.8,-1.6 -1.2,-.2 -4.4,1.3 -1.6,-1.1 -2.2,.8 -.2,-1.8 -2.3,-1.2 -1.5,-.2 -1,-1.1 -3,.3 -1.2,-.8 h -1.2 l -1.2,.9 -5.5,.7 -6.6,-4.2 1.1,-5.6 -.4,-4.1 -3.2,-3.7 -3.7,.1 -.4,-1.1 .4,-1.2 -.7,-.8 -1,.1"/>
+<path class="pa-wv" d="m 736.8,225.1 3.2,19.7 17.4,-2.9"/>
+<path class="sd-wy" d="m 351.4,187.6 3.9,-43.9"/>
+<path class="tn-va" d="m 697.7,321.1 28.9,-3.3 .2,-1 4.6,-.5 -.3,.7"/>
+<path class="ut-wy" d="m 236.5,196 -3.3,21.9 32.1,4.8"/>
+<path class="va-wv" d="m 722.7,296.9 .7,.6 -.8,1.2 1.5,.7 .1,1.5 4.4,2.3 2.3,-.1 1.9,-1.8 .8,-1.7 3,1.8 5.5,-2.4 .5,-.9 -.8,-.5 .6,-1.4 1.5,1 4.3,-3.1 .7,1.1 2.3,-2 -.1,-1.4 1.5,-1.9 -1.5,-1.2 1,-3.3 3.7,-6.3 -.4,-1.9 2.1,-2.2 -.4,-1.5 1.4,-1.7 .1,-4.7 2.3,.7 1.3,1.9 2.8,.5 1.3,-1.6 2.3,-8.5 2.4,1.1 1,-2.5 .9,-.8 1.4,-1.8 .9,-.8 .5,-2.1 1.2,-.8 -.1,-2.9 .8,-2.3 -.9,-1.6 .2,-.9 10,5.2 .5,-2.3 .4,-1.6 .4,-.7"/>
+</g>
+<circle class="dccircle" data-st="DC" cx="801.6" cy="252.1" r="5"></circle>
+<path class="separator1" fill="none" d="m 215,493 v 55 l 36,45 m -251,-168 h 147 l 68,68 h 85 l 54,54 v 46"/>
+</svg>
+  </section>
+
+  <section class="card" aria-labelledby="lgh">
+    <h2 id="lgh">Margin of victory</h2>
+    <table class="legend" id="legend"></table>
+    <p class="mute">Margin is the gap between the winner’s share and the runner-up’s share of the state, in percentage points. For example, 60% against 40% is a margin of 20. Darker means a bigger gap.</p>
+    <div class="tiekey" id="tiekey" hidden><i class="sw"></i><span>Hatched = exact tie, decided by a coin flip</span></div>
+  </section>
+
+  <section class="card" aria-labelledby="clh">
+    <h2 id="clh">The 3 closest states</h2>
+    <ol id="closest"></ol>
+  </section>
+
+  <section class="card mapcard" id="senmapcard" hidden>
+    <h2 class="cardtitle">Senate elections</h2>
+    <div id="senmapbox"></div>
+  </section>
+
+  <section class="card" id="senlegcard" hidden aria-labelledby="slh">
+    <h2 id="slh">Senate margin of victory</h2>
+    <table class="legend" id="senlegend"></table>
+    <p class="mute" id="senlegnote"></p>
+    <div class="keyrow"><i class="sw none"></i><span>No Senate race this year</span></div>
+    <div class="keyrow"><i class="sw" id="splitkey"></i><span>Striped: a state with two seats where each party won one</span></div>
+    <div class="keyrow" id="sentiekey" hidden><i class="sw" style="background:repeating-linear-gradient(45deg,rgba(0,0,0,.4) 0 2px,var(--nores) 2px 6px)"></i><span>Hatched = at least one exact tie, decided by a coin flip</span></div>
+    <h2 style="margin-top:14px">How Senate races are scored</h2>
+    <p id="senhow"></p>
+  </section>
+
+  <section class="card" id="senclosecard" hidden aria-labelledby="scl">
+    <h2 id="scl">The 3 closest Senate races</h2>
+    <ol id="senclosest"></ol>
+  </section>
+
+  <section class="card" id="sentiecard" hidden aria-labelledby="sth">
+    <h2 id="sth">Tied Senate races: decided by a coin flip</h2>
+    <p>When two candidates have exactly the same score, the game flips a fair coin (50/50).</p>
+    <ol id="sentielist"></ol>
+  </section>
+
+  <section class="card" id="sentablecard" hidden>
+    <details>
+      <summary id="sentsum">All Senate races</summary>
+      <div class="tw">
+        <table class="res">
+          <thead><tr><th>Race</th><th>Winner</th><th>Republican</th><th>Democratic</th><th class="n">Margin (pp)</th></tr></thead>
+          <tbody id="sentbody"></tbody>
+        </table>
+      </div>
+    </details>
+  </section>
+
+  <section class="card">
+    <details>
+      <summary id="tsum">All states</summary>
+      <div class="tw">
+        <table class="res">
+          <thead><tr><th>State</th><th class="n">EV</th><th>Winner</th><th class="n">Margin (pp)</th></tr></thead>
+          <tbody id="tbody"></tbody>
+        </table>
+      </div>
+    </details>
+  </section>
+</main>
+<div id="tip" role="tooltip"></div>
+
+<script>
+(function(){
+  // ---- Settings you can change ------------------------------------------------
+  // Colour of each candidate, in the order they were entered:
+  // Republican, Democrat, third party, fourth party.
+  var CANDIDATE_COLORS = ["#c62f2f", "#2461c4", "#7b3fb0", "#2a9250"];
+  // Margins (percentage points) where the shade gets darker. With more candidates the
+  // shares are smaller, so each number of candidates has its own steps: below the first
+  // number is the lightest shade, above the last number is the darkest.
+  var MARGIN_STEPS = {2: [5, 10, 18], 3: [2, 4, 7], 4: [1.5, 3, 5]};
+  // The same for Senate races (always two candidates: the Republican and the Democrat).
+  var SENATE_STEPS = [6, 14, 24];
+  // ------------------------------------------------------------------------------
+
+  var DATA = {"candidates": [{"name": "Marco Rubio", "party": "Republican", "ticket": "Marco Rubio/John Kasich", "votes": 256, "popular_pct": 27.9, "popular_points": 15023.0}, {"name": "Hillary Clinton", "party": "Democrat", "ticket": "Hillary Clinton/tim kaine", "votes": 28, "popular_pct": 21.5, "popular_points": 11556.9}, {"name": "Donald Trump", "party": "Third Party", "ticket": "Donald Trump/ben carson", "votes": 23, "popular_pct": 23.8, "popular_points": 12822.4}, {"name": "Bernie Sanders", "party": "Fourth Party", "ticket": "Bernie Sanders/Tulsi Gabbard", "votes": 231, "popular_pct": 26.8, "popular_points": 14397.8}], "states": [{"state": "Texas", "code": "TX", "ev": 40, "winner": 0, "margin": 11.4, "shares": [38.6, 15.2, 27.2, 19.0], "scores": [48.9, 19.3, 34.4, 24.0], "tie": false, "tied": []}, {"state": "California", "code": "CA", "ev": 54, "winner": 3, "margin": 5.9, "shares": [18.4, 28.5, 18.7, 34.4], "scores": [24.4, 37.8, 24.8, 45.6], "tie": false, "tied": []}, {"state": "New York", "code": "NY", "ev": 28, "winner": 1, "margin": 1.3, "shares": [16.4, 32.1, 20.7, 30.8], "scores": [23.4, 45.8, 29.6, 44.0], "tie": false, "tied": []}, {"state": "New Jersey", "code": "NJ", "ev": 14, "winner": 3, "margin": 7.1, "shares": [20.3, 25.1, 22.5, 32.1], "scores": [27.9, 34.3, 30.8, 44.0], "tie": false, "tied": []}, {"state": "Illinois", "code": "IL", "ev": 19, "winner": 3, "margin": 9.6, "shares": [17.5, 25.7, 21.6, 35.2], "scores": [23.6, 34.5, 29.0, 47.4], "tie": false, "tied": []}, {"state": "Pennsylvania", "code": "PA", "ev": 19, "winner": 3, "margin": 1.8, "shares": [24.2, 20.5, 26.8, 28.5], "scores": [33.1, 28.0, 36.6, 39.0], "tie": false, "tied": []}, {"state": "Ohio", "code": "OH", "ev": 17, "winner": 2, "margin": 0.3, "shares": [29.8, 16.1, 30.2, 23.9], "scores": [40.4, 21.8, 40.8, 32.4], "tie": false, "tied": []}, {"state": "Wisconsin", "code": "WI", "ev": 10, "winner": 3, "margin": 3.8, "shares": [22.7, 22.3, 25.6, 29.4], "scores": [30.9, 30.3, 34.8, 40.0], "tie": false, "tied": []}, {"state": "Michigan", "code": "MI", "ev": 15, "winner": 3, "margin": 5.0, "shares": [21.3, 22.3, 25.7, 30.7], "scores": [28.9, 30.3, 34.8, 41.6], "tie": false, "tied": []}, {"state": "Minnesota", "code": "MN", "ev": 10, "winner": 3, "margin": 10.5, "shares": [17.7, 24.4, 23.0, 34.9], "scores": [23.6, 32.5, 30.6, 46.6], "tie": false, "tied": []}, {"state": "Missouri", "code": "MO", "ev": 10, "winner": 0, "margin": 6.9, "shares": [35.0, 15.5, 28.1, 21.4], "scores": [45.9, 20.3, 36.8, 28.0], "tie": false, "tied": []}, {"state": "Kentucky", "code": "KY", "ev": 8, "winner": 0, "margin": 5.6, "shares": [35.0, 14.5, 29.4, 21.1], "scores": [43.6, 18.0, 36.6, 26.2], "tie": false, "tied": []}, {"state": "West Virginia", "code": "WV", "ev": 4, "winner": 0, "margin": 1.2, "shares": [34.0, 12.2, 32.7, 21.1], "scores": [39.9, 14.3, 38.4, 24.8], "tie": false, "tied": []}, {"state": "Oklahoma", "code": "OK", "ev": 7, "winner": 0, "margin": 13.8, "shares": [41.1, 13.3, 27.4, 18.2], "scores": [46.6, 15.0, 31.0, 20.6], "tie": false, "tied": []}, {"state": "Tennessee", "code": "TN", "ev": 11, "winner": 0, "margin": 13.5, "shares": [40.6, 13.8, 27.2, 18.4], "scores": [47.9, 16.3, 32.0, 21.6], "tie": false, "tied": []}, {"state": "Indiana", "code": "IN", "ev": 11, "winner": 0, "margin": 8.1, "shares": [35.1, 17.5, 27.0, 20.4], "scores": [46.9, 23.3, 36.0, 27.2], "tie": false, "tied": []}, {"state": "Arkansas", "code": "AR", "ev": 6, "winner": 0, "margin": 13.1, "shares": [39.4, 15.1, 26.4, 19.1], "scores": [47.9, 18.3, 32.0, 23.2], "tie": false, "tied": []}, {"state": "Mississippi", "code": "MS", "ev": 6, "winner": 0, "margin": 12.0, "shares": [39.7, 14.0, 27.7, 18.6], "scores": [45.6, 16.0, 31.8, 21.4], "tie": false, "tied": []}, {"state": "Alabama", "code": "AL", "ev": 9, "winner": 0, "margin": 10.3, "shares": [38.3, 14.6, 28.0, 19.1], "scores": [44.6, 17.0, 32.6, 22.2], "tie": false, "tied": []}, {"state": "Louisiana", "code": "LA", "ev": 8, "winner": 0, "margin": 13.1, "shares": [39.4, 15.1, 26.4, 19.1], "scores": [47.9, 18.3, 32.0, 23.2], "tie": false, "tied": []}, {"state": "South Carolina", "code": "SC", "ev": 9, "winner": 0, "margin": 11.9, "shares": [38.5, 15.7, 26.6, 19.2], "scores": [49.9, 20.3, 34.4, 24.8], "tie": false, "tied": []}, {"state": "Georgia", "code": "GA", "ev": 16, "winner": 0, "margin": 8.2, "shares": [34.2, 18.0, 26.0, 21.8], "scores": [46.6, 24.5, 35.4, 29.8], "tie": false, "tied": []}, {"state": "Florida", "code": "FL", "ev": 30, "winner": 0, "margin": 8.7, "shares": [33.9, 18.8, 25.2, 22.1], "scores": [48.4, 26.8, 36.0, 31.6], "tie": false, "tied": []}, {"state": "North Carolina", "code": "NC", "ev": 16, "winner": 0, "margin": 9.7, "shares": [35.5, 18.0, 25.9, 20.6], "scores": [48.6, 24.5, 35.4, 28.2], "tie": false, "tied": []}, {"state": "Virginia", "code": "VA", "ev": 13, "winner": 0, "margin": 0.4, "shares": [27.2, 25.0, 21.0, 26.8], "scores": [37.1, 34.0, 28.6, 36.6], "tie": false, "tied": []}, {"state": "South Dakota", "code": "SD", "ev": 3, "winner": 0, "margin": 11.3, "shares": [37.1, 15.9, 25.8, 21.2], "scores": [44.6, 19.0, 31.0, 25.4], "tie": false, "tied": []}, {"state": "North Dakota", "code": "ND", "ev": 3, "winner": 0, "margin": 11.3, "shares": [37.1, 15.9, 25.8, 21.2], "scores": [44.6, 19.0, 31.0, 25.4], "tie": false, "tied": []}, {"state": "Kansas", "code": "KS", "ev": 6, "winner": 0, "margin": 11.0, "shares": [36.1, 17.0, 25.1, 21.8], "scores": [44.6, 21.0, 31.0, 27.0], "tie": false, "tied": []}, {"state": "Nebraska", "code": "NE", "ev": 5, "winner": 0, "margin": 11.2, "shares": [36.3, 16.7, 25.2, 21.8], "scores": [43.6, 20.0, 30.2, 26.2], "tie": false, "tied": []}, {"state": "Wyoming", "code": "WY", "ev": 3, "winner": 0, "margin": 15.3, "shares": [41.0, 14.3, 25.6, 19.1], "scores": [45.4, 15.8, 28.4, 21.2], "tie": false, "tied": []}, {"state": "Idaho", "code": "ID", "ev": 4, "winner": 0, "margin": 15.3, "shares": [41.0, 14.3, 25.6, 19.1], "scores": [45.4, 15.8, 28.4, 21.2], "tie": false, "tied": []}, {"state": "Montana", "code": "MT", "ev": 4, "winner": 0, "margin": 11.2, "shares": [36.9, 16.2, 25.7, 21.2], "scores": [45.6, 20.0, 31.8, 26.2], "tie": false, "tied": []}, {"state": "Utah", "code": "UT", "ev": 6, "winner": 0, "margin": 16.8, "shares": [40.6, 15.4, 23.8, 20.2], "scores": [44.4, 16.8, 26.0, 22.0], "tie": false, "tied": []}, {"state": "Arizona", "code": "AZ", "ev": 11, "winner": 0, "margin": 9.3, "shares": [34.6, 17.9, 25.3, 22.2], "scores": [44.9, 23.3, 32.8, 28.8], "tie": false, "tied": []}, {"state": "Colorado", "code": "CO", "ev": 10, "winner": 3, "margin": 6.4, "shares": [22.1, 25.5, 20.5, 31.9], "scores": [28.9, 33.3, 26.8, 41.6], "tie": false, "tied": []}, {"state": "New Mexico", "code": "NM", "ev": 5, "winner": 3, "margin": 6.2, "shares": [23.0, 24.8, 21.2, 31.0], "scores": [30.9, 33.3, 28.4, 41.6], "tie": false, "tied": []}, {"state": "Nevada", "code": "NV", "ev": 6, "winner": 3, "margin": 2.3, "shares": [25.8, 22.8, 23.3, 28.1], "scores": [35.1, 31.0, 31.8, 38.2], "tie": false, "tied": []}, {"state": "Washington", "code": "WA", "ev": 12, "winner": 3, "margin": 7.5, "shares": [19.9, 26.9, 18.8, 34.4], "scores": [25.6, 34.5, 24.2, 44.2], "tie": false, "tied": []}, {"state": "Alaska", "code": "AK", "ev": 3, "winner": 0, "margin": 8.1, "shares": [34.7, 16.4, 26.6, 22.3], "scores": [44.6, 21.0, 34.2, 28.6], "tie": false, "tied": []}, {"state": "Hawaii", "code": "HI", "ev": 4, "winner": 3, "margin": 6.8, "shares": [19.3, 27.8, 18.3, 34.6], "scores": [24.6, 35.5, 23.4, 44.2], "tie": false, "tied": []}, {"state": "Oregon", "code": "OR", "ev": 8, "winner": 3, "margin": 7.7, "shares": [20.9, 25.9, 19.6, 33.6], "scores": [26.9, 33.3, 25.2, 43.2], "tie": false, "tied": []}, {"state": "Washington DC", "code": "DC", "ev": 3, "winner": 3, "margin": 4.9, "shares": [15.4, 31.8, 16.2, 36.6], "scores": [15.1, 31.0, 15.8, 35.8], "tie": false, "tied": []}, {"state": "Massachusetts", "code": "MA", "ev": 11, "winner": 3, "margin": 3.8, "shares": [16.7, 31.4, 16.7, 35.2], "scores": [18.1, 34.0, 18.2, 38.2], "tie": false, "tied": []}, {"state": "Rhode Island", "code": "RI", "ev": 4, "winner": 3, "margin": 5.4, "shares": [17.8, 29.6, 17.5, 35.1], "scores": [20.4, 33.8, 20.0, 40.0], "tie": false, "tied": []}, {"state": "Connecticut", "code": "CT", "ev": 7, "winner": 3, "margin": 5.1, "shares": [18.1, 29.6, 17.7, 34.6], "scores": [21.4, 34.8, 20.8, 40.8], "tie": false, "tied": []}, {"state": "Maryland", "code": "MD", "ev": 10, "winner": 3, "margin": 7.9, "shares": [19.7, 26.9, 18.7, 34.7], "scores": [24.6, 33.5, 23.4, 43.4], "tie": false, "tied": []}, {"state": "Delaware", "code": "DE", "ev": 3, "winner": 3, "margin": 6.2, "shares": [19.0, 28.3, 18.2, 34.5], "scores": [23.4, 34.8, 22.4, 42.4], "tie": false, "tied": []}, {"state": "Vermont", "code": "VT", "ev": 3, "winner": 3, "margin": 11.7, "shares": [19.1, 24.8, 19.6, 36.5], "scores": [23.6, 30.5, 24.2, 45.0], "tie": false, "tied": []}, {"state": "New Hampshire", "code": "NH", "ev": 4, "winner": 0, "margin": 0.6, "shares": [28.2, 20.0, 24.2, 27.6], "scores": [36.4, 25.8, 31.2, 35.6], "tie": false, "tied": []}, {"state": "Maine", "code": "ME", "ev": 4, "winner": 3, "margin": 6.7, "shares": [23.6, 24.0, 21.8, 30.6], "scores": [30.9, 31.3, 28.4, 40.0], "tie": false, "tied": []}, {"state": "Iowa", "code": "IA", "ev": 6, "winner": 2, "margin": 2.1, "shares": [27.1, 17.5, 29.2, 26.2], "scores": [36.6, 23.5, 39.4, 35.4], "tie": false, "tied": []}], "total_ev": 538, "needed": 270, "verdict": "The Marco Rubio/John Kasich ticket wins the election in the Senate caucus vote!", "popular_note": "Marco Rubio won the popular vote and also has the most electoral votes.", "deadlock": true, "caucus_vote": {"candidates": [{"index": 0, "name": "Marco Rubio", "party": "Republican", "ev": 256}, {"index": 3, "name": "Bernie Sanders", "party": "Fourth Party", "ev": 231}], "total": 100, "majority": 51, "limit": 20, "move": 1, "groups": [{"name": "Establishment Conservatives", "loyalists": false, "size": 32, "named": [{"name": "John Thune", "party": "R"}, {"name": "John Barrasso", "party": "R"}, {"name": "Roy Blunt", "party": "R"}, {"name": "Rob Portman", "party": "R"}, {"name": "Richard Burr", "party": "R"}, {"name": "Pat Toomey", "party": "R"}, {"name": "Jerry Moran", "party": "R"}, {"name": "John Boozman", "party": "R"}, {"name": "Deb Fischer", "party": "R"}, {"name": "Chuck Grassley", "party": "R"}, {"name": "Ron Johnson", "party": "R"}, {"name": "Todd Young", "party": "R"}, {"name": "Mike Crapo", "party": "R"}, {"name": "Mike Lee", "party": "R"}, {"name": "Tim Scott", "party": "R"}, {"name": "Marco Rubio", "party": "R"}, {"name": "Richard Shelby", "party": "R"}, {"name": "John Hoeven", "party": "R"}, {"name": "Roger Wicker", "party": "R"}, {"name": "James Lankford", "party": "R"}, {"name": "John Cornyn", "party": "R"}, {"name": "Mitch McConnell", "party": "R"}, {"name": "Shelley Moore Capito", "party": "R"}, {"name": "Bill Cassidy", "party": "R"}, {"name": "Thom Tillis", "party": "R"}, {"name": "Mike Rounds", "party": "R"}, {"name": "Roger Marshall", "party": "R"}, {"name": "Jim Risch", "party": "R"}, {"name": "Steve Daines", "party": "R"}, {"name": "Martha McSally", "party": "R"}, {"name": "Dan Sullivan", "party": "R"}, {"name": "Joni Ernst", "party": "R"}], "unnamed": {"R": 0, "D": 0}, "disagreement": [6.5, 29.75], "candidate": 0, "turn": 1, "over": 0.0, "tie_pick": false, "counted": true}, {"name": "MAGA Republicans", "loyalists": false, "size": 15, "named": [{"name": "Josh Hawley", "party": "R"}, {"name": "Marsha Blackburn", "party": "R"}, {"name": "Ted Cruz", "party": "R"}, {"name": "Rick Scott", "party": "R"}, {"name": "Kevin Cramer", "party": "R"}, {"name": "Mike Braun", "party": "R"}, {"name": "Rand Paul", "party": "R"}, {"name": "John Kennedy", "party": "R"}, {"name": "Jim Inhofe", "party": "R"}, {"name": "Bill Hagerty", "party": "R"}, {"name": "Tom Cotton", "party": "R"}, {"name": "Cindy Hyde-Smith", "party": "R"}, {"name": "Tommy Tuberville", "party": "R"}, {"name": "Kelly Loeffler", "party": "R"}, {"name": "Cynthia Lummis", "party": "R"}], "unnamed": {"R": 0, "D": 0}, "disagreement": [10.0, 23.25], "candidate": 0, "turn": 1, "over": 0.0, "tie_pick": false, "counted": true}, {"name": "Centrist Republicans", "loyalists": false, "size": 4, "named": [{"name": "Mitt Romney", "party": "R"}, {"name": "Lisa Murkowski", "party": "R"}, {"name": "Ben Sasse", "party": "R"}, {"name": "Susan Collins", "party": "R"}], "unnamed": {"R": 0, "D": 0}, "disagreement": [6.25, 23.0], "candidate": 0, "turn": 1, "over": 0.0, "tie_pick": false, "counted": true}, {"name": "Progressive Democrats", "loyalists": false, "size": 11, "named": [{"name": "Bernie Sanders", "party": "D"}, {"name": "Elizabeth Warren", "party": "D"}, {"name": "Sherrod Brown", "party": "D"}, {"name": "Kirsten Gillibrand", "party": "D"}, {"name": "Mazie Hirono", "party": "D"}, {"name": "Tammy Duckworth", "party": "D"}, {"name": "Tammy Baldwin", "party": "D"}, {"name": "Ron Wyden", "party": "D"}, {"name": "Cory Booker", "party": "D"}, {"name": "Jeff Merkley", "party": "D"}, {"name": "Ed Markey", "party": "D"}], "unnamed": {"R": 0, "D": 0}, "disagreement": [29.0, 8.25], "candidate": 3, "turn": 1, "over": 0.0, "tie_pick": false, "counted": true}, {"name": "Establishment Liberals", "loyalists": false, "size": 31, "named": [{"name": "Chuck Schumer", "party": "D"}, {"name": "Patty Murray", "party": "D"}, {"name": "Bob Menendez", "party": "D"}, {"name": "Tom Carper", "party": "D"}, {"name": "Dianne Feinstein", "party": "D"}, {"name": "Bob Casey", "party": "D"}, {"name": "Ben Cardin", "party": "D"}, {"name": "Chris Van Hollen", "party": "D"}, {"name": "Sheldon Whitehouse", "party": "D"}, {"name": "Amy Klobuchar", "party": "D"}, {"name": "Richard Blumenthal", "party": "D"}, {"name": "Brian Schatz", "party": "D"}, {"name": "Tim Kaine", "party": "D"}, {"name": "Angus King", "party": "D"}, {"name": "Maggie Hassan", "party": "D"}, {"name": "Catherine Cortez Masto", "party": "D"}, {"name": "Jacky Rosen", "party": "D"}, {"name": "Michael Bennet", "party": "D"}, {"name": "Martin Heinrich", "party": "D"}, {"name": "Kamala Harris", "party": "D"}, {"name": "Patrick Leahy", "party": "D"}, {"name": "Chris Murphy", "party": "D"}, {"name": "Maria Cantwell", "party": "D"}, {"name": "Dick Durbin", "party": "D"}, {"name": "Gary Peters", "party": "D"}, {"name": "Tina Smith", "party": "D"}, {"name": "Mark Warner", "party": "D"}, {"name": "Ben Ray Luj\u00e1n", "party": "D"}, {"name": "Jack Reed", "party": "D"}, {"name": "Chris Coons", "party": "D"}, {"name": "Jeanne Shaheen", "party": "D"}], "unnamed": {"R": 0, "D": 0}, "disagreement": [23.75, 12.5], "candidate": 3, "turn": 1, "over": 0.0, "tie_pick": false, "counted": true}, {"name": "Blue Dogs", "loyalists": false, "size": 4, "named": [{"name": "Joe Manchin", "party": "D"}, {"name": "Kyrsten Sinema", "party": "D"}, {"name": "Jon Tester", "party": "D"}, {"name": "John Hickenlooper", "party": "D"}], "unnamed": {"R": 0, "D": 0}, "disagreement": [11.75, 17.5], "candidate": 0, "turn": 1, "over": 0.0, "tie_pick": false, "counted": true}, {"name": "Party loyalists (Republican)", "loyalists": true, "size": 2, "named": [{"name": "Lindsey Graham", "party": "R"}, {"name": "David Perdue", "party": "R"}], "unnamed": {"R": 0, "D": 0}, "disagreement": null, "candidate": 0, "turn": 1, "over": 0.0, "tie_pick": false, "counted": true}, {"name": "Party loyalists (Democratic)", "loyalists": true, "size": 1, "named": [{"name": "Debbie Stabenow", "party": "D"}], "unnamed": {"R": 0, "D": 0}, "disagreement": null, "candidate": null, "turn": null, "over": 0.0, "tie_pick": false, "counted": false}], "turns": [{"turn": 1, "totals": [57, 42], "abstaining": 1, "joined": [{"name": "Establishment Conservatives", "size": 32, "candidate": 0}, {"name": "MAGA Republicans", "size": 15, "candidate": 0}, {"name": "Centrist Republicans", "size": 4, "candidate": 0}, {"name": "Progressive Democrats", "size": 11, "candidate": 3}, {"name": "Establishment Liberals", "size": 31, "candidate": 3}, {"name": "Blue Dogs", "size": 4, "candidate": 0}, {"name": "Party loyalists (Republican)", "size": 2, "candidate": 0}]}], "winner": 0, "how": "majority", "stop": 1, "final": [57, 42], "summary": "Marco Rubio won in turn 1 with 57 of 100 senators (majority: 51)."}, "senate": {"races": [{"state": "Texas", "code": "TX", "seat": 1, "seats_in_state": 1, "candidates": [{"party": "R", "name": "John Cornyn", "advantage": 7, "caucus": "Establishment Conservatives", "party_score": 51.2, "top_ticket": 8.1, "divided": 0.0, "score": 66.4}, {"party": "D", "name": "M. J. Hegar", "advantage": 5, "caucus": "Blue Dogs", "party_score": 33.2, "top_ticket": 3.2, "divided": 0.3, "score": 41.8}], "winner": 0, "margin": 22.7, "shares": [61.4, 38.6], "tie": false}, {"state": "New Jersey", "code": "NJ", "seat": 1, "seats_in_state": 1, "candidates": [{"party": "R", "name": "Rik Mehta", "advantage": 5, "caucus": "Establishment Conservatives", "party_score": 34.2, "top_ticket": 4.6, "divided": 0.0, "score": 43.9}, {"party": "D", "name": "Cory Booker", "advantage": 5, "caucus": "Progressive Democrats", "party_score": 48.2, "top_ticket": 5.7, "divided": 0.3, "score": 59.3}], "winner": 1, "margin": 14.9, "shares": [42.5, 57.5], "tie": false}, {"state": "Illinois", "code": "IL", "seat": 1, "seats_in_state": 1, "candidates": [{"party": "R", "name": "Mark Curran", "advantage": 5, "caucus": "Establishment Conservatives", "party_score": 30.0, "top_ticket": 3.9, "divided": 0.0, "score": 38.9}, {"party": "D", "name": "Dick Durbin", "advantage": 5, "caucus": "Establishment Liberals", "party_score": 46.0, "top_ticket": 5.8, "divided": 0.3, "score": 57.1}], "winner": 1, "margin": 18.9, "shares": [40.5, 59.5], "tie": false}, {"state": "Michigan", "code": "MI", "seat": 1, "seats_in_state": 1, "candidates": [{"party": "R", "name": "John James", "advantage": 6, "caucus": "", "party_score": 35.2, "top_ticket": 4.8, "divided": 0.0, "score": 46.1}, {"party": "D", "name": "Gary Peters", "advantage": 5, "caucus": "Establishment Liberals", "party_score": 43.2, "top_ticket": 5.0, "divided": 0.3, "score": 53.6}], "winner": 1, "margin": 7.6, "shares": [46.2, 53.8], "tie": false}, {"state": "Minnesota", "code": "MN", "seat": 1, "seats_in_state": 1, "candidates": [{"party": "R", "name": "Jason Lewis", "advantage": 7, "caucus": "MAGA Republicans", "party_score": 30.0, "top_ticket": 3.9, "divided": 0.0, "score": 40.9}, {"party": "D", "name": "Tina Smith", "advantage": 5, "caucus": "Establishment Liberals", "party_score": 44.0, "top_ticket": 5.4, "divided": 0.3, "score": 54.8}], "winner": 1, "margin": 14.4, "shares": [42.8, 57.2], "tie": false}, {"state": "Kentucky", "code": "KY", "seat": 1, "seats_in_state": 1, "candidates": [{"party": "R", "name": "Mitch McConnell", "advantage": 2, "caucus": "Establishment Conservatives", "party_score": 50.0, "top_ticket": 7.3, "divided": 0.0, "score": 59.3}, {"party": "D", "name": "Amy McGrath", "advantage": 5, "caucus": "Establishment Liberals", "party_score": 30.0, "top_ticket": 3.0, "divided": 0.3, "score": 38.3}], "winner": 0, "margin": 21.4, "shares": [60.7, 39.3], "tie": false}, {"state": "West Virginia", "code": "WV", "seat": 1, "seats_in_state": 1, "candidates": [{"party": "R", "name": "Shelley Moore Capito", "advantage": 5, "caucus": "Establishment Conservatives", "party_score": 46.2, "top_ticket": 6.6, "divided": 0.0, "score": 57.9}, {"party": "D", "name": "Paula Jean Swearengin", "advantage": 4, "caucus": "Progressive Democrats", "party_score": 28.2, "top_ticket": 2.4, "divided": 0.3, "score": 35.0}], "winner": 0, "margin": 24.7, "shares": [62.3, 37.7], "tie": false}, {"state": "Oklahoma", "code": "OK", "seat": 1, "seats_in_state": 1, "candidates": [{"party": "R", "name": "Jim Inhofe", "advantage": 5, "caucus": "MAGA Republicans", "party_score": 49.0, "top_ticket": 7.8, "divided": 0.0, "score": 61.8}, {"party": "D", "name": "Abby Broyles", "advantage": 5, "caucus": "Blue Dogs", "party_score": 29.0, "top_ticket": 2.5, "divided": 0.3, "score": 36.8}], "winner": 0, "margin": 25.3, "shares": [62.6, 37.4], "tie": false}, {"state": "Tennessee", "code": "TN", "seat": 1, "seats_in_state": 1, "candidates": [{"party": "R", "name": "Bill Hagerty", "advantage": 7, "caucus": "MAGA Republicans", "party_score": 50.2, "top_ticket": 8.0, "divided": 0.0, "score": 65.2}, {"party": "D", "name": "Marquita Bradshaw", "advantage": 5, "caucus": "Progressive Democrats", "party_score": 30.2, "top_ticket": 2.7, "divided": 0.3, "score": 38.3}], "winner": 0, "margin": 26.0, "shares": [63.0, 37.0], "tie": false}, {"state": "Arkansas", "code": "AR", "seat": 1, "seats_in_state": 1, "candidates": [{"party": "R", "name": "Tom Cotton", "advantage": 5, "caucus": "MAGA Republicans", "party_score": 52.2, "top_ticket": 8.0, "divided": 0.0, "score": 65.2}, {"party": "D", "name": "Ricky Dale Harrington Jr.", "advantage": 3, "caucus": "", "party_score": 32.2, "top_ticket": 3.0, "divided": 0.3, "score": 38.6}], "winner": 0, "margin": 25.6, "shares": [62.8, 37.2], "tie": false}, {"state": "Mississippi", "code": "MS", "seat": 1, "seats_in_state": 1, "candidates": [{"party": "R", "name": "Cindy Hyde-Smith", "advantage": 2, "caucus": "MAGA Republicans", "party_score": 50.0, "top_ticket": 7.6, "divided": 0.0, "score": 59.6}, {"party": "D", "name": "Mike Espy", "advantage": 6, "caucus": "Blue Dogs", "party_score": 30.0, "top_ticket": 2.7, "divided": 0.3, "score": 39.0}], "winner": 0, "margin": 20.9, "shares": [60.4, 39.6], "tie": false}, {"state": "Alabama", "code": "AL", "seat": 1, "seats_in_state": 1, "candidates": [{"party": "R", "name": "Tommy Tuberville", "advantage": 5, "caucus": "MAGA Republicans", "party_score": 51.0, "top_ticket": 7.4, "divided": 0.0, "score": 63.4}, {"party": "D", "name": "Doug Jones", "advantage": 7, "caucus": "Blue Dogs", "party_score": 31.0, "top_ticket": 2.8, "divided": 0.3, "score": 41.2}], "winner": 0, "margin": 21.3, "shares": [60.6, 39.4], "tie": false}, {"state": "Louisiana", "code": "LA", "seat": 1, "seats_in_state": 1, "candidates": [{"party": "R", "name": "Bill Cassidy", "advantage": 7, "caucus": "Establishment Conservatives", "party_score": 52.2, "top_ticket": 8.0, "divided": 0.0, "score": 67.2}, {"party": "D", "name": "Adrian Perkins", "advantage": 5, "caucus": "Establishment Liberals", "party_score": 32.2, "top_ticket": 3.0, "divided": 0.3, "score": 40.6}], "winner": 0, "margin": 24.7, "shares": [62.3, 37.7], "tie": false}, {"state": "South Carolina", "code": "SC", "seat": 1, "seats_in_state": 1, "candidates": [{"party": "R", "name": "Lindsey Graham", "advantage": 4, "caucus": "", "party_score": 54.2, "top_ticket": 8.3, "divided": 0.0, "score": 66.6}, {"party": "D", "name": "Jaime Harrison", "advantage": 5, "caucus": "Establishment Liberals", "party_score": 34.2, "top_ticket": 3.4, "divided": 0.3, "score": 43.0}], "winner": 0, "margin": 21.5, "shares": [60.8, 39.2], "tie": false}, {"state": "Georgia", "code": "GA", "seat": 1, "seats_in_state": 2, "candidates": [{"party": "R", "name": "David Perdue", "advantage": 7, "caucus": "", "party_score": 50.0, "top_ticket": 7.8, "divided": 0.0, "score": 64.8}, {"party": "D", "name": "Jon Ossoff", "advantage": 5, "caucus": "Establishment Liberals", "party_score": 40.5, "top_ticket": 4.1, "divided": 0.3, "score": 49.9}], "winner": 0, "margin": 12.9, "shares": [56.5, 43.5], "tie": false}, {"state": "Georgia", "code": "GA", "seat": 2, "seats_in_state": 2, "candidates": [{"party": "R", "name": "Kelly Loeffler", "advantage": 5, "caucus": "MAGA Republicans", "party_score": 50.0, "top_ticket": 7.8, "divided": 0.0, "score": 62.8}, {"party": "D", "name": "Raphael Warnock", "advantage": 7, "caucus": "Establishment Liberals", "party_score": 40.5, "top_ticket": 4.1, "divided": 0.3, "score": 51.9}], "winner": 0, "margin": 9.5, "shares": [54.7, 45.3], "tie": false}, {"state": "North Carolina", "code": "NC", "seat": 1, "seats_in_state": 1, "candidates": [{"party": "R", "name": "Thom Tillis", "advantage": 5, "caucus": "Establishment Conservatives", "party_score": 52.0, "top_ticket": 8.1, "divided": 0.0, "score": 65.1}, {"party": "D", "name": "Cal Cunningham", "advantage": 5, "caucus": "Blue Dogs", "party_score": 38.5, "top_ticket": 4.1, "divided": 0.3, "score": 47.9}], "winner": 0, "margin": 15.2, "shares": [57.6, 42.4], "tie": false}, {"state": "Virginia", "code": "VA", "seat": 1, "seats_in_state": 1, "candidates": [{"party": "R", "name": "Daniel Gade", "advantage": 5, "caucus": "MAGA Republicans", "party_score": 41.5, "top_ticket": 6.2, "divided": 0.0, "score": 52.7}, {"party": "D", "name": "Mark Warner", "advantage": 6, "caucus": "Establishment Liberals", "party_score": 49.0, "top_ticket": 5.7, "divided": 0.3, "score": 61.0}], "winner": 1, "margin": 7.3, "shares": [46.3, 53.7], "tie": false}, {"state": "South Dakota", "code": "SD", "seat": 1, "seats_in_state": 1, "candidates": [{"party": "R", "name": "Mike Rounds", "advantage": 6, "caucus": "Establishment Conservatives", "party_score": 49.0, "top_ticket": 7.4, "divided": 0.0, "score": 62.4}, {"party": "D", "name": "Dan Ahlers", "advantage": 5, "caucus": "Blue Dogs", "party_score": 35.0, "top_ticket": 3.2, "divided": 0.3, "score": 43.5}], "winner": 0, "margin": 17.9, "shares": [58.9, 41.1], "tie": false}, {"state": "Kansas", "code": "KS", "seat": 1, "seats_in_state": 1, "candidates": [{"party": "R", "name": "Roger Marshall", "advantage": 5, "caucus": "Establishment Conservatives", "party_score": 49.0, "top_ticket": 7.4, "divided": 0.0, "score": 61.4}, {"party": "D", "name": "Barbara Bollier", "advantage": 7, "caucus": "Blue Dogs", "party_score": 37.0, "top_ticket": 3.5, "divided": 0.3, "score": 47.8}], "winner": 0, "margin": 12.4, "shares": [56.2, 43.8], "tie": false}, {"state": "Nebraska", "code": "NE", "seat": 1, "seats_in_state": 1, "candidates": [{"party": "R", "name": "Ben Sasse", "advantage": 6, "caucus": "Centrist Republicans", "party_score": 48.0, "top_ticket": 7.3, "divided": 0.0, "score": 61.3}, {"party": "D", "name": "Chris Janicek", "advantage": 1, "caucus": "Blue Dogs", "party_score": 36.0, "top_ticket": 3.3, "divided": 0.3, "score": 40.7}], "winner": 0, "margin": 20.2, "shares": [60.1, 39.9], "tie": false}, {"state": "Wyoming", "code": "WY", "seat": 1, "seats_in_state": 1, "candidates": [{"party": "R", "name": "Cynthia Lummis", "advantage": 5, "caucus": "MAGA Republicans", "party_score": 49.8, "top_ticket": 7.6, "divided": 0.0, "score": 62.3}, {"party": "D", "name": "Merav Ben-David", "advantage": 5, "caucus": "Blue Dogs", "party_score": 29.8, "top_ticket": 2.6, "divided": 0.3, "score": 37.7}], "winner": 0, "margin": 24.6, "shares": [62.3, 37.7], "tie": false}, {"state": "Idaho", "code": "ID", "seat": 1, "seats_in_state": 1, "candidates": [{"party": "R", "name": "Jim Risch", "advantage": 3, "caucus": "Establishment Conservatives", "party_score": 49.8, "top_ticket": 7.6, "divided": 0.0, "score": 60.3}, {"party": "D", "name": "Paulette Jordan", "advantage": 5, "caucus": "", "party_score": 29.8, "top_ticket": 2.6, "divided": 0.3, "score": 37.7}], "winner": 0, "margin": 23.0, "shares": [61.5, 38.5], "tie": false}, {"state": "Montana", "code": "MT", "seat": 1, "seats_in_state": 1, "candidates": [{"party": "R", "name": "Steve Daines", "advantage": 5, "caucus": "Establishment Conservatives", "party_score": 52.0, "top_ticket": 7.6, "divided": 0.0, "score": 64.6}, {"party": "D", "name": "Steve Bullock", "advantage": 9, "caucus": "Blue Dogs", "party_score": 36.0, "top_ticket": 3.3, "divided": 0.3, "score": 48.7}], "winner": 0, "margin": 14.1, "shares": [57.0, 43.0], "tie": false}, {"state": "Arizona", "code": "AZ", "seat": 1, "seats_in_state": 1, "candidates": [{"party": "R", "name": "Martha McSally", "advantage": 5, "caucus": "Establishment Conservatives", "party_score": 49.2, "top_ticket": 7.5, "divided": 0.0, "score": 61.7}, {"party": "D", "name": "Mark Kelly", "advantage": 7, "caucus": "Blue Dogs", "party_score": 39.2, "top_ticket": 3.9, "divided": 0.3, "score": 50.5}], "winner": 0, "margin": 10.0, "shares": [55.0, 45.0], "tie": false}, {"state": "Colorado", "code": "CO", "seat": 1, "seats_in_state": 1, "candidates": [{"party": "R", "name": "Cory Gardner", "advantage": 7, "caucus": "Centrist Republicans", "party_score": 33.2, "top_ticket": 4.8, "divided": 0.0, "score": 45.1}, {"party": "D", "name": "John Hickenlooper", "advantage": 5, "caucus": "Blue Dogs", "party_score": 49.2, "top_ticket": 5.5, "divided": 0.3, "score": 60.1}], "winner": 1, "margin": 14.3, "shares": [42.8, 57.2], "tie": false}, {"state": "New Mexico", "code": "NM", "seat": 1, "seats_in_state": 1, "candidates": [{"party": "R", "name": "Mark Ronchetti", "advantage": 5, "caucus": "Establishment Conservatives", "party_score": 35.2, "top_ticket": 5.1, "divided": 0.0, "score": 45.4}, {"party": "D", "name": "Ben Ray Luj\u00e1n", "advantage": 4, "caucus": "Establishment Liberals", "party_score": 49.2, "top_ticket": 5.5, "divided": 0.3, "score": 59.1}], "winner": 1, "margin": 13.1, "shares": [43.4, 56.6], "tie": false}, {"state": "Alaska", "code": "AK", "seat": 1, "seats_in_state": 1, "candidates": [{"party": "R", "name": "Dan Sullivan", "advantage": 3, "caucus": "Establishment Conservatives", "party_score": 51.0, "top_ticket": 7.4, "divided": 0.0, "score": 61.4}, {"party": "D", "name": "Al Gross", "advantage": 5, "caucus": "Blue Dogs", "party_score": 37.0, "top_ticket": 3.5, "divided": 0.3, "score": 45.8}], "winner": 0, "margin": 14.5, "shares": [57.3, 42.7], "tie": false}, {"state": "Oregon", "code": "OR", "seat": 1, "seats_in_state": 1, "candidates": [{"party": "R", "name": "Jo Rae Perkins", "advantage": 5, "caucus": "", "party_score": 31.2, "top_ticket": 4.5, "divided": 0.0, "score": 40.7}, {"party": "D", "name": "Jeff Merkley", "advantage": 6, "caucus": "Progressive Democrats", "party_score": 49.2, "top_ticket": 5.5, "divided": 0.3, "score": 61.1}], "winner": 1, "margin": 20.0, "shares": [40.0, 60.0], "tie": false}, {"state": "Massachusetts", "code": "MA", "seat": 1, "seats_in_state": 1, "candidates": [{"party": "R", "name": "Kevin O'Connor", "advantage": 5, "caucus": "Centrist Republicans", "party_score": 22.5, "top_ticket": 3.0, "divided": 0.0, "score": 30.5}, {"party": "D", "name": "Ed Markey", "advantage": 5, "caucus": "Progressive Democrats", "party_score": 42.5, "top_ticket": 5.7, "divided": 0.3, "score": 53.5}], "winner": 1, "margin": 27.4, "shares": [36.3, 63.7], "tie": false}, {"state": "Rhode Island", "code": "RI", "seat": 1, "seats_in_state": 1, "candidates": [{"party": "R", "name": "Allen Waters", "advantage": 5, "caucus": "Centrist Republicans", "party_score": 24.8, "top_ticket": 3.4, "divided": 0.0, "score": 33.1}, {"party": "D", "name": "Jack Reed", "advantage": 8, "caucus": "Establishment Liberals", "party_score": 44.8, "top_ticket": 5.6, "divided": 0.3, "score": 58.7}], "winner": 1, "margin": 27.8, "shares": [36.1, 63.9], "tie": false}, {"state": "Delaware", "code": "DE", "seat": 1, "seats_in_state": 1, "candidates": [{"party": "R", "name": "Lauren Witzke", "advantage": 5, "caucus": "", "party_score": 27.8, "top_ticket": 3.9, "divided": 0.0, "score": 36.6}, {"party": "D", "name": "Chris Coons", "advantage": 5, "caucus": "Establishment Liberals", "party_score": 45.8, "top_ticket": 5.8, "divided": 0.3, "score": 56.9}], "winner": 1, "margin": 21.6, "shares": [39.2, 60.8], "tie": false}, {"state": "New Hampshire", "code": "NH", "seat": 1, "seats_in_state": 1, "candidates": [{"party": "R", "name": "Bryant \"Corky\" Messner", "advantage": 5, "caucus": "MAGA Republicans", "party_score": 40.8, "top_ticket": 6.1, "divided": 0.0, "score": 51.8}, {"party": "D", "name": "Jeanne Shaheen", "advantage": 13, "caucus": "Establishment Liberals", "party_score": 41.8, "top_ticket": 4.3, "divided": 0.3, "score": 59.4}], "winner": 1, "margin": 6.8, "shares": [46.6, 53.4], "tie": false}, {"state": "Maine", "code": "ME", "seat": 1, "seats_in_state": 1, "candidates": [{"party": "R", "name": "Susan Collins", "advantage": 30, "caucus": "Centrist Republicans", "party_score": 35.2, "top_ticket": 5.1, "divided": 0.0, "score": 70.4}, {"party": "D", "name": "Sara Gideon", "advantage": 4, "caucus": "Establishment Liberals", "party_score": 47.2, "top_ticket": 5.2, "divided": 0.3, "score": 56.8}], "winner": 0, "margin": 10.7, "shares": [55.3, 44.7], "tie": false}, {"state": "Iowa", "code": "IA", "seat": 1, "seats_in_state": 1, "candidates": [{"party": "R", "name": "Joni Ernst", "advantage": 5, "caucus": "Establishment Conservatives", "party_score": 43.0, "top_ticket": 6.1, "divided": 0.0, "score": 54.1}, {"party": "D", "name": "Theresa Greenfield", "advantage": 6, "caucus": "Blue Dogs", "party_score": 37.5, "top_ticket": 3.9, "divided": 0.3, "score": 47.8}], "winner": 0, "margin": 6.2, "shares": [53.1, 46.9], "tie": false}], "holdover": {"R": 30, "D": 35}, "won": {"R": 23, "D": 12}, "final": {"R": 53, "D": 47}, "total_seats": 100, "needed": 51, "control": "R", "tie_break": false, "popularity_gap": 1, "divided": {"R": 0.0, "D": 0.3}, "top_ticket_divisor": 6, "divided_divisor": 3, "caucus_table": [{"name": "Establishment Conservatives", "loyalists": false, "R": {"not_up": 20, "won": 12}, "D": {"not_up": 0, "won": 0}}, {"name": "MAGA Republicans", "loyalists": false, "R": {"not_up": 8, "won": 7}, "D": {"not_up": 0, "won": 0}}, {"name": "Centrist Republicans", "loyalists": false, "R": {"not_up": 2, "won": 2}, "D": {"not_up": 0, "won": 0}}, {"name": "Progressive Democrats", "loyalists": false, "R": {"not_up": 0, "won": 0}, "D": {"not_up": 8, "won": 3}}, {"name": "Establishment Liberals", "loyalists": false, "R": {"not_up": 0, "won": 0}, "D": {"not_up": 23, "won": 8}}, {"name": "Blue Dogs", "loyalists": false, "R": {"not_up": 0, "won": 0}, "D": {"not_up": 3, "won": 1}}, {"name": "Party loyalists", "loyalists": true, "R": {"not_up": 0, "won": 2}, "D": {"not_up": 1, "won": 0}}]}, "year": "2020"};
+
+  var $ = function(id){return document.getElementById(id)};
+  var svg = $("map"), tip = $("tip");
+
+  function hexToRgb(h){return [1,3,5].map(function(i){return parseInt(h.substr(i,2),16)})}
+  function mix(hex, other, t){
+    var a = hexToRgb(hex), b = hexToRgb(other);
+    return "rgb(" + a.map(function(v,i){return Math.round(v*(1-t) + b[i]*t)}).join(",") + ")";
+  }
+  // Shade levels, lightest to darkest: lighter tint, light tint, the colour itself, darker.
+  function shade(ci, level){
+    var base = CANDIDATE_COLORS[ci % CANDIDATE_COLORS.length];
+    return [mix(base,"#ffffff",.62), mix(base,"#ffffff",.35), base, mix(base,"#000000",.3)][level];
+  }
+  var STEPS = [5, 10, 18];
+  function levelWith(steps, margin){
+    var lv = 0;
+    steps.forEach(function(s){if(margin >= s) lv++});
+    return Math.min(lv, 3);
+  }
+  function levelFor(margin){return levelWith(STEPS, margin)}
+  function stepLabels(steps){
+    var s = steps || STEPS;
+    return ["under " + s[0], s[0] + "\u2013" + s[1], s[1] + "\u2013" + s[2], s[2] + "+"];
+  }
+  function el(tag, cls, text){
+    var e = document.createElement(tag);
+    if(cls) e.className = cls;
+    if(text !== undefined) e.textContent = text;
+    return e;
+  }
+  function swatch(color){var s = el("i","sw"); s.style.background = color; return s}
+  function fmt(n){return (Math.round(n*10)/10).toFixed(1)}
+  function pct(n){return fmt(n) + "%"}
+  function names(list){
+    return list.length < 3 ? list.join(" and ") : list.slice(0,-1).join(", ") + " and " + list[list.length-1];
+  }
+
+  if(!DATA){
+    $("empty").style.display = "block";
+    $("evbars").parentNode.style.display = "none";
+    $("pvbars").closest(".card").style.display = "none";
+    $("legend").parentNode.style.display = "none";
+    $("closest").parentNode.style.display = "none";
+    $("tbody").closest(".card").style.display = "none";
+    return;
+  }
+
+  var cands = DATA.candidates, states = DATA.states;
+  var n = Math.min(Math.max(cands.length, 2), 4);
+  STEPS = MARGIN_STEPS[n] || STEPS;
+  var byCode = {};
+  states.forEach(function(s){if(s.code) byCode[s.code] = s});
+
+  // ---- Headline ----
+  $("title").textContent = DATA.year ? DATA.year + " election results" : "Election results";
+  $("verdict").textContent = DATA.verdict;
+  document.title = (DATA.year ? DATA.year + " " : "") + "election results map";
+
+  // ---- Bars (electoral votes and popular vote) ----
+  function bars(box, rows){
+    rows.forEach(function(r){
+      var row = el("div","evrow");
+      var name = el("div","evname");
+      name.appendChild(swatch(shade(r.i,2)));
+      name.appendChild(el("span","",cands[r.i].ticket));
+      name.appendChild(el("small","",cands[r.i].party));
+      name.title = cands[r.i].ticket + " (" + cands[r.i].party + ")";
+      var track = el("div","track");
+      var fill = el("div","fill");
+      fill.style.width = r.width + "%";
+      fill.style.background = shade(r.i,2);
+      track.appendChild(fill);
+      if(r.line !== undefined){
+        var maj = el("div","maj");
+        maj.style.left = r.line + "%";
+        track.appendChild(maj);
+      }
+      var num = el("div","evnum", r.text);
+      if(r.small) num.appendChild(el("small","",r.small));
+      row.appendChild(name); row.appendChild(track); row.appendChild(num);
+      box.appendChild(row);
+    });
+  }
+  var majPct = DATA.needed / DATA.total_ev * 100;
+  bars($("evbars"), cands.map(function(c,i){
+    return {i:i, width:c.votes / DATA.total_ev * 100, line:majPct, text:String(c.votes)};
+  }));
+  $("evnote").textContent = "The dashed line marks " + DATA.needed + " electoral votes, the number needed to win (out of " + DATA.total_ev + ").";
+  bars($("pvbars"), cands.map(function(c,i){
+    return {i:i, width:c.popular_pct, text:pct(c.popular_pct), small:Math.round(c.popular_points).toLocaleString("en-US")};
+  }));
+  $("pvnote").textContent = DATA.popular_note || "";
+  $("pvnote").style.display = DATA.popular_note ? "" : "none";
+
+  var SEN = DATA.senate || null;
+  var sSvg = null;
+  if(SEN){sSvg = svg.cloneNode(true); sSvg.id = "senmap"}
+
+  // ---- Colour the map ----
+  svg.querySelectorAll("[data-st]").forEach(function(p){
+    var s = byCode[p.getAttribute("data-st")];
+    if(s) p.style.fill = shade(s.winner, levelFor(s.margin));
+  });
+  var NS = "http://www.w3.org/2000/svg";
+  var patternsReady = false;
+  // Patterns both maps can use: the tie hatch and the red/blue stripes of a split Senate state.
+  function ensurePatterns(){
+    if(patternsReady) return;
+    patternsReady = true;
+    var holder = document.createElementNS(NS,"svg");
+    holder.setAttribute("width","0"); holder.setAttribute("height","0"); holder.setAttribute("aria-hidden","true");
+    holder.style.position = "absolute";
+    var defs = document.createElementNS(NS,"defs");
+    var hatch = document.createElementNS(NS,"pattern");
+    hatch.setAttribute("id","tiehatch"); hatch.setAttribute("width","6"); hatch.setAttribute("height","6");
+    hatch.setAttribute("patternUnits","userSpaceOnUse"); hatch.setAttribute("patternTransform","rotate(45)");
+    var ln = document.createElementNS(NS,"line");
+    ln.setAttribute("x1","0"); ln.setAttribute("y1","0"); ln.setAttribute("x2","0"); ln.setAttribute("y2","6");
+    ln.setAttribute("stroke","#000"); ln.setAttribute("stroke-opacity",".4"); ln.setAttribute("stroke-width","2");
+    hatch.appendChild(ln); defs.appendChild(hatch);
+    var stripe = document.createElementNS(NS,"pattern");
+    stripe.setAttribute("id","splitstripe"); stripe.setAttribute("width","12"); stripe.setAttribute("height","12");
+    stripe.setAttribute("patternUnits","userSpaceOnUse"); stripe.setAttribute("patternTransform","rotate(-45)");
+    [0,1].forEach(function(i){
+      var r = document.createElementNS(NS,"rect");
+      r.setAttribute("x", String(i*6)); r.setAttribute("y","0"); r.setAttribute("width","6"); r.setAttribute("height","12");
+      r.setAttribute("fill", CANDIDATE_COLORS[i]);
+      stripe.appendChild(r);
+    });
+    defs.appendChild(stripe);
+    holder.appendChild(defs); document.body.appendChild(holder);
+  }
+  function addHatch(svgEl, code){
+    svgEl.querySelectorAll('[data-st="' + code + '"]').forEach(function(p){
+      var c = p.cloneNode(false);
+      c.removeAttribute("data-st"); c.removeAttribute("class");
+      c.style.fill = "url(#tiehatch)"; c.style.stroke = "none"; c.style.pointerEvents = "none";
+      svgEl.appendChild(c);
+    });
+  }
+  // Tied states get a hatch pattern on top of the winner's colour, so the coin flips are visible.
+  var tied = states.filter(function(s){return s.tie && s.code});
+  if(tied.length){
+    ensurePatterns();
+    tied.forEach(function(s){addHatch(svg, s.code)});
+    $("tiekey").hidden = false;
+  }
+  svg.setAttribute("aria-label", "Map of the United States coloured by election winner. " + DATA.verdict);
+
+  // ---- Legend ----
+  var labels = stepLabels();
+  var thead = el("thead"), hr = el("tr");
+  hr.appendChild(el("th","","Candidate"));
+  labels.forEach(function(t){hr.appendChild(el("th","",t))});
+  thead.appendChild(hr);
+  var lg = $("legend");
+  lg.appendChild(thead);
+  var lb = el("tbody");
+  cands.forEach(function(c, i){
+    var tr = el("tr");
+    var th = el("th"); th.scope = "row"; th.textContent = c.name;
+    tr.appendChild(th);
+    for(var lv = 0; lv < 4; lv++){
+      var td = el("td"); td.appendChild(swatch(shade(i,lv)));
+      tr.appendChild(td);
+    }
+    lb.appendChild(tr);
+  });
+  lg.appendChild(lb);
+
+  // ---- Tied states ----
+  var allTied = states.filter(function(s){return s.tie});
+  if(allTied.length){
+    $("tiecard").hidden = false;
+    $("tietext").textContent = allTied.length + (allTied.length === 1 ? " state ended" : " states ended") +
+      " in an exact tie. When candidates have exactly the same score in a state, the game flips a fair coin: every tied candidate has an equal chance (50/50 with two candidates, one in three with three). Tied states are hatched on the map.";
+    allTied.forEach(function(s){
+      var who = names(s.tied.map(function(i){return cands[i].name}));
+      $("tielist").appendChild(el("li","", s.state + " (" + s.ev + " EV): " + who + " were tied, " + cands[s.winner].name + " won the coin flip"));
+    });
+  }
+
+  // ---- Closest states ----
+  var sorted = states.slice().sort(function(a,b){return a.margin - b.margin});
+  sorted.slice(0,3).forEach(function(s){
+    var text = s.tie
+      ? s.state + ": exact tie, " + cands[s.winner].name + " won the coin flip (" + s.ev + " EV)"
+      : s.state + ": " + cands[s.winner].name + " wins by " + fmt(s.margin) + " percentage points (" + s.ev + " EV)";
+    $("closest").appendChild(el("li","", text));
+  });
+
+  // ---- Table of all states ----
+  $("tsum").textContent = "All states (" + states.length + ")";
+  states.slice().sort(function(a,b){return a.state < b.state ? -1 : 1}).forEach(function(s){
+    var tr = el("tr");
+    tr.tabIndex = 0;
+    tr.appendChild(el("td","",s.state));
+    tr.appendChild(el("td","n",String(s.ev)));
+    var w = el("td"); var sp = swatch(shade(s.winner, levelFor(s.margin)));
+    w.appendChild(sp); w.appendChild(document.createTextNode(" " + cands[s.winner].name + (s.tie ? " (coin flip)" : "")));
+    tr.appendChild(w);
+    tr.appendChild(el("td","n",fmt(s.margin)));
+    if(s.code){
+      var on = function(){highlight(s.code)};
+      tr.addEventListener("mouseenter", on); tr.addEventListener("focus", on);
+      tr.addEventListener("mouseleave", clearHighlight); tr.addEventListener("blur", clearHighlight);
+    }
+    $("tbody").appendChild(tr);
+  });
+
+  function highlight(code, target){
+    target = (target && target.classList) ? target : svg;
+    clearHighlight(target);
+    target.classList.add("dim");
+    target.querySelectorAll('[data-st="' + code + '"]').forEach(function(p){p.classList.add("hl")});
+  }
+  function clearHighlight(target){
+    target = (target && target.classList) ? target : svg;   // used as an event listener too
+    target.classList.remove("dim");
+    target.querySelectorAll(".hl").forEach(function(p){p.classList.remove("hl")});
+  }
+
+  // ---- Hover / tap info on the map ----
+  function showTip(s, x, y){
+    tip.textContent = "";
+    var head = el("b","", s.state + (s.code ? " (" + s.code + ")" : "") + " \u2013 " + s.ev + " EV");
+    tip.appendChild(head);
+    var win = el("div","win","Winner: " + cands[s.winner].name);
+    win.style.color = shade(s.winner, 2);
+    tip.appendChild(win);
+    if(s.tie){
+      var who = names(s.tied.map(function(i){return cands[i].name}));
+      var chance = s.tied.length === 2 ? "50/50" : "an equal chance";
+      var t = el("div","", "Exact tie between " + who + ": decided by a coin flip (" + chance + ").");
+      t.style.margin = "4px 0";
+      tip.appendChild(t);
+    } else {
+      tip.appendChild(el("div","mute","Margin: " + fmt(s.margin) + " percentage points"));
+    }
+    var order = s.shares.map(function(v,i){return i}).sort(function(a,b){return s.scores[b] - s.scores[a]});
+    var list = el("div"); list.style.marginTop = "6px";
+    order.forEach(function(i){
+      var r = el("div","row");
+      var left = el("span"); left.appendChild(swatch(shade(i,2))); left.appendChild(document.createTextNode(" " + cands[i].name));
+      var right = el("span","", pct(s.shares[i]) + "  \u00b7  score " + fmt(s.scores[i]));
+      r.appendChild(left); r.appendChild(right);
+      list.appendChild(r);
+    });
+    tip.appendChild(list);
+    placeTip(x, y);
+  }
+  function placeTip(x, y){
+    tip.style.display = "block";
+    var w = tip.offsetWidth, h = tip.offsetHeight;
+    var left = x + 16, top = y + 16;
+    if(left + w > window.innerWidth - 8) left = x - w - 16;
+    if(top + h > window.innerHeight - 8) top = y - h - 16;
+    tip.style.left = Math.max(8,left) + "px";
+    tip.style.top = Math.max(8,top) + "px";
+  }
+  function hideTip(){tip.style.display = "none"}
+  function makeHover(svgEl, lookup, show){
+    function handle(e){
+      var t = e.target.closest ? e.target.closest("[data-st]") : null;
+      var s = t ? lookup[t.getAttribute("data-st")] : null;
+      if(s) show(s, e.clientX, e.clientY); else hideTip();
+    }
+    svgEl.addEventListener("pointermove", handle);
+    svgEl.addEventListener("pointerdown", handle);
+    svgEl.addEventListener("pointerleave", function(e){if(e.pointerType === "mouse") hideTip()});
+  }
+  makeHover(svg, byCode, showTip);
+  document.addEventListener("pointerdown", function(e){if(!e.target.closest(".usmap")) hideTip()});
+  window.addEventListener("scroll", hideTip, {passive:true});
+
+  // ================= Senate =================
+  if(SEN) renderSenate();
+
+  function renderSenate(){
+    var PLURAL = ["Republicans", "Democrats"], ADJ = ["Republican", "Democratic"], LETTER = ["R", "D"];
+    var races = SEN.races;
+
+    // -- composition next to the electoral votes --
+    $("sencomp").hidden = false;
+    var total = SEN.total_seats;
+    [0,1].forEach(function(i){
+      var p = LETTER[i], hold = SEN.holdover[p], won = SEN.won[p];
+      var row = el("div","evrow");
+      var name = el("div","evname");
+      name.appendChild(swatch(shade(i,2)));
+      name.appendChild(el("span","",PLURAL[i]));
+      var track = el("div","track stack");
+      var a = el("div","seg"); a.style.width = (hold / total * 100) + "%"; a.style.background = shade(i,0);
+      a.title = hold + " seats not up for election";
+      var b = el("div","seg"); b.style.width = (won / total * 100) + "%"; b.style.background = shade(i,2);
+      b.title = won + " seats won this year";
+      track.appendChild(a); track.appendChild(b);
+      var maj = el("div","maj"); maj.style.left = (SEN.needed / total * 100) + "%"; track.appendChild(maj);
+      var num = el("div","evnum", String(SEN.final[p]));
+      num.appendChild(el("small","", hold + " + " + won));
+      row.appendChild(name); row.appendChild(track); row.appendChild(num);
+      $("senbars").appendChild(row);
+    });
+    var f = SEN.final, ctl;
+    if(SEN.control && SEN.tie_break){
+      ctl = "The Senate is tied " + f.R + "-" + f.D + ": the " + PLURAL[SEN.control === "R" ? 0 : 1] +
+        " control it because the winning president\u2019s party breaks the tie (VP tie-break).";
+    }else if(SEN.control){
+      ctl = "The " + PLURAL[SEN.control === "R" ? 0 : 1] + " control the Senate.";
+    }else{
+      ctl = "The Senate is tied " + f.R + "-" + f.D + " and nobody controls it (there is no Republican or Democratic winning president to break the tie).";
+    }
+    $("sencontrol").textContent = ctl;
+    $("sennote").textContent = "The light part is the seats not up for election, the solid part is the seats won this year (shown as \u201cnot up + won\u201d). The dashed line marks " + SEN.needed + " seats, the number needed for control (out of " + total + ").";
+    $("senverdict").hidden = false;
+    $("senverdict").textContent = "Senate: " + ctl;
+    if(SEN.caucus_table) renderCaucusTable(SEN.caucus_table);
+    if(DATA.caucus_vote) renderCaucusVote(DATA.caucus_vote);
+
+    // -- the map --
+    var senBy = {};
+    races.forEach(function(r){if(r.code){(senBy[r.code] = senBy[r.code] || {state:r.state, code:r.code, races:[]}).races.push(r)}});
+    $("senmapcard").hidden = false;
+    $("senmapbox").appendChild(sSvg);
+    sSvg.setAttribute("aria-label", "Map of the United States showing who won each Senate race. " + ctl);
+    var anyTie = false, anySplit = false;
+    sSvg.querySelectorAll("[data-st]").forEach(function(p){
+      var e = senBy[p.getAttribute("data-st")];
+      if(!e) return;                                  // no Senate race in this state this year: stays grey
+      var w = e.races.map(function(r){return r.winner});
+      if(w.length === 2 && w[0] !== w[1]){p.style.fill = "url(#splitstripe)"; anySplit = true}
+      else{
+        var m = Math.min.apply(null, e.races.map(function(r){return r.margin}));   // two seats: the closer race decides the shade
+        p.style.fill = shade(w[0], levelWith(SENATE_STEPS, m));
+      }
+    });
+    ensurePatterns();
+    Object.keys(senBy).forEach(function(code){
+      if(senBy[code].races.some(function(r){return r.tie})){addHatch(sSvg, code); anyTie = true}
+    });
+    $("sentiekey").hidden = !anyTie;
+    $("splitkey").style.background = "repeating-linear-gradient(-45deg," + CANDIDATE_COLORS[0] + " 0 5px," + CANDIDATE_COLORS[1] + " 5px 10px)";
+    makeHover(sSvg, senBy, showSenateTip);
+
+    // -- legend and explanation --
+    $("senlegcard").hidden = false;
+    var sl = $("senlegend"), th = el("thead"), hr2 = el("tr");
+    hr2.appendChild(el("th","","Party"));
+    stepLabels(SENATE_STEPS).forEach(function(t){hr2.appendChild(el("th","",t))});
+    th.appendChild(hr2); sl.appendChild(th);
+    var tb = el("tbody");
+    [0,1].forEach(function(i){
+      var tr = el("tr"), h = el("th"); h.scope = "row"; h.textContent = ADJ[i]; tr.appendChild(h);
+      for(var lv = 0; lv < 4; lv++){var td = el("td"); td.appendChild(swatch(shade(i,lv))); tr.appendChild(td)}
+      tb.appendChild(tr);
+    });
+    sl.appendChild(tb);
+    $("senlegnote").textContent = "Margin is the gap between the two candidates\u2019 shares of the race, in percentage points. In a state with two seats the shade follows the closer race.";
+    var tt = SEN.top_ticket_divisor ? "1/" + SEN.top_ticket_divisor : "a share";
+    var how = "Each candidate\u2019s score = the party platform\u2019s score in the state + the candidate\u2019s personal advantage + " + tt +
+      " of the presidential candidate\u2019s points in the state (top of the ticket) + the checks-and-balances bonus. ";
+    if(!SEN.popularity_gap){
+      how += "Checks and balances: no bonus, both presidential candidates are equally popular.";
+    }else{
+      var gp = SEN.popularity_gap > 0 ? 1 : 0;   // the less popular president's party gets the bonus
+      var div = SEN.divided_divisor ? " (the popularity gap divided by " + SEN.divided_divisor + ")" : "";
+      how += "Checks and balances: the presidential popularity gap is " + Math.abs(SEN.popularity_gap) + ", so the " +
+        ADJ[gp] + " party gets +" + fmt(SEN.divided[LETTER[gp]]) + " in every Senate race" + div + ".";
+    }
+    $("senhow").textContent = how;
+
+    // -- closest races and ties --
+    function raceName(r){return r.state + (r.seats_in_state > 1 ? " (seat " + r.seat + ")" : "")}
+    $("senclosecard").hidden = false;
+    races.slice().sort(function(a,b){return a.margin - b.margin}).slice(0,3).forEach(function(r){
+      var w = r.candidates[r.winner];
+      $("senclosest").appendChild(el("li","", r.tie
+        ? raceName(r) + ": exact tie, " + w.name + " won the coin flip"
+        : raceName(r) + ": " + w.name + " (" + ADJ[r.winner] + ") wins by " + fmt(r.margin) + " percentage points"));
+    });
+    var tiedRaces = races.filter(function(r){return r.tie});
+    if(tiedRaces.length){
+      $("sentiecard").hidden = false;
+      tiedRaces.forEach(function(r){
+        $("sentielist").appendChild(el("li","", raceName(r) + ": " + r.candidates[0].name + " and " + r.candidates[1].name +
+          " were tied, " + r.candidates[r.winner].name + " won the coin flip"));
+      });
+    }
+
+    // -- table of all Senate races --
+    $("sentablecard").hidden = false;
+    $("sentsum").textContent = "All Senate races (" + races.length + ")";
+    races.slice().sort(function(a,b){return a.state === b.state ? a.seat - b.seat : (a.state < b.state ? -1 : 1)}).forEach(function(r){
+      var tr = el("tr"); tr.tabIndex = 0;
+      tr.appendChild(el("td","", raceName(r)));
+      var w = r.candidates[r.winner], wc = el("td");
+      wc.appendChild(swatch(shade(r.winner, levelWith(SENATE_STEPS, r.margin))));
+      wc.appendChild(document.createTextNode(" " + w.name + (r.tie ? " (coin flip)" : "")));
+      tr.appendChild(wc);
+      tr.appendChild(el("td","", r.candidates[0].name + " " + pct(r.shares[0])));
+      tr.appendChild(el("td","", r.candidates[1].name + " " + pct(r.shares[1])));
+      tr.appendChild(el("td","n", fmt(r.margin)));
+      if(r.code){
+        var on = function(){highlight(r.code, sSvg)}, off = function(){clearHighlight(sSvg)};
+        tr.addEventListener("mouseenter", on); tr.addEventListener("focus", on);
+        tr.addEventListener("mouseleave", off); tr.addEventListener("blur", off);
+      }
+      $("sentbody").appendChild(tr);
+    });
+  }
+
+  // The new Senate split by caucus and party (seats not up + seats won).
+  function renderCaucusTable(rows){
+    $("cdet").hidden = false;
+    var tb = $("ctbody"), sums = {R:[0,0], D:[0,0]};
+    function cell(d){var t = d.not_up + d.won; return t ? d.not_up + " + " + d.won + " = " + t : "0"}
+    rows.forEach(function(r){
+      var total = r.R.not_up + r.R.won + r.D.not_up + r.D.won;
+      if(!total) return;                                   // an empty caucus is not shown
+      ["R","D"].forEach(function(p){sums[p][0] += r[p].not_up; sums[p][1] += r[p].won});
+      var tr = el("tr");
+      tr.appendChild(el("td","",r.name));
+      tr.appendChild(el("td","n",cell(r.R)));
+      tr.appendChild(el("td","n",cell(r.D)));
+      tr.appendChild(el("td","n",String(total)));
+      tb.appendChild(tr);
+    });
+    var all = el("tr","sum");
+    all.appendChild(el("td","","All senators"));
+    ["R","D"].forEach(function(p){all.appendChild(el("td","n",cell({not_up:sums[p][0], won:sums[p][1]})))});
+    all.appendChild(el("td","n",String(sums.R[0] + sums.R[1] + sums.D[0] + sums.D[1])));
+    tb.appendChild(all);
+  }
+
+  // The caucus vote that decides a deadlocked presidential election.
+  function renderCaucusVote(v){
+    $("cvcard").hidden = false;
+    var cs = v.candidates;
+    function who(i){return DATA.candidates[i].name}
+    $("cvwhy").textContent = "The presidential election was deadlocked, so the Senate caucuses chose the president. Only the top two candidates by electoral votes could be voted for: " +
+      cs.map(function(c){return c.name + " (" + c.party + ", " + c.ev + " EV)"}).join(" and ") + ". A candidate needs " + v.majority + " of the " + v.total + " senators.";
+    $("cvrule").textContent = "Each caucus votes as one block for the candidate whose stances fit it best (disagreement = how many issue points apart they are, lower is closer). A caucus whose best candidate disagrees with it by more than " +
+      v.limit + " points abstains, and moves " + v.move + (v.move === 1 ? " point" : " points") + " closer to that candidate each turn until it can vote. Party loyalists (senators without a caucus) vote for their party\u2019s candidate.";
+
+    // -- votes by turn --
+    var tt = $("cvturns"), th = el("thead"), hr = el("tr");
+    hr.appendChild(el("th","","Turn"));
+    cs.forEach(function(c){var h = el("th","n"); h.appendChild(swatch(shade(c.index,2))); h.appendChild(document.createTextNode(" " + c.name)); hr.appendChild(h)});
+    hr.appendChild(el("th","n","Abstaining")); hr.appendChild(el("th","","New votes"));
+    th.appendChild(hr); tt.appendChild(th);
+    var tb = el("tbody");
+    v.turns.forEach(function(t){
+      var tr = el("tr");
+      tr.appendChild(el("td","","Turn " + t.turn));
+      t.totals.forEach(function(x){tr.appendChild(el("td","n",String(x)))});
+      tr.appendChild(el("td","n",String(t.abstaining)));
+      tr.appendChild(el("td","", t.joined.length
+        ? t.joined.map(function(j){return j.name + " (" + j.size + ") \u2192 " + who(j.candidate)}).join("; ")
+        : "no new votes"));
+      tb.appendChild(tr);
+    });
+    tt.appendChild(tb);
+
+    // -- how each caucus voted --
+    var gt = $("cvgroups"), gh = el("thead"), gr = el("tr");
+    gr.appendChild(el("th","","Caucus")); gr.appendChild(el("th","n","Senators"));
+    cs.forEach(function(c){gr.appendChild(el("th","n","Disagreement with " + c.name))});
+    gr.appendChild(el("th","","Votes for")); gr.appendChild(el("th","n","Turn"));
+    gh.appendChild(gr); gt.appendChild(gh);
+    var gb = el("tbody");
+    v.groups.forEach(function(g){
+      var tr = el("tr");
+      tr.appendChild(el("td","",g.name)); tr.appendChild(el("td","n",String(g.size)));
+      if(g.disagreement){
+        var best = Math.min.apply(null, g.disagreement);
+        g.disagreement.forEach(function(d){tr.appendChild(el("td", d === best ? "n best" : "n", fmt(d)))});
+      }else{
+        cs.forEach(function(){tr.appendChild(el("td","n","\u2013"))});
+      }
+      var vote = g.candidate === null ? "abstains (their party\u2019s candidate is not in the top two)" : who(g.candidate);
+      tr.appendChild(el("td","",vote));
+      tr.appendChild(el("td","n", g.turn ? (g.counted ? String(g.turn) : g.turn + " (not needed)") : "\u2013"));
+      gb.appendChild(tr);
+    });
+    gt.appendChild(gb);
+
+    // -- votes per senator --
+    v.groups.forEach(function(g){
+      var line;
+      if(!g.turn) line = g.name + ": abstained";
+      else if(!g.counted) line = g.name + ": did not need to vote (the election was decided before turn " + g.turn + ")";
+      else{
+        var parts = g.named.map(function(m){return m.name + " (" + m.party + ")"});
+        var un = (g.unnamed.R || 0) + (g.unnamed.D || 0);
+        if(un) parts.push(un + " unnamed senator" + (un > 1 ? "s" : ""));
+        line = g.name + " \u2192 " + who(g.candidate) + " (turn " + g.turn + "): " + parts.join(", ");
+      }
+      $("cvsen").appendChild(el("p","",line));
+    });
+    $("cvresult").textContent = v.summary + " " + DATA.verdict;
+  }
+
+  function showSenateTip(e, x, y){
+    tip.textContent = "";
+    var LET = ["R","D"], ADJ = ["Republican","Democratic"];
+    tip.appendChild(el("b","", e.state + " (" + e.code + ") \u2013 " + (e.races.length > 1 ? e.races.length + " Senate seats" : "Senate seat")));
+    e.races.forEach(function(r){
+      var box = el("div","race");
+      if(e.races.length > 1) box.appendChild(el("div","mute","Seat " + r.seat));
+      var w = r.candidates[r.winner];
+      var win = el("div","win","Winner: " + w.name + " (" + LET[r.winner] + ")");
+      win.style.color = shade(r.winner,2); box.appendChild(win);
+      box.appendChild(el("div", r.tie ? "" : "mute", r.tie ? "Exact tie: decided by a coin flip (50/50)." : "Margin: " + fmt(r.margin) + " percentage points"));
+      var list = el("div"); list.style.marginTop = "4px";
+      r.candidates.forEach(function(c, i){
+        var row = el("div","row");
+        var left = el("span"); left.appendChild(swatch(shade(i,2))); left.appendChild(document.createTextNode(" " + c.name + " (" + LET[i] + ")" + (c.caucus ? " \u00b7 " + c.caucus : "")));
+        row.appendChild(left); row.appendChild(el("span","", pct(r.shares[i])));
+        list.appendChild(row);
+        list.appendChild(el("div","sub","score " + fmt(c.score) + " = party " + fmt(c.party_score) + " + advantage " + c.advantage +
+          " + top of ticket " + fmt(c.top_ticket) + " + checks & balances " + fmt(c.divided)));
+      });
+      box.appendChild(list); tip.appendChild(box);
+    });
+    placeTip(x, y);
+  }
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Election game: state editor</title>
+<style>
+:root{--bg:#f6f7f9;--card:#fff;--ink:#1d2433;--mute:#667085;--line:#d9dde5;--accent:#1f5fbf;--bad:#c62828;--badbg:#fdeaea}
+@media (prefers-color-scheme:dark){:root{--bg:#14171d;--card:#1c2028;--ink:#e8ebf1;--mute:#98a1b3;--line:#323847;--accent:#6aa3ff;--bad:#ff8a80;--badbg:#3a1f22}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.45 "Segoe UI",system-ui,sans-serif}
+header,main{max-width:980px;margin:0 auto;padding:16px}
+h1{margin:0 0 4px;font-size:1.4rem}
+p{margin:4px 0;color:var(--mute)}
+.bar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:12px 0}
+button,select,input[type=search],input[type=text]{font:inherit;color:var(--ink);background:var(--card);border:1px solid var(--line);border-radius:6px;padding:7px 12px}
+button{cursor:pointer}
+button.primary{background:var(--accent);border-color:var(--accent);color:#fff}
+button:focus-visible,select:focus-visible,input:focus-visible{outline:2px solid var(--accent);outline-offset:1px}
+button:disabled{opacity:.45;cursor:not-allowed}
+.status{margin-left:auto;color:var(--mute)}
+.status.dirty{color:var(--bad);font-weight:600}
+.wrap{overflow-x:auto;border:1px solid var(--line);border-radius:8px;background:var(--card);max-height:70vh;overflow-y:auto}
+table{border-collapse:collapse;width:100%;min-width:800px}
+th,td{padding:5px 8px;border-bottom:1px solid var(--line);text-align:center}
+th{position:sticky;top:0;background:var(--card);z-index:1;font-weight:600;font-size:.85rem}
+td:first-child,th:first-child{text-align:left}
+td input{width:62px;font:inherit;text-align:center;color:var(--ink);background:transparent;border:1px solid var(--line);border-radius:5px;padding:4px}
+td input.bad{border-color:var(--bad);background:var(--badbg);color:var(--bad)}
+.guide{margin:0 0 12px;padding:10px 14px;border:1px solid var(--line);border-radius:8px;background:var(--card)}
+.guide summary{cursor:pointer;font-weight:600}
+.scale{display:grid;grid-template-columns:max-content 1fr 1fr;gap:4px 18px;margin-top:8px}
+.scale .hd{color:var(--mute);font-size:.85rem}
+.guide p{font-size:.9rem}
+.issues{display:grid;grid-template-columns:max-content 1fr 1fr 1fr;gap:6px 10px;margin-top:8px;align-items:center}
+.issues .hd{color:var(--mute);font-size:.85rem}
+.issues .slot{color:var(--mute);font-size:.85rem}
+.issues input[type=text]{width:100%;min-width:0}
+.issues input:disabled{opacity:.5}
+@media (max-width:640px){.issues{grid-template-columns:1fr}}
+.sum{color:var(--mute)}
+#sen_r,#sen_d{width:72px;font:inherit;color:var(--ink);background:var(--card);border:1px solid var(--line);border-radius:6px;padding:6px 8px}
+#sen_r.bad,#sen_d.bad{border-color:var(--bad);background:var(--badbg);color:var(--bad)}
+#stbl{min-width:1000px}
+#stbl td input[type=text]{width:130px;text-align:left}
+#stbl td input:disabled,#stbl td select:disabled{opacity:.4}
+#stbl td select{font:inherit;color:var(--ink);background:var(--card);border:1px solid var(--line);border-radius:5px;padding:3px 6px}
+.sub{margin:16px 0 4px;font-size:1rem}
+#bn{width:70px;font:inherit;color:var(--ink);background:var(--card);border:1px solid var(--line);border-radius:6px;padding:6px 8px}
+#ctbl{min-width:900px}
+#ntbl{min-width:0}
+#ctbl td input[type=text],#ntbl td input[type=text]{width:170px;text-align:left}
+#ctbl td input.bad{border-color:var(--bad);background:var(--badbg);color:var(--bad)}
+#ntbl td select,#bp,#bc,#stbl td select{font:inherit;color:var(--ink);background:var(--card);border:1px solid var(--line);border-radius:5px;padding:3px 6px}
+.total{margin-top:10px}
+#msg{min-height:1.4em;color:var(--bad)}
+</style>
+</head>
+<body>
+<header>
+  <h1>State editor</h1>
+  <p>Edit state values, issue names and questions for each election year. Open <b>scenarios.json</b>, make changes, then save it back into the game folder.</p>
+  <div class="bar">
+    <input type="file" id="file" accept=".json,application/json" hidden>
+    <button id="open" class="primary">Open scenarios.json</button>
+    <button id="save" disabled>Save scenarios.json</button>
+    <span id="status" class="status">No file loaded</span>
+  </div>
+  <div class="bar">
+    <label for="scen">Election year</label>
+    <select id="scen" disabled></select>
+    <button id="add" disabled>New year (copy of this one)</button>
+    <button id="ren" disabled>Rename</button>
+    <button id="del" disabled>Delete</button>
+    <input type="search" id="filter" placeholder="Find a state" aria-label="Find a state" disabled>
+  </div>
+  <div id="msg" role="alert"></div>
+</header>
+<main>
+  <details class="guide" open>
+    <summary>What the numbers mean</summary>
+    <div class="scale" id="scale"></div>
+    <p>Issue values are whole numbers from 1 to 10. In the game, a candidate scores more points in a state the closer their own stance is to that state's numbers.</p>
+  </details>
+  <details class="guide">
+    <summary>Issue names and questions for this election</summary>
+    <p>The game always has these six issue slots, so scoring and bonuses stay the same. For each election you can rename a slot and change what 1 and 10 mean (for example, rename Immigration to Civil rights for 1968). Leave a box empty to use the default. The wording of Partisanship's scale is fixed, only its name can change.</p>
+    <div class="issues" id="issues"></div>
+  </details>
+  <details class="guide">
+    <summary>Senate elections for this election year</summary>
+    <p>Tick the box if this election has Senate races. Fill in the seats that are NOT up for election (independents go under the party they caucus with), then for each state with a race choose how many seats are up (0, 1 or 2) and enter the two candidates. Advantage is 1 to 50 and adds that many points to the candidate in the game. Names are optional. Washington DC has no senators.</p>
+    <label><input type="checkbox" id="sen_on"> This election has Senate races</label>
+    <div id="sen_body" hidden>
+      <div class="bar">
+        <span>Seats NOT up for election:</span>
+        <label>Republican <input type="number" id="sen_r" min="0" max="100" step="1"></label>
+        <label>Democratic <input type="number" id="sen_d" min="0" max="100" step="1"></label>
+        <span id="sen_sum" class="sum"></span>
+      </div>
+      <h3 class="sub">Caucuses</h3>
+      <p>Groups such as Southern Democrats. They exist only after you add them here. A caucus has stances (1 to 10) but no popularity, and its stances can only be changed here, not in the game. In a deadlocked presidential election each caucus votes as a block for the candidate closest to its stances. Anyone without a caucus is a "party loyalist" and votes for their party's candidate, so you never have to assign everyone.</p>
+      <div class="wrap" style="max-height:40vh"><table id="ctbl"><thead></thead><tbody></tbody></table></div>
+      <div class="bar"><button id="cadd" type="button">Add caucus</button></div>
+      <h3 class="sub">Senators not up for election (optional)</h3>
+      <p>List the senators who are not up this year and put them in caucuses. Names are optional. Whoever you do not list is counted as a party loyalist.</p>
+      <div class="bar">
+        <span>Bulk add</span>
+        <input type="number" id="bn" min="1" max="100" step="1" value="1" aria-label="How many senators">
+        <select id="bp" aria-label="Party"><option value="R">Republican</option><option value="D">Democratic</option></select>
+        <span>senators to</span>
+        <select id="bc" aria-label="Caucus"></select>
+        <button id="badd" type="button">Add</button>
+      </div>
+      <div class="sum" id="nsum"></div>
+      <div class="wrap" style="max-height:40vh"><table id="ntbl"><thead></thead><tbody></tbody></table></div>
+      <h3 class="sub">Races (candidates and their caucuses)</h3>
+      <div class="wrap" style="max-height:50vh"><table id="stbl"><thead></thead><tbody></tbody></table></div>
+    </div>
+  </details>
+  <div class="wrap"><table id="tbl"><thead></thead><tbody></tbody></table></div>
+  <div class="total" id="total"></div>
+  </main>
+<script>
+(function(){
+  var FIELDS=[["immigration","Immigration",1,10,"1 = open borders, 10 = strict border control"],["trade","Trade",1,10,"1 = free market, 10 = protectionist"],["partisanship","Partisanship",1,10,"1 = very Republican, 10 = very Democratic"],
+              ["abortion","Abortion",1,10,"1 = pro-life, 10 = pro-choice"],["foreign_policy","Foreign policy",1,10,"1 = dovish, 10 = hawkish"],["gun_policy","Gun policy",1,10,"1 = fewest gun restrictions (pro-gun), 10 = strictest gun restrictions (anti-gun)"],["electoral_college","Electoral votes",1,99,"Number of electoral votes the state has"]];
+  var ISSUES=[["immigration","Immigration","open borders","strict control"],["trade","Trade","free market","protectionist"],["partisanship","Partisanship","very Republican","very Democratic"],
+              ["abortion","Abortion","pro-life","pro-choice"],["foreign_policy","Foreign policy","dovish","hawkish"],["gun_policy","Gun policy","pro-gun","strict gun control"]];
+  var data=null, cur=null, dirty=false, texts={}, senate={};
+  var $=function(id){return document.getElementById(id)};
+
+  function ok(v,lo,hi){return typeof v==="number"&&isFinite(v)&&Math.floor(v)===v&&v>=lo&&v<=hi}
+  function countBad(name){
+    var n=0, s=data[name];
+    Object.keys(s).forEach(function(st){FIELDS.forEach(function(f){if(!ok(s[st][f[0]],f[2],f[3]))n++})});
+    return n;
+  }
+  function str(v,d){return typeof v==="string"&&v.trim()?v.trim():d}
+  function blankTexts(){
+    var t={};ISSUES.forEach(function(i){t[i[0]]={label:i[1],low:i[2],high:i[3]}});return t;
+  }
+  function loadTexts(o){
+    texts={};
+    var raw=(o.issue_text&&typeof o.issue_text==="object")?o.issue_text:{};
+    Object.keys(o.scenarios).forEach(function(y){
+      var t=blankTexts(),r=(raw[y]&&typeof raw[y]==="object")?raw[y]:{};
+      ISSUES.forEach(function(i){
+        var e=(r[i[0]]&&typeof r[i[0]]==="object")?r[i[0]]:{};
+        t[i[0]]={label:str(e.label,i[1]),low:str(e.low,i[2]),high:str(e.high,i[3])};
+      });
+      texts[y]=t;
+    });
+  }
+  function info(key){return texts[cur]&&texts[cur][key]}
+  function colLabel(f){var t=info(f[0]);return t?t.label:f[1]}
+  function colTip(f){
+    var t=info(f[0]);
+    return t?("1 = "+t.low+", 10 = "+t.high):f[4];
+  }
+  var SEN_MAX=50, PN={R:"Republican",D:"Democratic"};
+  function num(v,d){return typeof v==="number"&&isFinite(v)?v:d}
+  function newSeat(){return {R:{name:"",advantage:5,caucus:""},D:{name:"",advantage:5,caucus:""}}}
+  function loadSenate(o){
+    senate={};
+    var raw=(o.senate&&typeof o.senate==="object")?o.senate:{};
+    Object.keys(o.scenarios).forEach(function(y){
+      var r=raw[y];if(!r||typeof r!=="object")return;
+      var h=(r.holdover&&typeof r.holdover==="object")?r.holdover:{};
+      var e={holdover:{R:num(h.R,0),D:num(h.D,0)},seats:{},caucuses:[],senators:[]};
+      (Array.isArray(r.caucuses)?r.caucuses:[]).forEach(function(c){
+        if(!c||typeof c.name!=="string")return;
+        var st=(c.stances&&typeof c.stances==="object")?c.stances:{},o={name:c.name.trim(),stances:{}};
+        ISSUES.forEach(function(i){o.stances[i[0]]=num(st[i[0]],5)});
+        e.caucuses.push(o);
+      });
+      (Array.isArray(r.senators)?r.senators:[]).forEach(function(x){
+        if(!x||typeof x!=="object")return;
+        e.senators.push({name:typeof x.name==="string"?x.name:"",party:x.party==="D"?"D":"R",caucus:typeof x.caucus==="string"?x.caucus:""});
+      });
+      var rs=(r.seats&&typeof r.seats==="object")?r.seats:{};
+      Object.keys(rs).forEach(function(st){
+        if(!o.scenarios[y][st]||!Array.isArray(rs[st]))return;
+        var list=rs[st].slice(0,2).map(function(x){
+          var seat=newSeat();
+          ["R","D"].forEach(function(p){
+            var c=(x&&x[p]&&typeof x[p]==="object")?x[p]:{};
+            seat[p]={name:typeof c.name==="string"?c.name:"",advantage:num(c.advantage,5),caucus:typeof c.caucus==="string"?c.caucus:""};
+          });
+          return seat;
+        });
+        if(list.length)e.seats[st]=list;
+      });
+      senate[y]=e;
+    });
+  }
+  function senBad(y){
+    var e=senate[y],n=0;if(!e)return 0;
+    if(!ok(e.holdover.R,0,100))n++;
+    if(!ok(e.holdover.D,0,100))n++;
+    Object.keys(e.seats).forEach(function(st){e.seats[st].forEach(function(s){["R","D"].forEach(function(p){if(!ok(s[p].advantage,1,SEN_MAX))n++})})});
+    e.caucuses.forEach(function(c){
+      if(!nameOk(e,c))n++;
+      ISSUES.forEach(function(i){if(!ok(c.stances[i[0]],1,10))n++});
+    });
+    return n;
+  }
+  function senSum(){
+    var e=senate[cur];if(!e)return;
+    var up=0;Object.keys(e.seats).forEach(function(st){up+=e.seats[st].length});
+    var total=up+(e.holdover.R||0)+(e.holdover.D||0),bad=senBad(cur);
+    nSum();
+    $("sen_sum").textContent=up+" seats up, "+total+" seats in total"+(total===100?"":" (the Senate normally has 100)")+(bad?" - "+bad+" invalid value"+(bad>1?"s":"")+" to fix":"")+".";
+  }
+  function hasC(e,n){return !!n&&e.caucuses.some(function(c){return c.name===n})}
+  function nameOk(e,c){
+    var l=c.name.toLowerCase();
+    return !!c.name&&l!=="party loyalists"&&e.caucuses.filter(function(x){return x.name.toLowerCase()===l}).length===1;
+  }
+  function visit(e,fn){
+    Object.keys(e.seats).forEach(function(st){e.seats[st].forEach(function(s){["R","D"].forEach(function(p){fn(s[p])})})});
+    e.senators.forEach(fn);
+  }
+  function caucusSelect(e,val,fn,dis){
+    var sel=document.createElement("select"),o0=document.createElement("option");
+    o0.value="";o0.textContent="Party loyalists";sel.appendChild(o0);
+    e.caucuses.forEach(function(c){if(!c.name)return;var o=document.createElement("option");o.value=c.name;o.textContent=c.name;sel.appendChild(o)});
+    sel.value=val;if(sel.value!==val)sel.value="";
+    sel.disabled=!!dis;sel.setAttribute("aria-label","Caucus");
+    sel.addEventListener("change",function(){fn(sel.value)});
+    return sel;
+  }
+  function renderCaucuses(){
+    var e=senate[cur],head=$("ctbl").tHead;head.innerHTML="";
+    var hr=head.insertRow();hr.appendChild(cell("th","Caucus name"));
+    ISSUES.forEach(function(i){var t=info(i[0]);hr.appendChild(cell("th",t?t.label:i[1]))});
+    hr.appendChild(cell("th",""));
+    var body=$("ctbl").tBodies[0];body.innerHTML="";
+    e.caucuses.forEach(function(c){
+      var tr=body.insertRow(),ni=document.createElement("input"),prev=c.name;
+      ni.type="text";ni.maxLength=40;ni.value=c.name;ni.setAttribute("aria-label","Caucus name");
+      ni.className=nameOk(e,c)?"":"bad";
+      ni.addEventListener("input",function(){c.name=ni.value.trim();ni.className=nameOk(e,c)?"":"bad";setDirty(true);senSum()});
+      ni.addEventListener("change",function(){
+        if(nameOk(e,c)&&prev){visit(e,function(o){if(o.caucus===prev)o.caucus=c.name})}
+        if(nameOk(e,c))prev=c.name;
+        renderSenate();
+      });
+      tr.insertCell().appendChild(ni);
+      ISSUES.forEach(function(i){
+        var inp=document.createElement("input");inp.type="number";inp.step="1";inp.min=1;inp.max=10;inp.value=c.stances[i[0]];
+        inp.setAttribute("aria-label",c.name+" "+i[1]);
+        if(!ok(c.stances[i[0]],1,10))inp.className="bad";
+        inp.addEventListener("input",function(){
+          var v=inp.value===""?NaN:Number(inp.value);c.stances[i[0]]=v;inp.className=ok(v,1,10)?"":"bad";setDirty(true);senSum();
+        });
+        tr.insertCell().appendChild(inp);
+      });
+      var del=document.createElement("button");del.type="button";del.textContent="Delete";
+      del.addEventListener("click",function(){
+        if(!confirm("Delete the caucus "+c.name+"? Its members become party loyalists."))return;
+        visit(e,function(o){if(o.caucus===c.name)o.caucus=""});
+        e.caucuses.splice(e.caucuses.indexOf(c),1);setDirty(true);renderSenate();
+      });
+      tr.insertCell().appendChild(del);
+    });
+  }
+  function nSum(){
+    var e=senate[cur];if(!e)return;
+    $("nsum").textContent=["R","D"].map(function(p){
+      var listed=e.senators.filter(function(s){return s.party===p}).length,total=e.holdover[p]||0;
+      return PN[p]+": "+listed+" listed of "+total+" not up "+(listed>total?"(more listed than counted)":"("+(total-listed)+" party loyalists)");
+    }).join("  |  ");
+  }
+  function renderSenators(){
+    var e=senate[cur],head=$("ntbl").tHead;head.innerHTML="";
+    var hr=head.insertRow();["#","Name (optional)","Party","Caucus",""].forEach(function(t){hr.appendChild(cell("th",t))});
+    var body=$("ntbl").tBodies[0];body.innerHTML="";
+    var bc=$("bc"),keep=bc.value;bc.innerHTML="";
+    var o0=document.createElement("option");o0.value="";o0.textContent="Party loyalists";bc.appendChild(o0);
+    e.caucuses.forEach(function(c){if(c.name){var o=document.createElement("option");o.value=c.name;o.textContent=c.name;bc.appendChild(o)}});
+    bc.value=keep;if(bc.value!==keep)bc.value="";
+    e.senators.forEach(function(s,idx){
+      var tr=body.insertRow();tr.insertCell().textContent=String(idx+1);
+      var ni=document.createElement("input");ni.type="text";ni.maxLength=40;ni.placeholder="optional name";ni.value=s.name;
+      ni.setAttribute("aria-label","Senator "+(idx+1)+" name");
+      ni.addEventListener("input",function(){s.name=ni.value;setDirty(true)});
+      tr.insertCell().appendChild(ni);
+      var ps=document.createElement("select");
+      [["R","Republican"],["D","Democratic"]].forEach(function(p){var o=document.createElement("option");o.value=p[0];o.textContent=p[1];ps.appendChild(o)});
+      ps.value=s.party;ps.setAttribute("aria-label","Senator "+(idx+1)+" party");
+      ps.addEventListener("change",function(){s.party=ps.value;setDirty(true);nSum()});
+      tr.insertCell().appendChild(ps);
+      tr.insertCell().appendChild(caucusSelect(e,s.caucus,function(v){s.caucus=v;setDirty(true)}));
+      var rm=document.createElement("button");rm.type="button";rm.textContent="Remove";
+      rm.addEventListener("click",function(){e.senators.splice(idx,1);setDirty(true);renderSenators()});
+      tr.insertCell().appendChild(rm);
+    });
+    nSum();
+  }
+  function renderSenate(){
+    var e=senate[cur];
+    $("sen_on").checked=!!e;$("sen_body").hidden=!e;
+    if(!e)return;
+    $("sen_r").value=e.holdover.R;$("sen_d").value=e.holdover.D;
+    $("sen_r").className=ok(e.holdover.R,0,100)?"":"bad";$("sen_d").className=ok(e.holdover.D,0,100)?"":"bad";
+    renderCaucuses();renderSenators();
+    var head=$("stbl").tHead;head.innerHTML="";
+    var hr=head.insertRow();
+    ["State","Seats up","Seat 1: Republican","Adv.","Seat 1: Democrat","Adv.","Seat 2: Republican","Adv.","Seat 2: Democrat","Adv."].forEach(function(t){hr.appendChild(cell("th",t))});
+    var body=$("stbl").tBodies[0];body.innerHTML="";
+    Object.keys(data[cur]).forEach(function(st){
+      if(st==="Washington DC")return;
+      var list=e.seats[st]||[];
+      var tr=body.insertRow();tr.insertCell().textContent=st;
+      var sel=document.createElement("select");
+      ["0","1","2"].forEach(function(v){var o=document.createElement("option");o.value=v;o.textContent=v;sel.appendChild(o)});
+      sel.value=String(list.length);sel.setAttribute("aria-label",st+" seats up");
+      sel.addEventListener("change",function(){
+        var n=Number(sel.value),l=e.seats[st]||[];
+        while(l.length<n)l.push(newSeat());
+        l.length=n;
+        if(n)e.seats[st]=l;else delete e.seats[st];
+        setDirty(true);renderSenate();
+      });
+      tr.insertCell().appendChild(sel);
+      [0,1].forEach(function(k){
+        ["R","D"].forEach(function(p){
+          var seat=list[k],who=p==="R"?"Republican":"Democratic";
+          var a=document.createElement("input");a.type="text";a.maxLength=40;a.placeholder="optional name";
+          var b=document.createElement("input");b.type="number";b.step="1";b.min=1;b.max=SEN_MAX;
+          a.setAttribute("aria-label",st+" seat "+(k+1)+" "+who+" name");
+          b.setAttribute("aria-label",st+" seat "+(k+1)+" "+who+" advantage");
+          if(!seat){a.disabled=true;b.disabled=true}
+          else{
+            a.value=seat[p].name;b.value=seat[p].advantage;
+            if(!ok(seat[p].advantage,1,SEN_MAX))b.className="bad";
+            a.addEventListener("input",function(){seat[p].name=a.value;setDirty(true)});
+            b.addEventListener("input",function(){
+              var v=b.value===""?NaN:Number(b.value);
+              seat[p].advantage=v;b.className=ok(v,1,SEN_MAX)?"":"bad";setDirty(true);senSum();
+            });
+          }
+          var ctd=tr.insertCell();a.style.display="block";ctd.appendChild(a);
+          var cs=caucusSelect(e,seat?seat[p].caucus:"",function(v){seat[p].caucus=v;setDirty(true)},!seat);
+          cs.style.marginTop="3px";cs.style.width="170px";ctd.appendChild(cs);
+          tr.insertCell().appendChild(b);
+        });
+      });
+    });
+    senSum();
+  }
+  function say(t){$("msg").textContent=t||""}
+  function setDirty(d){dirty=d;var s=$("status");s.textContent=d?"Unsaved changes":"All changes saved";s.className="status"+(d?" dirty":"")}
+  function enable(on){["save","scen","add","ren","del","filter"].forEach(function(i){$(i).disabled=!on})}
+
+  function validShape(o){
+    if(!o||typeof o.scenarios!=="object"||o.scenarios===null)return "The file has no \"scenarios\" section.";
+    var names=Object.keys(o.scenarios);
+    if(!names.length)return "The file has no election years.";
+    for(var i=0;i<names.length;i++){
+      var s=o.scenarios[names[i]];
+      if(typeof s!=="object"||s===null||!Object.keys(s).length)return "Election "+names[i]+" has no states.";
+      var sts=Object.keys(s);
+      for(var j=0;j<sts.length;j++)for(var k=0;k<FIELDS.length;k++){
+        if(typeof s[sts[j]][FIELDS[k][0]]!=="number"&&FIELDS[k][0]!=="gun_policy")return names[i]+" / "+sts[j]+" is missing "+FIELDS[k][0]+".";
+      }
+    }
+    return "";
+  }
+
+  function fillGun(o){
+    var n=0;
+    Object.keys(o.scenarios).forEach(function(y){
+      var s=o.scenarios[y];
+      Object.keys(s).forEach(function(st){if(typeof s[st].gun_policy!=="number"){s[st].gun_policy=5;n++}});
+    });
+    return n;
+  }
+
+  function fillSelect(){
+    var sel=$("scen");sel.innerHTML="";
+    Object.keys(data).forEach(function(n){var o=document.createElement("option");o.value=n;o.textContent=n;sel.appendChild(o)});
+    sel.value=cur;renderIssues();renderSenate();
+  }
+
+  function refreshTotals(){
+    var s=data[cur],ev=0,bad=countBad(cur);
+    Object.keys(s).forEach(function(st){if(typeof s[st].electoral_college==="number")ev+=s[st].electoral_college});
+    $("total").textContent=Object.keys(s).length+" states, "+ev+" electoral votes in total"+(bad?" ("+bad+" invalid value"+(bad>1?"s":"")+" to fix)":"")+".";
+  }
+
+  function cell(tag,text,cls){var e=document.createElement(tag);e.textContent=text;if(cls)e.className=cls;return e}
+  function renderScale(){
+    var g=$("scale");g.innerHTML="";
+    g.appendChild(cell("span","Column","hd"));g.appendChild(cell("span","Low number","hd"));g.appendChild(cell("span","High number","hd"));
+    FIELDS.forEach(function(f){
+      g.appendChild(cell("b",colLabel(f)));
+      var t=info(f[0]);
+      if(t){g.appendChild(cell("span","1 = "+t.low));g.appendChild(cell("span","10 = "+t.high))}
+      else{var w=cell("span","Whole number of electoral votes the state has");w.style.gridColumn="2 / 4";g.appendChild(w)}
+    });
+  }
+  function renderIssues(){
+    var g=$("issues");g.innerHTML="";
+    if(!texts[cur])return;
+    g.appendChild(cell("span","Slot","hd"));g.appendChild(cell("span","Name","hd"));g.appendChild(cell("span","Text for 1","hd"));g.appendChild(cell("span","Text for 10","hd"));
+    ISSUES.forEach(function(i,n){
+      var key=i[0],t=texts[cur][key];
+      g.appendChild(cell("span",(n+1)+".","slot"));
+      [["label",i[1]],["low",i[2]],["high",i[3]]].forEach(function(p){
+        var inp=document.createElement("input");inp.type="text";inp.maxLength=60;
+        inp.value=t[p[0]];inp.placeholder=p[1];
+        inp.setAttribute("aria-label",i[1]+" slot, "+(p[0]==="label"?"name":p[0]==="low"?"text for 1":"text for 10"));
+        if(key==="partisanship"&&p[0]!=="label"){inp.disabled=true;inp.title="The wording of this scale is fixed"}
+        inp.addEventListener("input",function(){
+          texts[cur][key][p[0]]=inp.value;setDirty(true);render();
+        });
+        g.appendChild(inp);
+      });
+    });
+  }
+
+  function render(){
+    renderScale();
+    var head=$("tbl").tHead;head.innerHTML="";
+    var hr=head.insertRow();
+    var th=document.createElement("th");th.textContent="State";hr.appendChild(th);
+    FIELDS.forEach(function(f){var h=document.createElement("th");h.textContent=colLabel(f);h.title=colTip(f);hr.appendChild(h)});
+    var body=$("tbl").tBodies[0];body.innerHTML="";
+    var q=$("filter").value.trim().toLowerCase(), s=data[cur];
+    Object.keys(s).forEach(function(st){
+      if(q&&st.toLowerCase().indexOf(q)<0)return;
+      var tr=body.insertRow();
+      tr.insertCell().textContent=st;
+      FIELDS.forEach(function(f){
+        var inp=document.createElement("input");
+        inp.type="number";inp.step="1";inp.min=f[2];inp.max=f[3];
+        inp.value=s[st][f[0]];
+        inp.setAttribute("aria-label",st+" "+colLabel(f));
+        if(!ok(s[st][f[0]],f[2],f[3]))inp.className="bad";
+        inp.addEventListener("input",function(){
+          var v=inp.value===""?NaN:Number(inp.value);
+          s[st][f[0]]=v;
+          inp.className=ok(v,f[2],f[3])?"":"bad";
+          setDirty(true);refreshTotals();
+        });
+        tr.insertCell().appendChild(inp);
+      });
+    });
+    refreshTotals();
+  }
+
+  function loadObject(o){
+    data=o.scenarios;cur=Object.keys(data)[0];loadTexts(o);loadSenate(o);
+    fillSelect();enable(true);$("filter").value="";render();setDirty(false);say("");
+  }
+
+  $("open").addEventListener("click",function(){$("file").click()});
+  $("file").addEventListener("change",function(){
+    var f=this.files[0];if(!f)return;
+    var r=new FileReader();
+    r.onload=function(){
+      try{
+        var o=JSON.parse(r.result),err=validShape(o);
+        if(err){say("Could not open the file: "+err);return}
+        var filled=fillGun(o);
+        loadObject(o);
+        if(filled){setDirty(true);say("Note: "+filled+" state value"+(filled>1?"s":"")+" had no gun policy yet and "+(filled>1?"were":"was")+" set to 5 as a placeholder. Change them, then save.")}
+      }catch(e){say("Could not open the file: it is not valid JSON.")}
+    };
+    r.readAsText(f);
+    this.value="";
+  });
+
+  $("scen").addEventListener("change",function(){cur=this.value;renderIssues();renderSenate();render()});
+
+  function askName(msg,def){
+    var n=prompt(msg,def||"");if(n===null)return null;
+    n=n.trim();
+    if(!n){say("The name cannot be empty.");return null}
+    if(data[n]&&n!==cur){say("An election called "+n+" already exists.");return null}
+    say("");return n;
+  }
+  $("add").addEventListener("click",function(){
+    var n=askName("Name of the new election year (for example 2024). It starts as a copy of "+cur+".");
+    if(!n)return;
+    data[n]=JSON.parse(JSON.stringify(data[cur]));
+    texts[n]=JSON.parse(JSON.stringify(texts[cur]));
+    if(senate[cur])senate[n]=JSON.parse(JSON.stringify(senate[cur]));
+    cur=n;fillSelect();render();setDirty(true);
+  });
+  $("ren").addEventListener("click",function(){
+    var n=askName("New name for "+cur+":",cur);
+    if(!n||n===cur)return;
+    var copy={},tcopy={};
+    Object.keys(data).forEach(function(k){copy[k===cur?n:k]=data[k];tcopy[k===cur?n:k]=texts[k]});
+    var scopy={};Object.keys(senate).forEach(function(k){scopy[k===cur?n:k]=senate[k]});
+    data=copy;texts=tcopy;senate=scopy;cur=n;fillSelect();render();setDirty(true);
+  });
+  $("del").addEventListener("click",function(){
+    if(Object.keys(data).length<2){say("You need at least one election year.");return}
+    if(!confirm("Delete the "+cur+" election and all its state values?"))return;
+    delete data[cur];delete texts[cur];delete senate[cur];cur=Object.keys(data)[0];fillSelect();render();setDirty(true);say("");
+  });
+  $("filter").addEventListener("input",render);
+  $("cadd").addEventListener("click",function(){
+    var e=senate[cur];if(!e)return;
+    var n=1,name;
+    do{name="New caucus"+(n>1?" "+n:"");n++}while(e.caucuses.some(function(c){return c.name===name}));
+    var st={};ISSUES.forEach(function(i){st[i[0]]=5});
+    e.caucuses.push({name:name,stances:st});setDirty(true);renderSenate();
+  });
+  $("badd").addEventListener("click",function(){
+    var e=senate[cur];if(!e)return;
+    var n=Math.floor(Number($("bn").value));
+    if(!(n>=1&&n<=100)){say("Enter a number of senators from 1 to 100.");return}
+    for(var i=0;i<n;i++)e.senators.push({name:"",party:$("bp").value,caucus:$("bc").value});
+    say("");setDirty(true);renderSenators();
+  });
+  $("sen_on").addEventListener("change",function(){
+    if(this.checked){senate[cur]={holdover:{R:0,D:0},seats:{},caucuses:[],senators:[]}}
+    else{
+      var e=senate[cur];
+      if(e&&(Object.keys(e.seats).length||e.holdover.R||e.holdover.D||e.caucuses.length||e.senators.length)&&!confirm("Remove the Senate data of the "+cur+" election?")){this.checked=true;return}
+      delete senate[cur];
+    }
+    setDirty(true);renderSenate();
+  });
+  ["sen_r","sen_d"].forEach(function(id){
+    $(id).addEventListener("input",function(){
+      var e=senate[cur];if(!e)return;
+      var v=this.value===""?NaN:Number(this.value);
+      e.holdover[id==="sen_r"?"R":"D"]=v;
+      this.className=ok(v,0,100)?"":"bad";setDirty(true);senSum();
+    });
+  });
+
+  $("save").addEventListener("click",function(){
+    var problems=Object.keys(data).filter(function(n){return countBad(n)>0||senBad(n)>0});
+    if(problems.length){say("Fix the red values before saving. Problems found in: "+problems.join(", ")+".");return}
+    var it={};
+    Object.keys(data).forEach(function(y){
+      it[y]={};
+      ISSUES.forEach(function(i){
+        var t=texts[y][i[0]];
+        it[y][i[0]]=i[0]==="partisanship"?{label:str(t.label,i[1])}:{label:str(t.label,i[1]),low:str(t.low,i[2]),high:str(t.high,i[3])};
+      });
+    });
+    var sen={};
+    Object.keys(senate).forEach(function(y){
+      if(!data[y])return;
+      var e=senate[y],seats={};
+      Object.keys(e.seats).forEach(function(st){
+        seats[st]=e.seats[st].map(function(s){
+          var f=function(c){var o={name:c.name.trim(),advantage:c.advantage};if(hasC(e,c.caucus))o.caucus=c.caucus;return o};
+          return {R:f(s.R),D:f(s.D)};
+        });
+      });
+      sen[y]={holdover:{R:e.holdover.R,D:e.holdover.D},seats:seats};
+      if(e.caucuses.length)sen[y].caucuses=e.caucuses.map(function(c){return {name:c.name,stances:c.stances}});
+      if(e.senators.length)sen[y].senators=e.senators.map(function(x){
+        var o={name:x.name.trim(),party:x.party};if(hasC(e,x.caucus))o.caucus=x.caucus;return o;
+      });
+    });
+    var blob=new Blob([JSON.stringify({scenarios:data,issue_text:it,senate:sen},null,1)],{type:"application/json"});
+    var a=document.createElement("a");
+    a.href=URL.createObjectURL(blob);a.download="scenarios.json";
+    document.body.appendChild(a);a.click();a.remove();
+    setTimeout(function(){URL.revokeObjectURL(a.href)},1000);
+    setDirty(false);
+    say("");$("status").textContent="Saved to your Downloads folder. Move it into the game folder and replace the old scenarios.json.";
+  });
+
+  window.addEventListener("beforeunload",function(e){if(dirty){e.preventDefault();e.returnValue=""}});
+})();
+</script>
+</body>
+</html>

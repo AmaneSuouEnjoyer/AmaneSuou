@@ -1,0 +1,3194 @@
+{
+ "scenarios": {
+  "1968": {
+   "Texas": {
+    "immigration": 8,
+    "trade": 3,
+    "partisanship": 6,
+    "abortion": 2,
+    "electoral_college": 25,
+    "foreign_policy": 8,
+    "gun_policy": 2
+   },
+   "California": {
+    "immigration": 2,
+    "trade": 6,
+    "partisanship": 5,
+    "abortion": 7,
+    "electoral_college": 40,
+    "foreign_policy": 4,
+    "gun_policy": 4
+   },
+   "New York": {
+    "immigration": 2,
+    "trade": 7,
+    "partisanship": 8,
+    "abortion": 8,
+    "electoral_college": 43,
+    "foreign_policy": 3,
+    "gun_policy": 6
+   },
+   "New Jersey": {
+    "immigration": 4,
+    "trade": 6,
+    "partisanship": 5,
+    "abortion": 6,
+    "electoral_college": 17,
+    "foreign_policy": 5,
+    "gun_policy": 5
+   },
+   "Illinois": {
+    "immigration": 4,
+    "trade": 6,
+    "partisanship": 6,
+    "abortion": 7,
+    "electoral_college": 26,
+    "foreign_policy": 5,
+    "gun_policy": 6
+   },
+   "Pennsylvania": {
+    "immigration": 4,
+    "trade": 8,
+    "partisanship": 7,
+    "abortion": 6,
+    "electoral_college": 29,
+    "foreign_policy": 4,
+    "gun_policy": 4
+   },
+   "Ohio": {
+    "immigration": 5,
+    "trade": 6,
+    "partisanship": 4,
+    "abortion": 4,
+    "electoral_college": 26,
+    "foreign_policy": 6,
+    "gun_policy": 3
+   },
+   "Wisconsin": {
+    "immigration": 4,
+    "trade": 7,
+    "partisanship": 5,
+    "abortion": 6,
+    "electoral_college": 12,
+    "foreign_policy": 4,
+    "gun_policy": 5
+   },
+   "Michigan": {
+    "immigration": 4,
+    "trade": 8,
+    "partisanship": 7,
+    "abortion": 7,
+    "electoral_college": 21,
+    "foreign_policy": 4,
+    "gun_policy": 5
+   },
+   "Minnesota": {
+    "immigration": 3,
+    "trade": 10,
+    "partisanship": 10,
+    "abortion": 7,
+    "electoral_college": 10,
+    "foreign_policy": 2,
+    "gun_policy": 5
+   },
+   "Missouri": {
+    "immigration": 8,
+    "trade": 5,
+    "partisanship": 4,
+    "abortion": 2,
+    "electoral_college": 12,
+    "foreign_policy": 8,
+    "gun_policy": 3
+   },
+   "Kentucky": {
+    "immigration": 8,
+    "trade": 5,
+    "partisanship": 3,
+    "abortion": 2,
+    "electoral_college": 9,
+    "foreign_policy": 8,
+    "gun_policy": 3
+   },
+   "West Virginia": {
+    "immigration": 8,
+    "trade": 10,
+    "partisanship": 9,
+    "abortion": 3,
+    "electoral_college": 7,
+    "foreign_policy": 6,
+    "gun_policy": 2
+   },
+   "Oklahoma": {
+    "immigration": 9,
+    "trade": 4,
+    "partisanship": 3,
+    "abortion": 2,
+    "electoral_college": 8,
+    "foreign_policy": 9,
+    "gun_policy": 2
+   },
+   "Tennessee": {
+    "immigration": 9,
+    "trade": 4,
+    "partisanship": 3,
+    "abortion": 2,
+    "electoral_college": 11,
+    "foreign_policy": 8,
+    "gun_policy": 2
+   },
+   "Indiana": {
+    "immigration": 6,
+    "trade": 5,
+    "partisanship": 3,
+    "abortion": 3,
+    "electoral_college": 13,
+    "foreign_policy": 7,
+    "gun_policy": 2
+   },
+   "Arkansas": {
+    "immigration": 10,
+    "trade": 4,
+    "partisanship": 8,
+    "abortion": 1,
+    "electoral_college": 6,
+    "foreign_policy": 9,
+    "gun_policy": 1
+   },
+   "Mississippi": {
+    "immigration": 10,
+    "trade": 3,
+    "partisanship": 8,
+    "abortion": 1,
+    "electoral_college": 7,
+    "foreign_policy": 9,
+    "gun_policy": 1
+   },
+   "Alabama": {
+    "immigration": 10,
+    "trade": 4,
+    "partisanship": 8,
+    "abortion": 1,
+    "electoral_college": 10,
+    "foreign_policy": 9,
+    "gun_policy": 1
+   },
+   "Louisiana": {
+    "immigration": 10,
+    "trade": 4,
+    "partisanship": 8,
+    "abortion": 1,
+    "electoral_college": 10,
+    "foreign_policy": 9,
+    "gun_policy": 1
+   },
+   "South Carolina": {
+    "immigration": 9,
+    "trade": 3,
+    "partisanship": 6,
+    "abortion": 1,
+    "electoral_college": 8,
+    "foreign_policy": 9,
+    "gun_policy": 2
+   },
+   "Georgia": {
+    "immigration": 10,
+    "trade": 4,
+    "partisanship": 7,
+    "abortion": 1,
+    "electoral_college": 12,
+    "foreign_policy": 9,
+    "gun_policy": 2
+   },
+   "Florida": {
+    "immigration": 8,
+    "trade": 4,
+    "partisanship": 5,
+    "abortion": 3,
+    "electoral_college": 14,
+    "foreign_policy": 8,
+    "gun_policy": 2
+   },
+   "North Carolina": {
+    "immigration": 8,
+    "trade": 3,
+    "partisanship": 4,
+    "abortion": 3,
+    "electoral_college": 13,
+    "foreign_policy": 8,
+    "gun_policy": 2
+   },
+   "Virginia": {
+    "immigration": 8,
+    "trade": 3,
+    "partisanship": 4,
+    "abortion": 3,
+    "electoral_college": 12,
+    "foreign_policy": 8,
+    "gun_policy": 2
+   },
+   "South Dakota": {
+    "immigration": 5,
+    "trade": 3,
+    "partisanship": 2,
+    "abortion": 3,
+    "electoral_college": 4,
+    "foreign_policy": 8,
+    "gun_policy": 2
+   },
+   "North Dakota": {
+    "immigration": 5,
+    "trade": 4,
+    "partisanship": 3,
+    "abortion": 3,
+    "electoral_college": 4,
+    "foreign_policy": 8,
+    "gun_policy": 2
+   },
+   "Kansas": {
+    "immigration": 5,
+    "trade": 3,
+    "partisanship": 2,
+    "abortion": 3,
+    "electoral_college": 7,
+    "foreign_policy": 8,
+    "gun_policy": 2
+   },
+   "Nebraska": {
+    "immigration": 5,
+    "trade": 3,
+    "partisanship": 2,
+    "abortion": 3,
+    "electoral_college": 5,
+    "foreign_policy": 8,
+    "gun_policy": 2
+   },
+   "Wyoming": {
+    "immigration": 5,
+    "trade": 1,
+    "partisanship": 1,
+    "abortion": 1,
+    "electoral_college": 3,
+    "foreign_policy": 9,
+    "gun_policy": 1
+   },
+   "Idaho": {
+    "immigration": 6,
+    "trade": 2,
+    "partisanship": 2,
+    "abortion": 1,
+    "electoral_college": 4,
+    "foreign_policy": 9,
+    "gun_policy": 1
+   },
+   "Montana": {
+    "immigration": 5,
+    "trade": 2,
+    "partisanship": 2,
+    "abortion": 2,
+    "electoral_college": 4,
+    "foreign_policy": 9,
+    "gun_policy": 2
+   },
+   "Utah": {
+    "immigration": 6,
+    "trade": 1,
+    "partisanship": 1,
+    "abortion": 1,
+    "electoral_college": 4,
+    "foreign_policy": 10,
+    "gun_policy": 1
+   },
+   "Arizona": {
+    "immigration": 4,
+    "trade": 2,
+    "partisanship": 2,
+    "abortion": 4,
+    "electoral_college": 5,
+    "foreign_policy": 10,
+    "gun_policy": 2
+   },
+   "Colorado": {
+    "immigration": 4,
+    "trade": 2,
+    "partisanship": 3,
+    "abortion": 6,
+    "electoral_college": 6,
+    "foreign_policy": 7,
+    "gun_policy": 3
+   },
+   "New Mexico": {
+    "immigration": 3,
+    "trade": 3,
+    "partisanship": 3,
+    "abortion": 6,
+    "electoral_college": 4,
+    "foreign_policy": 6,
+    "gun_policy": 3
+   },
+   "Nevada": {
+    "immigration": 4,
+    "trade": 4,
+    "partisanship": 3,
+    "abortion": 7,
+    "electoral_college": 3,
+    "foreign_policy": 6,
+    "gun_policy": 3
+   },
+   "Washington": {
+    "immigration": 3,
+    "trade": 6,
+    "partisanship": 7,
+    "abortion": 7,
+    "electoral_college": 9,
+    "foreign_policy": 4,
+    "gun_policy": 5
+   },
+   "Alaska": {
+    "immigration": 3,
+    "trade": 4,
+    "partisanship": 2,
+    "abortion": 3,
+    "electoral_college": 3,
+    "foreign_policy": 7,
+    "gun_policy": 3
+   },
+   "Hawaii": {
+    "immigration": 1,
+    "trade": 6,
+    "partisanship": 7,
+    "abortion": 7,
+    "electoral_college": 4,
+    "foreign_policy": 3,
+    "gun_policy": 8
+   },
+   "Oregon": {
+    "immigration": 3,
+    "trade": 6,
+    "partisanship": 6,
+    "abortion": 7,
+    "electoral_college": 6,
+    "foreign_policy": 5,
+    "gun_policy": 4
+   },
+   "Washington DC": {
+    "immigration": 1,
+    "trade": 10,
+    "partisanship": 10,
+    "abortion": 10,
+    "electoral_college": 3,
+    "foreign_policy": 1,
+    "gun_policy": 10
+   },
+   "Massachusetts": {
+    "immigration": 1,
+    "trade": 10,
+    "partisanship": 10,
+    "abortion": 9,
+    "electoral_college": 14,
+    "foreign_policy": 1,
+    "gun_policy": 10
+   },
+   "Rhode Island": {
+    "immigration": 2,
+    "trade": 10,
+    "partisanship": 9,
+    "abortion": 8,
+    "electoral_college": 4,
+    "foreign_policy": 1,
+    "gun_policy": 9
+   },
+   "Connecticut": {
+    "immigration": 2,
+    "trade": 7,
+    "partisanship": 9,
+    "abortion": 7,
+    "electoral_college": 8,
+    "foreign_policy": 2,
+    "gun_policy": 8
+   },
+   "Maryland": {
+    "immigration": 5,
+    "trade": 5,
+    "partisanship": 6,
+    "abortion": 4,
+    "electoral_college": 10,
+    "foreign_policy": 8,
+    "gun_policy": 4
+   },
+   "Delaware": {
+    "immigration": 3,
+    "trade": 6,
+    "partisanship": 7,
+    "abortion": 5,
+    "electoral_college": 3,
+    "foreign_policy": 5,
+    "gun_policy": 5
+   },
+   "Vermont": {
+    "immigration": 2,
+    "trade": 2,
+    "partisanship": 3,
+    "abortion": 7,
+    "electoral_college": 3,
+    "foreign_policy": 6,
+    "gun_policy": 3
+   },
+   "New Hampshire": {
+    "immigration": 2,
+    "trade": 1,
+    "partisanship": 2,
+    "abortion": 7,
+    "electoral_college": 4,
+    "foreign_policy": 7,
+    "gun_policy": 2
+   },
+   "Maine": {
+    "immigration": 2,
+    "trade": 2,
+    "partisanship": 6,
+    "abortion": 7,
+    "electoral_college": 4,
+    "foreign_policy": 6,
+    "gun_policy": 3
+   },
+   "Iowa": {
+    "immigration": 3,
+    "trade": 7,
+    "partisanship": 7,
+    "abortion": 4,
+    "electoral_college": 9,
+    "foreign_policy": 6,
+    "gun_policy": 3
+   }
+  },
+  "2020": {
+   "Texas": {
+    "immigration": 8,
+    "trade": 2,
+    "partisanship": 3,
+    "abortion": 4,
+    "electoral_college": 40,
+    "foreign_policy": 8,
+    "gun_policy": 3
+   },
+   "California": {
+    "immigration": 3,
+    "trade": 4,
+    "partisanship": 9,
+    "abortion": 8,
+    "electoral_college": 54,
+    "foreign_policy": 2,
+    "gun_policy": 7
+   },
+   "New York": {
+    "immigration": 3,
+    "trade": 5,
+    "partisanship": 9,
+    "abortion": 8,
+    "electoral_college": 28,
+    "foreign_policy": 3,
+    "gun_policy": 8
+   },
+   "New Jersey": {
+    "immigration": 4,
+    "trade": 6,
+    "partisanship": 7,
+    "abortion": 7,
+    "electoral_college": 14,
+    "foreign_policy": 3,
+    "gun_policy": 7
+   },
+   "Illinois": {
+    "immigration": 4,
+    "trade": 7,
+    "partisanship": 8,
+    "abortion": 8,
+    "electoral_college": 19,
+    "foreign_policy": 2,
+    "gun_policy": 7
+   },
+   "Pennsylvania": {
+    "immigration": 6,
+    "trade": 8,
+    "partisanship": 6,
+    "abortion": 6,
+    "electoral_college": 19,
+    "foreign_policy": 4,
+    "gun_policy": 5
+   },
+   "Ohio": {
+    "immigration": 8,
+    "trade": 8,
+    "partisanship": 5,
+    "abortion": 4,
+    "electoral_college": 17,
+    "foreign_policy": 5,
+    "gun_policy": 4
+   },
+   "Wisconsin": {
+    "immigration": 6,
+    "trade": 8,
+    "partisanship": 7,
+    "abortion": 7,
+    "electoral_college": 10,
+    "foreign_policy": 4,
+    "gun_policy": 5
+   },
+   "Michigan": {
+    "immigration": 6,
+    "trade": 8,
+    "partisanship": 7,
+    "abortion": 7,
+    "electoral_college": 15,
+    "foreign_policy": 3,
+    "gun_policy": 6
+   },
+   "Minnesota": {
+    "immigration": 4,
+    "trade": 8,
+    "partisanship": 8,
+    "abortion": 7,
+    "electoral_college": 10,
+    "foreign_policy": 2,
+    "gun_policy": 7
+   },
+   "Missouri": {
+    "immigration": 8,
+    "trade": 7,
+    "partisanship": 3,
+    "abortion": 4,
+    "electoral_college": 10,
+    "foreign_policy": 8,
+    "gun_policy": 3
+   },
+   "Kentucky": {
+    "immigration": 9,
+    "trade": 7,
+    "partisanship": 2,
+    "abortion": 3,
+    "electoral_college": 8,
+    "foreign_policy": 7,
+    "gun_policy": 3
+   },
+   "West Virginia": {
+    "immigration": 9,
+    "trade": 9,
+    "partisanship": 3,
+    "abortion": 2,
+    "electoral_college": 4,
+    "foreign_policy": 6,
+    "gun_policy": 2
+   },
+   "Oklahoma": {
+    "immigration": 9,
+    "trade": 3,
+    "partisanship": 2,
+    "abortion": 2,
+    "electoral_college": 7,
+    "foreign_policy": 8,
+    "gun_policy": 2
+   },
+   "Tennessee": {
+    "immigration": 9,
+    "trade": 3,
+    "partisanship": 3,
+    "abortion": 2,
+    "electoral_college": 11,
+    "foreign_policy": 8,
+    "gun_policy": 2
+   },
+   "Indiana": {
+    "immigration": 8,
+    "trade": 5,
+    "partisanship": 3,
+    "abortion": 4,
+    "electoral_college": 11,
+    "foreign_policy": 7,
+    "gun_policy": 3
+   },
+   "Arkansas": {
+    "immigration": 8,
+    "trade": 3,
+    "partisanship": 3,
+    "abortion": 2,
+    "electoral_college": 6,
+    "foreign_policy": 7,
+    "gun_policy": 2
+   },
+   "Mississippi": {
+    "immigration": 9,
+    "trade": 3,
+    "partisanship": 2,
+    "abortion": 2,
+    "electoral_college": 6,
+    "foreign_policy": 7,
+    "gun_policy": 2
+   },
+   "Alabama": {
+    "immigration": 9,
+    "trade": 4,
+    "partisanship": 2,
+    "abortion": 2,
+    "electoral_college": 9,
+    "foreign_policy": 7,
+    "gun_policy": 2
+   },
+   "Louisiana": {
+    "immigration": 8,
+    "trade": 3,
+    "partisanship": 3,
+    "abortion": 2,
+    "electoral_college": 8,
+    "foreign_policy": 7,
+    "gun_policy": 2
+   },
+   "South Carolina": {
+    "immigration": 8,
+    "trade": 3,
+    "partisanship": 3,
+    "abortion": 3,
+    "electoral_college": 9,
+    "foreign_policy": 7,
+    "gun_policy": 3
+   },
+   "Georgia": {
+    "immigration": 6,
+    "trade": 3,
+    "partisanship": 4,
+    "abortion": 4,
+    "electoral_college": 16,
+    "foreign_policy": 6,
+    "gun_policy": 4
+   },
+   "Florida": {
+    "immigration": 6,
+    "trade": 4,
+    "partisanship": 5,
+    "abortion": 4,
+    "electoral_college": 30,
+    "foreign_policy": 6,
+    "gun_policy": 4
+   },
+   "North Carolina": {
+    "immigration": 7,
+    "trade": 3,
+    "partisanship": 4,
+    "abortion": 4,
+    "electoral_college": 16,
+    "foreign_policy": 7,
+    "gun_policy": 4
+   },
+   "Virginia": {
+    "immigration": 4,
+    "trade": 3,
+    "partisanship": 6,
+    "abortion": 7,
+    "electoral_college": 13,
+    "foreign_policy": 6,
+    "gun_policy": 5
+   },
+   "South Dakota": {
+    "immigration": 7,
+    "trade": 2,
+    "partisanship": 2,
+    "abortion": 5,
+    "electoral_college": 3,
+    "foreign_policy": 6,
+    "gun_policy": 2
+   },
+   "North Dakota": {
+    "immigration": 7,
+    "trade": 2,
+    "partisanship": 2,
+    "abortion": 5,
+    "electoral_college": 3,
+    "foreign_policy": 6,
+    "gun_policy": 2
+   },
+   "Kansas": {
+    "immigration": 6,
+    "trade": 2,
+    "partisanship": 2,
+    "abortion": 5,
+    "electoral_college": 6,
+    "foreign_policy": 6,
+    "gun_policy": 3
+   },
+   "Nebraska": {
+    "immigration": 6,
+    "trade": 2,
+    "partisanship": 2,
+    "abortion": 5,
+    "electoral_college": 5,
+    "foreign_policy": 6,
+    "gun_policy": 2
+   },
+   "Wyoming": {
+    "immigration": 7,
+    "trade": 3,
+    "partisanship": 1,
+    "abortion": 2,
+    "electoral_college": 3,
+    "foreign_policy": 7,
+    "gun_policy": 1
+   },
+   "Idaho": {
+    "immigration": 7,
+    "trade": 3,
+    "partisanship": 1,
+    "abortion": 2,
+    "electoral_college": 4,
+    "foreign_policy": 7,
+    "gun_policy": 1
+   },
+   "Montana": {
+    "immigration": 6,
+    "trade": 4,
+    "partisanship": 2,
+    "abortion": 3,
+    "electoral_college": 4,
+    "foreign_policy": 6,
+    "gun_policy": 2
+   },
+   "Utah": {
+    "immigration": 5,
+    "trade": 2,
+    "partisanship": 1,
+    "abortion": 3,
+    "electoral_college": 6,
+    "foreign_policy": 8,
+    "gun_policy": 1
+   },
+   "Arizona": {
+    "immigration": 6,
+    "trade": 2,
+    "partisanship": 3,
+    "abortion": 5,
+    "electoral_college": 11,
+    "foreign_policy": 6,
+    "gun_policy": 4
+   },
+   "Colorado": {
+    "immigration": 3,
+    "trade": 2,
+    "partisanship": 7,
+    "abortion": 8,
+    "electoral_college": 10,
+    "foreign_policy": 3,
+    "gun_policy": 6
+   },
+   "New Mexico": {
+    "immigration": 3,
+    "trade": 3,
+    "partisanship": 7,
+    "abortion": 7,
+    "electoral_college": 5,
+    "foreign_policy": 3,
+    "gun_policy": 6
+   },
+   "Nevada": {
+    "immigration": 6,
+    "trade": 4,
+    "partisanship": 6,
+    "abortion": 8,
+    "electoral_college": 6,
+    "foreign_policy": 4,
+    "gun_policy": 5
+   },
+   "Washington": {
+    "immigration": 3,
+    "trade": 3,
+    "partisanship": 8,
+    "abortion": 9,
+    "electoral_college": 12,
+    "foreign_policy": 2,
+    "gun_policy": 7
+   },
+   "Alaska": {
+    "immigration": 6,
+    "trade": 4,
+    "partisanship": 2,
+    "abortion": 4,
+    "electoral_college": 3,
+    "foreign_policy": 5,
+    "gun_policy": 3
+   },
+   "Hawaii": {
+    "immigration": 2,
+    "trade": 3,
+    "partisanship": 8,
+    "abortion": 8,
+    "electoral_college": 4,
+    "foreign_policy": 2,
+    "gun_policy": 8
+   },
+   "Oregon": {
+    "immigration": 3,
+    "trade": 3,
+    "partisanship": 7,
+    "abortion": 9,
+    "electoral_college": 8,
+    "foreign_policy": 2,
+    "gun_policy": 7
+   },
+   "Washington DC": {
+    "immigration": 1,
+    "trade": 2,
+    "partisanship": 10,
+    "abortion": 10,
+    "electoral_college": 3,
+    "foreign_policy": 1,
+    "gun_policy": 10
+   },
+   "Massachusetts": {
+    "immigration": 1,
+    "trade": 3,
+    "partisanship": 10,
+    "abortion": 9,
+    "electoral_college": 11,
+    "foreign_policy": 1,
+    "gun_policy": 9
+   },
+   "Rhode Island": {
+    "immigration": 2,
+    "trade": 2,
+    "partisanship": 9,
+    "abortion": 9,
+    "electoral_college": 4,
+    "foreign_policy": 2,
+    "gun_policy": 9
+   },
+   "Connecticut": {
+    "immigration": 2,
+    "trade": 2,
+    "partisanship": 9,
+    "abortion": 9,
+    "electoral_college": 7,
+    "foreign_policy": 2,
+    "gun_policy": 8
+   },
+   "Maryland": {
+    "immigration": 2,
+    "trade": 3,
+    "partisanship": 8,
+    "abortion": 9,
+    "electoral_college": 10,
+    "foreign_policy": 2,
+    "gun_policy": 7
+   },
+   "Delaware": {
+    "immigration": 2,
+    "trade": 3,
+    "partisanship": 9,
+    "abortion": 9,
+    "electoral_college": 3,
+    "foreign_policy": 2,
+    "gun_policy": 7
+   },
+   "Vermont": {
+    "immigration": 2,
+    "trade": 4,
+    "partisanship": 8,
+    "abortion": 10,
+    "electoral_college": 3,
+    "foreign_policy": 1,
+    "gun_policy": 5
+   },
+   "New Hampshire": {
+    "immigration": 4,
+    "trade": 2,
+    "partisanship": 5,
+    "abortion": 7,
+    "electoral_college": 4,
+    "foreign_policy": 3,
+    "gun_policy": 3
+   },
+   "Maine": {
+    "immigration": 3,
+    "trade": 2,
+    "partisanship": 7,
+    "abortion": 8,
+    "electoral_college": 4,
+    "foreign_policy": 3,
+    "gun_policy": 4
+   },
+   "Iowa": {
+    "immigration": 6,
+    "trade": 8,
+    "partisanship": 4,
+    "abortion": 6,
+    "electoral_college": 6,
+    "foreign_policy": 4,
+    "gun_policy": 4
+   }
+  },
+  "2024": {
+   "Texas": {
+    "immigration": 8,
+    "trade": 3,
+    "partisanship": 3,
+    "abortion": 3,
+    "electoral_college": 40,
+    "foreign_policy": 7,
+    "gun_policy": 3
+   },
+   "California": {
+    "immigration": 3,
+    "trade": 3,
+    "partisanship": 9,
+    "abortion": 8,
+    "electoral_college": 54,
+    "foreign_policy": 2,
+    "gun_policy": 9
+   },
+   "New York": {
+    "immigration": 3,
+    "trade": 5,
+    "partisanship": 8,
+    "abortion": 8,
+    "electoral_college": 28,
+    "foreign_policy": 3,
+    "gun_policy": 8
+   },
+   "New Jersey": {
+    "immigration": 4,
+    "trade": 6,
+    "partisanship": 7,
+    "abortion": 7,
+    "electoral_college": 14,
+    "foreign_policy": 3,
+    "gun_policy": 8
+   },
+   "Illinois": {
+    "immigration": 4,
+    "trade": 7,
+    "partisanship": 8,
+    "abortion": 8,
+    "electoral_college": 19,
+    "foreign_policy": 2,
+    "gun_policy": 7
+   },
+   "Pennsylvania": {
+    "immigration": 6,
+    "trade": 8,
+    "partisanship": 6,
+    "abortion": 6,
+    "electoral_college": 19,
+    "foreign_policy": 4,
+    "gun_policy": 4
+   },
+   "Ohio": {
+    "immigration": 8,
+    "trade": 8,
+    "partisanship": 3,
+    "abortion": 4,
+    "electoral_college": 17,
+    "foreign_policy": 5,
+    "gun_policy": 4
+   },
+   "Wisconsin": {
+    "immigration": 6,
+    "trade": 8,
+    "partisanship": 7,
+    "abortion": 7,
+    "electoral_college": 10,
+    "foreign_policy": 3,
+    "gun_policy": 5
+   },
+   "Michigan": {
+    "immigration": 6,
+    "trade": 8,
+    "partisanship": 6,
+    "abortion": 7,
+    "electoral_college": 15,
+    "foreign_policy": 4,
+    "gun_policy": 5
+   },
+   "Minnesota": {
+    "immigration": 4,
+    "trade": 8,
+    "partisanship": 6,
+    "abortion": 7,
+    "electoral_college": 10,
+    "foreign_policy": 2,
+    "gun_policy": 5
+   },
+   "Missouri": {
+    "immigration": 8,
+    "trade": 7,
+    "partisanship": 3,
+    "abortion": 4,
+    "electoral_college": 10,
+    "foreign_policy": 8,
+    "gun_policy": 3
+   },
+   "Kentucky": {
+    "immigration": 9,
+    "trade": 7,
+    "partisanship": 2,
+    "abortion": 3,
+    "electoral_college": 8,
+    "foreign_policy": 7,
+    "gun_policy": 3
+   },
+   "West Virginia": {
+    "immigration": 9,
+    "trade": 9,
+    "partisanship": 1,
+    "abortion": 2,
+    "electoral_college": 4,
+    "foreign_policy": 6,
+    "gun_policy": 2
+   },
+   "Oklahoma": {
+    "immigration": 9,
+    "trade": 3,
+    "partisanship": 2,
+    "abortion": 2,
+    "electoral_college": 7,
+    "foreign_policy": 8,
+    "gun_policy": 2
+   },
+   "Tennessee": {
+    "immigration": 9,
+    "trade": 3,
+    "partisanship": 3,
+    "abortion": 2,
+    "electoral_college": 11,
+    "foreign_policy": 8,
+    "gun_policy": 2
+   },
+   "Indiana": {
+    "immigration": 8,
+    "trade": 5,
+    "partisanship": 3,
+    "abortion": 4,
+    "electoral_college": 11,
+    "foreign_policy": 7,
+    "gun_policy": 3
+   },
+   "Arkansas": {
+    "immigration": 8,
+    "trade": 3,
+    "partisanship": 3,
+    "abortion": 2,
+    "electoral_college": 6,
+    "foreign_policy": 7,
+    "gun_policy": 2
+   },
+   "Mississippi": {
+    "immigration": 9,
+    "trade": 3,
+    "partisanship": 3,
+    "abortion": 2,
+    "electoral_college": 6,
+    "foreign_policy": 7,
+    "gun_policy": 2
+   },
+   "Alabama": {
+    "immigration": 9,
+    "trade": 4,
+    "partisanship": 2,
+    "abortion": 2,
+    "electoral_college": 9,
+    "foreign_policy": 7,
+    "gun_policy": 2
+   },
+   "Louisiana": {
+    "immigration": 8,
+    "trade": 3,
+    "partisanship": 3,
+    "abortion": 2,
+    "electoral_college": 8,
+    "foreign_policy": 7,
+    "gun_policy": 2
+   },
+   "South Carolina": {
+    "immigration": 8,
+    "trade": 3,
+    "partisanship": 3,
+    "abortion": 3,
+    "electoral_college": 9,
+    "foreign_policy": 7,
+    "gun_policy": 3
+   },
+   "Georgia": {
+    "immigration": 6,
+    "trade": 2,
+    "partisanship": 5,
+    "abortion": 5,
+    "electoral_college": 16,
+    "foreign_policy": 7,
+    "gun_policy": 4
+   },
+   "Florida": {
+    "immigration": 7,
+    "trade": 4,
+    "partisanship": 3,
+    "abortion": 3,
+    "electoral_college": 30,
+    "foreign_policy": 6,
+    "gun_policy": 3
+   },
+   "North Carolina": {
+    "immigration": 7,
+    "trade": 3,
+    "partisanship": 4,
+    "abortion": 4,
+    "electoral_college": 16,
+    "foreign_policy": 7,
+    "gun_policy": 4
+   },
+   "Virginia": {
+    "immigration": 4,
+    "trade": 3,
+    "partisanship": 6,
+    "abortion": 7,
+    "electoral_college": 13,
+    "foreign_policy": 6,
+    "gun_policy": 5
+   },
+   "South Dakota": {
+    "immigration": 7,
+    "trade": 2,
+    "partisanship": 2,
+    "abortion": 3,
+    "electoral_college": 3,
+    "foreign_policy": 6,
+    "gun_policy": 2
+   },
+   "North Dakota": {
+    "immigration": 7,
+    "trade": 2,
+    "partisanship": 2,
+    "abortion": 3,
+    "electoral_college": 3,
+    "foreign_policy": 6,
+    "gun_policy": 2
+   },
+   "Kansas": {
+    "immigration": 6,
+    "trade": 2,
+    "partisanship": 2,
+    "abortion": 5,
+    "electoral_college": 6,
+    "foreign_policy": 6,
+    "gun_policy": 3
+   },
+   "Nebraska": {
+    "immigration": 6,
+    "trade": 2,
+    "partisanship": 2,
+    "abortion": 5,
+    "electoral_college": 5,
+    "foreign_policy": 6,
+    "gun_policy": 2
+   },
+   "Wyoming": {
+    "immigration": 7,
+    "trade": 3,
+    "partisanship": 1,
+    "abortion": 2,
+    "electoral_college": 3,
+    "foreign_policy": 7,
+    "gun_policy": 1
+   },
+   "Idaho": {
+    "immigration": 7,
+    "trade": 3,
+    "partisanship": 1,
+    "abortion": 2,
+    "electoral_college": 4,
+    "foreign_policy": 7,
+    "gun_policy": 1
+   },
+   "Montana": {
+    "immigration": 6,
+    "trade": 3,
+    "partisanship": 2,
+    "abortion": 3,
+    "electoral_college": 4,
+    "foreign_policy": 6,
+    "gun_policy": 2
+   },
+   "Utah": {
+    "immigration": 5,
+    "trade": 2,
+    "partisanship": 1,
+    "abortion": 3,
+    "electoral_college": 6,
+    "foreign_policy": 8,
+    "gun_policy": 1
+   },
+   "Arizona": {
+    "immigration": 6,
+    "trade": 2,
+    "partisanship": 3,
+    "abortion": 5,
+    "electoral_college": 11,
+    "foreign_policy": 6,
+    "gun_policy": 4
+   },
+   "Colorado": {
+    "immigration": 3,
+    "trade": 2,
+    "partisanship": 7,
+    "abortion": 8,
+    "electoral_college": 10,
+    "foreign_policy": 3,
+    "gun_policy": 6
+   },
+   "New Mexico": {
+    "immigration": 3,
+    "trade": 3,
+    "partisanship": 7,
+    "abortion": 7,
+    "electoral_college": 5,
+    "foreign_policy": 3,
+    "gun_policy": 6
+   },
+   "Nevada": {
+    "immigration": 6,
+    "trade": 5,
+    "partisanship": 5,
+    "abortion": 7,
+    "electoral_college": 6,
+    "foreign_policy": 4,
+    "gun_policy": 5
+   },
+   "Washington": {
+    "immigration": 3,
+    "trade": 3,
+    "partisanship": 8,
+    "abortion": 9,
+    "electoral_college": 12,
+    "foreign_policy": 2,
+    "gun_policy": 7
+   },
+   "Alaska": {
+    "immigration": 6,
+    "trade": 4,
+    "partisanship": 2,
+    "abortion": 4,
+    "electoral_college": 3,
+    "foreign_policy": 5,
+    "gun_policy": 3
+   },
+   "Hawaii": {
+    "immigration": 2,
+    "trade": 3,
+    "partisanship": 8,
+    "abortion": 8,
+    "electoral_college": 4,
+    "foreign_policy": 2,
+    "gun_policy": 8
+   },
+   "Oregon": {
+    "immigration": 3,
+    "trade": 3,
+    "partisanship": 8,
+    "abortion": 9,
+    "electoral_college": 8,
+    "foreign_policy": 2,
+    "gun_policy": 7
+   },
+   "Washington DC": {
+    "immigration": 1,
+    "trade": 2,
+    "partisanship": 10,
+    "abortion": 10,
+    "electoral_college": 3,
+    "foreign_policy": 1,
+    "gun_policy": 10
+   },
+   "Massachusetts": {
+    "immigration": 1,
+    "trade": 3,
+    "partisanship": 10,
+    "abortion": 9,
+    "electoral_college": 11,
+    "foreign_policy": 1,
+    "gun_policy": 9
+   },
+   "Rhode Island": {
+    "immigration": 2,
+    "trade": 2,
+    "partisanship": 9,
+    "abortion": 9,
+    "electoral_college": 4,
+    "foreign_policy": 2,
+    "gun_policy": 9
+   },
+   "Connecticut": {
+    "immigration": 2,
+    "trade": 2,
+    "partisanship": 9,
+    "abortion": 9,
+    "electoral_college": 7,
+    "foreign_policy": 2,
+    "gun_policy": 8
+   },
+   "Maryland": {
+    "immigration": 2,
+    "trade": 3,
+    "partisanship": 10,
+    "abortion": 9,
+    "electoral_college": 10,
+    "foreign_policy": 2,
+    "gun_policy": 8
+   },
+   "Delaware": {
+    "immigration": 2,
+    "trade": 3,
+    "partisanship": 9,
+    "abortion": 9,
+    "electoral_college": 3,
+    "foreign_policy": 2,
+    "gun_policy": 7
+   },
+   "Vermont": {
+    "immigration": 2,
+    "trade": 4,
+    "partisanship": 10,
+    "abortion": 10,
+    "electoral_college": 3,
+    "foreign_policy": 1,
+    "gun_policy": 6
+   },
+   "New Hampshire": {
+    "immigration": 4,
+    "trade": 2,
+    "partisanship": 6,
+    "abortion": 8,
+    "electoral_college": 4,
+    "foreign_policy": 3,
+    "gun_policy": 3
+   },
+   "Maine": {
+    "immigration": 3,
+    "trade": 2,
+    "partisanship": 7,
+    "abortion": 8,
+    "electoral_college": 4,
+    "foreign_policy": 3,
+    "gun_policy": 4
+   },
+   "Iowa": {
+    "immigration": 6,
+    "trade": 8,
+    "partisanship": 4,
+    "abortion": 4,
+    "electoral_college": 6,
+    "foreign_policy": 4,
+    "gun_policy": 4
+   }
+  }
+ },
+ "issue_text": {
+  "1968": {
+   "immigration": {
+    "label": "Civil Rights",
+    "low": "Equal rights",
+    "high": "Segregationist"
+   },
+   "trade": {
+    "label": "Economy",
+    "low": "Low Taxes",
+    "high": "Great Society"
+   },
+   "partisanship": {
+    "label": "Partisanship"
+   },
+   "abortion": {
+    "label": "Abortion",
+    "low": "pro-life",
+    "high": "pro-choice"
+   },
+   "foreign_policy": {
+    "label": "Foreign policy",
+    "low": "dovish",
+    "high": "hawkish"
+   },
+   "gun_policy": {
+    "label": "Law & Order",
+    "low": "Crackdown on it",
+    "high": "Police Reform"
+   }
+  },
+  "2020": {
+   "immigration": {
+    "label": "Immigration",
+    "low": "open borders",
+    "high": "strict control"
+   },
+   "trade": {
+    "label": "Trade",
+    "low": "free market",
+    "high": "protectionist"
+   },
+   "partisanship": {
+    "label": "Partisanship"
+   },
+   "abortion": {
+    "label": "Abortion",
+    "low": "pro-life",
+    "high": "pro-choice"
+   },
+   "foreign_policy": {
+    "label": "Foreign policy",
+    "low": "dovish",
+    "high": "hawkish"
+   },
+   "gun_policy": {
+    "label": "Gun policy",
+    "low": "pro-gun",
+    "high": "strict gun control"
+   }
+  },
+  "2024": {
+   "immigration": {
+    "label": "Immigration",
+    "low": "open borders",
+    "high": "strict control"
+   },
+   "trade": {
+    "label": "Trade",
+    "low": "free market",
+    "high": "protectionist"
+   },
+   "partisanship": {
+    "label": "Partisanship"
+   },
+   "abortion": {
+    "label": "Abortion",
+    "low": "pro-life",
+    "high": "pro-choice"
+   },
+   "foreign_policy": {
+    "label": "Foreign policy",
+    "low": "dovish",
+    "high": "hawkish"
+   },
+   "gun_policy": {
+    "label": "Gun policy",
+    "low": "pro-gun",
+    "high": "strict gun control"
+   }
+  }
+ },
+ "senate": {
+  "1968": {
+   "holdover": {
+    "R": 26,
+    "D": 40
+   },
+   "seats": {
+    "Alabama": [
+     {
+      "R": {
+       "name": "Perry Hooper Sr.",
+       "advantage": 1
+      },
+      "D": {
+       "name": "James Allen",
+       "advantage": 25
+      }
+     }
+    ],
+    "Alaska": [
+     {
+      "R": {
+       "name": "Elmer Rasmuson",
+       "advantage": 6
+      },
+      "D": {
+       "name": "Mike Gravel",
+       "advantage": 15
+      }
+     }
+    ],
+    "Arizona": [
+     {
+      "R": {
+       "name": "Barry Goldwater",
+       "advantage": 8
+      },
+      "D": {
+       "name": "Roy Elson",
+       "advantage": 13
+      }
+     }
+    ],
+    "Arkansas": [
+     {
+      "R": {
+       "name": "Charles T. Bernard",
+       "advantage": 1
+      },
+      "D": {
+       "name": "J. William Fulbright",
+       "advantage": 20
+      }
+     }
+    ],
+    "California": [
+     {
+      "R": {
+       "name": "Max Rafferty",
+       "advantage": 7
+      },
+      "D": {
+       "name": "Alan Cranston",
+       "advantage": 14
+      }
+     }
+    ],
+    "Colorado": [
+     {
+      "R": {
+       "name": "Peter Dominick",
+       "advantage": 14
+      },
+      "D": {
+       "name": "Stephen McNichols",
+       "advantage": 7
+      }
+     }
+    ],
+    "Connecticut": [
+     {
+      "R": {
+       "name": "Edwin May Jr.",
+       "advantage": 9
+      },
+      "D": {
+       "name": "Abraham Ribicoff",
+       "advantage": 12
+      }
+     }
+    ],
+    "Florida": [
+     {
+      "R": {
+       "name": "Edward Gurney",
+       "advantage": 12
+      },
+      "D": {
+       "name": "LeRoy Collins",
+       "advantage": 9
+      }
+     }
+    ],
+    "Georgia": [
+     {
+      "R": {
+       "name": "E. Earl Patton",
+       "advantage": 1
+      },
+      "D": {
+       "name": "Herman Talmadge",
+       "advantage": 26
+      }
+     }
+    ],
+    "Hawaii": [
+     {
+      "R": {
+       "name": "Wayne Thiessen",
+       "advantage": 1
+      },
+      "D": {
+       "name": "Daniel Inouye",
+       "advantage": 40
+      }
+     }
+    ],
+    "Idaho": [
+     {
+      "R": {
+       "name": "George V. Hansen",
+       "advantage": 1
+      },
+      "D": {
+       "name": "Frank Church",
+       "advantage": 35
+      }
+     }
+    ],
+    "Illinois": [
+     {
+      "R": {
+       "name": "Everett Dirksen",
+       "advantage": 12
+      },
+      "D": {
+       "name": "William G. Clark",
+       "advantage": 9
+      }
+     }
+    ],
+    "Indiana": [
+     {
+      "R": {
+       "name": "William Ruckelshaus",
+       "advantage": 3
+      },
+      "D": {
+       "name": "Birch Bayh",
+       "advantage": 18
+      }
+     }
+    ],
+    "Iowa": [
+     {
+      "R": {
+       "name": "David M. Stanley",
+       "advantage": 4
+      },
+      "D": {
+       "name": "Harold Hughes",
+       "advantage": 17
+      }
+     }
+    ],
+    "Kansas": [
+     {
+      "R": {
+       "name": "Bob Dole",
+       "advantage": 11
+      },
+      "D": {
+       "name": "William I. Robinson",
+       "advantage": 10
+      }
+     }
+    ],
+    "Kentucky": [
+     {
+      "R": {
+       "name": "Marlow Cook",
+       "advantage": 9
+      },
+      "D": {
+       "name": "Katherine Peden",
+       "advantage": 12
+      }
+     }
+    ],
+    "Louisiana": [
+     {
+      "R": {
+       "name": "(none)",
+       "advantage": 1
+      },
+      "D": {
+       "name": "Russell B. Long",
+       "advantage": 50
+      }
+     }
+    ],
+    "Maryland": [
+     {
+      "R": {
+       "name": "Charles Mathias",
+       "advantage": 15
+      },
+      "D": {
+       "name": "Daniel Brewster",
+       "advantage": 6
+      }
+     }
+    ],
+    "Missouri": [
+     {
+      "R": {
+       "name": "Thomas B. Curtis",
+       "advantage": 9
+      },
+      "D": {
+       "name": "Thomas Eagleton",
+       "advantage": 12
+      }
+     }
+    ],
+    "Nevada": [
+     {
+      "R": {
+       "name": "Edward Fike",
+       "advantage": 2
+      },
+      "D": {
+       "name": "Alan Bible",
+       "advantage": 19
+      }
+     }
+    ],
+    "New Hampshire": [
+     {
+      "R": {
+       "name": "Norris Cotton",
+       "advantage": 15
+      },
+      "D": {
+       "name": "John W. King",
+       "advantage": 6
+      }
+     }
+    ],
+    "New York": [
+     {
+      "R": {
+       "name": "Jacob Javits",
+       "advantage": 30
+      },
+      "D": {
+       "name": "Paul O'Dwyer",
+       "advantage": 1
+      }
+     }
+    ],
+    "North Carolina": [
+     {
+      "R": {
+       "name": "Robert Somers",
+       "advantage": 1
+      },
+      "D": {
+       "name": "Sam Ervin",
+       "advantage": 23
+      }
+     }
+    ],
+    "North Dakota": [
+     {
+      "R": {
+       "name": "Milton Young",
+       "advantage": 17
+      },
+      "D": {
+       "name": "Herschel Lashkowitz",
+       "advantage": 4
+      }
+     }
+    ],
+    "Ohio": [
+     {
+      "R": {
+       "name": "William Saxbe",
+       "advantage": 11
+      },
+      "D": {
+       "name": "John J. Gilligan",
+       "advantage": 10
+      }
+     }
+    ],
+    "Oklahoma": [
+     {
+      "R": {
+       "name": "Henry Bellmon",
+       "advantage": 6
+      },
+      "D": {
+       "name": "Mike Monroney",
+       "advantage": 15
+      }
+     }
+    ],
+    "Oregon": [
+     {
+      "R": {
+       "name": "Bob Packwood",
+       "advantage": 8
+      },
+      "D": {
+       "name": "Wayne Morse",
+       "advantage": 13
+      }
+     }
+    ],
+    "Pennsylvania": [
+     {
+      "R": {
+       "name": "Richard Schweiker",
+       "advantage": 15
+      },
+      "D": {
+       "name": "Joseph S. Clark Jr.",
+       "advantage": 6
+      }
+     }
+    ],
+    "South Carolina": [
+     {
+      "R": {
+       "name": "Marshall Parker",
+       "advantage": 1
+      },
+      "D": {
+       "name": "Fritz Hollings",
+       "advantage": 25
+      }
+     }
+    ],
+    "South Dakota": [
+     {
+      "R": {
+       "name": "Archie Gubbrud",
+       "advantage": 1
+      },
+      "D": {
+       "name": "George McGovern",
+       "advantage": 23
+      }
+     }
+    ],
+    "Utah": [
+     {
+      "R": {
+       "name": "Wallace F. Bennett",
+       "advantage": 5
+      },
+      "D": {
+       "name": "Milton Weilenmann",
+       "advantage": 16
+      }
+     }
+    ],
+    "Vermont": [
+     {
+      "R": {
+       "name": "George Aiken",
+       "advantage": 50
+      },
+      "D": {
+       "name": "(none)",
+       "advantage": 1
+      }
+     }
+    ],
+    "Washington": [
+     {
+      "R": {
+       "name": "Jack Metcalf",
+       "advantage": 1
+      },
+      "D": {
+       "name": "Warren Magnuson",
+       "advantage": 20
+      }
+     }
+    ],
+    "Wisconsin": [
+     {
+      "R": {
+       "name": "Jerris Leonard",
+       "advantage": 1
+      },
+      "D": {
+       "name": "Gaylord Nelson",
+       "advantage": 20
+      }
+     }
+    ]
+   }
+  },
+  "2020": {
+   "holdover": {
+    "R": 30,
+    "D": 35
+   },
+   "seats": {
+    "Oregon": [
+     {
+      "R": {
+       "name": "Jo Rae Perkins",
+       "advantage": 5
+      },
+      "D": {
+       "name": "Jeff Merkley",
+       "advantage": 6,
+       "caucus": "Progressive Democrats"
+      }
+     }
+    ],
+    "Idaho": [
+     {
+      "R": {
+       "name": "Jim Risch",
+       "advantage": 3,
+       "caucus": "Establishment Conservatives"
+      },
+      "D": {
+       "name": "Paulette Jordan",
+       "advantage": 5
+      }
+     }
+    ],
+    "Montana": [
+     {
+      "R": {
+       "name": "Steve Daines",
+       "advantage": 5,
+       "caucus": "Establishment Conservatives"
+      },
+      "D": {
+       "name": "Steve Bullock",
+       "advantage": 9,
+       "caucus": "Blue Dogs"
+      }
+     }
+    ],
+    "Wyoming": [
+     {
+      "R": {
+       "name": "Cynthia Lummis",
+       "advantage": 5,
+       "caucus": "MAGA Republicans"
+      },
+      "D": {
+       "name": "Merav Ben-David",
+       "advantage": 5,
+       "caucus": "Blue Dogs"
+      }
+     }
+    ],
+    "South Dakota": [
+     {
+      "R": {
+       "name": "Mike Rounds",
+       "advantage": 6,
+       "caucus": "Establishment Conservatives"
+      },
+      "D": {
+       "name": "Dan Ahlers",
+       "advantage": 5,
+       "caucus": "Blue Dogs"
+      }
+     }
+    ],
+    "Nebraska": [
+     {
+      "R": {
+       "name": "Ben Sasse",
+       "advantage": 6,
+       "caucus": "Centrist Republicans"
+      },
+      "D": {
+       "name": "Chris Janicek",
+       "advantage": 1,
+       "caucus": "Blue Dogs"
+      }
+     }
+    ],
+    "Kansas": [
+     {
+      "R": {
+       "name": "Roger Marshall",
+       "advantage": 5,
+       "caucus": "Establishment Conservatives"
+      },
+      "D": {
+       "name": "Barbara Bollier",
+       "advantage": 7,
+       "caucus": "Blue Dogs"
+      }
+     }
+    ],
+    "Oklahoma": [
+     {
+      "R": {
+       "name": "Jim Inhofe",
+       "advantage": 5,
+       "caucus": "MAGA Republicans"
+      },
+      "D": {
+       "name": "Abby Broyles",
+       "advantage": 5,
+       "caucus": "Blue Dogs"
+      }
+     }
+    ],
+    "Colorado": [
+     {
+      "R": {
+       "name": "Cory Gardner",
+       "advantage": 7,
+       "caucus": "Centrist Republicans"
+      },
+      "D": {
+       "name": "John Hickenlooper",
+       "advantage": 5,
+       "caucus": "Blue Dogs"
+      }
+     }
+    ],
+    "Arizona": [
+     {
+      "R": {
+       "name": "Martha McSally",
+       "advantage": 5,
+       "caucus": "Establishment Conservatives"
+      },
+      "D": {
+       "name": "Mark Kelly",
+       "advantage": 7,
+       "caucus": "Blue Dogs"
+      }
+     }
+    ],
+    "New Mexico": [
+     {
+      "R": {
+       "name": "Mark Ronchetti",
+       "advantage": 5,
+       "caucus": "Establishment Conservatives"
+      },
+      "D": {
+       "name": "Ben Ray Luján",
+       "advantage": 4,
+       "caucus": "Establishment Liberals"
+      }
+     }
+    ],
+    "Texas": [
+     {
+      "R": {
+       "name": "John Cornyn",
+       "advantage": 7,
+       "caucus": "Establishment Conservatives"
+      },
+      "D": {
+       "name": "M. J. Hegar",
+       "advantage": 5,
+       "caucus": "Blue Dogs"
+      }
+     }
+    ],
+    "Arkansas": [
+     {
+      "R": {
+       "name": "Tom Cotton",
+       "advantage": 5,
+       "caucus": "MAGA Republicans"
+      },
+      "D": {
+       "name": "Ricky Dale Harrington Jr.",
+       "advantage": 3
+      }
+     }
+    ],
+    "Louisiana": [
+     {
+      "R": {
+       "name": "Bill Cassidy",
+       "advantage": 7,
+       "caucus": "Establishment Conservatives"
+      },
+      "D": {
+       "name": "Adrian Perkins",
+       "advantage": 5,
+       "caucus": "Establishment Liberals"
+      }
+     }
+    ],
+    "Mississippi": [
+     {
+      "R": {
+       "name": "Cindy Hyde-Smith",
+       "advantage": 2,
+       "caucus": "MAGA Republicans"
+      },
+      "D": {
+       "name": "Mike Espy",
+       "advantage": 6,
+       "caucus": "Blue Dogs"
+      }
+     }
+    ],
+    "Alabama": [
+     {
+      "R": {
+       "name": "Tommy Tuberville",
+       "advantage": 5,
+       "caucus": "MAGA Republicans"
+      },
+      "D": {
+       "name": "Doug Jones",
+       "advantage": 7,
+       "caucus": "Blue Dogs"
+      }
+     }
+    ],
+    "Georgia": [
+     {
+      "R": {
+       "name": "David Perdue",
+       "advantage": 7
+      },
+      "D": {
+       "name": "Jon Ossoff",
+       "advantage": 5,
+       "caucus": "Establishment Liberals"
+      }
+     },
+     {
+      "R": {
+       "name": "Kelly Loeffler",
+       "advantage": 5,
+       "caucus": "MAGA Republicans"
+      },
+      "D": {
+       "name": "Raphael Warnock",
+       "advantage": 7,
+       "caucus": "Establishment Liberals"
+      }
+     }
+    ],
+    "South Carolina": [
+     {
+      "R": {
+       "name": "Lindsey Graham",
+       "advantage": 4
+      },
+      "D": {
+       "name": "Jaime Harrison",
+       "advantage": 5,
+       "caucus": "Establishment Liberals"
+      }
+     }
+    ],
+    "North Carolina": [
+     {
+      "R": {
+       "name": "Thom Tillis",
+       "advantage": 5,
+       "caucus": "Establishment Conservatives"
+      },
+      "D": {
+       "name": "Cal Cunningham",
+       "advantage": 5,
+       "caucus": "Blue Dogs"
+      }
+     }
+    ],
+    "Virginia": [
+     {
+      "R": {
+       "name": "Daniel Gade",
+       "advantage": 5,
+       "caucus": "MAGA Republicans"
+      },
+      "D": {
+       "name": "Mark Warner",
+       "advantage": 6,
+       "caucus": "Establishment Liberals"
+      }
+     }
+    ],
+    "Tennessee": [
+     {
+      "R": {
+       "name": "Bill Hagerty",
+       "advantage": 7,
+       "caucus": "MAGA Republicans"
+      },
+      "D": {
+       "name": "Marquita Bradshaw",
+       "advantage": 5,
+       "caucus": "Progressive Democrats"
+      }
+     }
+    ],
+    "Kentucky": [
+     {
+      "R": {
+       "name": "Mitch McConnell",
+       "advantage": 2,
+       "caucus": "Establishment Conservatives"
+      },
+      "D": {
+       "name": "Amy McGrath",
+       "advantage": 5,
+       "caucus": "Establishment Liberals"
+      }
+     }
+    ],
+    "West Virginia": [
+     {
+      "R": {
+       "name": "Shelley Moore Capito",
+       "advantage": 5,
+       "caucus": "Establishment Conservatives"
+      },
+      "D": {
+       "name": "Paula Jean Swearengin",
+       "advantage": 4,
+       "caucus": "Progressive Democrats"
+      }
+     }
+    ],
+    "Iowa": [
+     {
+      "R": {
+       "name": "Joni Ernst",
+       "advantage": 5,
+       "caucus": "Establishment Conservatives"
+      },
+      "D": {
+       "name": "Theresa Greenfield",
+       "advantage": 6,
+       "caucus": "Blue Dogs"
+      }
+     }
+    ],
+    "Minnesota": [
+     {
+      "R": {
+       "name": "Jason Lewis",
+       "advantage": 7,
+       "caucus": "MAGA Republicans"
+      },
+      "D": {
+       "name": "Tina Smith",
+       "advantage": 5,
+       "caucus": "Establishment Liberals"
+      }
+     }
+    ],
+    "Illinois": [
+     {
+      "R": {
+       "name": "Mark Curran",
+       "advantage": 5,
+       "caucus": "Establishment Conservatives"
+      },
+      "D": {
+       "name": "Dick Durbin",
+       "advantage": 5,
+       "caucus": "Establishment Liberals"
+      }
+     }
+    ],
+    "Michigan": [
+     {
+      "R": {
+       "name": "John James",
+       "advantage": 6
+      },
+      "D": {
+       "name": "Gary Peters",
+       "advantage": 5,
+       "caucus": "Establishment Liberals"
+      }
+     }
+    ],
+    "New Jersey": [
+     {
+      "R": {
+       "name": "Rik Mehta",
+       "advantage": 5,
+       "caucus": "Establishment Conservatives"
+      },
+      "D": {
+       "name": "Cory Booker",
+       "advantage": 5,
+       "caucus": "Progressive Democrats"
+      }
+     }
+    ],
+    "Massachusetts": [
+     {
+      "R": {
+       "name": "Kevin O'Connor",
+       "advantage": 5,
+       "caucus": "Centrist Republicans"
+      },
+      "D": {
+       "name": "Ed Markey",
+       "advantage": 5,
+       "caucus": "Progressive Democrats"
+      }
+     }
+    ],
+    "Rhode Island": [
+     {
+      "R": {
+       "name": "Allen Waters",
+       "advantage": 5,
+       "caucus": "Centrist Republicans"
+      },
+      "D": {
+       "name": "Jack Reed",
+       "advantage": 8,
+       "caucus": "Establishment Liberals"
+      }
+     }
+    ],
+    "New Hampshire": [
+     {
+      "R": {
+       "name": "Bryant \"Corky\" Messner",
+       "advantage": 5,
+       "caucus": "MAGA Republicans"
+      },
+      "D": {
+       "name": "Jeanne Shaheen",
+       "advantage": 13,
+       "caucus": "Establishment Liberals"
+      }
+     }
+    ],
+    "Maine": [
+     {
+      "R": {
+       "name": "Susan Collins",
+       "advantage": 30,
+       "caucus": "Centrist Republicans"
+      },
+      "D": {
+       "name": "Sara Gideon",
+       "advantage": 4,
+       "caucus": "Establishment Liberals"
+      }
+     }
+    ],
+    "Alaska": [
+     {
+      "R": {
+       "name": "Dan Sullivan",
+       "advantage": 3,
+       "caucus": "Establishment Conservatives"
+      },
+      "D": {
+       "name": "Al Gross",
+       "advantage": 5,
+       "caucus": "Blue Dogs"
+      }
+     }
+    ],
+    "Delaware": [
+     {
+      "R": {
+       "name": "Lauren Witzke",
+       "advantage": 5
+      },
+      "D": {
+       "name": "Chris Coons",
+       "advantage": 5,
+       "caucus": "Establishment Liberals"
+      }
+     }
+    ]
+   },
+   "caucuses": [
+    {
+     "name": "Establishment Conservatives",
+     "stances": {
+      "immigration": 6,
+      "trade": 5,
+      "partisanship": 1,
+      "abortion": 3,
+      "foreign_policy": 9,
+      "gun_policy": 3
+     }
+    },
+    {
+     "name": "MAGA Republicans",
+     "stances": {
+      "immigration": 8,
+      "trade": 8,
+      "partisanship": 3,
+      "abortion": 3,
+      "foreign_policy": 4,
+      "gun_policy": 3
+     }
+    },
+    {
+     "name": "Centrist Republicans",
+     "stances": {
+      "immigration": 5,
+      "trade": 4,
+      "partisanship": 4,
+      "abortion": 4,
+      "foreign_policy": 8,
+      "gun_policy": 4
+     }
+    },
+    {
+     "name": "Progressive Democrats",
+     "stances": {
+      "immigration": 2,
+      "trade": 4,
+      "partisanship": 7,
+      "abortion": 9,
+      "foreign_policy": 2,
+      "gun_policy": 9
+     }
+    },
+    {
+     "name": "Establishment Liberals",
+     "stances": {
+      "immigration": 3,
+      "trade": 3,
+      "partisanship": 10,
+      "abortion": 8,
+      "foreign_policy": 7,
+      "gun_policy": 8
+     }
+    },
+    {
+     "name": "Blue Dogs",
+     "stances": {
+      "immigration": 5,
+      "trade": 5,
+      "partisanship": 6,
+      "abortion": 5,
+      "foreign_policy": 7,
+      "gun_policy": 4
+     }
+    }
+   ],
+   "senators": [
+    {
+     "name": "John Thune",
+     "party": "R",
+     "caucus": "Establishment Conservatives"
+    },
+    {
+     "name": "John Barrasso",
+     "party": "R",
+     "caucus": "Establishment Conservatives"
+    },
+    {
+     "name": "Roy Blunt",
+     "party": "R",
+     "caucus": "Establishment Conservatives"
+    },
+    {
+     "name": "Rob Portman",
+     "party": "R",
+     "caucus": "Establishment Conservatives"
+    },
+    {
+     "name": "Richard Burr",
+     "party": "R",
+     "caucus": "Establishment Conservatives"
+    },
+    {
+     "name": "Pat Toomey",
+     "party": "R",
+     "caucus": "Establishment Conservatives"
+    },
+    {
+     "name": "Jerry Moran",
+     "party": "R",
+     "caucus": "Establishment Conservatives"
+    },
+    {
+     "name": "John Boozman",
+     "party": "R",
+     "caucus": "Establishment Conservatives"
+    },
+    {
+     "name": "Deb Fischer",
+     "party": "R",
+     "caucus": "Establishment Conservatives"
+    },
+    {
+     "name": "Chuck Grassley",
+     "party": "R",
+     "caucus": "Establishment Conservatives"
+    },
+    {
+     "name": "Ron Johnson",
+     "party": "R",
+     "caucus": "Establishment Conservatives"
+    },
+    {
+     "name": "Todd Young",
+     "party": "R",
+     "caucus": "Establishment Conservatives"
+    },
+    {
+     "name": "Mike Crapo",
+     "party": "R",
+     "caucus": "Establishment Conservatives"
+    },
+    {
+     "name": "Mike Lee",
+     "party": "R",
+     "caucus": "Establishment Conservatives"
+    },
+    {
+     "name": "Josh Hawley",
+     "party": "R",
+     "caucus": "MAGA Republicans"
+    },
+    {
+     "name": "Marsha Blackburn",
+     "party": "R",
+     "caucus": "MAGA Republicans"
+    },
+    {
+     "name": "Ted Cruz",
+     "party": "R",
+     "caucus": "MAGA Republicans"
+    },
+    {
+     "name": "Rick Scott",
+     "party": "R",
+     "caucus": "MAGA Republicans"
+    },
+    {
+     "name": "Kevin Cramer",
+     "party": "R",
+     "caucus": "MAGA Republicans"
+    },
+    {
+     "name": "Mike Braun",
+     "party": "R",
+     "caucus": "MAGA Republicans"
+    },
+    {
+     "name": "Rand Paul",
+     "party": "R",
+     "caucus": "MAGA Republicans"
+    },
+    {
+     "name": "Mitt Romney",
+     "party": "R",
+     "caucus": "Centrist Republicans"
+    },
+    {
+     "name": "Lisa Murkowski",
+     "party": "R",
+     "caucus": "Centrist Republicans"
+    },
+    {
+     "name": "Tim Scott",
+     "party": "R",
+     "caucus": "Establishment Conservatives"
+    },
+    {
+     "name": "Marco Rubio",
+     "party": "R",
+     "caucus": "Establishment Conservatives"
+    },
+    {
+     "name": "Bernie Sanders",
+     "party": "D",
+     "caucus": "Progressive Democrats"
+    },
+    {
+     "name": "Elizabeth Warren",
+     "party": "D",
+     "caucus": "Progressive Democrats"
+    },
+    {
+     "name": "Sherrod Brown",
+     "party": "D",
+     "caucus": "Progressive Democrats"
+    },
+    {
+     "name": "Kirsten Gillibrand",
+     "party": "D",
+     "caucus": "Progressive Democrats"
+    },
+    {
+     "name": "Mazie Hirono",
+     "party": "D",
+     "caucus": "Progressive Democrats"
+    },
+    {
+     "name": "Tammy Duckworth",
+     "party": "D",
+     "caucus": "Progressive Democrats"
+    },
+    {
+     "name": "Chuck Schumer",
+     "party": "D",
+     "caucus": "Establishment Liberals"
+    },
+    {
+     "name": "Patty Murray",
+     "party": "D",
+     "caucus": "Establishment Liberals"
+    },
+    {
+     "name": "Bob Menendez",
+     "party": "D",
+     "caucus": "Establishment Liberals"
+    },
+    {
+     "name": "Tom Carper",
+     "party": "D",
+     "caucus": "Establishment Liberals"
+    },
+    {
+     "name": "Dianne Feinstein",
+     "party": "D",
+     "caucus": "Establishment Liberals"
+    },
+    {
+     "name": "Bob Casey",
+     "party": "D",
+     "caucus": "Establishment Liberals"
+    },
+    {
+     "name": "Ben Cardin",
+     "party": "D",
+     "caucus": "Establishment Liberals"
+    },
+    {
+     "name": "Chris Van Hollen",
+     "party": "D",
+     "caucus": "Establishment Liberals"
+    },
+    {
+     "name": "Sheldon Whitehouse",
+     "party": "D",
+     "caucus": "Establishment Liberals"
+    },
+    {
+     "name": "Amy Klobuchar",
+     "party": "D",
+     "caucus": "Establishment Liberals"
+    },
+    {
+     "name": "Richard Blumenthal",
+     "party": "D",
+     "caucus": "Establishment Liberals"
+    },
+    {
+     "name": "Brian Schatz",
+     "party": "D",
+     "caucus": "Establishment Liberals"
+    },
+    {
+     "name": "Tim Kaine",
+     "party": "D",
+     "caucus": "Establishment Liberals"
+    },
+    {
+     "name": "Joe Manchin",
+     "party": "D",
+     "caucus": "Blue Dogs"
+    },
+    {
+     "name": "Kyrsten Sinema",
+     "party": "D",
+     "caucus": "Blue Dogs"
+    },
+    {
+     "name": "Jon Tester",
+     "party": "D",
+     "caucus": "Blue Dogs"
+    },
+    {
+     "name": "Angus King",
+     "party": "D",
+     "caucus": "Establishment Liberals"
+    },
+    {
+     "name": "Maggie Hassan",
+     "party": "D",
+     "caucus": "Establishment Liberals"
+    },
+    {
+     "name": "Catherine Cortez Masto",
+     "party": "D",
+     "caucus": "Establishment Liberals"
+    },
+    {
+     "name": "Jacky Rosen",
+     "party": "D",
+     "caucus": "Establishment Liberals"
+    },
+    {
+     "name": "Michael Bennet",
+     "party": "D",
+     "caucus": "Establishment Liberals"
+    },
+    {
+     "name": "Martin Heinrich",
+     "party": "D",
+     "caucus": "Establishment Liberals"
+    },
+    {
+     "name": "Richard Shelby",
+     "party": "R",
+     "caucus": "Establishment Conservatives"
+    },
+    {
+     "name": "John Hoeven",
+     "party": "R",
+     "caucus": "Establishment Conservatives"
+    },
+    {
+     "name": "Roger Wicker",
+     "party": "R",
+     "caucus": "Establishment Conservatives"
+    },
+    {
+     "name": "John Kennedy",
+     "party": "R",
+     "caucus": "MAGA Republicans"
+    },
+    {
+     "name": "James Lankford",
+     "party": "R",
+     "caucus": "Establishment Conservatives"
+    },
+    {
+     "name": "Tammy Baldwin",
+     "party": "D",
+     "caucus": "Progressive Democrats"
+    },
+    {
+     "name": "Ron Wyden",
+     "party": "D",
+     "caucus": "Progressive Democrats"
+    },
+    {
+     "name": "Kamala Harris",
+     "party": "D",
+     "caucus": "Establishment Liberals"
+    },
+    {
+     "name": "Patrick Leahy",
+     "party": "D",
+     "caucus": "Establishment Liberals"
+    },
+    {
+     "name": "Chris Murphy",
+     "party": "D",
+     "caucus": "Establishment Liberals"
+    },
+    {
+     "name": "Maria Cantwell",
+     "party": "D",
+     "caucus": "Establishment Liberals"
+    },
+    {
+     "name": "Debbie Stabenow",
+     "party": "D"
+    }
+   ]
+  },
+  "2024": {
+   "holdover": {
+    "R": 38,
+    "D": 28
+   },
+   "seats": {
+    "Arizona": [
+     {
+      "R": {
+       "name": "Kari Lake",
+       "advantage": 3
+      },
+      "D": {
+       "name": "Ruben Gallego",
+       "advantage": 8
+      }
+     }
+    ],
+    "California": [
+     {
+      "R": {
+       "name": "Steve Garvey",
+       "advantage": 6
+      },
+      "D": {
+       "name": "Adam Schiff",
+       "advantage": 5
+      }
+     }
+    ],
+    "Connecticut": [
+     {
+      "R": {
+       "name": "Matthew Corey",
+       "advantage": 4
+      },
+      "D": {
+       "name": "Chris Murphy",
+       "advantage": 7
+      }
+     }
+    ],
+    "Delaware": [
+     {
+      "R": {
+       "name": "Eric Hansen",
+       "advantage": 4
+      },
+      "D": {
+       "name": "Lisa Blunt Rochester",
+       "advantage": 6
+      }
+     }
+    ],
+    "Florida": [
+     {
+      "R": {
+       "name": "Rick Scott",
+       "advantage": 5
+      },
+      "D": {
+       "name": "Debbie Mucarsel-Powell",
+       "advantage": 5
+      }
+     }
+    ],
+    "Hawaii": [
+     {
+      "R": {
+       "name": "Bob McDermott",
+       "advantage": 2
+      },
+      "D": {
+       "name": "Mazie Hirono",
+       "advantage": 8
+      }
+     }
+    ],
+    "Indiana": [
+     {
+      "R": {
+       "name": "Jim Banks",
+       "advantage": 6
+      },
+      "D": {
+       "name": "Valerie McCray",
+       "advantage": 5
+      }
+     }
+    ],
+    "Maine": [
+     {
+      "R": {
+       "name": "Demitroula Kouzounas",
+       "advantage": 2
+      },
+      "D": {
+       "name": "Angus King",
+       "advantage": 9
+      }
+     }
+    ],
+    "Maryland": [
+     {
+      "R": {
+       "name": "Larry Hogan",
+       "advantage": 23
+      },
+      "D": {
+       "name": "Angela Alsobrooks",
+       "advantage": 1
+      }
+     }
+    ],
+    "Massachusetts": [
+     {
+      "R": {
+       "name": "John Deaton",
+       "advantage": 7
+      },
+      "D": {
+       "name": "Elizabeth Warren",
+       "advantage": 3
+      }
+     }
+    ],
+    "Michigan": [
+     {
+      "R": {
+       "name": "Mike Rogers",
+       "advantage": 5
+      },
+      "D": {
+       "name": "Elissa Slotkin",
+       "advantage": 6
+      }
+     }
+    ],
+    "Minnesota": [
+     {
+      "R": {
+       "name": "Royce White",
+       "advantage": 1
+      },
+      "D": {
+       "name": "Amy Klobuchar",
+       "advantage": 9
+      }
+     }
+    ],
+    "Mississippi": [
+     {
+      "R": {
+       "name": "Roger Wicker",
+       "advantage": 6
+      },
+      "D": {
+       "name": "Ty Pinkins",
+       "advantage": 4
+      }
+     }
+    ],
+    "Missouri": [
+     {
+      "R": {
+       "name": "Josh Hawley",
+       "advantage": 4
+      },
+      "D": {
+       "name": "Lucas Kunce",
+       "advantage": 7
+      }
+     }
+    ],
+    "Montana": [
+     {
+      "R": {
+       "name": "Tim Sheehy",
+       "advantage": 1
+      },
+      "D": {
+       "name": "Jon Tester",
+       "advantage": 9
+      }
+     }
+    ],
+    "Nebraska": [
+     {
+      "R": {
+       "name": "Deb Fischer",
+       "advantage": 1
+      },
+      "D": {
+       "name": "Dan Osborn",
+       "advantage": 10
+      }
+     },
+     {
+      "R": {
+       "name": "Pete Ricketts",
+       "advantage": 7
+      },
+      "D": {
+       "name": "Preston Love Jr.",
+       "advantage": 4
+      }
+     }
+    ],
+    "Nevada": [
+     {
+      "R": {
+       "name": "Sam Brown",
+       "advantage": 4
+      },
+      "D": {
+       "name": "Jacky Rosen",
+       "advantage": 7
+      }
+     }
+    ],
+    "New Jersey": [
+     {
+      "R": {
+       "name": "Curtis Bashaw",
+       "advantage": 4
+      },
+      "D": {
+       "name": "Andy Kim",
+       "advantage": 6
+      }
+     }
+    ],
+    "New Mexico": [
+     {
+      "R": {
+       "name": "Nella Domenici",
+       "advantage": 4
+      },
+      "D": {
+       "name": "Martin Heinrich",
+       "advantage": 7
+      }
+     }
+    ],
+    "New York": [
+     {
+      "R": {
+       "name": "Mike Sapraicone",
+       "advantage": 3
+      },
+      "D": {
+       "name": "Kirsten Gillibrand",
+       "advantage": 7
+      }
+     }
+    ],
+    "North Dakota": [
+     {
+      "R": {
+       "name": "Kevin Cramer",
+       "advantage": 4
+      },
+      "D": {
+       "name": "Katrina Christiansen",
+       "advantage": 6
+      }
+     }
+    ],
+    "Ohio": [
+     {
+      "R": {
+       "name": "Bernie Moreno",
+       "advantage": 3
+      },
+      "D": {
+       "name": "Sherrod Brown",
+       "advantage": 8
+      }
+     }
+    ],
+    "Pennsylvania": [
+     {
+      "R": {
+       "name": "Dave McCormick",
+       "advantage": 5
+      },
+      "D": {
+       "name": "Bob Casey Jr.",
+       "advantage": 6
+      }
+     }
+    ],
+    "Rhode Island": [
+     {
+      "R": {
+       "name": "Patricia Morgan",
+       "advantage": 3
+      },
+      "D": {
+       "name": "Sheldon Whitehouse",
+       "advantage": 7
+      }
+     }
+    ],
+    "Tennessee": [
+     {
+      "R": {
+       "name": "Marsha Blackburn",
+       "advantage": 5
+      },
+      "D": {
+       "name": "Gloria Johnson",
+       "advantage": 5
+      }
+     }
+    ],
+    "Texas": [
+     {
+      "R": {
+       "name": "Ted Cruz",
+       "advantage": 4
+      },
+      "D": {
+       "name": "Colin Allred",
+       "advantage": 7
+      }
+     }
+    ],
+    "Utah": [
+     {
+      "R": {
+       "name": "John Curtis",
+       "advantage": 8
+      },
+      "D": {
+       "name": "Caroline Gleich",
+       "advantage": 2
+      }
+     }
+    ],
+    "Vermont": [
+     {
+      "R": {
+       "name": "Gerald Malloy",
+       "advantage": 5
+      },
+      "D": {
+       "name": "Bernie Sanders",
+       "advantage": 5
+      }
+     }
+    ],
+    "Virginia": [
+     {
+      "R": {
+       "name": "Hung Cao",
+       "advantage": 4
+      },
+      "D": {
+       "name": "Tim Kaine",
+       "advantage": 6
+      }
+     }
+    ],
+    "Washington": [
+     {
+      "R": {
+       "name": "Raul Garcia",
+       "advantage": 5
+      },
+      "D": {
+       "name": "Maria Cantwell",
+       "advantage": 5
+      }
+     }
+    ],
+    "West Virginia": [
+     {
+      "R": {
+       "name": "Jim Justice",
+       "advantage": 5
+      },
+      "D": {
+       "name": "Glenn Elliott",
+       "advantage": 6
+      }
+     }
+    ],
+    "Wisconsin": [
+     {
+      "R": {
+       "name": "Eric Hovde",
+       "advantage": 5
+      },
+      "D": {
+       "name": "Tammy Baldwin",
+       "advantage": 6
+      }
+     }
+    ],
+    "Wyoming": [
+     {
+      "R": {
+       "name": "John Barrasso",
+       "advantage": 7
+      },
+      "D": {
+       "name": "Scott Morrow",
+       "advantage": 4
+      }
+     }
+    ]
+   }
+  }
+ }
+}
