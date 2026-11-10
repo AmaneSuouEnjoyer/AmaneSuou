@@ -1487,11 +1487,13 @@
      {
       "R": {
        "name": "Perry Hooper Sr.",
-       "advantage": 1
+       "advantage": 1,
+       "caucus": "Goldwater Republicans"
       },
       "D": {
        "name": "James Allen",
-       "advantage": 25
+       "advantage": 25,
+       "caucus": "Dixiecrats"
       }
      }
     ],
@@ -1499,11 +1501,13 @@
      {
       "R": {
        "name": "Elmer Rasmuson",
-       "advantage": 6
+       "advantage": 6,
+       "caucus": "Moderate Republicans"
       },
       "D": {
        "name": "Mike Gravel",
-       "advantage": 15
+       "advantage": 15,
+       "caucus": "Progressive Democrats"
       }
      }
     ],
@@ -1511,11 +1515,13 @@
      {
       "R": {
        "name": "Barry Goldwater",
-       "advantage": 8
+       "advantage": 8,
+       "caucus": "Goldwater Republicans"
       },
       "D": {
        "name": "Roy Elson",
-       "advantage": 13
+       "advantage": 13,
+       "caucus": "Liberal Democrats"
       }
      }
     ],
@@ -1523,11 +1529,13 @@
      {
       "R": {
        "name": "Charles T. Bernard",
-       "advantage": 1
+       "advantage": 1,
+       "caucus": "Goldwater Republicans"
       },
       "D": {
        "name": "J. William Fulbright",
-       "advantage": 20
+       "advantage": 20,
+       "caucus": "Dixiecrats"
       }
      }
     ],
@@ -1535,11 +1543,13 @@
      {
       "R": {
        "name": "Max Rafferty",
-       "advantage": 7
+       "advantage": 7,
+       "caucus": "Goldwater Republicans"
       },
       "D": {
        "name": "Alan Cranston",
-       "advantage": 14
+       "advantage": 14,
+       "caucus": "Liberal Democrats"
       }
      }
     ],
@@ -1547,11 +1557,13 @@
      {
       "R": {
        "name": "Peter Dominick",
-       "advantage": 14
+       "advantage": 14,
+       "caucus": "Goldwater Republicans"
       },
       "D": {
        "name": "Stephen McNichols",
-       "advantage": 7
+       "advantage": 7,
+       "caucus": "Liberal Democrats"
       }
      }
     ],
@@ -1559,11 +1571,13 @@
      {
       "R": {
        "name": "Edwin May Jr.",
-       "advantage": 9
+       "advantage": 9,
+       "caucus": "Liberal Republicans"
       },
       "D": {
        "name": "Abraham Ribicoff",
-       "advantage": 12
+       "advantage": 12,
+       "caucus": "Liberal Democrats"
       }
      }
     ],
@@ -1571,11 +1585,13 @@
      {
       "R": {
        "name": "Edward Gurney",
-       "advantage": 12
+       "advantage": 12,
+       "caucus": "Goldwater Republicans"
       },
       "D": {
        "name": "LeRoy Collins",
-       "advantage": 9
+       "advantage": 9,
+       "caucus": "Moderate Democrats"
       }
      }
     ],
@@ -1587,7 +1603,8 @@
       },
       "D": {
        "name": "Herman Talmadge",
-       "advantage": 26
+       "advantage": 26,
+       "caucus": "Dixiecrats"
       }
      }
     ],
@@ -1595,11 +1612,13 @@
      {
       "R": {
        "name": "Wayne Thiessen",
-       "advantage": 1
+       "advantage": 1,
+       "caucus": "Moderate Republicans"
       },
       "D": {
        "name": "Daniel Inouye",
-       "advantage": 40
+       "advantage": 40,
+       "caucus": "Liberal Democrats"
       }
      }
     ],
@@ -1607,11 +1626,13 @@
      {
       "R": {
        "name": "George V. Hansen",
-       "advantage": 1
+       "advantage": 1,
+       "caucus": "Goldwater Republicans"
       },
       "D": {
        "name": "Frank Church",
-       "advantage": 35
+       "advantage": 35,
+       "caucus": "Liberal Democrats"
       }
      }
     ],
@@ -1619,11 +1640,13 @@
      {
       "R": {
        "name": "Everett Dirksen",
-       "advantage": 12
+       "advantage": 12,
+       "caucus": "Establishment Republicans"
       },
       "D": {
        "name": "William G. Clark",
-       "advantage": 9
+       "advantage": 9,
+       "caucus": "Liberal Democrats"
       }
      }
     ],
@@ -1631,11 +1654,13 @@
      {
       "R": {
        "name": "William Ruckelshaus",
-       "advantage": 3
+       "advantage": 3,
+       "caucus": "Moderate Republicans"
       },
       "D": {
        "name": "Birch Bayh",
-       "advantage": 18
+       "advantage": 18,
+       "caucus": "Liberal Democrats"
       }
      }
     ],
@@ -1643,11 +1668,13 @@
      {
       "R": {
        "name": "David M. Stanley",
-       "advantage": 4
+       "advantage": 4,
+       "caucus": "Goldwater Republicans"
       },
       "D": {
        "name": "Harold Hughes",
-       "advantage": 17
+       "advantage": 17,
+       "caucus": "Progressive Democrats"
       }
      }
     ],
@@ -1655,11 +1682,13 @@
      {
       "R": {
        "name": "Bob Dole",
-       "advantage": 11
+       "advantage": 11,
+       "caucus": "Establishment Republicans"
       },
       "D": {
        "name": "William I. Robinson",
-       "advantage": 10
+       "advantage": 10,
+       "caucus": "Liberal Democrats"
       }
      }
     ],
@@ -1667,11 +1696,13 @@
      {
       "R": {
        "name": "Marlow Cook",
-       "advantage": 9
+       "advantage": 9,
+       "caucus": "Moderate Republicans"
       },
       "D": {
        "name": "Katherine Peden",
-       "advantage": 12
+       "advantage": 12,
+       "caucus": "Moderate Democrats"
       }
      }
     ],
@@ -1691,11 +1722,13 @@
      {
       "R": {
        "name": "Charles Mathias",
-       "advantage": 15
+       "advantage": 15,
+       "caucus": "Liberal Republicans"
       },
       "D": {
        "name": "Daniel Brewster",
-       "advantage": 6
+       "advantage": 6,
+       "caucus": "Liberal Democrats"
       }
      }
     ],
@@ -1703,11 +1736,13 @@
      {
       "R": {
        "name": "Thomas B. Curtis",
-       "advantage": 9
+       "advantage": 9,
+       "caucus": "Establishment Republicans"
       },
       "D": {
        "name": "Thomas Eagleton",
-       "advantage": 12
+       "advantage": 12,
+       "caucus": "Liberal Democrats"
       }
      }
     ],
@@ -1719,7 +1754,8 @@
       },
       "D": {
        "name": "Alan Bible",
-       "advantage": 19
+       "advantage": 19,
+       "caucus": "Moderate Democrats"
       }
      }
     ],
@@ -1727,11 +1763,13 @@
      {
       "R": {
        "name": "Norris Cotton",
-       "advantage": 15
+       "advantage": 15,
+       "caucus": "Establishment Republicans"
       },
       "D": {
        "name": "John W. King",
-       "advantage": 6
+       "advantage": 6,
+       "caucus": "Liberal Democrats"
       }
      }
     ],
@@ -1739,11 +1777,13 @@
      {
       "R": {
        "name": "Jacob Javits",
-       "advantage": 30
+       "advantage": 30,
+       "caucus": "Liberal Republicans"
       },
       "D": {
        "name": "Paul O'Dwyer",
-       "advantage": 1
+       "advantage": 1,
+       "caucus": "Progressive Democrats"
       }
      }
     ],
@@ -1751,11 +1791,13 @@
      {
       "R": {
        "name": "Robert Somers",
-       "advantage": 1
+       "advantage": 1,
+       "caucus": "Goldwater Republicans"
       },
       "D": {
        "name": "Sam Ervin",
-       "advantage": 23
+       "advantage": 23,
+       "caucus": "Dixiecrats"
       }
      }
     ],
@@ -1763,7 +1805,8 @@
      {
       "R": {
        "name": "Milton Young",
-       "advantage": 17
+       "advantage": 17,
+       "caucus": "Establishment Republicans"
       },
       "D": {
        "name": "Herschel Lashkowitz",
@@ -1775,11 +1818,13 @@
      {
       "R": {
        "name": "William Saxbe",
-       "advantage": 11
+       "advantage": 11,
+       "caucus": "Moderate Republicans"
       },
       "D": {
        "name": "John J. Gilligan",
-       "advantage": 10
+       "advantage": 10,
+       "caucus": "Liberal Democrats"
       }
      }
     ],
@@ -1787,11 +1832,13 @@
      {
       "R": {
        "name": "Henry Bellmon",
-       "advantage": 6
+       "advantage": 6,
+       "caucus": "Moderate Republicans"
       },
       "D": {
        "name": "Mike Monroney",
-       "advantage": 15
+       "advantage": 15,
+       "caucus": "Moderate Democrats"
       }
      }
     ],
@@ -1799,11 +1846,13 @@
      {
       "R": {
        "name": "Bob Packwood",
-       "advantage": 8
+       "advantage": 8,
+       "caucus": "Liberal Republicans"
       },
       "D": {
        "name": "Wayne Morse",
-       "advantage": 13
+       "advantage": 13,
+       "caucus": "Progressive Democrats"
       }
      }
     ],
@@ -1811,11 +1860,13 @@
      {
       "R": {
        "name": "Richard Schweiker",
-       "advantage": 15
+       "advantage": 15,
+       "caucus": "Liberal Republicans"
       },
       "D": {
        "name": "Joseph S. Clark Jr.",
-       "advantage": 6
+       "advantage": 6,
+       "caucus": "Liberal Democrats"
       }
      }
     ],
@@ -1827,7 +1878,8 @@
       },
       "D": {
        "name": "Fritz Hollings",
-       "advantage": 25
+       "advantage": 25,
+       "caucus": "Moderate Democrats"
       }
      }
     ],
@@ -1835,11 +1887,13 @@
      {
       "R": {
        "name": "Archie Gubbrud",
-       "advantage": 1
+       "advantage": 1,
+       "caucus": "Goldwater Republicans"
       },
       "D": {
        "name": "George McGovern",
-       "advantage": 23
+       "advantage": 23,
+       "caucus": "Progressive Democrats"
       }
      }
     ],
@@ -1847,11 +1901,13 @@
      {
       "R": {
        "name": "Wallace F. Bennett",
-       "advantage": 5
+       "advantage": 5,
+       "caucus": "Establishment Republicans"
       },
       "D": {
        "name": "Milton Weilenmann",
-       "advantage": 16
+       "advantage": 16,
+       "caucus": "Moderate Democrats"
       }
      }
     ],
@@ -1859,7 +1915,8 @@
      {
       "R": {
        "name": "George Aiken",
-       "advantage": 50
+       "advantage": 50,
+       "caucus": "Liberal Republicans"
       },
       "D": {
        "name": "(none)",
@@ -1871,11 +1928,13 @@
      {
       "R": {
        "name": "Jack Metcalf",
-       "advantage": 1
+       "advantage": 1,
+       "caucus": "Goldwater Republicans"
       },
       "D": {
        "name": "Warren Magnuson",
-       "advantage": 20
+       "advantage": 20,
+       "caucus": "Liberal Democrats"
       }
      }
     ],
@@ -1883,15 +1942,439 @@
      {
       "R": {
        "name": "Jerris Leonard",
-       "advantage": 1
+       "advantage": 1,
+       "caucus": "Moderate Republicans"
       },
       "D": {
        "name": "Gaylord Nelson",
-       "advantage": 20
+       "advantage": 20,
+       "caucus": "Progressive Democrats"
       }
      }
     ]
-   }
+   },
+   "caucuses": [
+    {
+     "name": "Dixiecrats",
+     "stances": {
+      "immigration": 9,
+      "trade": 5,
+      "partisanship": 8,
+      "abortion": 2,
+      "foreign_policy": 8,
+      "gun_policy": 2
+     }
+    },
+    {
+     "name": "Progressive Democrats",
+     "stances": {
+      "immigration": 1,
+      "trade": 10,
+      "partisanship": 8,
+      "abortion": 7,
+      "foreign_policy": 2,
+      "gun_policy": 7
+     }
+    },
+    {
+     "name": "Liberal Democrats",
+     "stances": {
+      "immigration": 2,
+      "trade": 9,
+      "partisanship": 10,
+      "abortion": 6,
+      "foreign_policy": 5,
+      "gun_policy": 5
+     }
+    },
+    {
+     "name": "Moderate Democrats",
+     "stances": {
+      "immigration": 3,
+      "trade": 7,
+      "partisanship": 6,
+      "abortion": 4,
+      "foreign_policy": 7,
+      "gun_policy": 3
+     }
+    },
+    {
+     "name": "Goldwater Republicans",
+     "stances": {
+      "immigration": 6,
+      "trade": 1,
+      "partisanship": 2,
+      "abortion": 4,
+      "foreign_policy": 10,
+      "gun_policy": 2
+     }
+    },
+    {
+     "name": "Establishment Republicans",
+     "stances": {
+      "immigration": 3,
+      "trade": 3,
+      "partisanship": 1,
+      "abortion": 3,
+      "foreign_policy": 8,
+      "gun_policy": 2
+     }
+    },
+    {
+     "name": "Moderate Republicans",
+     "stances": {
+      "immigration": 3,
+      "trade": 5,
+      "partisanship": 4,
+      "abortion": 5,
+      "foreign_policy": 6,
+      "gun_policy": 4
+     }
+    },
+    {
+     "name": "Liberal Republicans",
+     "stances": {
+      "immigration": 2,
+      "trade": 6,
+      "partisanship": 5,
+      "abortion": 6,
+      "foreign_policy": 5,
+      "gun_policy": 5
+     }
+    }
+   ],
+   "senators": [
+    {
+     "name": "John Sparkman",
+     "party": "D",
+     "caucus": "Dixiecrats"
+    },
+    {
+     "name": "John McClellan",
+     "party": "D",
+     "caucus": "Dixiecrats"
+    },
+    {
+     "name": "James Eastland",
+     "party": "D",
+     "caucus": "Dixiecrats"
+    },
+    {
+     "name": "John Stennis",
+     "party": "D",
+     "caucus": "Dixiecrats"
+    },
+    {
+     "name": "Richard Russell",
+     "party": "D",
+     "caucus": "Dixiecrats"
+    },
+    {
+     "name": "Allen Ellender",
+     "party": "D",
+     "caucus": "Dixiecrats"
+    },
+    {
+     "name": "Spessard Holland",
+     "party": "D",
+     "caucus": "Dixiecrats"
+    },
+    {
+     "name": "B. Everett Jordan",
+     "party": "D",
+     "caucus": "Dixiecrats"
+    },
+    {
+     "name": "Harry F. Byrd Jr.",
+     "party": "D",
+     "caucus": "Dixiecrats"
+    },
+    {
+     "name": "Eugene McCarthy",
+     "party": "D",
+     "caucus": "Progressive Democrats"
+    },
+    {
+     "name": "Ralph Yarborough",
+     "party": "D",
+     "caucus": "Progressive Democrats"
+    },
+    {
+     "name": "Fred Harris",
+     "party": "D",
+     "caucus": "Progressive Democrats"
+    },
+    {
+     "name": "Quentin Burdick",
+     "party": "D",
+     "caucus": "Progressive Democrats"
+    },
+    {
+     "name": "Joseph Tydings",
+     "party": "D",
+     "caucus": "Progressive Democrats"
+    },
+    {
+     "name": "Edmund Muskie",
+     "party": "D",
+     "caucus": "Liberal Democrats"
+    },
+    {
+     "name": "Ted Kennedy",
+     "party": "D",
+     "caucus": "Liberal Democrats"
+    },
+    {
+     "name": "Philip Hart",
+     "party": "D",
+     "caucus": "Liberal Democrats"
+    },
+    {
+     "name": "Harrison Williams",
+     "party": "D",
+     "caucus": "Liberal Democrats"
+    },
+    {
+     "name": "Albert Gore Sr.",
+     "party": "D",
+     "caucus": "Liberal Democrats"
+    },
+    {
+     "name": "Walter Mondale",
+     "party": "D",
+     "caucus": "Liberal Democrats"
+    },
+    {
+     "name": "Vance Hartke",
+     "party": "D",
+     "caucus": "Liberal Democrats"
+    },
+    {
+     "name": "Frank Moss",
+     "party": "D",
+     "caucus": "Liberal Democrats"
+    },
+    {
+     "name": "Clinton Anderson",
+     "party": "D",
+     "caucus": "Liberal Democrats"
+    },
+    {
+     "name": "Gale McGee",
+     "party": "D",
+     "caucus": "Liberal Democrats"
+    },
+    {
+     "name": "Lee Metcalf",
+     "party": "D",
+     "caucus": "Liberal Democrats"
+    },
+    {
+     "name": "Mike Mansfield",
+     "party": "D",
+     "caucus": "Liberal Democrats"
+    },
+    {
+     "name": "Henry M. Jackson",
+     "party": "D",
+     "caucus": "Liberal Democrats"
+    },
+    {
+     "name": "William Proxmire",
+     "party": "D",
+     "caucus": "Liberal Democrats"
+    },
+    {
+     "name": "Bob Bartlett",
+     "party": "D",
+     "caucus": "Liberal Democrats"
+    },
+    {
+     "name": "John Pastore",
+     "party": "D",
+     "caucus": "Liberal Democrats"
+    },
+    {
+     "name": "Claiborne Pell",
+     "party": "D",
+     "caucus": "Liberal Democrats"
+    },
+    {
+     "name": "Joseph Montoya",
+     "party": "D",
+     "caucus": "Liberal Democrats"
+    },
+    {
+     "name": "Jennings Randolph",
+     "party": "D",
+     "caucus": "Liberal Democrats"
+    },
+    {
+     "name": "Stephen Young",
+     "party": "D",
+     "caucus": "Liberal Democrats"
+    },
+    {
+     "name": "Thomas J. Dodd",
+     "party": "D",
+     "caucus": "Moderate Democrats"
+    },
+    {
+     "name": "Stuart Symington",
+     "party": "D",
+     "caucus": "Moderate Democrats"
+    },
+    {
+     "name": "Howard Cannon",
+     "party": "D",
+     "caucus": "Moderate Democrats"
+    },
+    {
+     "name": "Thomas McIntyre",
+     "party": "D",
+     "caucus": "Moderate Democrats"
+    },
+    {
+     "name": "William Spong Jr.",
+     "party": "D",
+     "caucus": "Moderate Democrats"
+    },
+    {
+     "name": "Robert Byrd",
+     "party": "D",
+     "caucus": "Moderate Democrats"
+    },
+    {
+     "name": "Paul Fannin",
+     "party": "R",
+     "caucus": "Goldwater Republicans"
+    },
+    {
+     "name": "George Murphy",
+     "party": "R",
+     "caucus": "Goldwater Republicans"
+    },
+    {
+     "name": "Leonard B. Jordan",
+     "party": "R",
+     "caucus": "Goldwater Republicans"
+    },
+    {
+     "name": "Jack Miller",
+     "party": "R",
+     "caucus": "Goldwater Republicans"
+    },
+    {
+     "name": "Strom Thurmond",
+     "party": "R",
+     "caucus": "Goldwater Republicans"
+    },
+    {
+     "name": "Carl Curtis",
+     "party": "R",
+     "caucus": "Goldwater Republicans"
+    },
+    {
+     "name": "Roman Hruska",
+     "party": "R",
+     "caucus": "Goldwater Republicans"
+    },
+    {
+     "name": "Clifford Hansen",
+     "party": "R",
+     "caucus": "Goldwater Republicans"
+    },
+    {
+     "name": "John Tower",
+     "party": "R",
+     "caucus": "Goldwater Republicans"
+    },
+    {
+     "name": "John J. Williams",
+     "party": "R",
+     "caucus": "Establishment Republicans"
+    },
+    {
+     "name": "Gordon Allott",
+     "party": "R",
+     "caucus": "Establishment Republicans"
+    },
+    {
+     "name": "Karl Mundt",
+     "party": "R",
+     "caucus": "Establishment Republicans"
+    },
+    {
+     "name": "Robert P. Griffin",
+     "party": "R",
+     "caucus": "Establishment Republicans"
+    },
+    {
+     "name": "Margaret Chase Smith",
+     "party": "R",
+     "caucus": "Moderate Republicans"
+    },
+    {
+     "name": "Hiram Fong",
+     "party": "R",
+     "caucus": "Liberal Republicans"
+    },
+    {
+     "name": "Winston Prouty",
+     "party": "R",
+     "caucus": "Moderate Republicans"
+    },
+    {
+     "name": "J. Caleb Boggs",
+     "party": "R",
+     "caucus": "Moderate Republicans"
+    },
+    {
+     "name": "James B. Pearson",
+     "party": "R",
+     "caucus": "Moderate Republicans"
+    },
+    {
+     "name": "Howard Baker",
+     "party": "R",
+     "caucus": "Moderate Republicans"
+    },
+    {
+     "name": "John Sherman Cooper",
+     "party": "R",
+     "caucus": "Liberal Republicans"
+    },
+    {
+     "name": "Charles Goodell",
+     "party": "R",
+     "caucus": "Liberal Republicans"
+    },
+    {
+     "name": "Mark Hatfield",
+     "party": "R",
+     "caucus": "Liberal Republicans"
+    },
+    {
+     "name": "Hugh Scott",
+     "party": "R",
+     "caucus": "Liberal Republicans"
+    },
+    {
+     "name": "Edward Brooke",
+     "party": "R",
+     "caucus": "Liberal Republicans"
+    },
+    {
+     "name": "Charles Percy",
+     "party": "R",
+     "caucus": "Liberal Republicans"
+    },
+    {
+     "name": "Clifford Case",
+     "party": "R",
+     "caucus": "Liberal Republicans"
+    }
+   ]
   },
   "2020": {
    "holdover": {
